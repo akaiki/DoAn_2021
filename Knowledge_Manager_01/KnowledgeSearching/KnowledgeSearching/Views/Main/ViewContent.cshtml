@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "ViewContent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="w-100">
+
+    <div style="border: 2px solid black; width: 100%; background-color: #e3e3e3">
+        @using (Html.BeginForm())
+        {
+            <button type="button" class="btn btn-primary col-4" style="float: left" data-toggle="collapse" data-target="#demo">Menu</button>
+            <a asp-controller="Main" asp-action="WelcomePage" class="btn btn-warning col-4">Back to Home</a>
+            <a style="float: right" class="btn btn-info col-4" asp-area="" asp-controller="Knowledges" asp-action="Search"><span class="glyphicon glyphicon-search"></span><b>  Nhấn vào để tìm kiếm</b></a>
+        }
+
+    </div>
+
+    <div style="float:left; width: 100%"
+         class="body-content">
+        @RenderBody()
+        <hr />
+    </div>
+</div>

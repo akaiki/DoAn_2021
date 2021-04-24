@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Quy tắc cộng - max";
+    Layout = "~/Views/Main/Menu.cshtml";
+}
+
+<div class="container">
+    <h2>Quy tắc cộng - max</h2>
+
+    <blockquote>
+        Nếu T1(n) và T2(n) là thời gian thực hiện của hai đoạn chương trình P1 và P2; và T1(n)=O(f(n)), T2(n)=O(g(n)) thì thời gian thực hiện của đoạn hai chương trình đó nối tiếp nhau là T(n)=O(max(f(n),g(n)))
+    </blockquote>
+
+    <hr />
+
+    <p>
+        Ví dụ:
+    </p>
+    <p>
+        Ta có một lệnh gán x = 15, lệnh này tốn một hằng thời gian O(1), lệnh đọc dữ liệu read(x) tốn một hằng thời gian O(1). Vậy thời gian thực hiện cả 2 lệnh trên nối tiếp nhau theo quy tắc cộng là O(max(1, 1)) = O(1)
+    </p>
+    <hr />
+    <p>
+        Sau đây là một số quy tắc liên quan
+    </p>
+    <ul>
+        <li><a href="II_4_1"><b>Quy tắc bỏ hằng số</b></a></li>
+        <li><a href="II_4_3"><b>Quy tắc nhân</b></a></li>
+        <li><a href="II_4_4"><b>Quy tắc tổng quát</b></a></li>
+    </ul>
+    <hr />
+    <p>
+        Bạn có thể tham khảo các mục sau:
+    </p>
+    <ul>
+        <li><a href="II_5"><b>Ví dụ tính độ phức tạp của thuật toán</b></a></li>
+        <li><a href="II"><b>Độ phức tạp của thuật toán</b></a></li>
+        <li><a href="I_3_2"><b>Big Oh Notation, &Omicron; trong Cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="I_3_5"><b>Ví dụ độ phức tạp trong cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="II_4"><b>Các quy tắc để xác định độ phức tạp của giải thuật</b></a></li>
+
+    </ul>
+</div>

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Độ phức tạp bộ nhớ";
+    Layout = "~/Views/Main/Menu.cshtml";
+}
+
+<div class="container">
+    <h2>Độ phức tạp bộ nhớ (Space complexity) trong phân tích giải thuật</h2>
+    <p>Nhân tố bộ nhớ của một giải thuật biểu diễn lượng bộ nhớ mà một giải thuật cần dùng trong vòng đời của giải thuật. Lượng bộ nhớ (giả sử gọi là <b>S(P)</b>) mà một giải thuật cần sử dụng là tổng của hai thành phần sau:</p>
+    <ul>
+        <li><p>Phần cố định (giả sử gọi là <b>C</b>) là lượng bộ nhớ cần thiết để lưu giữ dữ liệu và các biến nào đó (phần này độc lập với kích cỡ của vấn đề). Ví dụ: các biến và các hằng đơn giản, …</p></li>
+        <li><p>Phần biến đổi (giả sử gọi là <b>SP(I)</b>) là lượng bộ nhớ cần thiết bởi các biến, có kích cỡ phụ thuộc vào kích cỡ của vấn đề. Ví dụ: cấp phát bộ nhớ động, cấp phát bộ nhớ đệ qui, …</p></li>
+    </ul>
+    <p>Từ trên, ta sẽ có <code><b>S(P) = C + SP(I)</b></code>. Bạn theo dõi ví dụ đơn giản sau:</p>
+    <div class="card" style="background-color: #cccccc">
+<pre class="result notranslate">
+Giải thuật: tìm tổng hai số A, B
+Step 1 -  Bắt đầu
+Step 2 -  C &larr; A + B + 10
+Step 3 -  Kết thúc
+</pre>
+    </div>
+    <p>Ở đây chúng ta có ba biến A, B và C và một hằng số. Do đó: <code><b>S(P) = 1+3</b></code>.</p>
+    <p>Bây giờ, lượng bộ nhớ sẽ phụ thuộc vào kiểu dữ liệu của các biến và hằng đã cho và sẽ bằng tích của tổng trên với bộ nhớ cho kiểu dữ liệu tương ứng.</p>
+
+    <hr />
+    <p>
+        Bạn có thể tham khảo các mục sau:
+    </p>
+    <ul>
+        <li><a href="II_2"><b>Nhân tố thời gian (Độ phức tạp thời gian)</b></a></li>
+        <li><a href="II_1"><b>Độ phức tạp của thuật toán là gì</b></a></li>
+        <li><a href="II_4"><b>Cách tính độ phức tạp của thuật toán</b></a></li>
+    </ul>
+</div>

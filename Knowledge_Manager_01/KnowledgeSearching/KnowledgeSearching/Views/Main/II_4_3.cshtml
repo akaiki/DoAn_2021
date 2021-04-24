@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Quy tắc nhân";
+    Layout = "~/Views/Main/Menu.cshtml";
+}
+
+<div class="container">
+    <h2>Quy tắc nhân</h2>
+
+    <blockquote>
+        Nếu T1(n) và T2(n) là thời gian thực hiện của hai đoạn chương trình P1và P2 và T1(n) = O(f(n)), T2(n) = O(g(n)) thì thời gian thực hiện của đoạn hai đoạn chương trình đó lồng nhau là T(n) = O(f(n).g(n))
+    </blockquote>
+
+    <hr />
+    <p>Ví dụ:</p>
+    <p>
+        Dễ gặp nhất khi ta áp dụng quy tắc này là trường hợp các vòng lặp chồng nhau hoặc trong giải thuật <a href="III_5"><b>đệ quy</b></a>. Lấy ví dụ đoạn code nhỏ sau:
+    </p>
+    <div class="card" style="background-color: #cccccc">
+<pre style=" padding: 1em; margin: .5em 0; overflow: auto;" class="card-body"><code>for (int i = 0; i < n; i++){
+    for (int j = 0; j < m; j++){
+        //lệnh
+    }
+}</code></pre>
+    </div>
+
+    <p>
+        Khối lệnh for ở trong có thời gian thực hiện là O(m), tương tự, khối for bao hàm tất cả có thời gian thực hiện là O(n). Theo quy tắc nhân, ta tính được độ phức tạp của ví dụ trên là: <b>O(n*m)</b>
+    </p>
+
+    <hr />
+    <p>
+        Sau đây là một số quy tắc liên quan
+    </p>
+    <ul>
+        <li><a href="II_4_1"><b>Quy tắc bỏ hằng số</b></a></li>
+        <li><a href="II_4_2"><b>Quy tắc cộng - lấy max</b></a></li>
+        <li><a href="II_4_4"><b>Quy tắc tổng quát</b></a></li>
+    </ul>
+    <hr />
+    <p>
+        Bạn có thể tham khảo các mục sau:
+    </p>
+    <ul>
+        <li><a href="II_5"><b>Ví dụ tính độ phức tạp của thuật toán</b></a></li>
+        <li><a href="II"><b>Độ phức tạp của thuật toán</b></a></li>
+        <li><a href="I_3_2"><b>Big Oh Notation, &Omicron; trong Cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="I_3_5"><b>Ví dụ độ phức tạp trong cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="II_4"><b>Các quy tắc để xác định độ phức tạp của giải thuật</b></a></li>
+
+    </ul>
+</div>

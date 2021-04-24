@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "I_3_5";
+    Layout = "~/Views/Main/Menu.cshtml";
+}
+
+
+<div class="container">
+    <h2>Ví dụ phân tích tiệm cận về độ phức tạp trong cấu trúc dữ liệu và giải thuật</h2>
+
+    <p>
+        Để hiểu thêm về phân tích tiệm cận trong cấu trúc dữ liệu và giả thuật, chúng ta hãy xem ví dụ về <a href="II"><b>Độ phức tạp của thuật toán</b></a> dựa trên thang đo Big &Omicron;.
+    </p>
+
+    <p>
+        Ví dụ một số độ phức tạp thường gặp:
+    </p>
+
+    <ul>
+        <li>
+            <p>
+                <b>&Omicron;(n): </b> Độ phức tạp tuyến tính. Ví dụ xét hàm tình tổng các số từ 1 đến n sau:
+            </p>
+            <div class="card" style="background-color: #cccccc">
+                <pre class="card-body" style=" padding: 1em; margin: .5em 0; overflow: auto;"><code>int sum(int n) {
+    int s = 0;
+    for(int i = 1; i &lt;= n; i++)
+        s += i;
+    return s;
+}</code></pre>
+            </div>
+            <p>
+                Với mỗi giá trị khác nhau của n thì số lần thực thi của vòng lặp trên là n lần. Chính vì vậy thời gian thực thi của chương trình trên phụ thuộc vào giá trị đầu vào n. Ta nói độ phức tạp của chương trình trên là <b>&Omicron;(n)</b>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b> &Omicron;(1): </b> Độ phức tạp hằng số. Cũng là ví dụ tính tổng các số từ 1 đến n, xét đoạn chương trình sau:
+            </p>
+            <div class="card" style="background-color: #cccccc">
+                <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body"><code> int sum(int n){ 
+    return n*(n+1)/2;
+}</code></pre>
+            </div>
+            <p>
+                Không giống như hàm tính tổng ở trên, với đoạn chương trình này với mọi giá trị đầu vào chương trình chỉ thực thi đúng 1 câu lệnh return. Do đó, ta nói độ phức tạp của chương trình trên là <b>&Omicron;(1)</b>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b> &Omicron;(n²): </b> Thường gặp khi có 2 vòng lặp lồng nhau, ví dụ thuật toán <a href=""><b>sắp xếp nổi bọt</b></a>;
+            </p>
+            <div class="card" style="background-color: #cccccc">
+                <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>void BubbleSort(int a[], int n){
+    for (int i = 0; i < n - 1; i++){
+        for (int j = n - 1; j > i; j--){
+            if(a[j] < a[j-1]){
+                int temp = a[j];
+                a[j] = a[j-1];
+                a[j-1] = temp;
+            }
+        }
+    }
+}</code> </pre>
+            </div>
+        </li>
+        <li>
+            <p>
+                <b> &Omicron;(logn): </b> Ví dụ thuật toán <a href=""><b>tìm kiếm nhị phân</b></a>;
+            </p>
+            <div class="card" style="background-color: #cccccc">
+                <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body"><code>int binarySearch(int *arr, int n, int x) {
+    int r = n - 1;
+    int l = 0;
+    int mid = l + r) / 2;
+    if (arr[mid] == x)
+        return mid;
+    if (arr[mid] > x)
+        r = mid - 1;
+    if (arr[mid] < x)
+        l = mid + 1;
+    }
+    return -1;
+}</code></pre>
+            </div>
+        </li>
+    </ul>
+
+    <p>Dưới đây là biểu đồ thể hiện độ phức tạp của thuật toán dựa theo <a href="I_3_2"><b>Big &Omicron;</b></a></p> :
+
+    <img src="~/Content/Image/BigOComplexity.jpg" alt="Big O Notation" style="display: block; margin-left: auto; margin-right: auto;" />
+
+    <hr />
+    <p>
+        Bạn có thể tham khảo các mục sau:
+    </p>
+    <ul>
+        <li><a href="I_3"><b>Phân tích tiệm cận trong cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="I_3_2"><b>Big Oh Notation, &Omicron; trong Cấu trúc dữ liệu và giải thuật</b></a></li>
+        <li><a href="II"><b>Độ phức tạp của thuật toán</b></a></li>
+        <li><a href="II_5"><b>Ví dụ tính độ phức tạp của thuật toán</b></a></li>
+    </ul>
+</div>

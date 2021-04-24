@@ -1,0 +1,42 @@
+﻿@model KnowledgeManage.Models.Knowledge
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Knowledge</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_PreKnowledge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id_PreKnowledge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name_Knowledge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name_Knowledge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Key_Knowledge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Key_Knowledge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Link_Knowledge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Link_Knowledge)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id_Knowledge">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
