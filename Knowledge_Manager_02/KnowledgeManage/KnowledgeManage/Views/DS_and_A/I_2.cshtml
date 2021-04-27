@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "I_2";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    ul {
+        list-style-type: square;
+        font-size: 14px;
+    }
+</style>
+<div class="container">
+
+    <h1>Cấu trúc dữ liệu mảng</h1>
+    <div class="container" id="2_1">
+        <h3>Cấu trúc dữ liệu mảng là gì?</h3>
+        <div class="container">
+            <p>Mảng (Array) là một trong các cấu trúc dữ liệu quan trọng nhất. Mảng có thể lưu giữ một số phần tử cố định và các phần tử này nền có cùng kiểu. Hầu hết các cấu trúc dữ liệu đều sử dụng mảng để triển khai giải thuật. Dưới đây là các khái niệm quan trọng liên quan tới Mảng:</p>
+            <ul>
+                <li><b>Phần tử:</b> Mỗi mục được lưu trữ trong một mảng được gọi là một phần tử</li>
+                <li><b>Chỉ mục:</b> Mỗi vị trí của một phần tử trong một mảng có một số chỉ mục số được sử dụng để nhận diện phần tử</li>
+            </ul>
+            <p>Mảng gồm các bản ghi có kiểu giống nhau, có kích thước cố định, mỗi phân tử được xác định bởi chỉ số</p>
+            <p>Mảng là cấu trúc dữ liệu được cấp phát liên tục cơ bản</p>
+            <h5>Ưu điểm của mảng:</h5>
+            <ul>
+                <li>Truy cập phần tử với <a href="II_2"><b>độ phức tạp</b></a> là hằng số (O(1))</li>
+                <li>Sử dụng bộ nhớ hiệu quả</li>
+                <li>Tính cục bộ về bộ nhớ</li>
+            </ul>
+            <h5>Nhược điểm của mảng:</h5>
+            <ul>
+                <li>Không thể thay đổi kích thước khi chương trình đã thực hiện</li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="2_2">
+        <h3>Biểu diễn cấu trúc dữ liệu mảng</h3>
+        <div class="container">
+            <p>Mảng có thể được khai báo theo nhiều các đa dạng trong các ngôn ngữ lập trình. Để minh họa, chúng ta sử dụng phép khai báo trong ngôn ngữ C:</p>
+            <img src="~/Image/array_declaration.jpg" alt="Khai báo mảng trong C" />
+            <p>Hình minh hoạ chỉ mục:</p>
+            <img src="~/Image/array_representation.jpg" alt="Minh họa chỉ mục" />
+            <p>Dưới đây là một số điểm cần ghi nhớ về cấu trúc dữ liệu mảng:</p>
+            <ul>
+                <li>Chỉ mục bắt đầu với 0</li>
+                <li>Nếu độ dài mảng là n, nghĩa là mảng có thể lưu trữ n phần tử</li>
+                <li>Mỗi phần tử đều có thể được truy cập thông qua chỉ mục của phần tử đó. Ví dụ theo hình trên, chúng ta có thể lấy giá trị của phần tử tại chỉ mục 6 là 27</li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="2_3">
+        <h3>Phép toán thực hiện trên mảng</h3>
+        <div class="container">
+            <p>Dưới đây là các hoạt động cơ bản trên mảng:</p>
+            <ul>
+                <li>
+                    <p><a href="#DuyetMang"><b>Duyệt:</b> </a>Duyệt qua các phần tử có trong mảng.</p>
+                </li>
+                <li>
+                    <p><a href="#ChenMang"><b>Chèn:</b></a> Thêm một phần tử vào mảng tại chỉ mục đã cho</p>
+                </li>
+                <li>
+                    <p><a href="#XoaMang"><b>Xóa:</b></a> Xóa một phần tử từ mảng tại chỉ mục đã cho</p>
+                </li>
+                <li>
+                    <p><a href="#TimKiemMang"><b>Tìm kiếm:</b></a> Tìm kiếm một phần tử bởi sử dụng chỉ mục hay bởi giá trị.</p>
+                </li>
+                <li>
+                    <p><a href="#CapNhatMang"><b>Cập nhật:</b></a> Cập nhật giá trị một phần tử tại chỉ mục nào đó.</p>
+                </li>
+            </ul>
+            <hr />
+            <div id="DuyetMang">
+                <p><b>Duyệt:</b> Duyệt qua các phần tử có trong mảng.</p>
+                <p>Ví dụ duyệt mảng trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #cccccc">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        //Khai báo mảng
+        int array [5] = {10, 15, 7, 20, 9}
+        //Giá trị của mảng tại chỉ mục thứ 2 là <span style="color: red"><b>array[2]</b></span> có giá trị là <span style="color: red"><b>7</b></span>
+    </code> </pre>
+                </div>
+            </div>
+            <hr />
+            <div id="ChenMang">
+                <p><b>Chèn:</b> Thêm một phần tử vào mảng tại chỉ mục đã cho</p>
+            </div>
+            <div id="XoaMang">
+                <p><b>Xóa:</b> Xóa một phần tử từ mảng tại chỉ mục đã cho</p>
+            </div>
+            <div id="TimKiemMang">
+                <p><b>Tìm kiếm:</b> Tìm kiếm một phần tử bởi sử dụng chỉ mục hay bởi giá trị.</p>
+            </div>
+            <div id="CapNhatMang">
+                <p><b>Cập nhật:</b> Cập nhật giá trị một phần tử tại chỉ mục nào đó.</p>
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <div class="container">
+        <h3>Mảng động</h3>
+        <a href="I_2_4"><p>Xem thêm ...</p></a>
+    </div>
+</div>
