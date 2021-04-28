@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<KnowledgeManage.Models.Lesson>
 @{
-    ViewData["Link"] = ViewContext.RouteData.Values["action"].ToString();
     ViewData["Title"] = "Menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -16,18 +15,7 @@
         @using (Html.BeginForm())
         {
             <button type="button" class="btn btn-outline-primary col-4" style="float:left" data-toggle="collapse" data-target="#menu">Menu</button>
-
-
-            <button type="button" class="btn btn-outline-primary dropdown-toggle col-4" data-toggle="dropdown">
-                Nhấn vào để tìm kiếm
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a class="btn btn-success dropdown-item" asp-controller="Knowledges" asp-action="Search"><span class="glyphicon glyphicon-search"></span><b>  Nhấn vào để tìm kiếm khái niệm</b></a>
-                <div class="dropdown-divider"></div>
-                <a class="btn btn-success dropdown-item" asp-controller="Knowledges" asp-action="Search"><span class="glyphicon glyphicon-search"></span><b>  Nhấn vào để tìm kiếm toán tử </b></a>
-                <div class="dropdown-divider"></div>
-                <a class="btn btn-success dropdown-item" asp-controller="Knowledges" asp-action="Search"><span class="glyphicon glyphicon-search"></span><b>  Nhấn vào để tìm kiếm bài tập</b></a>
-            </div>
+            <a class="btn btn-outline-primary col-4" asp-controller="DS_and_A" asp-action="Search">Nhấn vào để tìm kiếm</a>
             <button type="button" class="btn btn-outline-primary col-4" style=" float: right" data-toggle="collapse" data-target="#related">Kiến thức liên quan</button>
 
         }
@@ -37,7 +25,7 @@
          class="body-content d-flex">
         <div class="collapse  flex-fill" id="menu" style="border: 2px solid black;  float: left; width: 30%; background-color:#fafafa; overflow:visible !important">
             <div style="overflow-y: scroll; overflow-x: hidden; max-height: 620px; height: 620px;">
-                <ul >
+                <ul>
                     <li>
                         <a href="#">I - CẤU TRÚC DỮ LIỆU</a>
                         <ul>
@@ -348,11 +336,12 @@
                                 <a href="#">25.	Bài tập của giải thuật quy hoạch động (Dynamic Programing)</a>
                             </li>
                             <li>
-                                <a href="#">26.	Bài tập của giải thuật đệ quy (Recursion)</a>
+                                <a href="#">26.	Bài tập của giải thuật quay lui (Backtracking)</a>
                             </li>
                             <li>
-                                <a href="#">27.	Bài tập của giải thuật quay lui (Backtracking)</a>
+                                <a href="#">27.	Bài tập của giải thuật đệ quy (Recursion)</a>
                             </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -367,7 +356,7 @@
             <div style="overflow-y: scroll; overflow-x: hidden; max-height: 620px; height: 620px; width:100%; ">
 
 
-                <ul >
+                <ul>
                     @foreach (var i in Model)
                     {
                         <li> - <a href="@i.Id_Lesson">@i.Name_Lesson</a></li>

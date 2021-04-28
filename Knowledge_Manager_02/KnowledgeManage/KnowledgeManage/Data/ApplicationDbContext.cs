@@ -16,9 +16,10 @@ namespace KnowledgeManage.Data
 
         public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Relationship> Relationship { get; set; }
-
+        public DbSet<Concept> Concept { get; set; }
+        public DbSet<Construct> Construct { get; set; }
+        public DbSet<Property> Property { get; set; }
         public DbSet<Operator> Operator { get; set; }
-        public DbSet<Knowledge> Knowledge { get; set; }
         public DbSet<Exercise> Exercise { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

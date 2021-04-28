@@ -1,0 +1,61 @@
+﻿@model KnowledgeManage.Models.Lesson
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+
+<div class="container">
+    <h1>Search</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-5">
+            <form asp-action="SearchLesson">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group" asp-validation-summary="All">
+                    <label for="searchString" class="control-label">Tìm kiếm theo chủ đề:</label>
+                    <input name="searchString" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search" class="btn btn-primary col-5" /><br />
+                    <br />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-5">
+            <form asp-action="SearchExercise">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label for="searchString" class="control-label">Tìm kiếm bài tập:</label>
+                    <input name="searchString" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search" class="btn btn-primary col-5" /><br />
+                    <br />
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</div>

@@ -18,15 +18,58 @@ namespace KnowledgeManage.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("KnowledgeManage.Models.Concept", b =>
+                {
+                    b.Property<int>("Id_Concept")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LessonId_Lesson")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Link_Concept")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name_Concept")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_Concept");
+
+                    b.HasIndex("LessonId_Lesson");
+
+                    b.ToTable("Concept");
+                });
+
+            modelBuilder.Entity("KnowledgeManage.Models.Construct", b =>
+                {
+                    b.Property<int>("Id_Construct")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LessonId_Lesson")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Link_Construct")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name_Construct")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_Construct");
+
+                    b.HasIndex("LessonId_Lesson");
+
+                    b.ToTable("Construct");
+                });
+
             modelBuilder.Entity("KnowledgeManage.Models.Exercise", b =>
                 {
                     b.Property<int>("Id_Exercise")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Id_Lesson")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LessonId_Lesson")
                         .HasColumnType("nvarchar(450)");
@@ -42,32 +85,6 @@ namespace KnowledgeManage.Migrations
                     b.HasIndex("LessonId_Lesson");
 
                     b.ToTable("Exercise");
-                });
-
-            modelBuilder.Entity("KnowledgeManage.Models.Knowledge", b =>
-                {
-                    b.Property<int>("Id_Knowledge")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Id_Lesson")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LessonId_Lesson")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Link_Knowledge")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name_Knowledge")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id_Knowledge");
-
-                    b.HasIndex("LessonId_Lesson");
-
-                    b.ToTable("Knowledge");
                 });
 
             modelBuilder.Entity("KnowledgeManage.Models.Lesson", b =>
@@ -93,9 +110,6 @@ namespace KnowledgeManage.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Id_Lesson")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LessonId_Lesson")
                         .HasColumnType("nvarchar(450)");
 
@@ -110,6 +124,29 @@ namespace KnowledgeManage.Migrations
                     b.HasIndex("LessonId_Lesson");
 
                     b.ToTable("Operator");
+                });
+
+            modelBuilder.Entity("KnowledgeManage.Models.Property", b =>
+                {
+                    b.Property<int>("Id_Property")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LessonId_Lesson")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Link_Property")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name_Property")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_Property");
+
+                    b.HasIndex("LessonId_Lesson");
+
+                    b.ToTable("Property");
                 });
 
             modelBuilder.Entity("KnowledgeManage.Models.Relationship", b =>
@@ -134,6 +171,24 @@ namespace KnowledgeManage.Migrations
                     b.ToTable("Relationship");
                 });
 
+            modelBuilder.Entity("KnowledgeManage.Models.Concept", b =>
+                {
+                    b.HasOne("KnowledgeManage.Models.Lesson", "Lesson")
+                        .WithMany("Concept")
+                        .HasForeignKey("LessonId_Lesson");
+
+                    b.Navigation("Lesson");
+                });
+
+            modelBuilder.Entity("KnowledgeManage.Models.Construct", b =>
+                {
+                    b.HasOne("KnowledgeManage.Models.Lesson", "Lesson")
+                        .WithMany("Construct")
+                        .HasForeignKey("LessonId_Lesson");
+
+                    b.Navigation("Lesson");
+                });
+
             modelBuilder.Entity("KnowledgeManage.Models.Exercise", b =>
                 {
                     b.HasOne("KnowledgeManage.Models.Lesson", "Lesson")
@@ -143,19 +198,19 @@ namespace KnowledgeManage.Migrations
                     b.Navigation("Lesson");
                 });
 
-            modelBuilder.Entity("KnowledgeManage.Models.Knowledge", b =>
+            modelBuilder.Entity("KnowledgeManage.Models.Operator", b =>
                 {
                     b.HasOne("KnowledgeManage.Models.Lesson", "Lesson")
-                        .WithMany("Knowledge")
+                        .WithMany("Operator")
                         .HasForeignKey("LessonId_Lesson");
 
                     b.Navigation("Lesson");
                 });
 
-            modelBuilder.Entity("KnowledgeManage.Models.Operator", b =>
+            modelBuilder.Entity("KnowledgeManage.Models.Property", b =>
                 {
                     b.HasOne("KnowledgeManage.Models.Lesson", "Lesson")
-                        .WithMany("Operator")
+                        .WithMany("Property")
                         .HasForeignKey("LessonId_Lesson");
 
                     b.Navigation("Lesson");
@@ -180,11 +235,15 @@ namespace KnowledgeManage.Migrations
 
             modelBuilder.Entity("KnowledgeManage.Models.Lesson", b =>
                 {
+                    b.Navigation("Concept");
+
+                    b.Navigation("Construct");
+
                     b.Navigation("Exercise");
 
-                    b.Navigation("Knowledge");
-
                     b.Navigation("Operator");
+
+                    b.Navigation("Property");
 
                     b.Navigation("Relationship_Lesson_A");
 

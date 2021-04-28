@@ -22,7 +22,8 @@ namespace KnowledgeManage.Controllers
         // GET: Operators
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Operator.ToListAsync());
+            var applicationDbContext = _context.Operator.Include(c => c.Lesson);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Operators/Details/5
@@ -34,6 +35,7 @@ namespace KnowledgeManage.Controllers
             }
 
             var @operator = await _context.Operator
+                .Include(c => c.Lesson)
                 .FirstOrDefaultAsync(m => m.Id_Operator == id);
             if (@operator == null)
             {
@@ -46,7 +48,7 @@ namespace KnowledgeManage.Controllers
         // GET: Operators/Create
         public IActionResult Create()
         {
-            ViewData["Id_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson");
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson");
             return View();
         }
 
@@ -55,16 +57,16 @@ namespace KnowledgeManage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_Operator,Link_Operator,Name_Operator,Id_Lesson")] Operator operators)
+        public async Task<IActionResult> Create([Bind("Id_Operator,Link_Operator,Name_Operator,LessonId_Lesson")] Operator @operator)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(operators);
+                _context.Add(@operator);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", operators.Id_Lesson);
-            return View(operators);
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", @operator.LessonId_Lesson);
+            return View(@operator);
         }
 
         // GET: Operators/Edit/5
@@ -80,6 +82,7 @@ namespace KnowledgeManage.Controllers
             {
                 return NotFound();
             }
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", @operator.LessonId_Lesson);
             return View(@operator);
         }
 
@@ -88,7 +91,7 @@ namespace KnowledgeManage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Operator,Link_Operator,Name_Operator,Id_Lesson")] Operator @operator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Operator,Link_Operator,Name_Operator,LessonId_Lesson")] Operator @operator)
         {
             if (id != @operator.Id_Operator)
             {
@@ -115,6 +118,7 @@ namespace KnowledgeManage.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", @operator.LessonId_Lesson);
             return View(@operator);
         }
 
@@ -127,6 +131,7 @@ namespace KnowledgeManage.Controllers
             }
 
             var @operator = await _context.Operator
+                .Include(c => c.Lesson)
                 .FirstOrDefaultAsync(m => m.Id_Operator == id);
             if (@operator == null)
             {

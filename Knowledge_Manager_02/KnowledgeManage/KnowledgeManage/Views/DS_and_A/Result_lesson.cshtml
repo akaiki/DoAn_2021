@@ -1,0 +1,54 @@
+﻿@model IEnumerable<KnowledgeManage.Models.Lesson>
+@{
+    ViewData["Title"] = "Result_test";
+}
+
+
+<div class="container">
+    <h1>Kết quả tìm kiếm theo đề mục</h1>
+    <div class="row">
+        <div class="col-6" style="float: left">
+            <br />
+            <a asp-controller="DS_and_A" asp-action="Search" class="btn btn-primary col-6">Back to search</a>
+        </div>
+    </div>
+
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <p>Tên bài học</p>
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name_Lesson)
+                        </td>
+                        <td>
+                            <a class="btn btn-info col-12" href="@item.Id_Lesson">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <br />
+        <br />
+        <br />
+        <p style="text-align:center">
+            <b>KHÔNG THẤY KẾT QUẢ TÌM KIẾM CHO "@ViewData["ss"]"!!!!</b>
+        </p>
+    }
+
+</div>
