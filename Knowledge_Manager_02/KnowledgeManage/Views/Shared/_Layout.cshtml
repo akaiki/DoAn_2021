@@ -8,55 +8,45 @@
     <link rel="stylesheet" href="~/css/site.css" />
  
 </head>
-<body>
+<body style="background-color: #4A4A4A;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #FC5B32">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KnowledgeManage</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"  style="color: #ffffff">KnowledgeManage</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" >
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home |</a>
+                            <a class="nav-link text-light" asp-controller="DS_and_A" asp-action="Content">Cấu trúc dữ liệu & Giải thuật</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Home" asp-action="Privacy">Privacy |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Lessons" asp-action="Index">Lessons |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Relationships" asp-action="Index">Reletionship |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Knowledges" asp-action="Index">Knowledges |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Operators" asp-action="Index">Operators |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Exercises" asp-action="Index">Exercises |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="DS_and_A" asp-action="Content">Cấu trúc dữ liệu & Giải thuật</a>
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbardrop" data-toggle="dropdown">
+                                Quản lý dữ liệu
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="lessons" asp-action="index">Quản lý chủ đề</a>
+                                <a class="dropdown-item" asp-controller="relationships" asp-action="index">Quản lý quan hệ</a>
+                                <a class="dropdown-item" asp-controller="concepts" asp-action="index">Quản lý các khái niệm</a>
+                                <a class="dropdown-item" asp-controller="constructs" asp-action="index">Quản lý biểu diễn CTDL hoặc xây dựng giải thuật</a>
+                                <a class="dropdown-item" asp-controller="properties" asp-action="index">Quản lý các luật, tính chất</a>
+                                <a class="dropdown-item" asp-controller="operators" asp-action="index">Quản lý các toán tử</a>
+                                <a class="dropdown-item" asp-controller="exercises" asp-action="index">Quản lý bài tập</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div>
+    <div id="something">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-light">
         <div class="container">
-            &copy; 2021 - KnowledgeManage - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - KnowledgeManage
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

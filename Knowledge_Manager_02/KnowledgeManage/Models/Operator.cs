@@ -14,7 +14,7 @@ namespace KnowledgeManage.Models
         public int Id_Operator { get; set; }
         public string Link_Operator { get; set; }
         public string Name_Operator { get; set; }
-        public string Id_Lesson { get; set; }
+        public string LessonId_Lesson { get; set; }
         public virtual Lesson Lesson { get; set; }
     }
 }

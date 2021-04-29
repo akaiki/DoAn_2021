@@ -17,7 +17,9 @@ namespace KnowledgeManage.Models
 
         public ICollection<Relationship> Relationship_Lesson_B { get; set; }
 
-        public ICollection<Knowledge> Knowledge { get; set; }
+        public ICollection<Concept> Concept { get; set; }
+        public ICollection<Construct> Construct { get; set; }
+        public ICollection<Property> Property { get; set; }
         public ICollection<Operator> Operator { get; set; }
         public ICollection<Exercise> Exercise { get; set; }
 

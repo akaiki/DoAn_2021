@@ -15,9 +15,9 @@ namespace KnowledgeManage.Models
         public string Id_Lesson_B { get; set; }
 
 
-        [ForeignKey("ID_Lesson_A")]
+        [ForeignKey("Id_Lesson_A")]
         public virtual Lesson Lesson_A { get; set; }
-        [ForeignKey("ID_Lesson_B")]
+        [ForeignKey("Id_Lesson_B")]
         public virtual Lesson Lesson_B { get; set; }
 
         public Relationship()

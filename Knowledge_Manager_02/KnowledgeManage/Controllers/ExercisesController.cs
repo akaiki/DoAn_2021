@@ -22,7 +22,8 @@ namespace KnowledgeManage.Controllers
         // GET: Exercises
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Exercise.ToListAsync());
+            var applicationDbContext = _context.Exercise.Include(e => e.Lesson);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Exercises/Details/5
@@ -34,6 +35,7 @@ namespace KnowledgeManage.Controllers
             }
 
             var exercise = await _context.Exercise
+                .Include(e => e.Lesson)
                 .FirstOrDefaultAsync(m => m.Id_Exercise == id);
             if (exercise == null)
             {
@@ -46,7 +48,7 @@ namespace KnowledgeManage.Controllers
         // GET: Exercises/Create
         public IActionResult Create()
         {
-            ViewData["Id_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson");
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson");
             return View();
         }
 
@@ -55,7 +57,7 @@ namespace KnowledgeManage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_Exercise,Link_Exercise,Name_Exercise,Id_Lesson")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("Id_Exercise,Link_Exercise,Name_Exercise,LessonId_Lesson")] Exercise exercise)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +65,7 @@ namespace KnowledgeManage.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id_Lesson_A"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", exercise.Id_Lesson);
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", exercise.LessonId_Lesson);
             return View(exercise);
         }
 
@@ -80,6 +82,7 @@ namespace KnowledgeManage.Controllers
             {
                 return NotFound();
             }
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", exercise.LessonId_Lesson);
             return View(exercise);
         }
 
@@ -88,7 +91,7 @@ namespace KnowledgeManage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Exercise,Link_Exercise,Name_Exercise,Id_Lesson")] Exercise exercise)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Exercise,Link_Exercise,Name_Exercise,LessonId_Lesson")] Exercise exercise)
         {
             if (id != exercise.Id_Exercise)
             {
@@ -115,6 +118,7 @@ namespace KnowledgeManage.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LessonId_Lesson"] = new SelectList(_context.Lesson, "Id_Lesson", "Id_Lesson", exercise.LessonId_Lesson);
             return View(exercise);
         }
 
@@ -127,6 +131,7 @@ namespace KnowledgeManage.Controllers
             }
 
             var exercise = await _context.Exercise
+                .Include(e => e.Lesson)
                 .FirstOrDefaultAsync(m => m.Id_Exercise == id);
             if (exercise == null)
             {
