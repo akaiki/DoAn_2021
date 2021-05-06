@@ -92,9 +92,6 @@ namespace KnowledgeManage.Migrations
                     b.Property<string>("Id_Lesson")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Id_PreLesson")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name_Lesson")
                         .HasColumnType("nvarchar(max)");
 

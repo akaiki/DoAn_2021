@@ -10,7 +10,6 @@ namespace KnowledgeManage.Models
     public class Operator
     {
         [Key]
-
         public int Id_Operator { get; set; }
         public string Link_Operator { get; set; }
         public string Name_Operator { get; set; }

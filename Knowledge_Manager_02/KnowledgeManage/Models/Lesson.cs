@@ -10,7 +10,6 @@ namespace KnowledgeManage.Models
     {
         [Key]
         public string Id_Lesson { get; set; }
-        public string Id_PreLesson { get; set; }
         public string Name_Lesson { get; set; }
 
         public ICollection<Relationship> Relationship_Lesson_A { get; set; }

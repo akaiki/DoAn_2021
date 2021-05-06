@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div  class="container">
+<div class="container bg-light">
     <h1>Index</h1>
 
     <p>
@@ -17,9 +17,6 @@
                     @Html.DisplayNameFor(model => model.Id_Lesson)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id_PreLesson)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Name_Lesson)
                 </th>
                 <th></th>
@@ -28,22 +25,19 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id_Lesson)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id_PreLesson)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name_Lesson)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id_Lesson">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id_Lesson">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id_Lesson">Delete</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id_Lesson)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name_Lesson)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id_Lesson">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id_Lesson">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id_Lesson">Delete</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

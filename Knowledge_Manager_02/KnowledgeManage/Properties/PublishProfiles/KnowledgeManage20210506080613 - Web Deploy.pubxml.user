@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKtnsZ4+KYEi+5h2mC2AyCwAAAAACAAAAAAAQZgAAAAEAACAAAABLlURIXIK324pvBK5QM91NNi3JvRbyyji1ATz3OKUi9wAAAAAOgAAAAAIAACAAAAAnezEIs7J7Ayjsfd6d3Sstqztls2fZLVpXQxBI8wyp1IAAAAC6Lb0iB1pbAX4iaB6tk8itdj3wR8HpdEtk1UWqaHy8qWlODOa0oU5ABk/o25pzOjONR0UZ15c4MbWdTWYQckrETHk6HvvfNFdEpKRIgiBV/hcYpsMCH+qeR8VUvf8VG231KSWGMVDqP234lhs30q4RBSA46VZRf6eFwBjTKT3DpkAAAACY+qididgaWN+CU7UAHQg05AYVQ0rX1vcD2uY/Y/CyEDsJtP34M1oQmf8XL9bDm43OlNEXYDrYTEXLtWz7OPuY</EncryptedPassword>
+    <History>True|2021-05-06T11:04:57.0630342Z;True|2021-05-06T13:32:37.0114297+07:00;True|2021-05-06T09:23:00.0025351+07:00;True|2021-05-06T08:25:16.0917631+07:00;True|2021-05-06T08:23:22.0629803+07:00;True|2021-05-06T08:21:32.1341457+07:00;False|2021-05-06T08:20:11.5306794+07:00;False|2021-05-06T08:14:03.7469077+07:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ApplicationDbContext">
+      <Value>Data Source=tcp:knowledgemanagedbserver.database.windows.net,1433%3bInitial Catalog=KnowledgeManage_db%3bUser Id=ngkienntk2208%40knowledgemanagedbserver%3bPassword=025818786kK</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="KnowledgeManage.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:knowledgemanagedbserver.database.windows.net,1433%3bInitial Catalog=KnowledgeManage_db%3bUser Id=ngkienntk2208%40knowledgemanagedbserver%3bPassword=025818786kK</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
