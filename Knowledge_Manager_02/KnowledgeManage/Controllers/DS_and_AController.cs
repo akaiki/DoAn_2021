@@ -81,6 +81,10 @@ namespace KnowledgeManage.Controllers
         {
             return View(Relate("I_3"));
         }
-        
+
+        public IActionResult I_4()
+        {
+            return View(Relate("I_4"));
+        }
     }
 }

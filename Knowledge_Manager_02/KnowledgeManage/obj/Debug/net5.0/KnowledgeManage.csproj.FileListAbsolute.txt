@@ -185,3 +185,4 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Details.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Edit.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Index.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_4.cshtml.g.cs

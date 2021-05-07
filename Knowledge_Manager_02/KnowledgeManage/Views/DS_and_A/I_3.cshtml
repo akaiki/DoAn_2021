@@ -17,7 +17,7 @@
     }
 
         .zoom:hover {
-            transform: scale(1.03); /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+            transform: scale(1.2); /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
 
     img {
@@ -66,7 +66,7 @@
         <p>Để khai báo một danh sách trong C, ta có thể dùng cấu trúc tự trỏ. Ví dụ, để khai báo một danh sách liên kết mà mỗi nút chứa một phần tử là sô nguyên như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-            <code>struct node {
+    <code>struct node {
         int item;
         struct node *next;
     };
@@ -75,7 +75,7 @@
         <p>Ngoài ra, t có thể tạo, cấp phát và giải phóng bộ nhớ cho 1 nút (node):</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-            <code>listnode p; //Khai báo biến p
+    <code>listnode p; //Khai báo biến p
 
     p = (listnode)malloc(sizeof(struct node)); // cấp phát bộ nhớ cho p
 
@@ -129,7 +129,7 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Insert_Begin(listnode *p, int x) {
+    <code>void Insert_Begin(listnode *p, int x) {
         listnode q;
         q = (listnode)malloc(sizeof(struct node));
         q -> item = x;
@@ -159,7 +159,7 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Insert_End(listnode *p, int x) {
+    <code>void Insert_End(listnode *p, int x) {
         listnode q, r;
         q = (listnode)malloc(sizeof(struct node));
         q -> item = x;
@@ -184,7 +184,7 @@
                 <p>B1: Tạo và cấp phát bộ nhớ cho 1 nút mới. Nút này được trỏ tới bởi q.</p>
                 <img src="~/Image/list_insert_mid_2.jpg" class="zoom" style="text-align:center" />
                 <br />
-                <p>B2: Cho con trỏ tpees của nút mới trỏ đến nút kế tiếp cảu nút r.</p>
+                <p>B2: Cho con trỏ tiếp của nút mới trỏ đến nút kế tiếp cảu nút r.</p>
                 <img src="~/Image/list_insert_mid_3.jpg" class="zoom" style="text-align:center" />
                 <br />
                 <p>B3: Cho con trỏ tiếp của nút r trỏ đến q.</p>
@@ -193,7 +193,7 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Insert_Middle(listnode *p, int position, int x) {
+    <code>void Insert_Middle(listnode *p, int position, int x) {
         int count = 1, found = 0;
         listnode q, r;
         r = *p;
@@ -247,7 +247,7 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Remove_Begin(listnode *p) {
+    <code>void Remove_Begin(listnode *p) {
         listnode q;
         if (*p == NULL) return;
         q = *p;
@@ -272,7 +272,7 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Remove_End(listnode *p) {
+    <code>void Remove_End(listnode *p) {
         listnode q, r;
         if (*p == NULL) return;
         if ((*p -> next) == NULL){
@@ -307,7 +307,7 @@
                 <br /><p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Remove_Middle(listnode *p, int position) {
+    <code>void Remove_Middle(listnode *p, int position) {
         int count = 1, found = 0;
         listnode q, r;
         r = *p;
@@ -597,13 +597,80 @@
             </div>
             <div id="dslk_doi_xoa_c">
                 <p><b>c. Xóa một nút ở trước 1 nút trong danh sách</b></p>
+                <p>Giả sử ta có một danh sách liên kết kép với node cần xóa là del</p>
+                <img src="~/Image/dll_remove_mid_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Để xóa một node giữa danh sách, ta thực hiện những bước sau:</p>
+                <p>B1: Nếu node cần xóa (del) có del -> prev == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_a"><b>xóa node đầu danh sách</b></a>.</p>
+                <p>B2: Nếu node cần xóa (del) có del -> next == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_b"><b>xóa node cuối danh sách</b></a>.</p>
+                <p>B3: Cho con trỏ prev của con trỏ tiếp theo của node cần xóa trỏ về prev của node cần xóa </p>
+                <img src="~/Image/dll_remove_mid_2.jpg" class="zoom" style="text-align:center"  />
+                <br />  
+                <p>B4: Cho con trỏ next của con trỏ phía sau của node cần xóa trỏ về next của node cần xóa</p>
+                <img src="~/Image/dll_remove_mid_3.jpg" class="zoom" style="text-align:center"  />
+                <br />
+                <p>B5: Xóa node cần xóa</p>
+                <img src="~/Image/dll_remove_mid_4.jpg" class="zoom" style="text-align:center"  />
+                <br />
+                <p>Dưới đây là code mẫu :</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>void Remove_Mid(Node** head_ref, Node* del) {
+        if (*head_ref == NULL){
+            return; //Danh sách rỗng thì returrn 
+        }
+            
+        if (del -> next != NULL){
+            del -> next -> prev = del -> prev;
+            // (del -> next) là node kế tiếp của node cần xóa
+            // (del -> next) -> prev: trỏ prev của node kế tiếp của node cần xóa
+        } 
 
-                https://cafedev.vn/ctdl-xoa-mot-node-khoi-danh-sach-lien-ket-kep-doubly-linked-list/
+        if (del -> prev != NULL){
+            del -> prev -> next = del -> next;
+            // (del -> prev) là node trước đó của node cần xóa
+            // (del -> prev) -> next: trỏ next của node kế tiếp của node cần xóa
+        }
+
+        free(del);
+    }</code> </pre>
+                </div><br />
+
             </div>
         </div>
         <hr />
         <div id="dslk_doi_duyet">
-
+            <p>Khác với duyệt danh sách liên kết đơn, danh sách liên kết đôi có thể dễ dàng duyệt cả 2 chiều:</p>
+            <ul>
+                <li><a href="#dslk_doi_duyet_a"><b>Duyệt từ đầu tới cuối:</b></a> Duyệt từ node head cho tới trước khi gặp node null bằng cách cùng con trỏ next</li>
+                <li><a href="#dslk_doi_duyet_b"><b>Duyệt từ cuối về đầu:</b></a> Duyệt từ node tail cho tới trước khi gặp node null bằng cách cùng con trỏ prev</li>
+            </ul>
+            <hr />
+            <div id="dslk_doi_duyet_a">
+                <p><b>Duyệt từ đầu tới cuối</b></p>
+                <p>Dưới đây là code mẫu:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>r = head;
+    while (r -> next != NULL){
+        //thực hiện những thao tác cần thiết 
+        r = r -> next;
+    }</code> </pre>
+                </div><br />
+            </div>
+            <hr />
+            <div id="dslk_doi_duyet_b">
+                <p><b>Duyệt từ cuối về đầu</b></p>
+                <p>Dưới đây là code mẫu:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>r = head;
+    while (r -> prev != NULL){
+        //thực hiện những thao tác cần thiết 
+        r = r -> prev;
+    }</code> </pre>
+                </div><br />
+            </div>
         </div>
     </div>
 </div>
@@ -612,10 +679,213 @@
     <h3>Danh sách liên kết vòng</h3>
     <div class="container" id="I_3_4_1">
         <h5>Biểu diễn danh sách liên kết vòng</h5>
-        <img src="~/Image/cir_list.jpg" class="zoom" style="text-align:center"/>
+        <p>Danh sách liên kết vòng là một loại đặc biệt của danh sách liên kết. Danh sách liên kết vòng cũng được chia làm 2 loại là:</p>
+        <ul>
+            <li>
+                <b>Danh sách liên kết vòng đơn</b>
+                <p>Danh sách liên kết vòng đơn được tạo bằng cách thay vì node cuối trỏ tới NULL thì node cuối được trỏ trở lại node đầu</p>
+                <p>Vì vậy, cách khai báo danh sách liên kết vòng đơn sẽ giống như cách khai báo danh sách liên kết đơn</p>
+                <img src="~/Image/cir_list.jpg" class="zoom" style="text-align:center" />
+                <br />
+            </li>
+            <li>
+                <b>Danh sách liên kết vòng đôi</b>
+                <p>Danh sách liên kết vòng đôi được tạo bằng cách thay vì node cuối trỏ vào null thì node cuối trỏ vào head. Thay vì node đầu trỏ vào null thì node đầu trỏ tiếp vào tail</p>
+                <p>Vì vậy, cách khai báo danh sách liên kết vòng đôi sẽ giống như cách khai báo danh sách liên kết đôi</p>
+                <img src="~/Image/cir_dou_list.jpg" class="zoom" style="text-align:center" />
+                <br />
+            </li>
+        </ul>
+
     </div>
     <div class="container" id="I_3_4_2">
         <h5>Các hoạt động trên danh sách liên kết vòng</h5>
+        <p>Do danh sách liên kết vòng có 2 phần nên phần hoạt động ta cũng chia thành 2 phần:</p>
+        <ul>
+            <li><a href="#cir_don"><b>Hoạt động trên danh sách liên kết vòng đơn</b></a></li>
+            <li><a href="#cir_doi"><b>Hoạt động trên danh sách liên kết vòng đôi</b></a></li>
+        </ul>
+        <hr />
+        <div id="cir_don">
+            <p><b>Hoạt động trên danh sách liên kết vòng đơn</b></p>
+            <p>Sau đây là một số hoạt động trên danh sách liên kết vòng đơn: </p>
+            <ul>
+                <li>
+                    <a href="#cir_don_insert"><b>Thêm vào danh sách</b></a>
+                </li>
+                <li>
+                    <a href="#cir_don_remove"><b>Xóa một phần tử trong danh sách</b></a>
+                </li>
+            </ul>
+            <hr />
+            <div id="cir_don_insert">
+                <p><b>Chèn node vào danh sách liên kết vòng đơn</b></p>
+                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_chen_c"><b>chèn vào giữa danh sách liên kết đơn</b></a> thông thường:</p>
+                <p>Giả sử ta có danh sách liên kết vòng sau:</p>
+                <img src="~/Image/cir_don_insert_1.jpg"  class="zoom" style="text-align:center"/>
+                <br />
+                <p>Có r là nút ở giữa danh sách, ở vị trí trước cần chèn. Node cần chèn vào sẽ được chèn phía sau nút r</p>
+                <p>Để chèn vào, ta thực hiện những bước sau:</p>
+                <p>B1: Tạo và cấp phát bộ nhớ cho nút mới</p>
+                <img src="~/Image/cir_don_insert_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Con trỏ next của node mới trỏ vào node next của r</p>
+                <img src="~/Image/cir_don_insert_3.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B3: Cho con trỏ next của r trỏ tới node mới</p>
+                <img src="~/Image/cir_don_insert_4.jpg" class="zoom" style="text-align:center"/>
+                <br />
+                <p>Dưới đây là code mẫu:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>void Insert_Mid(Node **head, int position, int x){
+        int count = 1, found = 0;
+        Node* new_node, r;
+        r = * head;
+        while((r != NULL) && (found ==0)){
+            if (count == position){
+                struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+                new_node -> data = new_data;
+                new_node -> next = r -> next;
+                r -> next = q;
+                found = 1;
+            }
+            count ++;
+            r = r -> next;
+        }
+    }</code> </pre>
+                </div><br />
+            </div>
+            <div id="cir_don_remove">
+                <p><b>Xóa node vào danh sách liên kết vòng đơn</b></p>
+                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_xoa_c"><b>xóa phần tử trong danh sách liên kết đơn</b></a> thông thường:</p>
+                <p>Giả sử ta có danh sách vòng đơn có del là vị trí cần xóa, r là vị trí trước del như sau:</p>
+                <img src="~/Image/cir_don_remove_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Để xóa đi một node trong danh sách liên kết, ta tiến hành những bước sau:</p>
+                <p>B1: Cho con trỏ của nút trước node del trỏ tới nút sau node del</p>
+                <img src="~/Image/cir_don_remove_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Giải phóng bộ nhớ của del</p>
+                <img src="~/Image/cir_don_remove_3.jpg" class="zoom" style="text-align:center" />
+                <br />
+
+                <p>Dưới đây là code mẫu:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>void Remove_Mid(Node **head, int position){
+        int count = 1, found = 0;
+        Node* del;
+        r = *p;
+        while((r != NULL) && (found ==0)){
+            if (count == position){
+                del = r -> next;
+                r -> next = del -> next;
+                free(del);
+                found = 1;
+            }
+            count ++;
+            r = r -> next;
+        }
+    }</code> </pre>
+                </div><br />
+            </div>
+        </div>
+        <div id="cir_doi">
+            <p><b>Hoạt động trên danh sách liên kết vòng đơn</b></p>
+            <p>Sau đây là một số hoạt động trên danh sách liên kết vòng đôi: </p>
+            <ul>
+                <li>
+                    <a href="#cir_doi_insert"><b>Thêm vào danh sách</b></a>
+                </li>
+                <li>
+                    <a href="#cir_doi_remove"><b>Xóa một phần tử trong danh sách</b></a>
+                </li>
+            </ul>
+            <hr />
+            <div id="cir_doi_insert">
+                <p><b>Chèn node vào danh sách liên kết vòng đôi</b></p>
+                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi chèn vào danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_chen_c"><b>chèn vào giữa danh sách liên kết đôi</b></a></p>
+                <p>Giả sử ta có danh sách liên kết vòng sau:</p>
+                <img src="~/Image/cir_doi_insert_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Để chèn thêm một node vào danh sách liên kết vòng đôi, ta thực hiện những bước sau:</p>
+                <p>B1: Cấp phát bộ nhớ cho node mới, và truyền dữ liệu vào nó.</p>
+                <img src="~/Image/cir_doi_insert_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Làm cho con trỏ next của node mới trỏ đến con trỏ next của prev_node và con trỏ next của prev_node trỏ đến node mới</p>
+                <img src="~/Image/cir_doi_insert_3.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B3: Làm cho con trỏ prev của node mới được chèn vào trỏ đến node prev_node. Hay nói cách khác là làm cho prev_node trỏ thành node trước đó của node mới và con trỏ prev của con trỏ next của node mới trỏ đến chính node mới</p>
+                <img src="~/Image/cir_doi_insert_4.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>void Insert_Mid(struct Node** head_ref, int new_data) {
+        //Kiểm tra xem prev_node nhận vào có NULL hay không, nếu NULL thì return
+        if (prev_node == NULL){
+            printf("Prev_node khong the NULL");
+            return;
+        }
+        //Tạo node mới và gán dữ liệu vào
+        struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+        new_node -> data = new_data;
+        
+        //Làm cho con trỏ next của node mới trỏ đến con trỏ next của prev_node
+        new_node -> next = prev_node -> next;
+        
+        //Làm cho prev_node trở thành node trước đó của node mới
+        prev_node -> next = new_node;
+        new_node -> prev = prev_node;
+
+        //Làm cho con trỏ prev của con trỏ next của node mới trỏ đến chính node mới
+        if (new_node -> next != NULL)
+            new_node -> next -> prev = new_node;        
+    }</code> </pre>
+                </div><br />
+            </div>
+            <div id="cir_doi_remove">
+                <p><b>Xóa node trong danh sách liên kết vòng đôi</b></p>
+                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi xóa phần tử trong danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_xoa_c"><b>xóa ở giữa danh sách liên kết đôi</b></a></p>
+                <p>Giả sử ta có danh sách liên kết sau, với del là node cần xóa:</p>
+                <img src="~/Image/cir_doi_remove_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Để xóa node del, ta cần thực hiện những bước sau:</p>
+                <p>B1: Cho con trỏ next của con trỏ phía sau của node cần xóa trỏ về next của node cần xóa</p>
+                <img src="~/Image/cir_doi_remove_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Cho con trỏ prev của con trỏ tiếp theo của node cần xóa trỏ về prev của node cần xóa</p>
+                <img src="~/Image/cir_doi_remove_3.jpg" class="zoom" style="text-align:center" />
+                <br />  
+                <p> B3: Giải phóng bộ nhớ của Del:</p>/>
+                <img src="~/Image/cir_doi_remove_4.jpg" class="zoom" style="text-align:center" />
+                <br />  
+                <p>Dưới đây là code mẫu :</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+    <code>void Remove_Mid(Node** head_ref, Node* del) {
+        if (*head_ref == NULL){
+            return; //Danh sách rỗng thì returrn 
+        }
+            
+        if (del -> next != NULL){
+            del -> next -> prev = del -> prev;
+            // (del -> next) là node kế tiếp của node cần xóa
+            // (del -> next) -> prev: trỏ prev của node kế tiếp của node cần xóa
+        } 
+
+        if (del -> prev != NULL){
+            del -> prev -> next = del -> next;
+            // (del -> prev) là node trước đó của node cần xóa
+            // (del -> prev) -> next: trỏ next của node kế tiếp của node cần xóa
+        }
+
+        free(del);
+    }</code> </pre>
+                </div><br />
+            </div>
+        </div>
     </div>
 </div>
 
