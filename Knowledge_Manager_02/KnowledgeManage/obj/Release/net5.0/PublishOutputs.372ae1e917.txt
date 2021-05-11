@@ -45,6 +45,7 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\dll_remove_mid_3.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\dll_remove_mid_4.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\dou_list.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\icon\favicon.png
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\linkedlist.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_insert_begin_1.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_insert_begin_2.jpg
@@ -72,6 +73,15 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_3.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_4.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_5.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_array.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_pop_2.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_pop_3.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_push_1.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_push_2.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_push_3.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_push_4.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_list.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_list_2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

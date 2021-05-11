@@ -4,7 +4,7 @@
     Layout = "~/Views/DS_and_A/Menu.cshtml";
 }
 
-<style>
+<style> 
     .zoom {
         /*padding: 50px;*/
         background-color: green;
@@ -16,22 +16,19 @@
             transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
     img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
         display: block;
         margin: 0 auto;
     }
 </style>
 
-<div class="">
-
-    <h1>Cấu trúc dữ liệu mảng</h1>
+    <h1 >CẤU TRÚC DỮ LIỆU MẢNG</h1>
     <div class="container" id="I_2_1">
-        <h3>Cấu trúc dữ liệu mảng là gì?</h3>
+        <h3>Khái niệm</h3>
         <div class="container">
-            <blockquote>
-                <q>
-                    Mảng là một chuỗi hữu hạn các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vùng nhớ liên tiếp nhau, mỗi phần tử được xác định bằng một chỉ số (số thứ tự của nó trong mảng).
-                </q>
-            </blockquote>
+            <p>Mảng là một chuỗi hữu hạn các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vùng nhớ liên tiếp nhau, mỗi phần tử được xác định bằng một chỉ số (số thứ tự của nó trong mảng).</p>
             <p>Mảng (Array) là một trong các cấu trúc dữ liệu quan trọng nhất. Mảng có thể lưu giữ một số phần tử cố định và các phần tử này nền có cùng kiểu. Hầu hết các cấu trúc dữ liệu đều sử dụng mảng để triển khai giải thuật. Dưới đây là các khái niệm quan trọng liên quan tới Mảng:</p>
             <ul>
                 <li><b>Phần tử:</b> Mỗi mục được lưu trữ trong một mảng được gọi là một phần tử</li>
@@ -41,7 +38,7 @@
             <p>Mảng là cấu trúc dữ liệu được cấp phát liên tục cơ bản</p>
             <h5>Ưu điểm của mảng:</h5>
             <ul>
-                <li>Truy cập phần tử với <a href="II_2"><b>độ phức tạp</b></a> là hằng số (O(1))</li>
+                <li>Truy cập phần tử với độ phức tạp là hằng số (O(1))</li>
                 <li>Sử dụng bộ nhớ hiệu quả</li>
                 <li>Tính cục bộ về bộ nhớ</li>
             </ul>
@@ -54,35 +51,35 @@
     <hr />
     <div class="container" id="I_2_2">
         <h3>Mảng động</h3>
-    </div>
-    <hr />
-    <div id="mangdong">
-        <div class="container" id="I_2_2_1">
-            <h5>Mảng động là gì</h5>
-            <p>Mảng động (dynamic aray) : cấp phát bộ nhớ cho mảng một cách động trong quá trình chạy chương trình trong C là malloc và calloc, trong C++ là new</p>
-            <p>Sử dụng mảng động ta bắt đầu với mảng có 1 phàn tử, khi số lượng phần tử vượt qua khả năng của mảng thì ta gấp đôi kích thước mảng cũ và copy phàn tử mảng cũ vào nửa đầu của mảng mới</p>
-            <p><b>Ưu điểm:</b> tránh lãng phí bộ nhớ khi phải khai báo mảng có kích thước lớn ngay từ đầu </p>
-            <p><b>Nhược điểm: </b>phải thực hiện thêm thao tác copy phần tử mỗi khi thay đổi kích thước. Và một số thời gian thực hiện thao tác không còn là hằng số nữa</p>
-        </div>
-        <div class="container" id="I_2_2_2">
-            <h5>Biểu diễn mảng động</h5>
-            <p>Như đã nói ở trên, ta có thể khai báo mảng động trong quá trình chạy chương trình C là malloc và callon hoặc trong C++ là new. Ta hãy lấy ví dụ trong C:</p>
-            <p>Để khai báo đến mảng động, ta sử dụng đến con trỏ, vì con trỏ có khả năng trỏ đến các vị trí, thay đổi linh hoạt vùng nhớ lưu giá trị thực sự, điều này đáp ứng được yêu cầu của một mảng động.</p>
-            <div class="card" style="background-color: #F1F1F1">
-<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                <code>
-        //Khai báo mảng
-        int *array = NULL;
-        //Khởi tạo
-        array = (int*)malloc(sizeof(int[10]));
-    </code> </pre>
-            </div><br />
-            <p>Hai câu lệnh trên được hiểu là khai báo một con trỏ array, trỏ đến kiểu int nhưng ngay sau đó lại gán cho nó bằng NULL, tức không trỏ dến đâu cả, Tiếp theo, <code>(int*)malloc(sizeof(int[10]))</code> tương ứng với việc cấp phát một vùng nhớ với 10 ô nhớ đầu tiên trỏ vào a</p>
-        </div>
+        <hr />
+            <div class="container" id="I_2_2_1">
+                <h5>Khái niệm</h5>
+                <p>Mảng động (dynamic aray) : cấp phát bộ nhớ cho mảng một cách động trong quá trình chạy chương trình trong C là malloc và calloc, trong C++ là new</p>
+                <p>Sử dụng mảng động ta bắt đầu với mảng có 1 phàn tử, khi số lượng phần tử vượt qua khả năng của mảng thì ta gấp đôi kích thước mảng cũ và copy phàn tử mảng cũ vào nửa đầu của mảng mới</p>
+                <p><b>Ưu điểm:</b> tránh lãng phí bộ nhớ khi phải khai báo mảng có kích thước lớn ngay từ đầu </p>
+                <p><b>Nhược điểm: </b>phải thực hiện thêm thao tác copy phần tử mỗi khi thay đổi kích thước. Và một số thời gian thực hiện thao tác không còn là hằng số nữa</p>
+            </div>
+            <hr />
+            <div class="container" id="I_2_2_2">
+                <h5>Biểu diễn mảng động</h5>
+                <p>Như đã nói ở trên, ta có thể khai báo mảng động trong quá trình chạy chương trình C là malloc và callon hoặc trong C++ là new. Ta hãy lấy ví dụ trong C:</p>
+                <p>Để khai báo đến mảng động, ta sử dụng đến con trỏ, vì con trỏ có khả năng trỏ đến các vị trí, thay đổi linh hoạt vùng nhớ lưu giá trị thực sự, điều này đáp ứng được yêu cầu của một mảng động.</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+            //Khai báo mảng
+            int *array = NULL;
+            //Khởi tạo
+            array = (int*)malloc(sizeof(int[10]));
+        </code> </pre>
+                </div><br />
+                <p>Hai câu lệnh trên được hiểu là khai báo một con trỏ array, trỏ đến kiểu int nhưng ngay sau đó lại gán cho nó bằng NULL, tức không trỏ dến đâu cả, Tiếp theo, <code>(int*)malloc(sizeof(int[10]))</code> tương ứng với việc cấp phát một vùng nhớ với 10 ô nhớ đầu tiên trỏ vào a</p>
+            </div>
     </div>
     <hr />
     <div class="container" id="I_2_3">
-        <h3>Biểu diễn cấu trúc dữ liệu mảng</h3>
+    </div>
+        <h3>Biểu diễn mảng</h3>
         <div class="container">
             <p>Mảng có thể được khai báo theo nhiều các đa dạng trong các ngôn ngữ lập trình. Để minh họa, chúng ta sử dụng phép khai báo trong ngôn ngữ C làm ví dụ:</p>
             <img src="~/Image/array_declaration.jpg" alt="Khai báo mảng trong C" class="zoom" style="text-align:center" />
@@ -95,27 +92,27 @@
                 <li>Mỗi phần tử đều có thể được truy cập thông qua chỉ mục của phần tử đó. Ví dụ theo hình trên, chúng ta có thể lấy giá trị của phần tử tại chỉ mục 6 là 27</li>
             </ul>
         </div>
-    </div>
+    
     <hr />
     <div class="container" id="I_2_4">
         <h3>Phép toán thực hiện trên mảng</h3>
         <div class="container">
-            <p>Dưới đây là các hoạt động cơ bản trên mảng:</p>
+            <p>Các hoạt động cơ bản trên mảng:</p>
             <ul>
                 <li>
-                    <p><a href="#DuyetMang"><b>Duyệt:</b> </a>Duyệt qua các phần tử có trong mảng.</p>
+                    <p><a href="#DuyetMang">Duyệt:</a> Duyệt qua các phần tử có trong mảng.</p>
                 </li>
                 <li>
-                    <p><a href="#ChenMang"><b>Chèn:</b></a> Thêm một phần tử vào mảng tại chỉ mục đã cho</p>
+                    <p><a href="#ChenMang">Chèn:</a> Thêm một phần tử vào mảng tại chỉ mục đã cho</p>
                 </li>
                 <li>
-                    <p><a href="#XoaMang"><b>Xóa:</b></a> Xóa một phần tử từ mảng tại chỉ mục đã cho</p>
+                    <p><a href="#XoaMang">Xóa:</a> Xóa một phần tử từ mảng tại chỉ mục đã cho</p>
                 </li>
                 <li>
-                    <p><a href="#TimKiemMang"><b>Tìm kiếm:</b></a> Tìm kiếm một phần tử bởi sử dụng chỉ mục hay bởi giá trị.</p>
+                    <p><a href="#TimKiemMang">Tìm kiếm:</a> Tìm kiếm một phần tử bởi sử dụng chỉ mục hay bởi giá trị.</p>
                 </li>
                 <li>
-                    <p><a href="#CapNhatMang"><b>Cập nhật:</b></a> Cập nhật giá trị một phần tử tại chỉ mục nào đó.</p>
+                    <p><a href="#CapNhatMang">Cập nhật:</a> Cập nhật giá trị một phần tử tại chỉ mục nào đó.</p>
                 </li>
             </ul>
             <hr />
@@ -210,8 +207,8 @@ main() {
                 <p>Như ví dụ trên, mảng đã xóa phần tử array[3] bằng cách gán giá trị của biến phía sau array[k] vào array[k] sau đó giảm n đi.</p>
             </div><hr />
             <div id="TimKiemMang">
-                <p><b>Tìm kiếm:</b> Tìm kiếm một phần tử có trong mảng.Có rất nhiều giải thuật để tìm kiếm trong mảng, mỗi giải thuật có <a href="II_2"><b>độ phức tạp</b></a> khác nhau. Bạn có thể tham khảo tại <a href="II_3"><b>giải thuật tìm kiếm</b></a>. Ở đây chúng ta sẽ sử dụng giải thuật <a href="I_3_2"><b>Tìm kiếm tuyến tính</b></a>.</p>
-                <p>Giả sử ta có array là một mảng tuyến tính có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật cho hoạt động tìm kiếm dựa theo giải thuật  <a href="I_3_2"><b>Tìm kiếm tuyến tính</b></a>: </p>
+                <p><b>Tìm kiếm:</b> Tìm kiếm một phần tử có trong mảng.Có rất nhiều giải thuật để tìm kiếm trong mảng, mỗi giải thuật có độ phức tạp khác nhau. Ở đây chúng ta sẽ sử dụng giải thuật tìm kiếm tuyến tính làm ví dụ.</p>
+                <p>Giả sử ta có array là một mảng tuyến tính có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật cho hoạt động tìm kiếm dựa theo giải thuật tìm kiếm tuyến tính: </p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
 <code>1. Bắt đầu
@@ -280,5 +277,3 @@ main() {
             </div><hr />
         </div>
     </div>
-
-</div>

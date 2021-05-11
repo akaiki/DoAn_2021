@@ -6,19 +6,19 @@
     <title>@ViewData["Title"] - KnowledgeManage</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
- 
+    <link rel="shortcut icon" type="image/png" href="~/Image/icon/favicon.png" />
+  
 </head>
-<body style="background-color: #4A4A4A;">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #FC5B32">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"  style="color: #ffffff">KnowledgeManage</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" >
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-controller="DS_and_A" asp-action="Content">Cấu trúc dữ liệu & Giải thuật</a>
-                        </li>
 
+<body style="background-color: #4A4A4A;" class="fixed-top">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #ffb5e8">
+            <div class="container">
+                <img src="~/Image/icon/favicon.png" asp-controller="Home" asp-action="Index"  style="width: 4%"/>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: black">LEARNICORN</a>
+                <a class="nav-link border-left border-dark" asp-controller="DS_and_A" asp-action="Content" style="color: black">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light text-hide" href="#" id="navbardrop" data-toggle="dropdown">
                                 Quản lý dữ liệu
@@ -38,12 +38,21 @@
             </div>
         </nav>
     </header>
-    <div id="something">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+    <div>
+        <footer>
+            <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+            <df-messenger intent="WELCOME"
+                          chat-title="BOT_CTDL-GT"
+                          agent-id="d36c12e9-2cda-40f5-863b-1ff0a3fedd4c"
+                          language-code="en"></df-messenger>
+        </footer>
+    </div>
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

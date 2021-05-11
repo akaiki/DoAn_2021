@@ -5,10 +5,6 @@
 }
 
 <style>
-    ul {
-        list-style-type: none;
-    }
-
     .zoom {
         /*padding: 50px;*/
         background-color: green;
@@ -21,38 +17,39 @@
         }
 
     img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
         display: block;
         margin: 0 auto;
     }
 </style>
-<h1>Cấu trúc dữ liệu danh sách liên kết</h1>
+<h1>CẤU TRÚC DỮ LIỆU DANH SÁCH LIÊN KẾT</h1>
 <div class="container" id="I_3_1">
-    <h3>Cấu trúc dữ liệu danh sách liên kết là gì</h3>
-    <blockquote>
-        <q>Một danh sách liên kết (linked list) là một dãy các cấu trúc dữ liệu được kết nối với nhau thông qua các liên kết (link). Nghĩa là danh sách liên kết là một cấu trúc dữ liệu bao gồm một nhóm các nút (node) liên kết với nhau tạo thành một chuỗi. Mỗi nút gồm dữ liệu ở nút đó và tham chiếu đến nút tiếp theo trong chuỗi.</q>
-    </blockquote>
+    <h3>Khái niệm</h3>
+     <p>Một danh sách liên kết (linked list) là một dãy các cấu trúc dữ liệu được kết nối với nhau thông qua các liên kết (link). Nghĩa là danh sách liên kết là một cấu trúc dữ liệu bao gồm một nhóm các nút (node) liên kết với nhau tạo thành một chuỗi. Mỗi nút gồm dữ liệu ở nút đó và tham chiếu đến nút tiếp theo trong chuỗi.</p>
     <p>Mặc dù cùng là cấu trúc dữ liệu bao gồm một tập các phần tử, nhưng giữa danh sách liên kết và mảng có một số điểm khác biệt sau: </p>
     <ul>
         <li>
             <p>- Mảng có thể được truy cập ngẫu nhiên thông quan chỉ số, còn danh sách chỉ có thể truy cập tuần tự. Trong danh sách liên kết, muốn truy cập tới một phần tử thì phải bắt đầu từ đầu danh sách sau đó lần lượt qua các phần tử kế tiếp cho đến khi hết phần tử cần truy cập.</p>
         </li>
         <li>
-            <p>- Việc bố trí, sắp xếp lại các phần tử trong một danh sách liên kết đơn giản hơn nhiều so với mảng, Bởi vì đối với danh sách liên kết, để thay đôi vị trí của một phần tử, ta chỉ cần thay đổi các liên kết cảu một số phần tử có liên quan, còn trong mảng, ta thường phải tahy đổi vị trí của rất nhiều phần tử.</p>
+            <p>- Việc bố trí, sắp xếp lại các phần tử trong một danh sách liên kết đơn giản hơn nhiều so với mảng, Bởi vì đối với danh sách liên kết, để thay đôi vị trí của một phần tử, ta chỉ cần thay đổi các liên kết cảu một số phần tử có liên quan, còn trong mảng, ta thường phải thay đổi vị trí của rất nhiều phần tử.</p>
         </li>
         <li>
             <p>- Do bản chất động của danh sách liên kết, kích thước của danh sách liên kết có thể linh hoạt hơn nhiều so với mảng, Kích thước của danh sách không cần phải khai báo trước, bất kỳ lúc nào có thể tạo mới một phần tử và thêm vào vị trí bất kì trong danh sách. Nói cách khác, mảng là một tập hợp cố định các phần tử, còn danh sách liên kết là một tập có số lược phần tử không cố định.</p>
         </li>
     </ul>
-    <p>Có các loại danh sách liên kết đáng chú ý: </p>
+    <p>Các loại danh sách liên kết: </p>
     <ul>
         <li>
-            <p><b><a href="#I_3_2">Danh sách liên kết đơn (Simple Linked List)</a></b>: Chỉ duyệt các phần tử theo chiều về trước.</p>
+            <p><a href="#I_3_2">Danh sách liên kết đơn (Simple Linked List)</a>: Chỉ duyệt các phần tử theo chiều về trước.</p>
         </li>
         <li>
-            <p><b><a href="#I_3_3">Danh sách liên kết đôi (Doubly Linked List)</a></b>: Các phần tử có thể được duyệt theo chiều từ về trước hoặc về sau.</p>
+            <p><a href="#I_3_3">Danh sách liên kết đôi (Doubly Linked List)</a>: Các phần tử có thể được duyệt theo chiều từ về trước hoặc về sau.</p>
         </li>
         <li>
-            <p><b><a href="#I_3_4">Danh sách liên kết vòng (Circular Linked List)</a></b>: Phần tử cuối cùng chứa link của phần tử đầu tiên như là next và phần tử đầu tiên có link tới phần tử cuối cùng như là prev.</p>
+            <p><a href="#I_3_4">Danh sách liên kết vòng (Circular Linked List)</a>: Phần tử cuối cùng chứa link của phần tử đầu tiên như là next và phần tử đầu tiên có link tới phần tử cuối cùng như là prev.</p>
         </li>
     </ul>
 </div>
@@ -61,21 +58,22 @@
     <h3>Danh sách liên kết đơn</h3>
     <div class="container" id="I_3_2_1">
         <h5>Biểu diễn danh sách liên kết đơn</h5>
-        <p>Sau đây là hình ảnh biểu diễn cho danh sách liên kết đơn:</p>
+
         <img src="~/Image/linkedlist.jpg" alt="LinkedList" class="zoom" style="text-align:center" />
+        <p style="text-align:center"><i>Hình biểu diễn cho danh sách liên kết đơn:</i></p>
         <p>Để khai báo một danh sách trong C, ta có thể dùng cấu trúc tự trỏ. Ví dụ, để khai báo một danh sách liên kết mà mỗi nút chứa một phần tử là sô nguyên như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>struct node {
+            <code>struct node {
         int item;
         struct node *next;
     };
     typedef struct node *listnode;</code> </pre>
         </div><br />
-        <p>Ngoài ra, t có thể tạo, cấp phát và giải phóng bộ nhớ cho 1 nút (node):</p>
+        <p>Ngoài ra, có thể tạo, cấp phát và giải phóng bộ nhớ cho 1 nút (node):</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>listnode p; //Khai báo biến p
+            <code>listnode p; //Khai báo biến p
 
     p = (listnode)malloc(sizeof(struct node)); // cấp phát bộ nhớ cho p
 
@@ -87,13 +85,13 @@
         <p>Sau đây là một số hoạt động cơ bản có thể được thực hiện bởi một danh sách liên kết: </p>
         <ul>
             <li>
-                <p><b><a href="#dslk_don_chen">Hoạt động chèn:</a> </b>thêm một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
+                <p><a href="#dslk_don_chen">Hoạt động chèn:</a>thêm một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
             </li>
             <li>
-                <p><b><a href="#dslk_don_xoa">Hoạt động xóa:</a> </b>xóa một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
+                <p><a href="#dslk_don_xoa">Hoạt động xóa:</a> xóa một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
             </li>
             <li>
-                <p><b><a href="#dslk_don_duyet">Duyệt toàn bộ danh sách: </a></b>duyệt qua taonf bộ các phần tử của danh sách, từ phần tử đầu tiên cho đến phần tử cuối cùng.</p>
+                <p><a href="#dslk_don_duyet">Duyệt toàn bộ danh sách: </a>duyệt qua taonf bộ các phần tử của danh sách, từ phần tử đầu tiên cho đến phần tử cuối cùng.</p>
             </li>
         </ul>
         <hr />
@@ -101,9 +99,9 @@
             <h5>Hoạt động chèn</h5>
             <p>Trong hoạt động chèn, ta có thể: 
                 <ul>
-                    <li><a href="#dslk_don_chen_a"><b>a. Chèn một nút vào đầu danh sách</b></a></li>
-                    <li><a href="#dslk_don_chen_b"><b>b. Chèn một nút vào cuối danh sách</b></a></li>
-                    <li><a href="#dslk_don_chen_c"><b>c. Chèn một nút vào trước nút r trong danh sách</b></a></li>
+                    <li><a href="#dslk_don_chen_a">a. Chèn một nút vào đầu danh sách</a></li>
+                    <li><a href="#dslk_don_chen_b">b. Chèn một nút vào cuối danh sách</a></li>
+                    <li><a href="#dslk_don_chen_c">c. Chèn một nút vào trước nút r trong danh sách</a></li>
                 </ul>
             </p>
 
@@ -121,7 +119,7 @@
                 <p>B2: Sau khi gán các giá trị thích hợp cho phần tử của nút mới, cho con trỏ tiếp của nút mới trỏ đến phần tử đầu tiên của nút.</p>
                 <img src="~/Image/list_insert_begin_3.jpg" class="zoom" style="text-align:center" />
                 <br />
-                <p>B3: Cuối cùngm để p vẫn trỏ đến nút đầu danh sách, ta cần trỏ p đến nút mới tạo.</p>
+                <p>B3: Để p vẫn trỏ đến nút đầu danh sách, ta cần trỏ p đến nút mới tạo.</p>
                 <img src="~/Image/list_insert_begin_4.jpg" class="zoom" style="text-align:center" />
                 <br />
                 <p class="alert-warning">Chú ý rằng các bước trên phải làm đúng trình tự, nếu làm sai sẽ dẫn đến mất dữ liệu. Chẳng hạn, nếu ta cho con trỏ p đến nút mới tạo trước, thì khi đó nút mới tạo sẽ không trỏ tới được nút đầu danh sách cũ vì không còn biến nào lưu trữ vị trí này nữa.</p>
@@ -219,11 +217,11 @@
         <div id="dslk_don_xoa">
             <h5>Hoạt động xóa</h5>
             <p>
-                Cũng giống như <a href="#dslk_don_chen"><b>chèn node</b></a>, hoạt động xóa của danh sách liên kết cũng có các hoạt động:
+                Cũng giống như <a href="#dslk_don_chen">chèn node</a>, hoạt động xóa của danh sách liên kết cũng có các hoạt động:
                 <ul>
-                    <li><a href="#dslk_don_xoa_a"><b>a. Xóa một nút ở đầu danh sách</b></a></li>
-                    <li><a href="#dslk_don_xoa_b"><b>b. Xóa một nút ở cuối danh sách</b></a></li>
-                    <li><a href="#dslk_don_xoa_c"><b>c. Xóa một nút ở trước nút r trong danh sách</b></a></li>
+                    <li><a href="#dslk_don_xoa_a">a. Xóa một nút ở đầu danh sách</a></li>
+                    <li><a href="#dslk_don_xoa_b">b. Xóa một nút ở cuối danh sách</a></li>
+                    <li><a href="#dslk_don_xoa_c">c. Xóa một nút ở trước nút r trong danh sách</a></li>
                 </ul>
             </p>
 
@@ -372,13 +370,13 @@
         <p>Cũng như <a href="#I_3_2">danh sách liên kết đơn</a>, danh sách liên kết đôi cũng có các hoạt động cơ bản sau:</p>
         <ul>
             <li>
-                <p><b><a href="#dslk_doi_chen">Hoạt động chèn:</a> </b>thêm một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
+                <p><a href="#dslk_doi_chen">Hoạt động chèn:</a> thêm một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
             </li>
             <li>
-                <p><b><a href="#dslk_doi_xoa">Hoạt động xóa:</a> </b>xóa một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
+                <p><a href="#dslk_doi_xoa">Hoạt động xóa:</a> xóa một phần tử vào đầu danh sách, cuối danh sách hoặc trước node bất kì.</p>
             </li>
             <li>
-                <p><b><a href="#dslk_doi_duyet">Duyệt toàn bộ danh sách: </a></b>duyệt qua taonf bộ các phần tử của danh sách, từ phần tử đầu tiên cho đến phần tử cuối cùng.</p>
+                <p><a href="#dslk_doi_duyet">Duyệt toàn bộ danh sách: </a>duyệt qua taonf bộ các phần tử của danh sách, từ phần tử đầu tiên cho đến phần tử cuối cùng.</p>
             </li>
         </ul>
         <hr />
@@ -387,9 +385,9 @@
             <p>
                 Trong hoạt động chèn, ta có thể:
                 <ul>
-                    <li><a href="#dslk_doi_chen_a"><b>a. Chèn một nút vào đầu danh sách</b></a></li>
-                    <li><a href="#dslk_doi_chen_b"><b>b. Chèn một nút vào cuối danh sách</b></a></li>
-                    <li><a href="#dslk_doi_chen_c"><b>c. Chèn một nút vào trước 1 nút trong danh sách</b></a></li>
+                    <li><a href="#dslk_doi_chen_a">a. Chèn một nút vào đầu danh sách</a></li>
+                    <li><a href="#dslk_doi_chen_b">b. Chèn một nút vào cuối danh sách</a></li>
+                    <li><a href="#dslk_doi_chen_c">c. Chèn một nút vào trước 1 nút trong danh sách</a></li>
                 </ul>
             </p>
             <div id="dslk_doi_chen_a">
@@ -530,11 +528,11 @@
         <div id="dslk_doi_xoa">
             <h5>Hoạt động xóa</h5>
             <p>
-                Cũng giống như <a href="#dslk_doi_chen"><b>chèn node</b></a>, hoạt động xóa của danh sách liên kết đôi cũng có các hoạt động:
+                Cũng giống như <a href="#dslk_doi_chen">chèn node</a>, hoạt động xóa của danh sách liên kết đôi cũng có các hoạt động:
                 <ul>
-                    <li><a href="#dslk_doi_xoa_a"><b>a. Xóa một nút ở đầu danh sách</b></a></li>
-                    <li><a href="#dslk_doi_xoa_b"><b>b. Xóa một nút ở cuối danh sách</b></a></li>
-                    <li><a href="#dslk_doi_xoa_c"><b>c. Xóa một nút ở trước 1 nút trong danh sách</b></a></li>
+                    <li><a href="#dslk_doi_xoa_a">a. Xóa một nút ở đầu danh sách</a></li>
+                    <li><a href="#dslk_doi_xoa_b">b. Xóa một nút ở cuối danh sách</a></li>
+                    <li><a href="#dslk_doi_xoa_c">c. Xóa một nút ở trước 1 nút trong danh sách</a></li>
                 </ul>
             </p>
             <div id="dslk_doi_xoa_a">
@@ -601,8 +599,8 @@
                 <img src="~/Image/dll_remove_mid_1.jpg" class="zoom" style="text-align:center" />
                 <br />
                 <p>Để xóa một node giữa danh sách, ta thực hiện những bước sau:</p>
-                <p>B1: Nếu node cần xóa (del) có del -> prev == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_a"><b>xóa node đầu danh sách</b></a>.</p>
-                <p>B2: Nếu node cần xóa (del) có del -> next == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_b"><b>xóa node cuối danh sách</b></a>.</p>
+                <p>B1: Nếu node cần xóa (del) có del -> prev == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_a">xóa node đầu danh sách</a>.</p>
+                <p>B2: Nếu node cần xóa (del) có del -> next == NULL thì node cần xóa là node đầu, nghĩa là ta trở về trường hợp <a href="#dslk_doi_xoa_b">xóa node cuối danh sách</a>.</p>
                 <p>B3: Cho con trỏ prev của con trỏ tiếp theo của node cần xóa trỏ về prev của node cần xóa </p>
                 <img src="~/Image/dll_remove_mid_2.jpg" class="zoom" style="text-align:center"  />
                 <br />  
@@ -642,8 +640,8 @@
         <div id="dslk_doi_duyet">
             <p>Khác với duyệt danh sách liên kết đơn, danh sách liên kết đôi có thể dễ dàng duyệt cả 2 chiều:</p>
             <ul>
-                <li><a href="#dslk_doi_duyet_a"><b>Duyệt từ đầu tới cuối:</b></a> Duyệt từ node head cho tới trước khi gặp node null bằng cách cùng con trỏ next</li>
-                <li><a href="#dslk_doi_duyet_b"><b>Duyệt từ cuối về đầu:</b></a> Duyệt từ node tail cho tới trước khi gặp node null bằng cách cùng con trỏ prev</li>
+                <li><a href="#dslk_doi_duyet_a">Duyệt từ đầu tới cuối:</a> Duyệt từ node head cho tới trước khi gặp node null bằng cách cùng con trỏ next</li>
+                <li><a href="#dslk_doi_duyet_b">Duyệt từ cuối về đầu:</a> Duyệt từ node tail cho tới trước khi gặp node null bằng cách cùng con trỏ prev</li>
             </ul>
             <hr />
             <div id="dslk_doi_duyet_a">
@@ -702,8 +700,8 @@
         <h5>Các hoạt động trên danh sách liên kết vòng</h5>
         <p>Do danh sách liên kết vòng có 2 phần nên phần hoạt động ta cũng chia thành 2 phần:</p>
         <ul>
-            <li><a href="#cir_don"><b>Hoạt động trên danh sách liên kết vòng đơn</b></a></li>
-            <li><a href="#cir_doi"><b>Hoạt động trên danh sách liên kết vòng đôi</b></a></li>
+            <li><a href="#cir_don">Hoạt động trên danh sách liên kết vòng đơn</a></li>
+            <li><a href="#cir_doi">Hoạt động trên danh sách liên kết vòng đôi</a></li>
         </ul>
         <hr />
         <div id="cir_don">
@@ -711,16 +709,16 @@
             <p>Sau đây là một số hoạt động trên danh sách liên kết vòng đơn: </p>
             <ul>
                 <li>
-                    <a href="#cir_don_insert"><b>Thêm vào danh sách</b></a>
+                    <a href="#cir_don_insert">Thêm vào danh sách</a>
                 </li>
                 <li>
-                    <a href="#cir_don_remove"><b>Xóa một phần tử trong danh sách</b></a>
+                    <a href="#cir_don_remove">Xóa một phần tử trong danh sách</a>
                 </li>
             </ul>
             <hr />
             <div id="cir_don_insert">
                 <p><b>Chèn node vào danh sách liên kết vòng đơn</b></p>
-                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_chen_c"><b>chèn vào giữa danh sách liên kết đơn</b></a> thông thường:</p>
+                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_chen_c">chèn vào giữa danh sách liên kết đơn</a> thông thường:</p>
                 <p>Giả sử ta có danh sách liên kết vòng sau:</p>
                 <img src="~/Image/cir_don_insert_1.jpg"  class="zoom" style="text-align:center"/>
                 <br />
@@ -758,7 +756,7 @@
             </div>
             <div id="cir_don_remove">
                 <p><b>Xóa node vào danh sách liên kết vòng đơn</b></p>
-                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_xoa_c"><b>xóa phần tử trong danh sách liên kết đơn</b></a> thông thường:</p>
+                <p>Do danh sách liên kết vòng đơn là một danh sách liên kết đơn có con trỏ của node cuối trỏ đến node đầu. Nên nếu ta chèn vào danh sách liên kết vòng thì ta có thể hiểu như <a href="dslk_don_xoa_c">xóa phần tử trong danh sách liên kết đơn</a> thông thường:</p>
                 <p>Giả sử ta có danh sách vòng đơn có del là vị trí cần xóa, r là vị trí trước del như sau:</p>
                 <img src="~/Image/cir_don_remove_1.jpg" class="zoom" style="text-align:center" />
                 <br />
@@ -796,16 +794,16 @@
             <p>Sau đây là một số hoạt động trên danh sách liên kết vòng đôi: </p>
             <ul>
                 <li>
-                    <a href="#cir_doi_insert"><b>Thêm vào danh sách</b></a>
+                    <a href="#cir_doi_insert">Thêm vào danh sách</a>
                 </li>
                 <li>
-                    <a href="#cir_doi_remove"><b>Xóa một phần tử trong danh sách</b></a>
+                    <a href="#cir_doi_remove">Xóa một phần tử trong danh sách</a>
                 </li>
             </ul>
             <hr />
             <div id="cir_doi_insert">
                 <p><b>Chèn node vào danh sách liên kết vòng đôi</b></p>
-                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi chèn vào danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_chen_c"><b>chèn vào giữa danh sách liên kết đôi</b></a></p>
+                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi chèn vào danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_chen_c">chèn vào giữa danh sách liên kết đôi</a></p>
                 <p>Giả sử ta có danh sách liên kết vòng sau:</p>
                 <img src="~/Image/cir_doi_insert_1.jpg" class="zoom" style="text-align:center" />
                 <br />
@@ -847,7 +845,7 @@
             </div>
             <div id="cir_doi_remove">
                 <p><b>Xóa node trong danh sách liên kết vòng đôi</b></p>
-                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi xóa phần tử trong danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_xoa_c"><b>xóa ở giữa danh sách liên kết đôi</b></a></p>
+                <p>Do danh sách liên kết vòng đôi là một danh sách liên kết vòng có 2 đầu được nối với nhau nên khi xóa phần tử trong danh sách liên kết thì ý tưởng sẽ giống như <a href="#dslk_doi_xoa_c">xóa ở giữa danh sách liên kết đôi</a></p>
                 <p>Giả sử ta có danh sách liên kết sau, với del là node cần xóa:</p>
                 <img src="~/Image/cir_doi_remove_1.jpg" class="zoom" style="text-align:center" />
                 <br />
