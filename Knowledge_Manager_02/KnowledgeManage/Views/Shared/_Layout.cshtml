@@ -10,11 +10,10 @@
   
 </head>
 
-<body style="background-color: #4A4A4A;" class="fixed-top">
+<body style="background-color: #4A4A4A; " class="fixed-top">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #ffb5e8">
             <div class="container">
-                <img src="~/Image/icon/favicon.png" asp-controller="Home" asp-action="Index"  style="width: 4%"/>
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: black">LEARNICORN</a>
                 <a class="nav-link border-left border-dark" asp-controller="DS_and_A" asp-action="Content" style="color: black">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -39,7 +38,7 @@
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" >
             @RenderBody()
         </main>
     </div>

@@ -10,6 +10,7 @@
 <style>
     p {
         text-align: justify;
+        
     }
     
 
@@ -90,7 +91,7 @@
         </a>
         <form class="form-inline flex-lg-grow-1" asp-action="SearchLesson">
             <input name="searchString" class="form-control" placeholder="Nhập chủ đề" style="width:60%" />
-            <button class="btn " type="submit" style="background-color: #add8e6">Search</button>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
         </form>
         <a class="p-2 nav-link " href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Tìm kiếm theo các đề mục khác</b></a>
         <a class="p-2 nav-link " data-toggle="collapse" data-target="#related" href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Hiển thị kiến thức liên quan</b></a>
@@ -98,7 +99,7 @@
 
     <div style="float:left; width: 100%" class="body-content d-flex">
         <div class="collapse flex-fill bg-light border" id="menu" style="float: left;overflow:visible !important;">
-            <div style="overflow-y: scroll; overflow-x: hidden; height:80vh ">
+            <div style="overflow-y: scroll; overflow-x: hidden; height:85vh; width: 30vw ">
                 <ul>
                     <li>
                         <a href="I">I - CẤU TRÚC DỮ LIỆU</a>
@@ -346,12 +347,12 @@
                 </ul>
             </div>
         </div>
-        <div style="height: 80vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: 16px; padding-left: 15%; padding-right: 15%" class=" flex-fill">
+        <div style="height: 85vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: 16px; padding-left: 15%; padding-right: 15%; text-indent: 5%;" class=" flex-fill">
             @RenderBody()
         </div>
 
-        <div class="collapse flex-fill bg-light border" id="related" style="float: left; width: 50%; overflow:visible !important; ">
-            <div style="overflow-y: scroll; overflow-x: hidden; ">
+        <div class="collapse flex-fill bg-light border" id="related" style="float: left; overflow:visible !important; ">
+            <div style="overflow-y: scroll; overflow-x: hidden; width: 25vw">
 
 
                 <ul>

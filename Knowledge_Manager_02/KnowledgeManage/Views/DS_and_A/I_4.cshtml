@@ -32,29 +32,31 @@
 <hr />
 <div class="container" id="I_4_2">
 <h3>Biểu diễn</h3>
-    <p>Ví dụ cơ bản cho cấu trúc ngăn xếp ta hãy xét một ngăn xếp ban đầu ở trọng thái rỗng như sau:</p>
-    <img src="~/Image/stack.jpg" class="zoom" style="text-align:center" />
-    <br />
-    <p>Khi thực hiện bổ sung phần tử A, ngăn xếp sẽ có dạng:</p>
-    <img src="~/Image/stack_2.jpg" class="zoom" style="text-align:center"/>
-    <br />
-    <p>Tiếp theo là thêm lần lượt B và C vào:</p>
-    <img src="~/Image/stack_3.jpg" class="zoom" style="text-align:center"/>
-    <br />
-    <p>Loại bỏ phần tử mới nhất được đưa vào ra khỏi ngăn xếp, ở đây ví dụ là C:</p>
-    <img src="~/Image/stack_4.jpg" class="zoom" style="text-align:center"/>
-    <br />
-    <p>Thử đưa phần tử vào ngăn xếp, phần tử mới sẽ được đưa ngay trên phần tử B: </p>
-    <img src="~/Image/stack_5.jpg"  class="zoom" style="text-align:center" />
-    <br />
-    <hr />
-    <p>Để hiểu thêm về các hoạt động thêm và đưa phần tử ra ngoài, bạn có thể xem "<a href="#I_4_3">Hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</a>" sẽ được nhắc tới ở phần kế.</p>
-    <p>Do tính chất của ngăn xếp, ngăn xếp có thể được cài đặt bởi 2 kiểu cấu trúc dữ liệu khác:</p>
-    <ul>
-        <li><a href="#NganXep_Bang_Mang">Cài đặt ngăn xếp bảng mảng</a></li>
-        <li><a href="#NganXep_Bang_DSLK">Cài đặt ngăn xếp bằng danh sách liên kết</a></li>
-    </ul>
-    <hr />
+    <div>
+        <p>Ví dụ cơ bản cho cấu trúc ngăn xếp ta hãy xét một ngăn xếp ban đầu ở trọng thái rỗng như sau:</p>
+        <img src="~/Image/stack.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Khi thực hiện bổ sung phần tử A, ngăn xếp sẽ có dạng:</p>
+        <img src="~/Image/stack_2.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Tiếp theo là thêm lần lượt B và C vào:</p>
+        <img src="~/Image/stack_3.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Loại bỏ phần tử mới nhất được đưa vào ra khỏi ngăn xếp, ở đây ví dụ là C:</p>
+        <img src="~/Image/stack_4.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Thử đưa phần tử vào ngăn xếp, phần tử mới sẽ được đưa ngay trên phần tử B: </p>
+        <img src="~/Image/stack_5.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <hr />
+        <p>Để hiểu thêm về các hoạt động thêm và đưa phần tử ra ngoài, bạn có thể xem "<a href="#I_4_3">Hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</a>" sẽ được nhắc tới ở phần kế.</p>
+        <p>Do tính chất của ngăn xếp, ngăn xếp có thể được cài đặt bởi 2 kiểu cấu trúc dữ liệu khác:</p>
+        <ul>
+            <li><a href="#NganXep_Bang_Mang">Cài đặt ngăn xếp bảng mảng</a></li>
+            <li><a href="#NganXep_Bang_DSLK">Cài đặt ngăn xếp bằng danh sách liên kết</a></li>
+        </ul>
+        <hr />
+    </div>
     <div id="NganXep_Bang_Mang">
         <b>a. Cài đặt ngăn xếp bằng mảng</b>
         <p>Để cài đặt ngăn xếp bằng bảng, ta sử dụng một mảng 1 chiều s để biểu diễn ngăn xếp. Thiết lập phần tử đầu tiên của mảng là s[0] làm đáy ngăn xếp. Các phần tử tiếp theo được đưa vào ngăn xếp sẽ lần lượt được lưu tại các vị trí s[1], s[2],... Nếu hiện tại ngăn xếp có n phần tử thì s[n-1] sẽ là phần tử mới nhất được đưa vào ngăn xếp. Để lưu trữ đỉnh hiện tại của ngăn xếp, ta sửu dụng 1 con trỏ top. Chẳng hạn nếu ngăn xếp có n phần tử thì top sẽ có giá trị là n-1. Còn khi ngăn xếp rỗng thì ta quy ước top sẽ có giá trị là -1 </p>
