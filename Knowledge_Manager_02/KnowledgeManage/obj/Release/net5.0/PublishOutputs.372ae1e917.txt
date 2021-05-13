@@ -69,7 +69,6 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_remove_mid_3.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_remove_mid_4.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue.jpg
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue.png
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue._1jpg.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_3.jpg
@@ -77,6 +76,9 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_5.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_array.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_insert_1.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_insert_2.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_remove_1.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_3.jpg
@@ -91,6 +93,11 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_dslk_push_4.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_list.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_list_2.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Tree.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\tree_array.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\tree_dslk.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\tree_preorder.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\tree_traval.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

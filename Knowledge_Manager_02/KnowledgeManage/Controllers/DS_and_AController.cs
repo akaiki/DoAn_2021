@@ -28,32 +28,41 @@ namespace KnowledgeManage.Controllers
             return View(Relate("Content"));
         }
 
-        public IActionResult Search()
-        {
-            return View();
-        }
+        //public IActionResult Search()
+        //{
+        //    return View();
+        //}
 
         public async Task<IActionResult> SearchLesson(string searchString)
         {
-            ViewData["ss"] = searchString;
-            return View("Result_lesson", await _context.Lesson.Where(m => m.Name_Lesson.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            if (String.IsNullOrEmpty(searchString))
+            {
+                ViewData["ss"] = "404_null";
+                return View("Result_lesson", await _context.Lesson.ToListAsync());
+            }
+            else
+            {
+                ViewData["ss"] = searchString;
+                return View("Result_lesson", await _context.Lesson.Where(m => m.Name_Lesson.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            }
+           
         }
 
-        public async Task<IActionResult> SearchExercise(string searchString)
-        {
-            ViewData["ss"] = searchString;
-            return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
-        }
+        //public async Task<IActionResult> SearchExercise(string searchString)
+        //{
+        //    ViewData["ss"] = searchString;
+        //    return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
+        //}
         
         public async Task<IActionResult> Result_lesson()
         {
             return View(await _context.Lesson.ToListAsync());
         }
 
-        public async Task<IActionResult> Result_exercise()
-        {
-            return View(await _context.Exercise.ToListAsync());
-        }
+        //public async Task<IActionResult> Result_exercise()
+        //{
+        //    return View(await _context.Exercise.ToListAsync());
+        //}
         public List<Lesson> Relate(string link)
         {
 
@@ -91,5 +100,11 @@ namespace KnowledgeManage.Controllers
         {
             return View(Relate("I_5"));
         }
+
+        public IActionResult I_6()
+        {
+            return View(Relate("I_6"));
+        }
+
     }
 }
