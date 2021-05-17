@@ -134,7 +134,8 @@
                 <p>Giả sử cho array là 1 mảng tuyến tính không có thứ tự có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật chèn phần tử a vào vị trí thứ k của mảng như sau:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>1. Bắt đầu
+<code>
+1. Bắt đầu
 2. Gán biến tạm j = n
 3. Gán n = n + 1
 4. Lặp lại bước 5 và 6 khi j >= k    
@@ -146,7 +147,8 @@
                 <p>Để hiểu rõ hơn, ta tham khảo giải thuật trên trong ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>#include &lt; stdio.h &gt;
+<code>
+#include &lt; stdio.h &gt;
 main() {
     int array[] = {1, 7, 5, 3, 9};
     int item = 10, k = 3, n = 5;
@@ -174,7 +176,8 @@ main() {
                 <p>Giả sử cho array là một mảng tuyến tính có n phần tử và k là một số nguyên dương thỏa mãn k < n. Ta có giải thuật để xóa một phần tử có trong mảng array tại vị trí k như sau:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>1. Bắt đầu
+<code>
+1. Bắt đầu
 2. Gán biến tạm j = k
 3. Lặp lại bước 4 và 5 khi j < n    
 4. Gán array[j] = array[j+1]
@@ -185,7 +188,8 @@ main() {
                 <p>Để hiểu rõ hơn, ta tham khảo giải thuật trên trong ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>#include &lt; stdio.h &gt;
+<code>
+#include &lt; stdio.h &gt;
 main() {
     int array[] = {1, 7, 5, 3, 9};
     int k = 3, n = 5;
@@ -211,7 +215,8 @@ main() {
                 <p>Giả sử ta có array là một mảng tuyến tính có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật cho hoạt động tìm kiếm dựa theo giải thuật tìm kiếm tuyến tính: </p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>1. Bắt đầu
+<code>
+1. Bắt đầu
 2. Gán j = 0
 3. Lặp lại bước 4 và 5 khi j < n    
 4. Nếu array[j] == item thì tới bước 6
@@ -222,7 +227,8 @@ main() {
                 <p>Để hiểu rõ hơn, ta tham khảo giải thuật tìm kiếm trên trong ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>#include &lt; stdio.h &gt;
+<code>
+#include &lt; stdio.h &gt;
 main() {
     int array[] = {1, 3, 5, 7, 8};
     int item = 5, n = 5;
@@ -253,14 +259,16 @@ main() {
                 <p>Giả sử array là một mảng tuyến tính có n phần tử và k là số nguyên dương thảo mãn k <= n. Ta có giải thuật để update phần tử tại vị trí k của mảng array như sau:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>1. Bắt đầu
+<code>
+1. Bắt đầu
 2. Thiết lập array[k-1] = item
 3. Kết thúc</code> </pre>
                 </div><br />
                 <p>Để hiểu rõ hơn, ta tham khảo giải thuật tìm kiếm trên trong ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-<code>#include &lt; stdio.h &gt;
+<code>
+#include &lt; stdio.h &gt;
 main() {
     int array[] = {1, 3, 5, 7, 8};
     int item = 10, n = 5, k = 3 ;

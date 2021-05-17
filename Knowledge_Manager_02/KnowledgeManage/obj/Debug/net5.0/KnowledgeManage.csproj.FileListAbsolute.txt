@@ -188,3 +188,4 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_4.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_5.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_6.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_6_4.cshtml.g.cs

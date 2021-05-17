@@ -75,7 +75,8 @@
         <p>Ví dụ thao tác khai báo mảng cho 1 ngăn xếp chứa số nguyên với tối đa 100 phần tử như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>#define MAX 100
+    <code>
+    #define MAX 100
     typedef struct {
         int top;
         int nut[MAX];
@@ -98,7 +99,8 @@
         <p>Ví dụ khai báo 1 ngăn xếp bằng danh sách liên kết:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>struct Node {
+    <code>
+    struct Node {
         int item;
         struct Node *next;
     };
@@ -155,7 +157,8 @@
         <p>Sau đây là code mẫu cho thao tác kiểm tra ngăn xếp rỗng:</p>
         <div class="card" style="background-color: #F1F1F1">
     <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int StackFull (stack s){
+    <code>
+        int StackFull (stack s){
         return (s.top == -1);
         //Hàm sẽ trả về true nếu đúng là giá trị của top là -1 (Ngăn xếp mảng rỗng).
         //Hàm sẽ trả về false nếu giá trị của top khác -1 .
@@ -166,7 +169,8 @@
         <p>Sau đây là code mẫu cho thao tác kiểm tra ngăn xếp đầy:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int StackEmpty (stack s){
+    <code>
+    int StackEmpty (stack s){
         return (s.top == MAX - 1);
         //Hàm sẽ trả về true nếu đúng là giá trị của top là vị trí cuối của mảng với MAX là độ lớn của mảng.
         //Hàm sẽ trả về false nếu giá trị của top < MAX - 1 nghĩa là mảng chưa đầy .
@@ -177,7 +181,8 @@
         <p>Sau đây là code mẫu cho thao tác bổ sung phần tử x vào ngăn xếp:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int Push(stack *s, int x){
+    <code>
+    int Push(stack *s, int x){
         // Nếu Stack đẫ đầy thì không thể thêm nữa (vì đây là ngăn xếp được tạo từ mảng tĩnh)
         if (StackFull (*s)){
             printf ("Ngan xep day!");
@@ -196,7 +201,8 @@
         <p>Sau đây là code mẫu cho thao tác lấy phần tử ra khỏi ngăn xếp:</p>
         <div class="card" style="background-color: #F1F1F1">
             <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int Pop(stack *s){
+    <code>
+                int Pop(stack *s){
         // Nếu Stack không rỗng thì ta mới có thể lấy giá trị ra
         if (StackEmpty(*s)){
             printf ("Ngan xep rong!");
@@ -219,7 +225,8 @@
           <p>Sau đây là code mẫu cho thao tác kiểm tra xem ngăn xếp có rỗng không:</p>
     <div class="card" style="background-color: #F1F1F1">   
     <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int StackEmpty(stack s){
+    <code>
+        int StackEmpty(stack s){
         return (s.top == NULL)
         //Hàm trả về true nếu top là null
         //Hàm trả về false nếu ngược lại
@@ -244,7 +251,8 @@
         <p>Sau đây là code mẫu cho thao tác bổ sung phần tử vào đầu ngăn xếp</p>
     <div class="card" style="background-color: #F1F1F1">   
     <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>Push(stack *s, int x){
+    <code>
+        Push(stack *s, int x){
         //Khởi tạo node mới p
         stacknode p;
         p = (stacknode) malloc (sizeof (struct node));
@@ -273,7 +281,8 @@
         <p>Sau đây là code mẫu cho thao tác bổ sung phần tử vào đầu ngăn xếp</p>
     <div class="card" style="background-color: #F1F1F1">   
     <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>Pop(stack *s){
+    <code>
+        Pop(stack *s){
         stacknode p;
         //Nếu ngăn xếp rỗng thì không thể lấy phần tử được
         if (StackEmpty(*s)){

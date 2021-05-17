@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="shortcut icon" type="image/png" href="~/Image/icon/favicon.png" />
-  
+    <style>
+        df-messenger {
+            --df-messenger-button-titlebar-color: #ffb5e8;
+        }
+    </style>
 </head>
 
 <body style="background-color: #4A4A4A; " class="fixed-top">
@@ -45,10 +49,16 @@
 
     <div>
         <footer>
+            @*<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger intent="WELCOME"
+                  chat-title="BOT_CTDL-GT"
+                  agent-id="d36c12e9-2cda-40f5-863b-1ff0a3fedd4c"
+                  language-code="en"></df-messenger>*@
+
             <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
             <df-messenger intent="WELCOME"
-                          chat-title="BOT_CTDL-GT"
-                          agent-id="d36c12e9-2cda-40f5-863b-1ff0a3fedd4c"
+                          chat-title="MyAgent"
+                          agent-id="4fe1e625-581d-4135-b9cf-7f27af7052a7"
                           language-code="en"></df-messenger>
         </footer>
     </div>

@@ -64,7 +64,8 @@
         <p>Để khai báo một danh sách trong C, ta có thể dùng cấu trúc tự trỏ. Ví dụ, để khai báo một danh sách liên kết mà mỗi nút chứa một phần tử là sô nguyên như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-            <code>struct node {
+            <code>
+    struct node {
         int item;
         struct node *next;
     };
@@ -73,7 +74,8 @@
         <p>Ngoài ra, có thể tạo, cấp phát và giải phóng bộ nhớ cho 1 nút (node):</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-            <code>listnode p; //Khai báo biến p
+            <code>
+    listnode p; //Khai báo biến p
 
     p = (listnode)malloc(sizeof(struct node)); // cấp phát bộ nhớ cho p
 
@@ -127,7 +129,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Begin(listnode *p, int x) {
+    <code>
+    void Insert_Begin(listnode *p, int x) {
         listnode q;
         q = (listnode)malloc(sizeof(struct node));
         q -> item = x;
@@ -157,7 +160,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_End(listnode *p, int x) {
+    <code>
+    void Insert_End(listnode *p, int x) {
         listnode q, r;
         q = (listnode)malloc(sizeof(struct node));
         q -> item = x;
@@ -191,7 +195,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Middle(listnode *p, int position, int x) {
+    <code>
+    void Insert_Middle(listnode *p, int position, int x) {
         int count = 1, found = 0;
         listnode q, r;
         r = *p;
@@ -245,7 +250,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Begin(listnode *p) {
+    <code>
+    void Remove_Begin(listnode *p) {
         listnode q;
         if (*p == NULL) return;
         q = *p;
@@ -270,7 +276,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_End(listnode *p) {
+    <code>
+    void Remove_End(listnode *p) {
         listnode q, r;
         if (*p == NULL) return;
         if ((*p -> next) == NULL){
@@ -305,7 +312,8 @@
                 <br /><p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Middle(listnode *p, int position) {
+    <code>
+    void Remove_Middle(listnode *p, int position) {
         int count = 1, found = 0;
         listnode q, r;
         r = *p;
@@ -337,7 +345,8 @@
             <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
             <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>r = p;
+    <code>
+    r = p;
     while (r -> next != NULL){
         //thực hiện những thao tác cần thiết 
         r = r -> next;
@@ -357,7 +366,8 @@
         <p>Dưới đây là code cài đặt một node của danh sách liên kết đôi bằng ngôn ngữ C:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>struct Node {
+    <code>
+    struct Node {
         int data;
         struct Node* next;
         struct Node* prev;
@@ -408,7 +418,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Begin(struct Node** head_ref, int new_data) {
+    <code>
+    void Insert_Begin(struct Node** head_ref, int new_data) {
         //Tạo node mới và gán dữ liệu vào
         struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
         new_node -> data = new_data;
@@ -447,7 +458,7 @@
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
     <code>
-        void Insert_End(struct Node** head_ref, int new_data) {
+    void Insert_End(struct Node** head_ref, int new_data) {
         //Tạo node mới và gán dữ liệu vào
         struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
         new_node -> data = new_data;
@@ -500,7 +511,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Mid(struct Node** head_ref, int new_data) {
+    <code>
+    void Insert_Mid(struct Node** head_ref, int new_data) {
         //Kiểm tra xem prev_node nhận vào có NULL hay không, nếu NULL thì return
         if (prev_node == NULL){
             printf("Prev_node khong the NULL");
@@ -551,7 +563,8 @@
                 <p>Dưới đây là code mẫu :</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Begin(Node** head_ref, Node* del) {
+    <code>
+    void Remove_Begin(Node** head_ref, Node* del) {
         if (*head_ref == NULL){
             return;
         }
@@ -578,7 +591,8 @@
                 <p>Dưới đây là code mẫu :</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Begin(Node** tail_ref, Node* del) {
+    <code>
+    void Remove_Begin(Node** tail_ref, Node* del) {
         if (*tail_ref == NULL){
             return;
         }
@@ -613,7 +627,8 @@
                 <p>Dưới đây là code mẫu :</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Mid(Node** head_ref, Node* del) {
+    <code>
+    void Remove_Mid(Node** head_ref, Node* del) {
         if (*head_ref == NULL){
             return; //Danh sách rỗng thì returrn 
         }
@@ -649,7 +664,8 @@
                 <p>Dưới đây là code mẫu:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>r = head;
+    <code>
+    r = head;
     while (r -> next != NULL){
         //thực hiện những thao tác cần thiết 
         r = r -> next;
@@ -736,7 +752,8 @@
                 <p>Dưới đây là code mẫu:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Mid(Node **head, int position, int x){
+    <code>
+    void Insert_Mid(Node **head, int position, int x){
         int count = 1, found = 0;
         Node* new_node, r;
         r = * head;
@@ -771,7 +788,8 @@
                 <p>Dưới đây là code mẫu:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-                    <code>void Remove_Mid(Node **head, int position){
+ <code>
+    void Remove_Mid(Node **head, int position){
         int count = 1, found = 0;
         Node* del;
         r = *p;
@@ -820,7 +838,8 @@
                 <p>Dưới đây là code mẫu theo ngôn ngữ C:</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Insert_Mid(struct Node** head_ref, int new_data) {
+    <code>
+    void Insert_Mid(struct Node** head_ref, int new_data) {
         //Kiểm tra xem prev_node nhận vào có NULL hay không, nếu NULL thì return
         if (prev_node == NULL){
             printf("Prev_node khong the NULL");
@@ -862,7 +881,8 @@
                 <p>Dưới đây là code mẫu :</p>
                 <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Remove_Mid(Node** head_ref, Node* del) {
+    <code>
+    void Remove_Mid(Node** head_ref, Node* del) {
         if (*head_ref == NULL){
             return; //Danh sách rỗng thì returrn 
         }

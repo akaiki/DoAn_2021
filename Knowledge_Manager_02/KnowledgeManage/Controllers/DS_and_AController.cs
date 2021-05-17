@@ -106,5 +106,9 @@ namespace KnowledgeManage.Controllers
             return View(Relate("I_6"));
         }
 
+        public IActionResult I_6_4()
+        {
+            return View(Relate("I_6_4"));
+        }
     }
 }

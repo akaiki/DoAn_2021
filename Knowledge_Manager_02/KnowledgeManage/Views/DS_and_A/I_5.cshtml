@@ -39,7 +39,7 @@
         <img src="~/Image/queue.jpg" class="zoom" style="text-align:center" />
         <br />
         <p>- Thi thực hiện hoạt động thêm phần tử A vào hàng đợi Q, hàng đợi có dạng:</p>
-        <img src="~/Image/queue_1.jpg" class="zoom" style="text-align:center" />
+        <img src="~/Image/queue._1.jpg" class="zoom" style="text-align:center" />
         <br />
         <p>- Tiếp theo, lần lượt thêm phần tử B và C vào hàng đợi Q, hàng đợi có dạng:</p>
         <img src="~/Image/queue_2.jpg" class="zoom" style="text-align:center" />
@@ -72,7 +72,8 @@
         <p>Khai báo mảng cho 1 hàng đợi chứa các số nguyên với tối đa 100 phần tử như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>#define MAX 100;
+    <code>
+    #define MAX 100;
     typedef struct {
         int head, tail, count; // Biến count để tiện cho việc <a href="#HangDoi_HD_Mang"> kiểm tra hàng đợi đầy hay rỗng</a>
         int node[MAX];
@@ -97,7 +98,8 @@
         <p>Khai báo 1 hàng đợi bằng dang sách liên kết như sau:</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>struct node{
+    <code>
+    struct node{
         int item;
         struct node *next;
     };
@@ -132,7 +134,8 @@
         <p>Hàng đợi rỗng nếu có số phần tử nhỏ hơn hoặc bằng 0</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int QueueEmpty(queue q){
+    <code>
+    int QueueEmpty(queue q){
         return (q.count <= 0);
         //Hàm sẽ đếm số lượng phần tử có trong mảng để biết là mảng có rỗng hay không
     }</code> </pre>
@@ -141,7 +144,8 @@
         <p>Hàng đợi đầy nếu có số phần tử bằng MAX</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int QueueFull(queue q){
+    <code>
+    int QueueFull(queue q){
         return (q.count == MAX);
         //Hàm sẽ đếm số lượng phần tử có trong mảng để biết là mảng có đầy hay chưa
     }</code> </pre>
@@ -151,7 +155,8 @@
         <p>Để thêm phần tử vào cuối hàng đợ, điểm cuối tăng lên 1 (nếu điểm cuối đã ở vị trí cuối mảng thì quay vòng điểm cuối về 0). Trước khi thêm phân tử vào hàng đợ, cần kiểm tra xem hàng đợi đã đầy chưa (hàng đợi đầy thì giá trị biến count = MAX)</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Put (queue *q, int x){
+    <code>
+    void Put (queue *q, int x){
         if (q -> count == MAX)
             printf("Hang doi day!");
             //Nếu hàng đợi đầy thì không thể thêm mới vào
@@ -175,7 +180,8 @@
         <p>Để lấy phần tử ra khỏi hàng đợi, điểm cuối tăng lên 1 (nếu điểm đầu đã ở vị trí cuối mảng thì quay vòng đầu về 0). Tuy nhiên, trước khi làm các thao tác này, ta cần kiểm tra xem hàng đợi có rỗng hay không</p>
         <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Get (queue *q){
+    <code>
+    void Get (queue *q){
         int x;
         if (QueueEmpty (*q))
             printf("Hang doi rong!");
@@ -200,7 +206,8 @@
         <p>Hàng đợi rỗng nếu nút đầu trỏ đến NULL</p>
          <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int QueueEmpty (queue q){
+    <code>
+    int QueueEmpty (queue q){
          return (q.head == NULL);
     }</code> </pre>
         </div><br />
@@ -219,7 +226,8 @@
         <p>Đây là code mẫu cho thao tác thêm 1 phần tử vào hàng đợi</p>
          <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>void Put (queue *q, int x){
+    <code>
+    void Put (queue *q, int x){
         // Tạo và cấp phát bộ nhớ cho 1 nút mới 
         queuenode p;
         p = (queuenode) malloc (sizeof(struct node));
@@ -249,7 +257,8 @@
         <p>Đây là code mẫu cho thao tác lấy 1 phần tử ra khỏi hàng đợi</p>
          <div class="card" style="background-color: #F1F1F1">
 <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
-    <code>int Get (queue *q){
+    <code>
+    int Get (queue *q){
         queuenode p; //node p là node sẽ được lấy ra
         if (QueueEmpty (*q)){
             printf("Ngan xep rong!");
