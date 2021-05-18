@@ -110,5 +110,15 @@ namespace KnowledgeManage.Controllers
         {
             return View(Relate("I_6_4"));
         }
+
+        public IActionResult I_6_5()
+        {
+            return View(Relate("I_6_5"));
+        }
+
+        public IActionResult I_7()
+        {
+            return View(Relate("I_7"));
+        }
     }
 }
