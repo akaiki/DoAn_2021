@@ -70,17 +70,10 @@
         display: block;
     }
 
-    .menuOff {
-        display: none;
-    }
-
-    .menuOn {
-        display: normal;
-    } 
 </style>
 
 
-<div class="w-100">
+<div class="w-100" >
     <div class="d-flex justify-content-between" style="background-color: #F5F5F5">
         <a class="p-2" href="#" id="navbardrop" data-toggle="collapse" data-target="#menu" onclick="myFunction(this)" style="width: 15%">
             <div class="flex-grow-1">
@@ -90,10 +83,10 @@
             </div>
         </a>
         <form class="form-inline flex-lg-grow-1" asp-action="SearchLesson">
-            <input name="searchString" class="form-control" placeholder="Nhập chủ đề" style="width:60%" />
+            <input name="searchString" class="form-control" placeholder="Nhập chủ đề" style="width:60%" type="search" />
             <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
         </form>
-        <a class="p-2 nav-link " href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Tìm kiếm theo các đề mục khác</b></a>
+        <a class="p-2 nav-link " asp-controller="DS_and_a" asp-action="Search" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Tìm kiếm theo các đề mục khác</b></a>
         <a class="p-2 nav-link " data-toggle="collapse" data-target="#related" href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Hiển thị kiến thức liên quan</b></a>
     </div>
 
@@ -237,7 +230,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                   
+
                                     <li>
                                         <a href="I_6_5">6.5. Cây Heap</a>
                                         <span class="caret"></span>
@@ -270,10 +263,10 @@
                                         <span class="caret"></span>
                                         <ul class="nested">
                                             <li>
-                                                <a href="I_7_3_1">7.3.1. Tìm kiếm theo chiều sâu</a>
+                                                <a href="I_7_3_1">7.3.1. Duyệt theo chiều sâu</a>
                                             </li>
                                             <li>
-                                                <a href="I_7_3_2">7.3.2. Tìm kiếm theo chiều rộng</a>
+                                                <a href="I_7_3_2">7.3.2. Duyệt theo chiều rộng</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -326,8 +319,18 @@
         </div>
         <div style="height: 85vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: 16px; padding-left: 15%; padding-right: 15%; text-indent: 5%;" class=" flex-fill">
             @RenderBody()
+            <div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
         </div>
-
         <div class="collapse flex-fill bg-light border" id="related" style="float: left; overflow:visible !important; ">
             <div style="overflow-y: scroll; overflow-x: hidden; width: 25vw">
 
@@ -339,13 +342,10 @@
 
                     }
                 </ul>
-
-
-
             </div>
         </div>
     </div>
-
+    
 </div>
 
 <script>

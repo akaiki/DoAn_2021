@@ -191,3 +191,7 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_6_4.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_6_5.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_7.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_7_3_1.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_concept.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_construct.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_operator.cshtml.g.cs

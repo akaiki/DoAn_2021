@@ -1,61 +1,55 @@
-﻿@*@model KnowledgeManage.Models.Lesson
+﻿@model IEnumerable<KnowledgeManage.Models.Lesson>
 
 @{
-    ViewData["Title"] = "Search";
+    ViewData["Title"] = "I_7";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
 }
 
-<style>
-    .input-validation-error {
-        border-color: red;
-    }
-</style>
+<h1>Tra cứu theo từng trường khác nhau</h1>
 
-<div class="container">
-    <h1>Search</h1>
-
-    <hr />
-    <div class="row">
-        <div class="col-md-5">
-            <form asp-action="SearchLesson">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="form-group" asp-validation-summary="All">
-                    <label for="searchString" class="control-label">Tìm kiếm theo chủ đề:</label>
-                    <input name="searchString" class="form-control" />
-
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Search" class="btn btn-primary col-5" /><br />
-                    <br />
-                </div>
-            </form>
-        </div>
-
-        <div class="col-md-5">
-            <form asp-action="SearchExercise">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="form-group">
-                    <label for="searchString" class="control-label">Tìm kiếm bài tập:</label>
-                    <input name="searchString" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Search" class="btn btn-primary col-5" /><br />
-                    <br />
-                </div>
-            </form>
-        </div>
-
+<hr />
+<div class="col">
+    <p><b>Tìm kiếm khái niệm của: </b></p>
+    <div class="col-md-10">
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchConcept">
+            <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" />
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
     </div>
-
-
-
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm cách biểu diễn / khởi tạo của: </b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchConstruct">
+            <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" />
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm hoạt động/ toán tử của:</b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchOperator">
+            <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" />
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm bài tập của: </b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchExercise">
+            <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" />
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
 </div>
-
-
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
-
-</div>*@

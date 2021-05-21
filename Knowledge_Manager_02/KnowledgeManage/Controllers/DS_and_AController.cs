@@ -25,20 +25,20 @@ namespace KnowledgeManage.Controllers
         public IActionResult Content()
         {
 
-            return View(Relate("Content"));
+            return View(Relate("ContentView"));
         }
 
-        //public IActionResult Search()
-        //{
-        //    return View();
-        //}
+        public IActionResult Search()
+        {
+            return View(Relate("SearchView"));
+        }
 
         public async Task<IActionResult> SearchLesson(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
             {
                 ViewData["ss"] = "404_null";
-                return View("Result_lesson", await _context.Lesson.ToListAsync());
+                return View("Result_lesson", Relate(ViewData["ss"].ToString()));
             }
             else
             {
@@ -48,21 +48,97 @@ namespace KnowledgeManage.Controllers
            
         }
 
-        //public async Task<IActionResult> SearchExercise(string searchString)
-        //{
-        //    ViewData["ss"] = searchString;
-        //    return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
-        //}
-        
         public async Task<IActionResult> Result_lesson()
         {
             return View(await _context.Lesson.ToListAsync());
         }
 
-        //public async Task<IActionResult> Result_exercise()
-        //{
-        //    return View(await _context.Exercise.ToListAsync());
-        //}
+
+        public async Task<IActionResult> SearchExercise(string searchString)
+        {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                ViewData["ss"] = "404_null";
+                return View("Result_exercise");
+            }
+            else
+            {
+                ViewData["ss"] = searchString;
+                return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            }
+        }
+
+        public async Task<IActionResult> Result_exercise()
+        {
+            return View(await _context.Exercise.ToListAsync());
+        }
+
+
+
+
+        public async Task<IActionResult> SearchConcept(string searchString)
+        {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                ViewData["ss"] = "404_null";
+                return View("Result_concept");
+            }
+            else
+            {
+                ViewData["ss"] = searchString;
+                return View("Result_concept", await _context.Concept.Where(m => m.Name_Concept.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            }
+        }
+
+        public async Task<IActionResult> Result_concept()
+        {
+            return View(await _context.Concept.ToListAsync());
+        }
+
+
+
+
+        public async Task<IActionResult> SearchConstruct(string searchString)
+        {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                ViewData["ss"] = "404_null";
+                return View("Result_construct");
+            }
+            else
+            {
+                ViewData["ss"] = searchString;
+                return View("Result_construct", await _context.Construct.Where(m => m.Name_Construct.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            }
+        }
+
+        public async Task<IActionResult> Result_construct()
+        {
+            return View(await _context.Construct.ToListAsync());
+        }
+
+
+
+
+        public async Task<IActionResult> SearchOperator(string searchString)
+        {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                ViewData["ss"] = "404_null";
+                return View("Result_operator");
+            }
+            else
+            {
+                ViewData["ss"] = searchString;
+                return View("Result_operator", await _context.Operator.Where(m => m.Name_Operator.ToLower().Contains(searchString.ToLower())).ToListAsync());
+            }
+        }
+
+        public async Task<IActionResult> Result_operator()
+        {
+            return View(await _context.Operator.ToListAsync());
+        }
+
         public List<Lesson> Relate(string link)
         {
 
@@ -119,6 +195,16 @@ namespace KnowledgeManage.Controllers
         public IActionResult I_7()
         {
             return View(Relate("I_7"));
+        }
+
+        public IActionResult I_7_3_1()
+        {
+            return View(Relate("I_7_3_1"));
+        }
+
+        public IActionResult I_7_3_2()
+        {
+            return View(Relate("I_7_3_2"));
         }
     }
 }
