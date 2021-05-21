@@ -1,3 +1,6 @@
+# Link_TrangWEB:
+Sau đây là link của trang web sử dụng server của azure, có thể sau này không hoạt động do sử dụng mail sinh viên.
+link: https://knowledgemanage20210506080613.azurewebsites.net/
 # Link_Demo_on_Youtube:
 Demo 01: https://youtu.be/kP1g4bKPcgs  
 Demo 02: https://youtu.be/KosIhd5m0l8  
@@ -6,13 +9,15 @@ Demo 04: https://youtu.be/aRqh5lbm4D4
 Demo 05: https://youtu.be/uf6Q7ErWuyU  
 Demo 06: https://youtu.be/jPkWU9jpMPM  
 Demo 07: https://youtu.be/OpUKrlvSiug  
+Demo 08: https://youtu.be/WyCQUSZ9k_4
+Demo 09: https://youtu.be/ED2dv6YfTmU
 # DoAn_2021
 Đồ án tốt nghiệp 
 
 MÔ TẢ ĐỒ ÁN TỐT NGHIỆP
 Họ và tên: NGUYỄN TRUNG KIÊN	Chuyên ngành: Công nghệ thông tin
 MSSV: 5851071038	Lớp: CQ.58.CNTT
-1.	Tên đề tài đồ án tốt nghiệp: Xây dựng mô hình tra cứu kiến thức môn học “cấu trúc dữ liệu và giải thuật”.
+1.	Tên đề tài đồ án tốt nghiệp: Xây dựng mô hình tra cứu kiến thức môn học “cấu trúc dữ liệu và giải thuật” + Nghiên cứu Chatbot tích hợp vào trong trang web.
 2.	Mục đích đồ án tốt nghiệp: Xây dựng một trang web giúp những sinh viên nói chung và sinh viên ngành công nghệ thông tin nói riêng tra cứu được kiến thức môn học cấu trúc dữ liệu và giải thuật.
 3.	Nội dụng và phạm vi đề tài:
     −	Tiến hành tổng hợp, biểu diễn những mối quan hệ liên quan đến kiến thức được đề cập nhằm gợi ý cho người tra cứu.
