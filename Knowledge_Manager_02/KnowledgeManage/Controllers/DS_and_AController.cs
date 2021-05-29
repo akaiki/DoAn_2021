@@ -17,22 +17,20 @@ namespace KnowledgeManage.Controllers
         {
             _context = context;
         }
-
         public IActionResult Menu()
         {
             return View();
         }
         public IActionResult Content()
         {
-
             return View(Relate("ContentView"));
         }
-
         public IActionResult Search()
         {
             return View(Relate("SearchView"));
         }
 
+        /*Tìm kiếm chủ đề bài học*/
         public async Task<IActionResult> SearchLesson(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
@@ -53,7 +51,7 @@ namespace KnowledgeManage.Controllers
             return View(await _context.Lesson.ToListAsync());
         }
 
-
+        /*Tìm kiếm bài tập*/
         public async Task<IActionResult> SearchExercise(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
@@ -67,15 +65,13 @@ namespace KnowledgeManage.Controllers
                 return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
         }
-
         public async Task<IActionResult> Result_exercise()
         {
             return View(await _context.Exercise.ToListAsync());
         }
 
 
-
-
+        /*Tìm kiếm khái niệm*/
         public async Task<IActionResult> SearchConcept(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
@@ -89,15 +85,12 @@ namespace KnowledgeManage.Controllers
                 return View("Result_concept", await _context.Concept.Where(m => m.Name_Concept.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
         }
-
         public async Task<IActionResult> Result_concept()
         {
             return View(await _context.Concept.ToListAsync());
         }
 
-
-
-
+        /*Tìm kiếm cách biểu diễn/ cài đặt*/
         public async Task<IActionResult> SearchConstruct(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
@@ -111,15 +104,12 @@ namespace KnowledgeManage.Controllers
                 return View("Result_construct", await _context.Construct.Where(m => m.Name_Construct.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
         }
-
         public async Task<IActionResult> Result_construct()
         {
             return View(await _context.Construct.ToListAsync());
         }
 
-
-
-
+        /*Tìm kiếm toán tử*/
         public async Task<IActionResult> SearchOperator(string searchString)
         {
             if (String.IsNullOrEmpty(searchString))
@@ -133,7 +123,6 @@ namespace KnowledgeManage.Controllers
                 return View("Result_operator", await _context.Operator.Where(m => m.Name_Operator.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
         }
-
         public async Task<IActionResult> Result_operator()
         {
             return View(await _context.Operator.ToListAsync());
@@ -151,60 +140,81 @@ namespace KnowledgeManage.Controllers
 
             return kq.ToList();
         }
-
         public IActionResult I()
         {
             return View(Relate("I"));
         }
-
         public IActionResult I_2()
         {
             return View(Relate("I_2"));
         }
-
         public IActionResult I_3()
         {
             return View(Relate("I_3"));
         }
-
         public IActionResult I_4()
         {
             return View(Relate("I_4"));
         }
-
         public IActionResult I_5()
         {
             return View(Relate("I_5"));
         }
-
         public IActionResult I_6()
         {
             return View(Relate("I_6"));
         }
-
         public IActionResult I_6_4()
         {
             return View(Relate("I_6_4"));
         }
-
         public IActionResult I_6_5()
         {
             return View(Relate("I_6_5"));
         }
-
         public IActionResult I_7()
         {
             return View(Relate("I_7"));
         }
-
         public IActionResult I_7_3_1()
         {
             return View(Relate("I_7_3_1"));
         }
-
         public IActionResult I_7_3_2()
         {
             return View(Relate("I_7_3_2"));
+        }
+        public IActionResult III_1()
+        {
+            return View(Relate("III_1"));
+        }
+        public IActionResult III_2()
+        {
+            return View(Relate("III_2"));
+        }
+        public IActionResult III_3()
+        {
+            return View(Relate("III_3"));
+        }
+        public IActionResult III_4()
+        {
+            return View(Relate("III_4"));
+        }
+        public IActionResult III_5()
+        {
+            return View(Relate("III_5"));
+        }
+        public IActionResult III_6()
+        {
+            return View(Relate("III_6"));
+        }
+        public IActionResult III_7()
+        {
+            return View(Relate("III_7"));
+        }
+        public IActionResult III_8()
+        {
+            return View(Relate("III_8"));
         }
     }
 }

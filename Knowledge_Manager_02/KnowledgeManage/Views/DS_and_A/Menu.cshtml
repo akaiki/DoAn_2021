@@ -8,6 +8,7 @@
 
 
 <style>
+
     p {
         text-align: justify;
         
@@ -86,13 +87,13 @@
             <input name="searchString" class="form-control" placeholder="Nhập chủ đề" style="width:60%" type="search" />
             <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
         </form>
-        <a class="p-2 nav-link " asp-controller="DS_and_a" asp-action="Search" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Tìm kiếm theo các đề mục khác</b></a>
+        <a class="p-2 nav-link border-right border-dark" asp-controller="DS_and_a" asp-action="Search" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5;"><b>Tìm kiếm theo các đề mục khác</b></a>
         <a class="p-2 nav-link " data-toggle="collapse" data-target="#related" href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Hiển thị kiến thức liên quan</b></a>
     </div>
 
-    <div style="float:left; width: 100%" class="body-content d-flex">
-        <div class="collapse flex-fill bg-light border" id="menu" style="float: left;overflow:visible !important;">
-            <div style="overflow-y: scroll; overflow-x: hidden; height:85vh; width: 30vw ">
+    <div style="float:left; width: 100%" class="body-content d-flex" id="mainpage">
+        <div class="collapse flex-fill bg-light border" id="menu" style="float: left;overflow:visible !important;" data-parent="#mainpage">
+            <div style="overflow-y: scroll; overflow-x: hidden; height:85vh; width: 400px ">
                 <ul>
                     <li>
                         <a href="I">I - CẤU TRÚC DỮ LIỆU</a>
@@ -275,7 +276,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="III">III - BÀI TẬP VÍ DỤ</a>
+                        <a href="#">III - BÀI TẬP VÍ DỤ</a>
                         <span class="caret"></span>
                         <ul class="nested">
                             <li>
@@ -297,19 +298,10 @@
                                 <a href="III_6">6. Bài tập về cây nhị phân</a>
                             </li>
                             <li>
-                                <a href="III_7">7. Bài tập về cây AVL</a>
+                                <a href="III_7">7. Bài tập về cây Heap</a>
                             </li>
                             <li>
-                                <a href="III_8">8. Bài tập về cây Heap</a>
-                            </li>
-                            <li>
-                                <a href="III_9">9. Bài tập về cây khung</a>
-                            </li>
-                            <li>
-                                <a href="III_10">10. Bài tập tìm kiếm theo chiều sâu</a>
-                            </li>
-                            <li>
-                                <a href="III_11">11. Bài tập tìm kiếm theo chiều rộng</a>
+                                <a href="III_8">8. Bài tập về đồ thị</a>
                             </li>
 
                         </ul>
@@ -331,9 +323,8 @@
                 <br />
             </div>
         </div>
-        <div class="collapse flex-fill bg-light border" id="related" style="float: left; overflow:visible !important; ">
-            <div style="overflow-y: scroll; overflow-x: hidden; width: 25vw">
-
+        <div class="collapse flex-fill bg-light border" id="related" style="float: left; overflow:visible !important;" data-parent="#mainpage">
+            <div style="overflow-y: scroll; overflow-x: hidden; width: 330px">
 
                 <ul>
                     @foreach (var i in Model)

@@ -12,6 +12,7 @@
     <style>
         df-messenger {
             --df-messenger-button-titlebar-color: #ffb5e8;
+           
         }
     </style>
 </head>
@@ -21,7 +22,8 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #ffb5e8">
             <div class="container">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: black">LEARNICORN</a>
-                <a class="nav-link border-left border-dark" asp-controller="DS_and_A" asp-action="Content" style="color: black">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</a>
+                <a class="nav-link border-left border-dark" asp-controller="DS_and_A" asp-action="Content" style="color: black; float:left ">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</a>
+                    
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
@@ -61,7 +63,8 @@
             <df-messenger intent="WELCOME"
                           chat-title="Mini Learnicorn"
                           agent-id="4fe1e625-581d-4135-b9cf-7f27af7052a7"
-                          language-code="en"></df-messenger>
+                          language-code="en"
+                          chat-icon="https://img.icons8.com/dusk/2x/unicorn.png"></df-messenger>
         </footer>
     </div>
     
