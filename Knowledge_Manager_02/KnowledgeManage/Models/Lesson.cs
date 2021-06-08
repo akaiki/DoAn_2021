@@ -18,7 +18,6 @@ namespace KnowledgeManage.Models
 
         public ICollection<Concept> Concept { get; set; }
         public ICollection<Construct> Construct { get; set; }
-        public ICollection<Property> Property { get; set; }
         public ICollection<Operator> Operator { get; set; }
         public ICollection<Exercise> Exercise { get; set; }
 

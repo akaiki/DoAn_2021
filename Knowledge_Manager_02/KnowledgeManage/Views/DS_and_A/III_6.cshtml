@@ -4,27 +4,319 @@
     Layout = "~/Views/DS_and_A/Menu.cshtml";
 }
 
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align:center;
+        
+    }
+</style>
 
-<div id="accordion">
-    <h1>BÀI TẬP VỀ CÂY NHỊ PHÂN</h1>
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ CÂY</h1>
     <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
-    <h3>Bài tập phổ biến</h3>
+    <h3>Bài tập cơ bản của cấu trúc dữ liệu cây</h3>
     <div id="accordion1">
         <div class="card">
             <div class="card-header">
                 <a class="card-link" data-toggle="collapse" href="#Bai1">
-                    Bài 1
+                    Bài 1. Hãy áp dụng phương pháp duyệt tiền thứ tự cho cây sau:
+                    <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
                 </a>
             </div>
             <div id="Bai1" class="collapse" data-parent="#accordion">
+                <br />
+                <p>Áp dụng phương pháp <a href="I_6#Preorder">duyệt tiền thứ tự</a> ta thực hiện các bước:</p>
+                <p><b>Bước 1:</b> Thăm nút gốc</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_1.jpg" />
+                <br />
+                <p><b>Bước 2:</b> Thăm cây con đầu tiên bên trái sang theo tiền thứ tự. Gọi là cây con B do có nút gốc là B</p>
+                <p>- - - <b>Bước 2.1:</b> Thăm nút gốc của cây con B</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_2.jpg" />
+                <br />
+                <p>- - - <b>Bước 2.2:</b> Thăm cây con đầu tiên bên trái sang theo tiền thứ tự. Do là nút gốc nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_3.jpg" />
+                <br />
+                <p>- - - <b>Bước 2.3:</b> Thăm cây kế tiếp theo tiền thứ tự. Do là nút gốc nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_4.jpg" />
+                <br />
+                <p><b>Bước 3:</b> Thăm cây con kế tiếp theo tiền thứ tự. Do là nút gốc nên ta duyệt</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_5.jpg" />
+                <br />
+                <p><b>Bước 4:</b> Thăm cây con kế tiếp theo tiền thứ tự. Gọi là cây con D do có nút gốc là D</p>
+                <p>- - - <b>Bước 4.1:</b> Thăm nút gốc của cây con D</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_6.jpg" />
+                <br />
+                <p>- - - <b>Bước 4.2:</b> Thăm cây con đầu tiên bên trái sang theo tiền thứ tự. Do là nút gốc nên ta duyệt</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_7.jpg" />
+                <br />
+                <p>- - - <b>Bước 4.3:</b> Thăm cây con kế tiếp theo tiền thứ tự. Gọi cây con H có nút gốc là H</p>
+                <p>- - - - - -  <b>Bước 4.3.1:</b> Thăm nút gốc của cây con H</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_8.jpg" />
+                <br />
+                <p>- - - - - -  <b>Bước 4.3.2:</b> Thăm cây con đầu tiên bên trái sang theo tiền thứ tự. Do là nút gốc nên ta duyệt</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_9.jpg" />
+                <br />
+                <p>- - - - - -  <b>Bước 4.3.2:</b> Thăm cây con kế tiếp theo tiền thứ tự. Do là nút gốc nên ta duyệt</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_10.jpg" />
+                <br />
+                <p>- - - <b>Bước 4.4:</b> Thăm cây kế tiếp theo tiền thứ tự. Do là nút gốc nên ta duyệt</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Pre_11.jpg" />
+                <br />
+                <p>Vậy, ta có thứ tự duyệt cho cây là: <b>A &rarr; B &rarr; E &rarr; F &rarr; C &rarr; D &rarr; G &rarr; H &rarr; J &rarr; K &rarr; I</b></p>
+                <br />
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Hãy áp dụng phương pháp duyệt trung thứ tự cho cây sau:
+                    <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
+                </a>
+            </div>
+            <div id="Bai2" class="collapse" data-parent="#accordion">
+                <br />
+                <p>Áp dụng phương pháp duyệt <a href="I_6#Inorder">trung thứ tự</a>, ta thực hiện các bước duyệt sau:</p>
+                <p><b>Bước 1: </b>Thăm cây con đầu tiên bên trái theo phương pháp trung thứ tự. Theo cây đề bài cho, cây con đầu tiên bên trái có nút gốc B, ta tạm gọi là cây B. Duyệt cây B theo phương pháp trung thứ tự, ta có:</p>
+                <p>- - - <b>Bước 1.1: </b>Trong cây con B, ta duyệt cây con đầu tiên bên trái. Do đó là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_1.jpg" />
+                <br />
+                <p>- - - <b>Bước 1.2: </b>Duyệt nút gốc của cây con B</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_2.jpg" />
+                <br />
+                <p>- - - <b>Bước 1.3: </b>Duyệt các cây con tiếp theo. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_3.jpg" />
+                <br />
+                <p><b>Bước 2: </b>Thăm nút gốc A</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_4.jpg" />
+                <br />
+                <p><b>Thăm cây con tiếp theo. Do là nút lá nên ta duyệt:</b></p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_5.jpg" />
+                <br />
+                <p><b>Bước 3: </b>Thăm cây con kế tiếp theo phương pháp trung thứ tự. Do có nút gốc D, ta gọi là cây con D. Thực hiện duyệt cây con D theo phương pháp trung thứ tự, ta có:</p>
+                <p>- - - <b>Bước 3.1: </b>Thăm cây con đầu tiên bên trái của cây con D. Do là nút gốc nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_6.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.2: </b>Duyệt nút gốc D</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_7.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.3: </b>Thăm cây con kế tiếp của cây con D theo phương pháp trung thứ tự. Do có nút gốc H, ta gọi cây con H. Duyệt cây con H theo phương pháp trung thứ tự, ta có:</p>
+                <p>- - - - - - <b>Bước 3.3.1: </b>Thăm cây con đầu tiên bên trái theo phương pháp trung thứ tự. Do là nút gốc nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_8.jpg" />
+                <br />
+                <p>- - - - - - <b>Bước 3.3.2: </b>Thăm nút gốc H</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_9.jpg" />
+                <br />
+                <p>- - - - - - <b>Bước 3.3.3: </b>Thăm cây kế tiếp bên trái theo phương pháp trung thứ tự. do là nút gốc nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_10.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.4: </b>Duyệt cây con kế theo phương pháp trung thứ tự, do là nút lá nên ta duyệt:</p>
+                <br />
+                <p>Vậy, ta có thứ tự duyệt cho cây là: <b>E &rarr; B &rarr; F &rarr; A &rarr; C &rarr; G &rarr; D &rarr; J &rarr; H &rarr; K &rarr; I</b></p>
+                <img src="~/Image/BaiTapCay/DuyetCay/In_11.jpg" />
+                <br />
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Hãy áp dụng phương pháp duyệt hậu thứ tự cho cây sau:
+                    <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
+                </a>
+            </div>
+            <div id="Bai3" class="collapse" data-parent="#accordion">
+                <br />
+                <p>Áp dụng phương pháp duyệt <a href="I_6#Postorder">Hậu thứ tự</a>, ta thực hiện các bước duyệt sau: </p>
+                <p><b>Bước 1:</b> Thăm cây con đầu tiên bên trái theo phương pháp hậu thứ tự. Cây con có nút gốc là B, ta gọi là cây con B. Tiến hành duyệt cây con B:</p>
+                <p>- - - <b>Bước 1.1:</b> Trong cây con B, duyệt cây con đầu tiên bên trái theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_1.jpg" />
+                <br />
+                <p>- - - <b>Bước 1.2:</b> Duyệt cây con kế tiếp theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_2.jpg" />
+                <br />
+                <p>- - - <b>Bước 1.3:</b> Duyệt nút gốc của cây con B</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_3.jpg" />
+                <br />
+                <p><b>Bước 2:</b> Duyệt cây kế tiếp theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_4.jpg" />
+                <br />
+                <p><b>Bước 3:</b> Duyệt cây kế tiếp theo phương pháp hậu thứ tự. Do có nút gốc D, là gọi là cây con D. Duyệt cây con D:</p>
+                <p>- - - <b>Bước 3.1:</b>Trong cây con D, duyệt cây con đầu tiên bên trái theo phương pháp duyệt hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_5.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.2:</b> Duyệt cây con kế tiếp theo phương pháp duyệt hậu thứ tự. Do có nút gốc H nên ta gọi là cây con H. Duyệt cây con H:</p>
+                <p>- - - - - - <b>Bước 3.2.1:</b> Trong cây con H, duyệt cây con đầu tiên bên trái theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_6.jpg" />
+                <br />
+                <p>- - - - - - <b>Bước 3.2.2:</b> Duyệt cây con kế tiếp theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_7.jpg" />
+                <br />
+                <p>- - - - - - <b>Bước 3.2.3:</b> Duyệt nút gốc của cây con H</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_8.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.3:</b> Duyệt cây kế tiếp theo phương pháp hậu thứ tự. Do là nút lá nên ta duyệt:</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_9.jpg" />
+                <br />
+                <p>- - - <b>Bước 3.4:</b> Duyệt nút gốc của cây con D</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_10.jpg" />
+                <br />
+                <p><b>Bước 4:</b> Duyệt nút gốc A</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/Post_11.jpg" />
+                <br />
+                <p>Vậy, ta có thứ tự duyệt cho cây là: <b>E &rarr; F &rarr; B &rarr; C &rarr; G &rarr; J &rarr; K &rarr; H &rarr; I &rarr; D &rarr; A</b></p>
+                <br />
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập Cây nhị phân</h3>
+    <div id="accordion1">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4: Tạo cây nhị phân tìm kiếm với các node nhập vào theo thứ tự: 8, 3, 5, 2, 20, 11, 30, 9, 18, 4. Sau đó lần lượt hủy nút 5 và 20
+                </a>
+            </div>
+            <div id="Bai4" class="collapse" data-parent="#accordion">
+                <p>Cây nhị phân tìm kiếm là một <a href="I_6_4">Cây nhị phân</a> có nút bên trái luôn bé hơn nút gốc và nút bên phải luôn lớn hơn nút gốc. Áp dụng tính chất này ta có thể xây dựng được cây nhị phân tìm kiếm từ mảng cho trước như sau:</p>
+                <p>Duyệt mảng từ trái sang phải, ta lần lượt thực hiện các bước</p>
+                <p><b>Bước 1:</b> Tạo nút mới: 8 là nút gốc</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_1.jpg" />
+                <br />
+                <p><b>Bước 2:</b> Do 3 < 8 nên ta tạo 3 là nút con trái</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_2.jpg" />
+                <br />
+                <p><b>Bước 3: </b>Do 5 < 8 nên ta không thể chèn 5 sang nút con bên phải của 8, mà nút con bên trái của 8 là 3 đã có rồi nên ta tiếp tục duyệt nút con 3. Do 5 > 3 nên 5 sẽ là nút con bên phải của 3</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_3.jpg" />
+                <br />
+                <p><b>Bước 4: </b>Do 2 < 8 nên ta không thể chèn 2 sang nút con bên phải của 8, mà nút con bên trái của 8 là 3 đã có rồi nên ta tiếp tục duyệt nút con 3. Do 2 < 3 nên 2 sẽ là nút con bên trái của 3. Nút con 3 đã đủ các nút con.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_4.jpg" />
+                <br />
+                <p><b>Bước 5: </b>Do 20 > 8 nên 20 sẽ là nút con bên phải của 8. Nút 8 đã đủ 2 con nên ta duyệt các con của nút 8</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_5.jpg" />
+                <br />
+                <p><b>Bước 6: </b>Do 11 < 20 nên 11 sẽ là nút con bên trái của 20.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_6.jpg" />
+                <br />
+                <p><b>Bước 7: </b>Do 30 > 20 nên 30 sẽ là nút con bên phải của 20. Nút 20 đã đủ các nút con</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_7.jpg" />
+                <br />
+                <p><b>Bước 8: </b>Xét các nút con lần lượt từ trái sang phải. Ưu tiên tạo nút con bên trái trước. Ta thấy 9 không thể là nút con bên trái của 2 và 5 nhưng 11 thì thỏa (9 < 11) nên 9 sẽ là nút con bên trái của 11.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_8.jpg" />
+                <br />
+                <p><b>Bước 9: </b>Tương tự như <b>Bước 8</b>, do 18 > 11 nên 18 sẽ là nút con bên phải của 11. Nút 11 đã đủ các nút con.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_9.jpg" />
+                <br />
+                <p><b>Bước 10: </b>Do 4 < 5 nên 4 sẽ là nút con bên trái của 5.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_10.jpg" />
+                <br />
+                <hr />
+                <u><b>Hủy nút 5:</b></u>
+                <p>Nút 5 có 1 cây con là 4:</p>
+                <p> - Lấy cây con duy nhất của 5 là 4 làm cây con của 3.</p>
+                <p> - Hủy nút 5.</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_Xoa5.jpg" />
+                <br />
+                <hr />
+                <u><b>Hủy nút 20:</b></u>
+                <p>Nút 20 có 2 cây con, chọn nút thay thế là nút trái nhất của cây con bên phải:</p>
+                <p> - Chọn nút thay thế 20 là 30.</p>
+                <p> - Gán giá trị nút 30 cho nút 20.</p>
+                <p> - Hủy nút 20</p>
+                <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_Xoa20.jpg" />
+                <br />
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5: Viết hàm tính số nút lá của cây nhị phân T
+                </a>
+            </div>
+            <div id="Bai5" class="collapse" data-parent="#accordion">
 <pre style="overflow: auto; font-family:Consolas" class="card-body">
-    <code>
-        https://tailieu.pro/cay-nhi-phan-trong-c/#2_Cai_dat_cay_nhi_phan_trong_CC
-    </code> 
+<code>
+int GetLeafNum(Tree T){
+    int n = 0;
+    if (T == NULL)
+        return 0;
+    if((T -> pLeft == NULL) && (T -> pRight == NULL))
+        return 1;
+    if (T -> pLeft)
+        n = GetLeafNum(T -> pLeft);
+    if (T -> pRight)
+        n = n + GetLeafNum(T -> pRight);
+    return n;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 6: Tính số nút có khóa lớn hơn x và nhỏ hơn y trong cây nhị phân tìm kiếm T
+                </a>
+            </div>
+            <div id="Bai6" class="collapse" data-parent="#accordion">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int GetRangeNodeNum(Tree T, int x, int y){
+    int n = 0;
+    if (T == NULL)
+        return 0;
+    if (T -> key < x) 
+        n = GetRangeNodeNum(T -> pRight, x, y);
+    else{
+        if (T -> key > y)
+            n = GetRangeNodeNum(T -> pLeft, x, y);
+        else{
+            if ((T -> key != x) && (T -> key != y))
+                n = 1;
+            n = n + GetRangeNodeNum(T -> pLeft, x, y) + GetRangeNodeNum(T -> pRight, x, y);
+        }
+    }
+    return n;
+}
+</code> 
 </pre>
             </div>
         </div>
     </div>
     <hr />
+    <h3>Bài tập Cây heap</h3>
+    <div id="accordion1">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai7">
+                    Bài 7, 8, 9
+                </a>
+            </div>
+            <div id="Bai7" class="collapse" data-parent="#accordion">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+                <code>
+                    some thing
+                </code> 
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
 

@@ -43,7 +43,7 @@ namespace KnowledgeManage.Controllers
                 ViewData["ss"] = searchString;
                 return View("Result_lesson", await _context.Lesson.Where(m => m.Name_Lesson.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
-           
+
         }
 
         public async Task<IActionResult> Result_lesson()
@@ -54,16 +54,8 @@ namespace KnowledgeManage.Controllers
         /*Tìm kiếm bài tập*/
         public async Task<IActionResult> SearchExercise(string searchString)
         {
-            if (String.IsNullOrEmpty(searchString))
-            {
-                ViewData["ss"] = "404_null";
-                return View("Result_exercise");
-            }
-            else
-            {
-                ViewData["ss"] = searchString;
-                return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
-            }
+            ViewData["ss"] = searchString;
+            return View("Result_exercise", await _context.Exercise.Where(m => m.Name_Exercise.ToLower().Contains(searchString.ToLower())).ToListAsync());
         }
         public async Task<IActionResult> Result_exercise()
         {
@@ -74,16 +66,8 @@ namespace KnowledgeManage.Controllers
         /*Tìm kiếm khái niệm*/
         public async Task<IActionResult> SearchConcept(string searchString)
         {
-            if (String.IsNullOrEmpty(searchString))
-            {
-                ViewData["ss"] = "404_null";
-                return View("Result_concept");
-            }
-            else
-            {
-                ViewData["ss"] = searchString;
-                return View("Result_concept", await _context.Concept.Where(m => m.Name_Concept.ToLower().Contains(searchString.ToLower())).ToListAsync());
-            }
+            ViewData["ss"] = searchString;
+            return View("Result_concept", await _context.Concept.Where(m => m.Name_Concept.ToLower().Contains(searchString.ToLower())).ToListAsync());
         }
         public async Task<IActionResult> Result_concept()
         {
@@ -93,16 +77,8 @@ namespace KnowledgeManage.Controllers
         /*Tìm kiếm cách biểu diễn/ cài đặt*/
         public async Task<IActionResult> SearchConstruct(string searchString)
         {
-            if (String.IsNullOrEmpty(searchString))
-            {
-                ViewData["ss"] = "404_null";
-                return View("Result_construct");
-            }
-            else
-            {
-                ViewData["ss"] = searchString;
-                return View("Result_construct", await _context.Construct.Where(m => m.Name_Construct.ToLower().Contains(searchString.ToLower())).ToListAsync());
-            }
+            ViewData["ss"] = searchString;
+            return View("Result_construct", await _context.Construct.Where(m => m.Name_Construct.ToLower().Contains(searchString.ToLower())).ToListAsync());
         }
         public async Task<IActionResult> Result_construct()
         {
@@ -112,34 +88,200 @@ namespace KnowledgeManage.Controllers
         /*Tìm kiếm toán tử*/
         public async Task<IActionResult> SearchOperator(string searchString)
         {
-            if (String.IsNullOrEmpty(searchString))
-            {
-                ViewData["ss"] = "404_null";
-                return View("Result_operator");
-            }
-            else
-            {
-                ViewData["ss"] = searchString;
-                return View("Result_operator", await _context.Operator.Where(m => m.Name_Operator.ToLower().Contains(searchString.ToLower())).ToListAsync());
-            }
+            ViewData["ss"] = searchString;
+            return View("Result_operator", await _context.Operator.Where(m => m.Name_Operator.ToLower().Contains(searchString.ToLower())).ToListAsync());
+
         }
         public async Task<IActionResult> Result_operator()
         {
             return View(await _context.Operator.ToListAsync());
         }
 
-        public List<Lesson> Relate(string link)
+        public IActionResult Result_Multy(string searchString)
+        {
+            ViewData["ss"] = searchString;
+            return View(Result_Something(searchString));
+        }
+
+        public List<Result_Lesson> Result_Something(string searchString)
+        {
+            Result_Lesson reles = new Result_Lesson() { };
+            var les = from l in _context.Lesson
+                      where l.Name_Lesson.Contains(searchString)
+                      select new
+                      {
+                          l.Name_Lesson,
+                          l.Id_Lesson
+                      };
+
+            var les_conc = from cc in _context.Concept
+                           from l in les
+                           where cc.LessonId_Lesson.Equals(l.Id_Lesson)
+                           select new
+                           {
+                               l.Name_Lesson,
+                               l.Id_Lesson,
+                               cc.Name_Concept,
+                               cc.Link_Concept
+                           };
+
+            var les_cons = from cs in _context.Construct
+                           from l in les
+                           where cs.LessonId_Lesson.Equals(l.Id_Lesson)
+                           select new
+                           {
+                               l.Name_Lesson,
+                               l.Id_Lesson,
+                               cs.Name_Construct,
+                               cs.Link_Construct
+                           };
+
+            var les_oper = from op in _context.Operator
+                           from l in les
+                           where op.LessonId_Lesson.Equals(l.Id_Lesson)
+                           select new
+                           {
+                               l.Name_Lesson,
+                               l.Id_Lesson,
+                               op.Name_Operator,
+                               op.Link_Operator
+                           };
+
+            var les_exer = from ex in _context.Exercise
+                           from l in les
+                           where ex.LessonId_Lesson.Equals(l.Id_Lesson)
+                           select new
+                           {
+                               l.Name_Lesson,
+                               l.Id_Lesson,
+                               ex.Name_Exercise,
+                               ex.Link_Exercise
+                           };
+
+            //Construct join in Concept-Lesson
+            var leftjoin1 = from lcc in les_conc
+                            join lcs in les_cons
+                            on lcc.Id_Lesson equals lcs.Id_Lesson into left_1
+                            from l_1 in left_1.DefaultIfEmpty()
+                            select new
+                            {
+                                lcc.Name_Lesson,
+                                lcc.Id_Lesson,
+
+                                lcc.Name_Concept,
+                                lcc.Link_Concept,
+
+                                l_1.Name_Construct,
+                                l_1.Link_Construct
+                            };
+
+            //Opperator join in leftjoin1
+            var leftjoin2 = from left_1 in leftjoin1
+                            join loper in les_oper
+                            on left_1.Id_Lesson equals loper.Id_Lesson into left_2
+                            from l_2 in left_2.DefaultIfEmpty()
+                            select new
+                            {
+                                left_1.Name_Lesson,
+                                left_1.Id_Lesson,
+
+                                left_1.Name_Concept,
+                                left_1.Link_Concept,
+
+                                left_1.Name_Construct,
+                                left_1.Link_Construct,
+
+                                l_2.Name_Operator,
+                                l_2.Link_Operator
+                            };
+
+            //Exercise join in leftjoin2
+            var leftjoin3 = from left_2 in leftjoin2
+                            join lexer in les_exer
+                            on left_2.Id_Lesson equals lexer.Id_Lesson into left_3
+                            from l_3 in left_3.DefaultIfEmpty()
+                            select new
+                            {
+                                left_2.Name_Lesson,
+                                left_2.Id_Lesson,
+
+                                left_2.Name_Concept,
+                                left_2.Link_Concept,
+
+                                left_2.Name_Construct,
+                                left_2.Link_Construct,
+
+                                left_2.Name_Operator,
+                                left_2.Link_Operator,
+
+                                l_3.Name_Exercise,
+                                l_3.Link_Exercise
+                            };
+            var result = from all in leftjoin3
+                         select new Result_Lesson()
+                         {
+                             nameLesson = all.Name_Lesson,
+                             linkLesson = all.Id_Lesson,
+
+                             nameConcept = all.Name_Concept,
+                             linkConcept = all.Link_Concept,
+
+                             nameConstruct = all.Name_Construct,
+                             linkConstruct = all.Link_Construct,
+
+                             nameOperator = all.Name_Operator,
+                             linkOperator = all.Link_Operator,
+
+                             nameExercise = all.Name_Exercise,
+                             linkExercise = all.Link_Exercise
+                         };
+            return result.ToList();
+        }
+
+        //public List<Lesson> Relate(string link)
+        //{
+
+        //    var r = from i in _context.Relationship
+        //            where i.Id_Lesson_A == link
+        //            select i;
+        //    var kq = from ls in _context.Lesson
+        //             join rel in r on ls.Id_Lesson equals rel.Id_Lesson_B
+        //             select ls;
+
+        //    return kq.ToList();
+        //}
+
+        public List<Result_Lesson> Relate(string link)
         {
 
-            var r = from i in _context.Relationship
-                    where i.Id_Lesson_A == link
-                    select i;
-            var kq = from ls in _context.Lesson
-                     join rel in r on ls.Id_Lesson equals rel.Id_Lesson_B
-                     select ls;
+            var rel = from r in _context.Relationship
+                      from l in _context.Lesson
+                      where l.Id_Lesson.Equals(r.Id_Lesson_A) && l.Id_Lesson.Equals(link)
+                      select new
+                      {
+                          r.Id_Lesson_A,
+                          r.Id_Lesson_B,
+                          l.Name_Lesson,
+                      };
 
-            return kq.ToList();
+            var les_rel = from l in _context.Lesson
+                          from re in rel
+                          where l.Id_Lesson.Equals(re.Id_Lesson_B)
+                          select new
+                          {
+                              l.Name_Lesson,
+                              l.Id_Lesson
+                          };
+
+            var result = from lr in les_rel
+                         select new Result_Lesson()
+                         {
+                             nameRel_Lesson = lr.Name_Lesson,
+                             linkRel_Lesson = lr.Id_Lesson
+                         };
+            return result.ToList();
         }
+
         public IActionResult I()
         {
             return View(Relate("I"));

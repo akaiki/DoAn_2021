@@ -18,7 +18,6 @@ namespace KnowledgeManage.Data
         public DbSet<Relationship> Relationship { get; set; }
         public DbSet<Concept> Concept { get; set; }
         public DbSet<Construct> Construct { get; set; }
-        public DbSet<Property> Property { get; set; }
         public DbSet<Operator> Operator { get; set; }
         public DbSet<Exercise> Exercise { get; set; }
 

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<KnowledgeManage.Models.Result_Lesson>
+@{
+    ViewData["Title"] = "Somthing";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<div style="padding-left: 5%; padding-right: 5%; " class=" flex-fill">
+    <div>
+        <h1 style="text-align: center">NỘI DUNG KIẾN THỨC CHO TỪ KHÓA "<span class="text-success">@ViewData["ss"]</span>"</h1>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            <p>Bài học</p>
+                        </th>
+                        <th>
+                            <p>Khái niệm</p>
+                        </th>
+                        <th>
+                            <p>Khởi tạo</p>
+                        </th>
+                        <th>
+                            <p>Toán tử</p>
+                        </th>
+                        <th>
+                            <p>Bài tập</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="@item.linkLesson">@item.nameLesson</a>
+                            </td>
+                            <td>
+                                <a href="@item.linkConcept">@item.nameConcept</a>
+                            </td>
+                            <td>
+                                <a href="@item.linkConstruct">@item.nameConstruct</a>
+                            </td>
+                            <td>
+                                <a href="@item.linkOperator">@item.nameOperator</a>
+                            </td>
+                            <td>
+                                <a href="@item.linkExercise">@item.nameExercise</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        }
+        else
+        {
+            <br />
+            <br />
+            <br />
+            <p style="text-align:center">
+                <b>KHÔNG THẤY KẾT QUẢ TÌM KIẾM CHO "<span class="text-danger">@ViewData["ss"]</span>"!!!!</b>
+            </p>
+        }
+
+
+        <div>
+            <a asp-controller="DS_and_A" asp-action="Content">Trở về trang chính</a>
+        </div>
+    </div>
+</div>

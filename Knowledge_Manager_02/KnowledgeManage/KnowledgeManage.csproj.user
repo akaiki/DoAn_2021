@@ -8,7 +8,6 @@
     <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
     <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
-    <WebStackScaffolding_LayoutPageFile>~/Views/DS_and_A/Menu.cshtml</WebStackScaffolding_LayoutPageFile>
     <WebStackScaffolding_DbContextTypeFullName>KnowledgeManage.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
@@ -20,5 +19,6 @@
     <DevExtremeSelectedDataContextName>
     </DevExtremeSelectedDataContextName>
     <NameOfLastUsedPublishProfile>KnowledgeManage20210506080613 - Web Deploy</NameOfLastUsedPublishProfile>
+    <WebStackScaffolding_LayoutPageFile>~/Views/DS_and_A/Menu.cshtml</WebStackScaffolding_LayoutPageFile>
   </PropertyGroup>
 </Project>

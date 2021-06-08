@@ -12,7 +12,7 @@
     <style>
         df-messenger {
             --df-messenger-button-titlebar-color: #ffb5e8;
-           
+            
         }
     </style>
 </head>
@@ -53,11 +53,6 @@
 
     <div>
         <footer>
-            @*<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-        <df-messenger intent="WELCOME"
-                  chat-title="BOT_CTDL-GT"
-                  agent-id="d36c12e9-2cda-40f5-863b-1ff0a3fedd4c"
-                  language-code="en"></df-messenger>*@
 
             <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
             <df-messenger intent="WELCOME"
@@ -67,7 +62,9 @@
                           chat-icon="https://img.icons8.com/dusk/2x/unicorn.png"></df-messenger>
         </footer>
     </div>
-    
+    <script>
+        setTimeout(function () { document.querySelector("df-messenger").shadowRoot.querySelector("df-messenger-chat").shadowRoot.querySelector("df-messenger-user-input").shadowRoot.querySelector(".input-box-wrapper > input").placeholder = "New placeholder text” }, 1000);
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

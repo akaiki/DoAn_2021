@@ -5,67 +5,54 @@
 }
 
 <div style="height: 100vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: 16px; padding-left: 15%; padding-right: 15%; text-indent: 5%;" class=" flex-fill">
-    <h1>Kết quả tìm kiếm theo đề mục</h1>
-    @if (ViewData["ss"].ToString() == "404_null")
+    <h1 class="bg-light">CÁC ĐỊNH NGHĨA CHO TỪ KHÓA "<span class="text-success">@ViewData["ss"]</span>"</h1>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        <p>Tên khái niệm</p>
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name_Concept)
+                        </td>
+                        <td>
+                            <a class="btn btn-info col-12" href="@item.Link_Concept">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    }
+    else
     {
         <br />
         <br />
         <br />
         <p style="text-align:center">
-            <b>TRƯỜNG TÌM KIẾM RỖNG !!!! VUI LÒNG NHẬP VÀO TRƯỜNG ĐỂ TÌM KIẾM</b>
+            <b>KHÔNG THẤY KẾT QUẢ TÌM KIẾM CHO "<span class="text-danger">@ViewData["ss"]</span>" !!!!</b>
         </p>
     }
-    else
-    {
 
-        @if (Model.Count() > 0)
-        {
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            <p>Tên khái niệm</p>
-                        </th>
-
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name_Concept)
-                            </td>
-                            <td>
-                                <a class="btn btn-info col-12" href="@item.Link_Concept">Details</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            <div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
-        }
-        else
-        {
-            <br />
-            <br />
-            <br />
-            <p style="text-align:center">
-                <b>KHÔNG THẤY KẾT QUẢ TÌM KIẾM CHO "@ViewData["ss"]"!!!!</b>
-            </p>
-        }
-    }
     <div>
         <a asp-controller="DS_and_A" asp-action="Search">Trở về trang tìm kiếm</a>
     </div>

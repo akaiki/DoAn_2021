@@ -175,11 +175,6 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Operators\Details.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Operators\Edit.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Operators\Index.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Properties\Create.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Properties\Delete.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Properties\Details.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Properties\Edit.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Properties\Index.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Create.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Delete.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\Relationships\Details.cshtml.g.cs
@@ -203,4 +198,4 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_5.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_6.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_7.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_8.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_Multy.cshtml.g.cs
