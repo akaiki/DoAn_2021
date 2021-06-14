@@ -28,7 +28,15 @@
                     <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
                 </a>
             </div>
-            <div id="Bai1" class="collapse" data-parent="#accordion">
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Theo phương pháp duyệt tiền thứ tự, ta sẽ duyệt </p>
+                <p>1. Duyệt nút gốc</p>
+                <p>2. Duyệt cây con bên trái theo phương pháp tiền thứ tự</p>
+                <p>3. Duyệt cây con bên phải theo phương pháp tiền thứ tự</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
                 <br />
                 <p>Áp dụng phương pháp <a href="I_6#Preorder">duyệt tiền thứ tự</a> ta thực hiện các bước:</p>
                 <p><b>Bước 1:</b> Thăm nút gốc</p>
@@ -79,7 +87,15 @@
                     <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
                 </a>
             </div>
-            <div id="Bai2" class="collapse" data-parent="#accordion">
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Theo phương pháp duyệt trung thứ tự, ta sẽ duyệt </p>
+                <p>1. Duyệt cây con bên trái theo phương pháp trung thứ tự</p>
+                <p>2. Duyệt nút gốc</p>
+                <p>3. Duyệt cây con bên phải theo phương pháp trung thứ tự</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
                 <br />
                 <p>Áp dụng phương pháp duyệt <a href="I_6#Inorder">trung thứ tự</a>, ta thực hiện các bước duyệt sau:</p>
                 <p><b>Bước 1: </b>Thăm cây con đầu tiên bên trái theo phương pháp trung thứ tự. Theo cây đề bài cho, cây con đầu tiên bên trái có nút gốc B, ta tạm gọi là cây B. Duyệt cây B theo phương pháp trung thứ tự, ta có:</p>
@@ -130,7 +146,15 @@
                     <img src="~/Image/BaiTapCay/DuyetCay/DeBai.jpg" />
                 </a>
             </div>
-            <div id="Bai3" class="collapse" data-parent="#accordion">
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Theo phương pháp duyệt hậu thứ tự, ta sẽ duyệt </p>
+                <p>1. Duyệt cây con bên trái theo phương pháp hậu thứ tự</p>
+                <p>2. Duyệt cây con bên phải theo phương pháp hậu thứ tự</p>
+                <p>3. Duyệt nút gốc</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
                 <br />
                 <p>Áp dụng phương pháp duyệt <a href="I_6#Postorder">Hậu thứ tự</a>, ta thực hiện các bước duyệt sau: </p>
                 <p><b>Bước 1:</b> Thăm cây con đầu tiên bên trái theo phương pháp hậu thứ tự. Cây con có nút gốc là B, ta gọi là cây con B. Tiến hành duyệt cây con B:</p>
@@ -183,8 +207,16 @@
                     Bài 4: Tạo cây nhị phân tìm kiếm với các node nhập vào theo thứ tự: 8, 3, 5, 2, 20, 11, 30, 9, 18, 4. Sau đó lần lượt hủy nút 5 và 20
                 </a>
             </div>
-            <div id="Bai4" class="collapse" data-parent="#accordion">
-                <p>Cây nhị phân tìm kiếm là một <a href="I_6_4">Cây nhị phân</a> có nút bên trái luôn bé hơn nút gốc và nút bên phải luôn lớn hơn nút gốc. Áp dụng tính chất này ta có thể xây dựng được cây nhị phân tìm kiếm từ mảng cho trước như sau:</p>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>- Cây nhị phân tìm kiếm là một cây nhị phân có nút bên trái luôn bé hơn nút gốc và nút bên phải luôn lớn hơn nút gốc. Ưu tiên từ trái qua và các cây có chiều cao thấp hơn</p>
+                <p>- Bằng cách chèn tuần tự các số đã cho theo thứ tự theo nguyên tắc trên ta xây dựng được cây nhị phân tìm kiếm</p>
+                <p>- Hủy nút 5, thay thế bằng nút trái nhất của cây con bên phải</p>
+                <p>- Hủy nút 20, thay thế bằng nút trái nhất của cây con bên phải</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+
                 <p>Duyệt mảng từ trái sang phải, ta lần lượt thực hiện các bước</p>
                 <p><b>Bước 1:</b> Tạo nút mới: 8 là nút gốc</p>
                 <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_1.jpg" />
@@ -217,14 +249,14 @@
                 <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_10.jpg" />
                 <br />
                 <hr />
-                <u><b>Hủy nút 5:</b></u>
+                <p><u><b>Hủy nút 5:</b></u></p>
                 <p>Nút 5 có 1 cây con là 4:</p>
                 <p> - Lấy cây con duy nhất của 5 là 4 làm cây con của 3.</p>
                 <p> - Hủy nút 5.</p>
                 <img src="~/Image/BaiTapCay/DuyetCay/CayNhiPhan1_Xoa5.jpg" />
                 <br />
                 <hr />
-                <u><b>Hủy nút 20:</b></u>
+                <p><u><b>Hủy nút 20:</b></u></p>
                 <p>Nút 20 có 2 cây con, chọn nút thay thế là nút trái nhất của cây con bên phải:</p>
                 <p> - Chọn nút thay thế 20 là 30.</p>
                 <p> - Gán giá trị nút 30 cho nút 20.</p>
@@ -240,7 +272,13 @@
                     Bài 5: Viết hàm tính số nút lá của cây nhị phân T
                 </a>
             </div>
-            <div id="Bai5" class="collapse" data-parent="#accordion">
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>- Nút lá là khi nút đó không có nút con trái và phải.</p>
+                <p>- Thực hiện duyệt cây nhị phân, khi nút không có cả nút con trái và phải thì đó là nút lá. Tăng biến đếm lên để đếm nút lá</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
 <pre style="overflow: auto; font-family:Consolas" class="card-body">
 <code>
 int GetLeafNum(Tree T){
@@ -266,7 +304,15 @@ int GetLeafNum(Tree T){
                     Bài 6: Tính số nút có khóa lớn hơn x và nhỏ hơn y trong cây nhị phân tìm kiếm T
                 </a>
             </div>
-            <div id="Bai6" class="collapse" data-parent="#accordion">
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nếu nút có khóa bé hơn x thì ta xét cây con bên phải của của nút đó.</p>
+                <p>2. Nếu nút có khóa lớn hơn x thì ta xét xem nút có bé hơn y hay không.</p>
+                <p>3. Nếu nút có khóa lớn hơn x và lớn hơn y thì ta xét cây con bên trái của nút đó.</p>
+                <p>4. Nếu nút có khóa lớn hơn x và bé hơn y thì ta đếm số lượng các nút bằng cách số lượng bằng tổng số lượng các nút con bên trái và số lượng các nút con bên phải.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
 <pre style="overflow: auto; font-family:Consolas" class="card-body">
 <code>
 int GetRangeNodeNum(Tree T, int x, int y){
@@ -297,15 +343,168 @@ int GetRangeNodeNum(Tree T, int x, int y){
         <div class="card">
             <div class="card-header">
                 <a class="card-link" data-toggle="collapse" href="#Bai7">
-                    Bài 7, 8, 9
+                    Bài 7: Xây dựng max heap từ một mảng sau: Input = [5, 3, 2, 4, 1, 7, 6]. Sau đó xóa đi nút gốc của cây heap đó.
                 </a>
             </div>
-            <div id="Bai7" class="collapse" data-parent="#accordion">
-<pre style="overflow: auto; font-family:Consolas" class="card-body">
-                <code>
-                    some thing
-                </code> 
-</pre>
+            <div id="Bai7" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Áp dụng xây dựng cây max heap từ bài học</p>
+                <p>3. Lần lượt lấy giá trị của mảng Input để xây dựng các nút của cây heap</p>
+                <p>4. Xóa nút gốc cây heap và thay thế bằng nút lá bên phải có độ cao cao nhất.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <br />
+                <u><b>a. Xây dựng max heap</b></u>
+                <p>Ta có mảng: Input = [5, 3, 2, 4, 1, 7, 6]</p>
+                <p><b>Bước 1: </b>Lấy 5 ra khỏi mảng, tạo nút đầu tiên là 5.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap1.jpg" />
+                <br />
+                <p><b>Bước 2: </b>Lấy 3 ra khỏi mảng, tạo nút tiếp theo (3) là con của nút 5. </p>
+                <p>- Do 3 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap2.jpg" />
+                <br />
+                <p><b>Bước 3: </b>Lấy 2 ra khỏi mảng, tạo nút tiếp theo (2) là con của nút 5. </p>
+                <p>- Do 2 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap3.jpg" />
+                <br />
+                <p><b>Bước 4: </b>Lấy 4 ra khỏi mảng, do nút 5 đã đủ 2 nút con nên ta tạo nút tiếp theo (4) là con của nút 3.</p>
+                <p>- Nhận thấy 4 > 3 (Không thỏa tính chất của max heap) nên ta hoán đổi hai nút 3 và 4.</p>
+                <p>- Do 3 < 4 và 4 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap4.jpg" />
+                <br />
+                <p><b>Bước 5: </b>Lấy 1 ra khỏi mảng, tạo nút tiếp theo (1) là con của nút 4.</p>
+                <p>- Do 1 < 4 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap5.jpg" />
+                <br />
+                <p><b>Bước 6: </b>Lấy 7 ra khỏi mảng, do nút 4 đã đủ 2 nút con nên ta tạo nút tiếp theo (7) là con của nút 2.</p>
+                <p>- Nhận thấy 7 > 2 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 7 và 2.</p>
+                <p>- Nhận thấy 7 > 5 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 7 và 5.</p>
+                <p>- Do 5 < 7 và 2 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên. </p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap6.jpg" />
+                <br />
+                <p><b>Bước 7: </b>Lấy 6 ra khỏi mảng, tạo nút tiếp theo (6) là con của nút 5.</p>
+                <p>- Nhận thấy 6 > 5 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 6 và 5.</p>
+                <p>- Do 6 < 7 và 5 < 6 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap7.jpg" />
+                <br />
+                <hr />
+                <u><b>b. Xóa nút gốc của cây heap đó</b></u>
+                <p><b>Bước 1:</b> Khi xóa nút gốc của cây heap, ta sẽ lấy nút lá bên phải ngoài cùng có chiều cao cao nhất để thay thế. Trong trường hợp này là nút 5.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/heap_root_1.jpg" />
+                <br />
+                <p><b>Bước 2: </b>Thay thế nút 5 làm nút gốc và kiểm tra xem cây mới có thỏa tính chất của cây heap không.</p>
+                <p>- Do nút con (6) là nút con của (5) mà 6 > 5 (không thỏa tính chất của max heap) nên ta hoán đổi vị trí hai nút 6 và 5.</p>
+                <p>- Do 2 < 5 và 5 < 6 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/heap_root_2.jpg" />
+                <br />
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai8">
+                    Bài 8: Cho mảng sau: a = [5, 3, 2, 4, 1, 7, 6]. Thực hiện sắp xếp vun đống từ kiến thức Max heap và <b>Bài 7</b>
+                </a>
+            </div>
+            <div id="Bai8" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Sắp xếp vun đống là hoạt động xây dưng cây heap (Max heap, min heap) rồi sau đó lần lượt lấy gốc của cây heap đó, sau đó sắp xếp lại sao cho vẫn đúng với tính chất cây heap</p>
+                <p>2. Lần lượt lấy các phần tử từ mảng a làm nút của cây heap</p>
+                <p>3. Lần lượt lấy gốc của cây heap ra và sắp xếp lại cho đúng với tính chất max heap</p>
+                <p>4. Trong quá trình xây dựng cây heap, khi các nút đổi chỗ cho nhau thì các phần tử trong mảng đó cũng đổi cho nhau.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <u><b>a. Xây dựng max heap</b></u>
+                <p>Ta có mảng: Input = [5, 3, 2, 4, 1, 7, 6]</p>
+                <p><b>Bước 1: </b>Lấy 5 ra khỏi mảng, tạo nút đầu tiên là 5.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap1.jpg" />
+                <br />
+                <p><b>Bước 2: </b>Lấy 3 ra khỏi mảng, tạo nút tiếp theo (3) là con của nút 5. </p>
+                <p>- Do 3 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap2.jpg" />
+                <br />
+                <p><b>Bước 3: </b>Lấy 2 ra khỏi mảng, tạo nút tiếp theo (2) là con của nút 5. </p>
+                <p>- Do 2 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap3.jpg" />
+                <br />
+                <p><b>Bước 4: </b>Lấy 4 ra khỏi mảng, do nút 5 đã đủ 2 nút con nên ta tạo nút tiếp theo (4) là con của nút 3.</p>
+                <p>- Nhận thấy 4 > 3 (Không thỏa tính chất của max heap) nên ta hoán đổi hai nút 3 và 4.</p>
+                <p>- Mảng sẽ là: a = [5, 4, 2, 3, 1, 7, 6]</p>
+                <p>- Do 3 < 4 và 4 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap4.jpg" />
+                <br />
+                <p><b>Bước 5: </b>Lấy 1 ra khỏi mảng, tạo nút tiếp theo (1) là con của nút 4.</p>
+                <p>- Do 1 < 4 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap5.jpg" />
+                <br />
+                <p><b>Bước 6: </b>Lấy 7 ra khỏi mảng, do nút 4 đã đủ 2 nút con nên ta tạo nút tiếp theo (7) là con của nút 2.</p>
+                <p>- Nhận thấy 7 > 2 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 7 và 2.</p>
+                <p>- Mảng sẽ là: a = [5, 4, 7, 3, 1, 2, 6]</p>
+                <p>- Nhận thấy 7 > 5 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 7 và 5.</p>
+                <p>- Mảng sẽ là: a = [7, 4, 5, 3, 1, 2, 6]</p>
+                <p>- Do 5 < 7 và 2 < 5 (thỏa tính chất của max heap) nên ta giữ nguyên. </p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap6.jpg" />
+                <br />
+                <p><b>Bước 7: </b>Lấy 6 ra khỏi mảng, tạo nút tiếp theo (6) là con của nút 5.</p>
+                <p>- Nhận thấy 6 > 5 (không thỏa tính chất của max heap) nên ta hoán đổi hai nút 6 và 5.</p>
+                <p>- Mảng sẽ là: a = [7, 4, 6, 3, 1, 2, 5]</p>
+                <p>- Do 6 < 7 và 5 < 6 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap7.jpg" />
+                <br />
+                <u><b>b. Lấy ra khỏi mảng</b></u>
+                <p>Từ cây heap sau, ta lần lượt thực hiện các bước:</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_1.jpg" />
+                <br />
+                <p><b>Bước 1: </b>Xóa nút gốc (7) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 7 đó. Thay thế vị trí nút 7 là nút 5.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, 4, 6, 3, 1, 2, 5]</p>
+                <p>- Nhận thấy 5 < 6 (không thỏa tính chất của max heap) nên ta hoán đổi nút 5 và 6.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, 4, 5, 3, 1, 2, 6]</p>
+                <p>- Do 6 > 4 và 6 > 5 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_2.jpg" />
+                <br />
+                <p><b>Bước 2: </b>Xóa nút gốc (6) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 6 đó. Thay thế vị trí nút 6 là 2.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, 4, 5, 3, 1, 2]</p>
+                <p>- Nhận thấy 2 < 5 (không thỏa tính chất của max heap) nên ta hoán đổi nút 2 và 5.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, 4, 2, 3, 1, 5]</p>
+                <p>- Do 5 > 4 và 5 > 2 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_3.jpg" />
+                <br />
+                <p><b>Bước 3: </b>Xóa nút gốc (5) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 5 đó. Thay thế vị trí nút 5 là 1.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, 4, 2, 3, 1]</p>
+                <p>- Nhận thấy 1 < 2 (không thỏa tính chất của max heap) nên ta hoán đổi nút 1 và 2.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, 4, 1, 3, 2]</p>
+                <p>- Nhận thấy 2 < 4 (không thỏa tính chất của max heap) nên ta hoán đổi nút 2 và 4.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, 2, 1, 3, 4]</p>
+                <p>- Nhận thấy 2 < 3 (khôgn thỏa tính chất của max heap) nên ta hoán đổi nút 2 và 3.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, 4, 1, 2, 3]</p>
+                <p>- Do 4 > 3, 4 > 1 và 3 > 2 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_4.jpg" />
+                <br />
+                <p><b>Bước 4: </b>Xóa nút gốc (4) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 4 đó. Thay thế vị trí nút 4 là 2.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, 1, 2, 3]</p>
+                <p>- Nhận thấy 2 < 3 (không thỏa tính chất của max heap) nên ta hoán đổi nút 2 và 3.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, 1, 3, 2]</p>
+                <p>- Do 3 > 2 và 3 > 1 (thỏa tính chất của max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_5.jpg" />
+                <br />
+                <p><b>Bước 5: </b>Xóa nút gốc (3) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 3 đó.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, <b>3</b>, 1, 2]</p>
+                <p>- Nhận thấy 1 < 2 (không thỏa tính chất của max heap) nên ta hoán đổi nút 1 và 2.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, <b>3</b>, 2, 1]</p>
+                <p>- Do 2 > 1 (thỏa tính chất max heap) nên ta giữ nguyên.</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_6.jpg" />
+                <br />
+                <p><b>Bước 6: </b>Xóa nút gốc (2) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 2 đó.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, <b>3</b>, <b>2</b>, 1]</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_7.jpg" />
+                <br />
+                <p><b>Bước 7: </b>Xóa nút gốc (1) ra khỏi cây heap, đồng thời chuyển nút gốc về cuối mảng (đối với tăng dần) hoặc đầu mảng (đối với giảm dần). Cố định vị trí của nút gốc 1 đó.</p>
+                <p>- Mảng sẽ là: a = [<b>7</b>, <b>6</b>, <b>5</b>, <b>4</b>, <b>3</b>, <b>2</b>, <b>1</b>]</p>
+                <img src="~/Image/BaiTapCay/CayHeap/Heap_sort_8.jpg" />
+                <br />
+                <p><b>Kết quả:</b> Mảng đã được sắp xếp thành công.</p>
             </div>
         </div>
     </div>
