@@ -1,0 +1,759 @@
+﻿
+@{
+    ViewData["Title"] = "III_1";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ MẢNG</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <h3>Bài tập phổ biến</h3>
+    <div id="accordion1">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Tính trung bình cộng các số lẻ ở vị trí chẵn
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Tìm các số ở vụ trí chẵn</p>
+                <p>3. Lọc ra các số lẻ ở trên</p>
+                <p>4. Tính trung bình cộng các số vừa tìm được</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>#include &lt; stdio.h &gt;
+
+//Khai báo mảng
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhập mảng từ bàn phím
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    //Tổng các số
+    int sum = 0;
+    //Số lượng các số
+    int count = 0;
+
+    //Duyệt vị trí chẵn của mảng bằng cách duyệt các phần tử từ 1 đến n, mỗi phần tử cách nhau 2 đơn vị
+    for(int i = 1; i < n; i+=2){
+        // Tìm số lẻ
+        if(arr[i] % 2 != 1){
+            ++count;
+            sum += arr[i];
+        }
+    }
+    //Tính trung bình cộng
+    printf("\nTrung binh cong = %f", (float)sum/count);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Tìm số lớn nhất trong mảng vừa nhập
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Gọi max là phần tử đầu tiên</p>
+                <p>3. Duyệt lần lượt các phần tử trên mảng, phần tử nào lớn hơn max thì gán max là phần tử đó.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhập mảng
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    //Gán max là giá trị đầu tiên của mảng
+    int maxNum = arr[0];
+
+    //Lần lượt duyệt các phần tử với mảng, phần tử nào lớn hơn max thì gán max là phần tử đó
+    for(int i = 1;i < n;++i){
+        if(arr[i] > maxNum) maxNum = arr[i];
+    }
+    printf("\nPhan tu lon nhat: %d", maxNum);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Tìm vị trí các số nhỏ nhất trong mảng
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Gọi min là phần tử đầu tiên</p>
+                <p>3. Duyệt lần lượt các phần tử trên mảng, phần tử nào bé hơn min thì gán min là phần tử đó.</p>
+                <p>4. Trả về vị trí của phần tử đó. Lưu ý, vị trí = chỉ mục + 1</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhập mảng
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    
+    // Tìm giá trị nhỏ nhất
+    //Gán min là phần tử đầu tiên
+    int minNum = arr[0];
+    
+    //Lần lượt duyệt mảng, phần tử nào bé hơn min thì min là phần tử đó
+    for(int i = 1;i < n;++i){
+        if(arr[i] < minNum) 
+            minNum = arr[i];
+    }
+    
+    //Trả về vị trí của phần tử nhỏ nhất đầu tiên có mặt trong mảng
+    printf("\nVi tri co gia tri nho nhat la: ");
+    for(int i = 0;i < n;++i){
+        if(arr[i] == minNum) 
+            printf("%d ", i+1);
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Đếm các số chính phương có trong mảng
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Số chính phương là số khi khai căn có kết quả là một số nguyên</p>
+                <p>3. Duyệt từng phần tử trong mảng, khai căn từng phần tử đó. nếu kết quả và kết quả sau khi ép kiểu thành int bằng nhau thì số đó là số chính phương</p>
+                <p>4. Tăng biến đếm lên để đếm số chính phương</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; math.h &gt; // Su dung ham sqrt
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhập mảng
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    // 
+    int scp = 0;
+    float rs;
+
+    //Duyệt mảng tìm số chính phương
+    for(int i = 0;i < n;++i){
+        rs = sqrt(arr[i]);
+        if(rs == (int)rs) 
+            scp += 1;
+    }
+    printf("\nMang co %d so chinh phuong!", scp);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Hiện thị các số nguyên tố có trong mảng lên màn hình
+                </a>
+            </div>
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Số nguyên tố là số chỉ chia hết cho 1 và chính nó</p>
+                <p>3. Lần lượt duyệt trong mảng. Mỗi phần tử sẽ lần lượt chia nó từ 2 cho đến nó. Nếu chia hết thì trả về false (không là số nguyên tố) còn không trả về true (là số nguyên tố)</p>
+                <p>4. Xuất các số nguyên tố ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhap mang
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    // So nguyen to la so chi co 2 uoc duy nhat la 1 va chinh no.
+    // So nguyen to nho nhat la so 2
+    printf("\nCac so nguyen to co trong mang la: ");
+    bool snt;
+    for(int i = 0;i < n;i++){
+        // Kiem tra a[i] co phai so nguyen to
+        // gia su no la so nguyen to
+        // Neu no chia het cho so bat ky trong [2, a[i]] -> khong phai so nguyen to
+        snt = true;
+        for(int j = 2;j < arr[i]; ++j){
+            if(arr[i] % j == 0) 
+                snt = false;
+        }
+        if(arr[i] >= 2 && snt == true) 
+            printf("%d ", arr[i]);
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 6. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Thay thế các phần tử âm có trong mảng bằng giá trị 0
+                </a>
+            </div>
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Duyệt từng phần tử trong mảng</p>
+                <p>3. Nếu phần tử đó âm, ta gán giá trị nó lại bằng 0.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhap mang
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    for(int i = 0;i < n;++i){
+        if(arr[i] < 0) 
+            arr[i] = 0;
+    }
+
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai7">
+                    Bài 7. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Xóa các phần tử âm có trong mảng
+                </a>
+            </div>
+            <div id="Bai7" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Duyệt các phần tử trong mảng</p>
+                <p>3. Nếu phần tử âm thì ta gán giá trị phần tử đó bằng giá trị phần tử sau của nó. Cứ như thế cho hết mảng</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhap mang
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+   for(int i = 0;i < n;++i){
+        if(arr[i] < 0){
+            for(int j = i; j < n-1;j++){
+                arr[j] = arr[j+1];
+            }
+            --n;
+        }
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai8">
+                    Bài 8. Nhập từ bàn phím mảng số nguyên gồm n phần tử. Sắp xếp mảng đã nhập theo thứ tự tăng dần
+                </a>
+            </div>
+            <div id="Bai8" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Duyệt các phần tử trong mảng từ vị trí đầu tiên đến vị trí cuối - 1 </p>
+                <p>3. Trong lúc duyệt phần tử, duyệt các phần tử phía sau nó đến phần tử cuối.</p>
+                <p>4. Nếu phần tử đang duyệt lớn hơn phần tử sau nó thì ta hoán đổi vị trí chúng</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+const int MAX = 100000;
+int arr[MAX];
+ 
+int main(){
+    int n;
+    printf("\nNhap so luong phan tu n = ");
+    scanf("%d", &n);
+    
+    // Nhap mang
+    for(int i = 0;i < n; ++i){
+        printf("\nNhap a[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    int tg;
+    for(int i = 0;i < n-1;++i){
+        for(int j = i+1; j < n;++j){
+            if(arr[i] > arr[j]){
+                // Hoan vi
+                tg = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tg;
+            }
+        }
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Nhập/xuất mảng 1 chiều</h3>
+    <div id="accordion2">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai9">
+                    Bài 9. Nhập vào 1 dãy số nguyên. Hiển thị dãy số đó ra màn hình.
+                </a>
+            </div>
+            <div id="Bai9" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Duyệt từng phần tử, in ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[50];
+    int i,n;
+    // Nhap 1 day so nguyen
+    printf("Nhap so phan tu mang: ");
+    scanf("%d",&n);
+    for(i=0; i < n; i++)
+    {
+        scanf("%d",&a[i]);
+    }    
+
+    //Hien thi ra man hinh
+    printf("\nMang vua nhap la:");
+    for(i=0; i < n; i++)
+    {
+        printf("%5d",a[i]);
+    }
+    getch();
+
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập in ra các số nguyên tố trong mảng</h3>
+    <div id="accoridon3">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai10">
+                    Bài 10. Nhập 1 dãy số nguyên đưa ra màn hình các số nguyên tố có trong mảng, vị trí các số đó trong mảng.
+                </a>
+            </div>
+            <div id="Bai10" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Số nguyên tố là số chỉ chia hết cho 1 và chính nó</p>
+                <p>3. Lần lượt duyệt trong mảng. Mỗi phần tử sẽ lần lượt chia nó từ 2 cho đến nó. Nếu chia hết thì trả về false (không là số nguyên tố) còn không trả về true (là số nguyên tố)</p>
+                <p>4. Xuất các vị trí số nguyên tố ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[50];
+    int i,n,j,kt;
+    printf("Nhap so luong phan tu:");
+    scanf("%d",&n);
+    for(i=0; i < n; i++)
+    {
+        scanf("%d",&a[i]);
+    }    
+    printf("\nCac so nguyen to co trong  mang va vi tri cac so do trong mang la:");
+    for(i=0; i < n; i++)
+    {
+        kt=0;
+        for(j=2;j<=a[i]/2;j++)
+        {
+            if(a[i]%j==0)
+            kt=1;    
+        }
+        if(kt==0)
+        printf("\nso nguyen to %d vi tri %d trong mang ", a[i], i );
+    }
+    getch();
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập sắp xếp mảng, tìm trung bình cộng</h3>
+    <p>Nhập một dãy số nguyên không quá 50 phần tử.</p>
+    <div id="accordion4">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai11">
+                    Bài 11. Đưa ra màn hình số lớn nhất có trong dãy và vị trí của nó trong dãy.
+                </a>
+            </div>
+            <div id="Bai11" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Gọi max là phần tử đầu tiên</p>
+                <p>3. Duyệt lần lượt các phần tử trên mảng, phần tử nào lớn hơn max thì gán max là phần tử đó.</p>
+                <p>4. Đưa ra vị trí đầu tiên phần tử đó trong dãy</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[50];
+    int i,n,tg,max,j,s=0; 
+    printf("nhap vao so phan tu: "); 
+    scanf("%d",&n);
+ 
+    max=a[0];
+    for(i=1; i < n; i++)
+    {
+        if( a[i] > max)
+        {
+            max =a[i];
+        }
+    }
+    printf("\nSo lon nhat =%d",max);
+    printf("\nvi tri cua gia tri lon nhat trong day la: ");
+    for(i=0; i < n; i++)
+    {
+        if (a[i] == max)
+        {
+            printf( "%6d", i+1);
+        }
+    }
+    getch();
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai12">
+                    Bài 12. Tính tổng và trung bình cộng các số có trong dãy.
+                </a>
+            </div>
+            <div id="Bai12" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Tính tổng các số vừa tìm được</p>
+                <p>3. Tính trung bình cộng bằng cách chia tổng cho n (số lượng phần tử)</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[50];
+    int i,n,tg,max,j,s=0; 
+    printf("nhap vao so phan tu: "); 
+    scanf("%d",&n);
+
+    for(i=0; i < n; i++)
+    {
+        s = s+a[i];
+    }
+    printf("\nTong cac so trong day la: %d",s);
+    printf("\nTrung binh cong cac so trong day la: %f", (float)s/n);
+    getch();
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập chèn phần tử vào mảng</h3>
+    <div id="accordion5">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai13">
+                    Bài 13. Nhập 1 dãy n số nguyên (0 < n < 30). Và thực hiện:
+                    <ul>
+                        <li>1.Đưa ra màn hình các số chẵn và vị trí số chẵn đó trong dãy. </li>
+                        <li>2.Sắp xếp dãy số theo giá trị các phần tử giảm dần. </li>
+                        <li>3.Chèn số X vào dãy sao cho sau khi chèn giá trị các phần tử vẫn giảm dần (x nhập từ bàn phím).</li>
+                    </ul>
+                </a>
+            </div>
+            <div id="Bai13" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>- Nhập mảng từ bàn phím</p>
+                <b>I - Đưa ra màn hình các số chẵn và vị trí số chẵn đó trong dãy</b>
+                <p>1. Tìm các số ở vụ trí chẵn</p>
+                <p>2. Đưa ra màn hình vị trí các số chẵn</p>
+                <br />
+                <b>II - Sắp xếp dãy số theo giá trị các phần tử giảm dần</b>
+                <p>1. Duyệt các phần tử trong mảng từ vị trí đầu tiên đến vị trí cuối - 1 </p>
+                <p>2. Trong lúc duyệt phần tử, duyệt các phần tử phía sau nó đến phần tử cuối.</p>
+                <p>3. Nếu phần tử đang duyệt bé hơn phần tử sau nó thì ta hoán đổi vị trí chúng</p>
+                
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[30],i,j, n,tg,v,x;
+    printf("Nhap vao so phan tu: "); 
+    scanf("%d", &n);
+    for(i=0; i < n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+                <b>//1.Đưa ra màn hình các số chẵn và vị trí số chẵn đó trong dãy. </b>
+    printf("\nCac so chan trong day va vi tri cac so do trong day la:");
+    for(i=0; i < n; i++)
+    {
+        if( a[i]%2 == 0)
+        {
+            printf("\nso %d dung thu %d trong day", a[i], i+1);
+        }
+    }
+
+
+                <b>//2.Sắp xếp dãy số theo giá trị các phần tử giảm dần. </b>
+    for(i=0; i < n-1; i++)
+    {
+        for(j=i+1; j < n; j++)
+        {
+            if(a[i] < a[j])
+            {
+                tg = a[i];
+                a[i] = a[j];
+                a[j] = tg;
+            }
+        }
+    }
+    
+    printf("\nDay so sau khi sap xep la:");
+    for(i=0; i < n; i++)
+    {
+        printf("%5d",a[i]);
+    }
+
+
+                <b>//3.Chèn số X vào dãy sao cho sau khi chèn gái trị các phần tử vẫn giảm dần(x nhập từ bàn phím).</b>
+    printf("\nNhap gia tri can chen X:"); 
+    scanf("%d", &x);
+    v=0; 
+    i=0;
+    while(a[i]>x)
+    {    
+        i++;
+    } 
+    v=i;    
+    for(i=n-1; i >= v; i--)
+    {
+        a[i+1]=a[i];
+    }
+    a[v]=x;
+    printf("\n Day so sau khi chen la:");
+    for(i=0;i < n+1; i++)
+    {
+        printf("%5d", a[i]);
+    }
+
+    getch();
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập tổng hợp</h3>
+    <div id="accordion6">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai14">
+                    Bài 14. Nhập dãy số nguyên 50 phần tử, đưa ra màn hình trung bình cộng các số chia hết cho 3 có trong dãy. Chèn số X và vị trí thứ k trong dãy (x, k nhập từ bàn phím)
+                </a>
+            </div>
+            <div id="Bai14" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập mảng từ bàn phím</p>
+                <p>2. Tìm các số chia hết cho 3 có trong dãy</p>
+                <p>3. Tính trung bình cộng các số vừa tìm được</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; conio.h &gt;
+int main(){
+    int a[50];
+    int i,n,t=0,k,x,d=0;
+    printf("Nhap vao so phan tu: "); 
+    scanf("%d", &n);
+    for(i=0;i < n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+                <b>//In ra màn hình trung bình cộng các số chia hết cho 3</b>
+    for(i=0;i < n; i++)
+    {
+        if(a[i]%3 == 0)
+        {    
+            t=t+a[i]; 
+            d=d+1;
+        }
+    }
+    if(d==0)    
+    {
+        printf("khong co so chia het cho 3 trong day");
+    }
+    else
+    {
+        printf("TBC so chia het cho 3 trong day la %f", (float)t/d);
+    }
+                <b>//Chèn số X vào vị trí thứ k trong dãy</b>
+    printf("\nNhap gia tri va vi tri can chen x,k= "); 
+    scanf("%d%d", &x,&k);
+    for(i=n-1;i >= k; i--)
+    {
+        a[i+1]=a[i];
+    }
+    a[k]=x;
+    printf("\n Day so sau khi chen la:");
+    for(i=0;i < n+1; i++)
+    {
+        printf("%5d", a[i]);
+    }
+
+    getch();
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewData["Title"] = "III_2";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ MẢNG ĐỘNG</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <h3>Bài tập sử dụng malloc(), calloc(), free(), realloc()</h3>
+    <div id="accordion1">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Xuất ra các phần tử số nguyên đã nhập từ bàn phím, cấp phát động sử dụng malloc():
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo bằng mảng động</p>
+                <p>2. Nhập phần tử từ bàn phím</p>
+                <p>3. Xuất phần tử ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+int main(){
+	int n =0;
+	int *p = NULL;
+
+	printf("Nhap so phan tu:");
+	scanf ("%d", &n);
+
+	//Cap phat bo nho
+	p = (int *)  malloc(n*sizeof(int));
+
+	//Kiem tra cap phat thanh cong
+	if (!p) {
+		printf("Loi!!");
+		exit(1);
+    }
+    for(int i=0; i < n; i++){
+    	printf("Nhap phan tu thu %d: ", i + 1);
+    	scanf("%d", p + i);
+    }
+    printf("Mang da nhap la: [");
+    for (int i=0; i< n; i++){
+        printf((i == n-1) ? "%d]\n" : "%d  " , *(p + i));
+    }
+    free(p); //Giai phong bo nho
+    
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Xuất ra các phần tử số nguyên đã nhập từ bàn phím, cấp phát động sử dụng calloc():
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo bằng mảng động</p>
+                <p>2. Nhập phần tử từ bàn phím</p>
+                <p>3. Xuất phần tử ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+int main(){
+	int n =0;
+	int *p = NULL;
+
+	printf("Nhap so phan tu:");
+	scanf ("%d", &n);
+
+	//Cap phat bo nho
+	p = (int *)  calloc(n, sizeof(int));
+
+	//Kiem tra cap phat thanh cong
+	if (!p) {
+		printf("Loi!!");
+		exit(1);
+    }
+    for(int i=0; i < n; i++){
+    	printf("Nhap phan tu thu %d: ", i + 1);
+    	scanf("%d", p + i);
+    }
+    printf("Mang da nhap la: [");
+    for (int i=0; i< n; i++){
+        printf((i == n-1) ? "%d]\n" : "%d  " , *(p + i));
+    }
+    free(p); //Giai phong bo nho
+    
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Chương trình minh họa sử dụng hàm realloc():
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo bằng mảng động</p>
+                <p>2. Nhập phần tử từ bàn phím</p>
+                <p>3. Xuất phần tử ra màn hình</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+#include &lt; string.h &gt;
+int main(){
+	char *str;
+	
+	//cap phat bo nho
+	if (!(str = (char *) calloc(10, sizeof(char))))
+	{
+	    printf("Loi!!!");
+	    exit(1);
+	}
+	
+	strcpy(str, "trungkien");
+	printf("Chuoi ban dau: %s\n", str);
+	
+	//load cap phat bo nho
+	if(!(str = (char *) realloc(str, 15)))
+	{
+	    printf("Loi!!!");
+	    exit(1);
+	}
+	strcat(str, "101");
+	printf("Chuoi sau: %s\n", str);
+	
+	free(str);
+	
+    return (0);
+
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Bài tập áp dụng</h3>
+    <div id="accordion2">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Nhập vào 2 số nguyên a, b. Tìm Min và Max của 2 số đó. Sử dụng con trỏ để làm.
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Nhập 2 số nguyên từ bàn phím</p>
+                <p>2. Sử dụng con trỏ để tìm số lớn, số bé</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+int main(){
+    int *a, *b;
+    
+    //Khoi tao
+    a = NULL;
+    b = NULL;
+    
+    //Cap phat bo nho
+    a = (int *)malloc(sizeof(int *));
+    b = (int *)malloc(sizeof(int *));
+    
+    printf("Nhap vao a= ");
+    scanf("%d", a); // a đã là con trỏ nên ko cần dấu & nữa
+    
+    printf("Nhap vao b = ");
+    scanf("%d", b);
+    
+    
+    //Tim Min
+    printf("\nMin = %d", *a < *b ? *a : *b);
+    //Tim Max
+    printf("\nMax = %d", *a > *b ? *a : *b);
+    
+    //Giai phong con tro 
+    free(a);
+    free(b);
+    
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5. Tính tổng các phần tử mảng sử dụng con trỏ
+                </a>
+            </div>
+            <div id="Bai5" class="collapse" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo bằng mảng động</p>
+                <p>2. Nhập phần tử từ bàn phím</p>
+                <p>3. Tính tổng các phần tử trong mảng</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+int main() {
+    int n;
+    int *A = NULL;
+
+    int sum = 0;
+    printf("Nhap so phan tu: ");
+    scanf("%d", &n);
+
+    A = (int *)malloc(sizeof(int[n]));
+
+    for (int i = 0; i < n; i++){
+        printf("Nhap so phan tu thu %d: ", i+1);
+        scanf("%d", A + i);
+    }
+
+
+    for (int i = 0; i < n; i++) {
+        sum = sum + *A;
+        A++;
+   }
+
+   printf("Tong cac phan tu cua mang la: %d", sum);
+   return(0);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

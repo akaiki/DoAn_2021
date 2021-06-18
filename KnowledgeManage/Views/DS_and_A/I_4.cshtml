@@ -1,0 +1,323 @@
+﻿
+@{
+    ViewData["Title"] = "I_4";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>CẤU TRÚC DỮ LIỆU NGĂN XẾP</h1>
+    <div id="I_4_1" class="container">
+        <h3>Khái niệm</h3>
+        <p>Ngăn xếp là một dạng đặc biệt của danh sách mà việc bổ sung hay loiaj bỏ một phần tử đều được thực hiện ở 1 đầu của danh sách đưuocj gọi là đỉnh. Nói cách khác, ngăn xếp là 1 cấu trúc dữ liệu có 2 thao tác cơ bản: bổ sung (push) và loại bỏ phần tử (pop), trong đó việc loại bỏ sẽ tiến hành loại phần tử mới nhất được đưa vào danh sách. Chính vì tính chất này mà ngăn xếp còn được gọi là kiểu dữ liệu có nguyên tắc LIFO (Last in first out - Vào sau ra trước).</p>
+        <p>Các ví dụ về lưu trữ kiểu LIFO như của ngăn xếp là: Một chồng sách trên mặt bàn, một chồng đĩa trong hộp,... Khi thêm một cuốn sách vào chồng sách, cuốn sách này sẽ nằm ở trên đỉnh cảu chồng sách. Khi lấy sách ra khỏi chồng sách, cuốn nằm trên cùng sẽ được lấy ra đầu tiên, tức là cuốn mới nhất được thêm vào sẽ là cuốn được lấy ra trước tiên. Tương tự như vậy với ví dụ của chồng đĩa trong hộp.</p>
+    </div>
+    <hr />
+    <div class="container" id="I_4_2">
+        <h3>Biểu diễn</h3>
+        <div>
+            <p>Ví dụ cơ bản cho cấu trúc ngăn xếp ta hãy xét một ngăn xếp ban đầu ở trọng thái rỗng như sau:</p>
+            <img src="~/Image/stack.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Khi thực hiện bổ sung phần tử A, ngăn xếp sẽ có dạng:</p>
+            <img src="~/Image/stack_2.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Tiếp theo là thêm lần lượt B và C vào:</p>
+            <img src="~/Image/stack_3.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Loại bỏ phần tử mới nhất được đưa vào ra khỏi ngăn xếp, ở đây ví dụ là C:</p>
+            <img src="~/Image/stack_4.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Thử đưa phần tử vào ngăn xếp, phần tử mới sẽ được đưa ngay trên phần tử B: </p>
+            <img src="~/Image/stack_5.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <hr />
+            <p>Để hiểu thêm về các hoạt động thêm và đưa phần tử ra ngoài, bạn có thể xem "<a href="#I_4_3">Hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</a>" sẽ được nhắc tới ở phần kế.</p>
+            <p>Do tính chất của ngăn xếp, ngăn xếp có thể được cài đặt bởi 2 kiểu cấu trúc dữ liệu khác:</p>
+            <ul>
+                <li><a href="#NganXep_Bang_Mang">Cài đặt ngăn xếp bảng mảng</a></li>
+                <li><a href="#NganXep_Bang_DSLK">Cài đặt ngăn xếp bằng danh sách liên kết</a></li>
+            </ul>
+            <hr />
+        </div>
+        <div id="NganXep_Bang_Mang">
+            <b>a. Cài đặt ngăn xếp bằng mảng</b>
+            <p>Để cài đặt ngăn xếp bằng bảng, ta sử dụng một mảng 1 chiều s để biểu diễn ngăn xếp. Thiết lập phần tử đầu tiên của mảng là s[0] làm đáy ngăn xếp. Các phần tử tiếp theo được đưa vào ngăn xếp sẽ lần lượt được lưu tại các vị trí s[1], s[2],... Nếu hiện tại ngăn xếp có n phần tử thì s[n-1] sẽ là phần tử mới nhất được đưa vào ngăn xếp. Để lưu trữ đỉnh hiện tại của ngăn xếp, ta sửu dụng 1 con trỏ top. Chẳng hạn nếu ngăn xếp có n phần tử thì top sẽ có giá trị là n-1. Còn khi ngăn xếp rỗng thì ta quy ước top sẽ có giá trị là -1 </p>
+            <img src="~/Image/stack_array.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Nếu có 1 phần tử mới được đưa vào ngăn xếp thì nó sẽ được lưu tại vụ trí kế tiếp trong mảng và giá trị của biến top tăng lên 1. Khi lấy 1 phần tử ra khỏi ngăn xếp, phần tử của mảng tại vị trí top sẽ được lấy ra và biến top giảm đi 1</p>
+            <p>Tuy nhiên vẫn có 2 vấn đề xày ra khi thực hiện cấc thao tác trên trong ngăn xếp.</p>
+            <ul>
+                <li>
+                    <p class="bg-warning">Khi ngăn xếp đã đầy, tức là khi biến top đạt tới phần tử cuối cùng của mảng thì không thể tiếp tục thêm phần tử mới vào mảng</p>
+                </li>
+                <li>
+                    <p class="bg-warning">Khi ngăn xếp rỗng, tức là chưa có phần tử nào, thì ta không thể lấy được phần tử ra từ ngăn xếp.</p>
+                </li>
+            </ul>
+            <p>Ví dụ thao tác khai báo mảng cho 1 ngăn xếp chứa số nguyên với tối đa 100 phần tử như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    #define MAX 100
+    typedef struct {
+        int top;
+        int nut[MAX];
+    } stack;
+//---------------------------------------------//        
+    //Sau đó khởi tạo ngăn xếp ở trạng thái rỗng như sau:
+    void StackInitialize(stack *s){
+        s -> top = -1;
+        return;
+    }</code> </pre>
+            </div><br />
+        </div>
+        <hr />
+        <div id="NganXep_Bang_DSLK">
+            <b>b. Cài đặt ngăn xếp bằng danh sách liên kết</b>
+            <p>Để cài đặt ngăn xếp bằng danh sách liên kết, ta sử dụng 1 danh sách liên kết đơn. Theo tính chất của danh sách liên kết đơn, việc bổ sung và loại bỏ một phần tử khỏi danh sách được thực hiện đươn giản và nhanh nhất khi phần tử đó nằm ở đâu danh sách. Do vậy. ta sẽ chọn cách lưu trữ của ngăn xếp theo thứ tự: phần tử đầu danh sách là đỉnh cảu ngăn xếp, và phần tử cuối danh sách là đáy ngăn xếp. Để bổ sung 1 phần tử vào danh sách, ta tạo ra 1 nút mới và thêm nó vào đầu danh sách. Để lấy 1 phần tử khỏi ngăn xếp, ta chỉ cần lấy giá trị nút đầu tiên và loại nút ra khỏi danh sách.</p>
+            <img src="~/Image/stack_list.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Như vậy, ta có thể thấy rằng ngăn xếp được cài đặt bằng danh sách liên kết có kích thước gần như "vô hạn". Bất kỳ lúc nào ta cũng có thể thêm 1 nút mới và bổ sung vào đỉnh của ngăn xếp.</p>
+            <p>Ví dụ khai báo 1 ngăn xếp bằng danh sách liên kết:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    struct Node {
+        int item;
+        struct Node *next;
+    };
+    typedef struct Node *stacknode;
+    typedef struct {
+        stacknode top;
+    } stack;
+//---------------------------------------------//        
+    //Sau đó khởi tạo ngăn xếp ở trạng thái rỗng như sau:
+    int StackInitialize(stack *s){
+        s -> top = NULL;
+        return;
+    }</code> </pre>
+            </div><br />
+            <img src="~/Image/stack_list_2.jpg" class="zoom" style="text-align:center" />
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_4_3">
+        <h3>Các hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</h3>
+        <p>Các hoạt động cơ bản trên ngăn xếp có thể liên quan tới việc khởi tạo ngăn xếp, sửu dụng nó và sau đó xóa nó. Ngoài các hoạt động cơ bản này, một ngăn xếp có 2 hoạt động nguyên sơ liên quan đến khái niệm, đó là:</p>
+        <ul>
+            <li>
+                <p>Hoạt động push(): Lưu giữ một phần tử trên ngăn xếp</p>
+            </li>
+            <li>
+                <p>Hoạt động pop(): Xóa một phần tử từ ngăn xếp</p>
+            </li>
+        </ul>
+        <p>Khi dữ liệu đã được PUSH lên trên ngăn xếp:</p>
+        <p>Để sử dụng ngăn xếp một cách hiệu quả, chúng ta cũng cần kiểm tra tragnj thái của ngăn xếp. Để phục vụ cho mục đích này, dưới đây là một số tính năng hỗ trợ khác của ngăn xếp:</p>
+        <ul>
+            <li>
+                <p>Hoạt động peek(): lấy phần tử dữ liệu ở trên cùng của ngăn xếp, mà không xóa phần tử này</p>
+            </li>
+            <li>
+                <p>Hoạt động isFull(): kiểm tra xem ngăn xếp đã đầy chưa</p>
+            </li>
+            <li>
+                <p>Hoạt động isEmpty(): Kiểm tra xem ngăn xếp là trống hay không</p>
+            </li>
+        </ul>
+        <p>Do có 2 cách cài đặt ngăn xếp nên từ 2 cách đó ta cũng có 2 cách để thể hiện các hoạt động của ngăn xếp: </p>
+        <ul>
+            <li><a href="#NganXep_HD_Mang">Các hoạt động trên cấu trúc dữ liệu ngăn xếp dựa theo cài đặt bằng mảng</a></li>
+            <li><a href="#NganXep_HD_DSLK">Các hoạt động trên cấu trúc dữ liệu ngăn xếp dựa theo cài đặt bằng danh sách liên kết</a></li>
+        </ul>
+        <hr />
+        <div id="NganXep_HD_Mang">
+            <p><b>Các hoạt động trên cấu trúc dữ liệu ngăn xếp dựa theo cài đặt bằng mảng</b></p>
+            <p>Dựa trên khai báo và khởi tạo bằng mảng cho 1 ngăn xếp chứa các số nguyên với tối đa 100 phần tử như <a href="#NganXep_Bang_Mang">ở trên</a>, ta có các thao tác liên quan sau:</p>
+            <hr />
+            <div id="Mang_isEmpty">
+                <p><b>a. Thao tác kiểm tra ngăn xếp rỗng: (isEmpty())</b></p>
+                <p>Sau đây là code mẫu cho thao tác kiểm tra ngăn xếp rỗng:</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        int StackFull (stack s){
+        return (s.top == -1);
+        //Hàm sẽ trả về true nếu đúng là giá trị của top là -1 (Ngăn xếp mảng rỗng).
+        //Hàm sẽ trả về false nếu giá trị của top khác -1 .
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <div id="Mang_isFull">
+                <p><b>b. Thao tác kiểm tra ngăn xếp đầy (isFull())</b></p>
+                <p>Sau đây là code mẫu cho thao tác kiểm tra ngăn xếp đầy:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+    int StackEmpty (stack s){
+        return (s.top == MAX - 1);
+        //Hàm sẽ trả về true nếu đúng là giá trị của top là vị trí cuối của mảng với MAX là độ lớn của mảng.
+        //Hàm sẽ trả về false nếu giá trị của top < MAX - 1 nghĩa là mảng chưa đầy .
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <div id="Mang_Push">
+                <p><b>c. Thao tác bổ sung 1 phần tử vào ngăn xếp (Push())</b></p>
+                <p>Sau đây là code mẫu cho thao tác bổ sung phần tử x vào ngăn xếp:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+    int Push(stack *s, int x){
+        // Nếu Stack đẫ đầy thì không thể thêm nữa (vì đây là ngăn xếp được tạo từ mảng tĩnh)
+        if (StackFull (*s)){
+            printf ("Ngan xep day!");
+            return;
+        } else {
+            // Do stack chưa đầy nên ta có thể tăng vị trí top lên 1 để đưa thêm vào 
+            s -> top ++;
+            // Vì tính chất của ngăn xếp, khi chèn vào thì ta chỉ chèn vào top
+            s -> nut[s -> top] = x;
+            return;
+        }
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <div id="Mang_Pop">
+                <p><b>d. Thao tác lấy 1 phần tử khỏi ngăn xếp (Pop())</b></p>
+                <p>Sau đây là code mẫu cho thao tác lấy phần tử ra khỏi ngăn xếp:</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+                int Pop(stack *s){
+        // Nếu Stack không rỗng thì ta mới có thể lấy giá trị ra
+        if (StackEmpty(*s)){
+            printf ("Ngan xep rong!");
+            return;
+        } else {
+            //Do top là giá trị vị trí của nút cuối cùng được thêm vào
+            return s->nut[s ->top];
+        }
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <p>Hạn chế của việc cài dặt ngăn xếp bằng mảng, cũng như hạn chế của <a href="I_2">cấu trúc dữ liệu mảng</a> là ta cần phải biết kích thước tối đa của ngăn xếp (Giá trị MAX trong khai báo <a href="#NganXep_Bang_Mang">ở trên</a> ). Điều này không phải lúc nào cũng xác định được và nếu ta chọn một giá trị bất kỳ thì có thể dẫn đến lãng phí bộ nhớ nếu kích thước quá thừa so với yêu cầu hoặc nếu thiếu thì sẽ dẫn tới chương trình có thể không hoạt động được.</p>
+        </div>
+        <hr />
+        <div id="NganXep_HD_DSLK">
+            <p><b>Các hoạt động trên cấu trúc dữ liệu ngăn xếp dựa theo cài đặt bằng danh sách liên kết</b></p>
+            <p>Dựa trên khai báo và khởi tạo bằng mảng cho 1 ngăn xếp chứa các số nguyên với tối đa 100 phần tử như <a href="#NganXep_Bang_DSLK">ở trên</a>, ta có các thao tác liên quan sau:</p>
+            <hr />
+            <div id="DSLK_isEmpty">
+                <p><b>a. Thao tác kiểm tra ngăn xếp rỗng (isEmpty())</b></p>
+                <p>Sau đây là code mẫu cho thao tác kiểm tra xem ngăn xếp có rỗng không:</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        int StackEmpty(stack s){
+        return (s.top == NULL)
+        //Hàm trả về true nếu top là null
+        //Hàm trả về false nếu ngược lại
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <div id="DSLK_Push">
+                <p><b>b. Thao tác bổ sung 1 phần tử vào ngăn xếp (Push())</b></p>
+                <p>Do tính chất của ngăn xếp, việc thêm một node vào ngăn xếp cũng có nghĩa là thêm vào đầu hoặc cuối danh sách tùy theo việc bạn định nghĩa nó.</p>
+                <p>Sau đây là các bước thực hiện thêm một phần tử vào đầu ngăn xếp bằng danh sách liên kết:</p>
+                <p>Giả sử ta có một ngăn xếp được biểu diễn bằng ngăn xếp như sau:</p>
+                <img src="~/Image/stack_dslk_push_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B1: Khởi tạo và gán giá trị x vào node mới p</p>
+                <img src="~/Image/stack_dslk_push_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Trỏ con trỏ next của p tới đỉnh ngăn xếp, nghĩa là next của p trỏ tới nút top</p>
+                <img src="~/Image/stack_dslk_push_3.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B3: chuyển con trỏ top sang p</p>
+                <img src="~/Image/stack_dslk_push_4.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Sau đây là code mẫu cho thao tác bổ sung phần tử vào đầu ngăn xếp</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        Push(stack *s, int x){
+        //Khởi tạo node mới p
+        stacknode p;
+        p = (stacknode) malloc (sizeof (struct node));
+        //Gán giá trị x cho node p
+        p -> item = x;
+        //Trỏ con trỏ next của p tới đỉnh của ngăn xếp
+        p -> next = s -> top;
+        //Chuyển con trỏ top sang p
+        s -> top = p;
+        return ;
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+            <div id="DSLK_Pop">
+                <p><b>c. Thao tác lấy 1 phần tử ra khỏi ngăn xếp (Pop())</b></p>
+                <p>Do tính chất của ngăn xếp, việc lấy phần tử ra khỏi ngăn xếp khởi tạo bằng danh sách liên kết nghĩa là lấy phần tử đầu tiên trong ngăn xếp:</p>
+                <p>Sau đây là các bước để tiến hành lấy phần tử ra khỏi ngăn xếp:</p>
+                <p>Giả sử ta có ngăn xếp biểu diễn bởi danh sách liên kết như sau:</p>
+                <img src="~/Image/stack_dslk_push_1.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B1: Gọi p là node cần pop, cho trỏ con trỏ top đến node kế tiếp của p</p>
+                <img src="~/Image/stack_dslk_pop_2.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>B2: Đỉnh mới sẽ là node của con trỏ top đang trỏ đến và trả về p là node đã lấy ra</p>
+                <img src="~/Image/stack_dslk_pop_3.jpg" class="zoom" style="text-align:center" />
+                <br />
+                <p>Sau đây là code mẫu cho thao tác bổ sung phần tử vào đầu ngăn xếp</p>
+                <div class="card" style="background-color: #F1F1F1">
+                    <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        Pop(stack *s){
+        stacknode p;
+        //Nếu ngăn xếp rỗng thì không thể lấy phần tử được
+        if (StackEmpty(*s)){
+            printf("Ngan xep rong !");
+        } else {
+            p = s -> top;
+            s -> top = s -> top -> next;
+            return p -> item;
+        }
+    }</code> </pre>
+                </div><br />
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

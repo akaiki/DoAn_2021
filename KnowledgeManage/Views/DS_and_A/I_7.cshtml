@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewData["Title"] = "I_7";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 inherit;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>CẤU TRÚC DỮ LIỆU ĐỒ THỊ</h1>
+    <div class="container" id="I_7_1">
+        <h3>Khái niệm</h3>
+        <p>Một đồ thị là một dạng biểu diễn hình ảnh của một tập các đối tượng, trong đó các cặp đối tượng được kết nối bởi các liên kết. Các đối tượng được nối liền nhau được biểu diễn bởi các điểm được gọi là các đỉnh (v) và các liên kết mà kết nối các đỉnh với nhau được gọi là các cạnh (e).</p>
+        <p>Có thể nói, một đồ thị là một cặp các tập hợp (V, E), trong đó V là tập các đỉnh, E là tập các cạnh mà kết nối các cặp điểm</p>
+        <p>Có các khái niệm cũng như các loại đồ thị khác nhau:</p>
+        <ul>
+            <li><a href="#DoThiCoHuong">Đồ thị có hướng</a></li>
+            <li><a href="#DoThiVoHuong">Đồ thị vô hướng</a></li>
+            <li><a href="#DoThiCoTrongSo">Đồ thị có trọng số</a></li>
+        </ul>
+        <hr />
+        <div id="DoThiCoHuong">
+            <h5>1. Đồ thị có hướng</h5>
+            <p>Đồ thị có hướng G = &lt; V, E &gt; bao gồm</p>
+            <ul>
+                <li><p>- V là một tập hữu hạn các đỉnh.</p></li>
+                <li><p>- E là một tập hữu hạn, có thứ tự các cặp đỉnh của V, gọi là các cạnh.</p></li>
+            </ul>
+            <p>Ví dụ, đồ thị có hướng G1 = &lt; V1, E1 &gt;, với V1 và E1 được xác định như sau:</p>
+            <ul>
+                <li><p>- V1 = {a, b, c, d}</p></li>
+                <li><p>- E1 = {(a, b); (a, c); (b, d); (c, b); (d, d)}</p></li>
+            </ul>
+            <p>Khi đó, biểu diễn hình học của đồ thị này như sau:</p>
+            <img src="~/Image/DoThiCoHuong.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p class="alert-warning">Chú ý rằng, trong <b>đồ thị có hướng</b>, cạnh là 1 cặp <a>có thứ tự</a> các đỉnh, vì vậy cạnh (a, c) và (c, a) là khác nhau. Ngoài ra, một đỉnh cũng có thể nối tới chính nó để tạo thành 1 cạnh.</p>
+            <p>Một cạnh (u, v) của đồ thị có hướng có thể được biểu thị dạng u -> v. Đỉnh u khi đó được gọi là đỉnh kề của v. Cạnh (u, v) được gọi là cạnh xuất phát từ u. Ta ký hiệu A(u) là tâoj các cạnh xuất phát từ u. Cạnh (u, v) cũng được gọi là cạnh đi tới v, và ký hiệu là I(v) là tập các cạnh đi tới v.</p>
+            <p>Bậc ngoài của 1 đỉnh là số các cạnh xuất phát từ đỉnh đó. Do đó, bậc ngoài của u = |A(u)|.</p>
+            <p>Bậc trong của 1 đỉnh là số các cạnh đi tới đỉnh đó. Do đó, bậc trong của v = |I(v)|.</p>
+            <p>Trong ví dụ trên, bậc ngoài của a là 2, bậc trong là 0. Bậc ngoài của b là 1, bậc trong là 2,...</p>
+            <div class="container" style="background-color: #e6e6e6;">
+                <p><b><u>Định nghĩa về đường đi và độ dài đường đi, chu trình, đồ thị liên thông :</u></b></p>
+                <p><b>Đường đi</b> trong đồ thị có hướng G(V, E) là một chuỗi các đỉnh P = {v1, v2, ..., vk}</p>
+                <p>Trong đó, vi &isin; V(i = 1..k), và (vi, vi+1) &isin; E(i = 1.. k-1).</p>
+                <p><b>Độ dài của đường đi</b> trong trường hợp này là k-1.</p>
+                <p>Ví dụ, với đồ thị ở trên, ta có các đường đi: {a, b, d}; {a, b}; {a, c}; {b, d}; {c, d}; {d, d}</p>
+                <p><b>Chu trình</b> là một đường đi mà đỉnh đầu và đỉnh cuối trùng nhau</p>
+                <p><b>Đồ thị liên thông</b> là một đồ thị mà luôn tồn tại đường đi giữa 2 đỉnh bất kì</p>
+            </div>
+        </div>
+        <hr />
+        <div id="DoThiVoHuong">
+            <h5>2. Đồ thị vô hướng</h5>
+            <p>Đồ thị vô hướng là đồ thị có các cạnh không có hướng. Hai nút ở hau đầu cảu cạnh có vai trò như nhau. Định nghĩa về đồ thị vô hướng như sau:</p>
+            <p>Đồ thị vô hướng G = &lt; V, E &gt; bao gồm</p>
+            <ul>
+                <li><p>- V là một tập hữu hạn các đỉnh.</p></li>
+                <li><p>- E là một tập hữu hạn các cặp đỉnh phân biết của V, gọi là các cạnh.</p></li>
+            </ul>
+            <p>Ví dụ đồ thị vô hướng G = &lt; V2, E2 &gt;, với V2 và E2 được xác định như sau:</p>
+            <ul>
+                <li><p>- V2 = {a, b, c, d}</p></li>
+                <li><p>- E2 ={(a, b); (a, c); (b, d); (c, b)}</p></li>
+            </ul>
+            <p>Khi đó, biểu diễn hình học của đồ thị này như sau:</p>
+            <img src="~/Image/DoThiVoHuong.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p class="alert-warning">Chú ý rằng các cạnh cảu đồ thị là không có hướng do vậy cạnh (u, v) và cạnh (v, u) là tương đương. Trong đồ thị vô hướng, cạnh (u, v) được coi là cạnh xuất phát và đồng thời là cạnh đi tới u hoặc v. Bậc của 1 đỉnh là tổng số cạnh xuất phát (cũng như đi tới) đỉnh đó.</p>
+        </div>
+        <hr />
+        <div id="DoThiCoTrongSo">
+            <h5>3. Đồ thị có trọng số</h5>
+            <p>Với cấc đồ thị như khác, mỗi cạnh cảu đô thị chỉ biểu thị rằng có một liên kết nào đó đi từ đỉnh này tới đỉnh khác của đồ thị. Tuy nhiên, trong thực tế có rất nhiều ứng dụng của đồ thị cần thêm một số thông tin cho liên kết này. Chảng hạn khoảng cách giữa 2 nút của đồ thị là 2 thành phố trên bản đồ, đồ thị biểu thị việc chuyển trạng thái cảu một loại máy dưới tác động của một số thao tác,...</p>
+            <img src="~/Image/DoThiCoTrongSo.jpg" class="zoom" style="text-align:center" />
+            <br />
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_7_2">
+        <h3>Biểu diễn đồ thị</h3>
+        <p>Có 2 cách biểu diễn đồ thị khác nhau:</p>
+        <ul>
+            <li><p><a href="#BieuDienBangMaTranKe">1. Biểu diễn bằng ma trận kề: </a>Hay còn gọi là biểu diễn bằng mẳng 2 chiều.</p></li>
+            <li><p><a href="#BieuDienBangDanhSachKe">2. Biểu diễn bằng danh sách kề: </a> Sử dụng tập hợp các danh sách liên kết như <a href="I_6#Cay_bang_dslk">biểu diễn cây bằng danh sách các nút con</a>.</p></li>
+        </ul>
+        <hr />
+        <div id="BieuDienBangMaTranKe">
+            <p><b>1. Biểu diễn đồ thị bằng ma trận kề</b></p>
+            <p>Giả sử ta có một đô thị có hướng G = &lt; V, E &gt; bao gồm n đỉnh {v1, v2, ..., vn}. Phương pháp biểu diễn đồ thị bằng ma trận kề sử dụng 1 ma trận A(n*n) được xác định như sau:</p>
+            <img src="~/Image/BieuDienMaTran.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Có nghĩa là phần tử ở hàng i, cột j của ma trận A có giá trị 1 khi có một cạnh nối từ vi đển vj. Ngược lại, phần tử đó có giá trị 0.</p>
+            <p>Ma trận trên được gọi là ma trận kề của <a href="#DoThiCoHuong">đồ thị có hướng</a> (V, E).</p>
+            <p>Ví dụ, với đô thị có hướng (V, E) như sau, ma trận kề sẽ là:</p>
+            <img src="~/Image/BieuDienMaTran2.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Một trong những ưu điểm nổi bật của ma trận kề là dựa vào ma trận này, ta dễ dàng xác định được các cạnh đi tới hoặc xuất phát từu 1 đỉnh cho trước. Ví dụ xét đỉnh Vi, mỗi phân tửu có giá trị 1 trong hàng i của ma trận tương úng với 1 cạnh xuất phát từ đỉnh vi. Tương tự như vậy, mỗi phần tử có giá trị 1 ở cột i tương ứng với 1 cạnh đi tới đỉnh vi.</p>
+            <p>Ma trận kề cũng có thể sử dụng để biểu diễn <a href="#DoThiVoHuong">đồ thị vô hướng</a> theo quy tắc trên.</p>
+            <p class="alert-warning">Chú ý rằng trong đồ thị vô hướng cạnh (u, v) và (v, u) là tương đương nhau nên ma trận kề cảu đồ thị vô hướng là ma trận đối xứng qua đường chéo, tức là Ai,j = Aj,i.</p>
+            <p>Ví dụ, với đồ thị vô hướng (V, E), ta có ma trận kề tương úng:</p>
+            <img src="~/Image/BieuDienMaTran3.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Để biểu diễn <a href="#DoThiCoTrongSo">đồ thị có trọng số</a> bằng ma trận kề, ta thay các phần tử có giá trị 1 trong ma trận bằng chính trọng số của cạnh tương ứng, và với các phần tử có giá trị 0. ta thay bằng 1 giá trị &infin; cho biết không có cạnh nối 2 đỉnh tương ứng.</p>
+            <p>Chẳng hạn, với đồ thị có trọng số , ta có thể biểu diễn bằng ma trận kề:</p>
+            <img src="~/Image/BieuDienMaTran4.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p><b>Ưu điểm</b> của phương pháp biểu diễn đồ thị bằng ma trận kề la sta có thể dễ dàng biết đưuojc có một cạnh nối 2 đỉnh vi, vj hay không và có trọng số là bao nhiêu.</p>
+            <p><b>Nhược điểm</b> là kích thước ma trận kề luôn luôn là n*n bất kể đồ thị có bao nhiêu cạnh.</p>
+        </div>
+        <hr />
+        <div id="BieuDienBangDanhSachKe">
+            <p><b>2. Biểu diễn đồ thị bằng danh sách kề</b></p>
+            <p>Đối với các đồ thị có số cạnh ít thì việc sử dụng ma trận kề để biểu diễn đồ thị gây lãng phí không gian nhớ. Trong trường hợp này, người ta sử dụng phương pháp <b>biểu diễn đồ thị bằng danh sách kề</b></p>
+            <p>Phương pháp biểu diễn danh sách kề sử dụng một danh sách liên kết cho mỗi đỉnh của đồ thị. Danh sách liên kết của một đỉnh sẽ chứa các đỉnh khác kề với nó, do vậy các danh sách này được gọi là các danh sách kề.</p>
+            <p>Ví dụ ta có <a href="#DoThiCoHuong">đồ thị có hướng</a> và danh sách kề của nó được biểu diễn như sau:</p>
+            <img src="~/Image/BieuDienDSLK1.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Tương tự như thế, <a href="#DoThiVoHuong">đồ thị vô hướng</a> sẽ có danh sách kề là: </p>
+            <img src="~/Image/BieuDienDSLK2.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Đối với <a href="#DoThiCoTrongSo">đồ thị có trọng số</a> thì được biểu diễn giống với <a href="#DoThiVoHuong">đồ thị vô hướng</a> nhưng mỗi node sẽ được chứa giá trị là khoảng cách từ đỉnh tới các node.</p>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_7_3">
+        <h3>Duyệt đồ thị</h3>
+        <p>Duyệt đồ thị là hành động thăm tất cả các đỉnh của đồ thị, mỗi đỉnh đúng 1 lần, theo một trình tự nào đó. Tương tự <a href="I_6_4#I_6_4_3">duyệt cây</a>, có nhiều phương pháp duyệt đồ thị tùy theo trình tự thăm các nút trong quá trình duyệt. Tuy nhiên có 2 phương pháp duyệt phổ biến nhất:</p>
+        <ul>
+            <li><a href="I_7_3_1">- Duyệt theo chiều sâu (Depth First Search - DFS)</a></li>
+            <li><a href="I_7_3_2">- Duyệt theo chiều rộng (Breadth First Search - BFS)</a></li>
+        </ul>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

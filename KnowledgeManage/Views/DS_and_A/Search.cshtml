@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "I_7";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+
+
+
+<div class="col" style="padding-left: 15%; padding-right: 15%">
+    <h1 style="text-align: center">Tra cứu theo từng trường khác nhau</h1>
+    <hr />
+    <p><b>Tìm kiếm theo tên kiến thức</b></p>
+    <div class="col-md-10">
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchLesson">
+            <input type="search" name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" required/>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+
+    <p><b>Tìm kiếm khái niệm của: </b></p>
+    <div class="col-md-10">
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchConcept">
+            <input type="search" name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" required/>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm cách biểu diễn / khởi tạo của: </b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchConstruct">
+            <input type="search" name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" required/>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm hoạt động/ toán tử của:</b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchOperator">
+            <input type="search" name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" required/>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-md-10">
+        <p><b>Tìm kiếm bài tập của: </b></p>
+        <form class="form-inline flex-lg-grow-1" asp-action="SearchExercise">
+            <input type="search" name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" required/>
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

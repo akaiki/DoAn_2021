@@ -1,0 +1,307 @@
+﻿
+@{
+    ViewData["Title"] = "I_2";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>CẤU TRÚC DỮ LIỆU MẢNG</h1>
+    <div class="container" id="I_2_1">
+        <h3>Khái niệm</h3>
+        <div class="container">
+            <p>Mảng là một chuỗi hữu hạn các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vùng nhớ liên tiếp nhau, mỗi phần tử được xác định bằng một chỉ số (số thứ tự của nó trong mảng).</p>
+            <p>Mảng (Array) là một trong các cấu trúc dữ liệu quan trọng nhất. Mảng có thể lưu giữ một số phần tử cố định và các phần tử này nền có cùng kiểu. Hầu hết các cấu trúc dữ liệu đều sử dụng mảng để triển khai giải thuật. Dưới đây là các khái niệm quan trọng liên quan tới Mảng:</p>
+            <ul>
+                <li><b>Phần tử:</b> Mỗi mục được lưu trữ trong một mảng được gọi là một phần tử</li>
+                <li><b>Chỉ mục:</b> Mỗi vị trí của một phần tử trong một mảng có một số chỉ mục số được sử dụng để nhận diện phần tử</li>
+            </ul>
+            <p>Mảng gồm các bản ghi có kiểu giống nhau, có kích thước cố định, mỗi phân tử được xác định bởi chỉ số</p>
+            <p>Mảng là cấu trúc dữ liệu được cấp phát liên tục cơ bản</p>
+            <h5>Ưu điểm của mảng:</h5>
+            <ul>
+                <li>Truy cập phần tử với độ phức tạp là hằng số (O(1))</li>
+                <li>Sử dụng bộ nhớ hiệu quả</li>
+                <li>Tính cục bộ về bộ nhớ</li>
+            </ul>
+            <h5>Nhược điểm của mảng:</h5>
+            <ul>
+                <li>Không thể thay đổi kích thước khi chương trình đã thực hiện</li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_2_2">
+        <h3>Mảng động</h3>
+        <hr />
+        <div class="container" id="I_2_2_1">
+            <h5>Khái niệm</h5>
+            <p>Mảng động (dynamic aray) : cấp phát bộ nhớ cho mảng một cách động trong quá trình chạy chương trình trong C là malloc và calloc, trong C++ là new</p>
+            <p>Sử dụng mảng động ta bắt đầu với mảng có 1 phàn tử, khi số lượng phần tử vượt qua khả năng của mảng thì ta gấp đôi kích thước mảng cũ và copy phàn tử mảng cũ vào nửa đầu của mảng mới</p>
+            <p><b>Ưu điểm:</b> tránh lãng phí bộ nhớ khi phải khai báo mảng có kích thước lớn ngay từ đầu </p>
+            <p><b>Nhược điểm: </b>phải thực hiện thêm thao tác copy phần tử mỗi khi thay đổi kích thước. Và một số thời gian thực hiện thao tác không còn là hằng số nữa</p>
+        </div>
+        <hr />
+        <div class="container" id="I_2_2_2">
+            <h5>Biểu diễn mảng động</h5>
+            <p>Như đã nói ở trên, ta có thể khai báo mảng động trong quá trình chạy chương trình C là malloc và callon hoặc trong C++ là new. Ta hãy lấy ví dụ trong C:</p>
+            <p>Để khai báo đến mảng động, ta sử dụng đến con trỏ, vì con trỏ có khả năng trỏ đến các vị trí, thay đổi linh hoạt vùng nhớ lưu giá trị thực sự, điều này đáp ứng được yêu cầu của một mảng động.</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+            //Khai báo mảng
+            int *array = NULL;
+            //Khởi tạo
+            array = (int*)malloc(sizeof(int[10]));
+        </code> </pre>
+            </div><br />
+            <p>Hai câu lệnh trên được hiểu là khai báo một con trỏ array, trỏ đến kiểu int nhưng ngay sau đó lại gán cho nó bằng NULL, tức không trỏ dến đâu cả, Tiếp theo, <code>(int*)malloc(sizeof(int[10]))</code> tương ứng với việc cấp phát một vùng nhớ với 10 ô nhớ đầu tiên trỏ vào a</p>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_2_3">
+        <h3>Biểu diễn mảng</h3>
+        <div class="container">
+            <p>Mảng có thể được khai báo theo nhiều các đa dạng trong các ngôn ngữ lập trình. Để minh họa, chúng ta sử dụng phép khai báo trong ngôn ngữ C làm ví dụ:</p>
+            <img src="~/Image/array_declaration.jpg" alt="Khai báo mảng trong C" class="zoom" style="text-align:center" />
+            <p>Hình minh hoạ chỉ mục:</p>
+            <img src="~/Image/array_representation.jpg" alt="Minh họa chỉ mục" class="zoom" style="text-align:center" />
+            <p>Dưới đây là một số điểm cần ghi nhớ về cấu trúc dữ liệu mảng:</p>
+            <ul>
+                <li>Chỉ mục bắt đầu với 0</li>
+                <li>Nếu độ dài mảng là n, nghĩa là mảng có thể lưu trữ n phần tử</li>
+                <li>Mỗi phần tử đều có thể được truy cập thông qua chỉ mục của phần tử đó. Ví dụ theo hình trên, chúng ta có thể lấy giá trị của phần tử tại chỉ mục 6 là 27</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr />
+    <div class="container" id="I_2_4">
+        <h3>Phép toán thực hiện trên mảng</h3>
+        <div class="container">
+            <p>Các hoạt động cơ bản trên mảng:</p>
+            <ul>
+                <li>
+                    <p><a href="#DuyetMang">Duyệt:</a> Duyệt qua các phần tử có trong mảng.</p>
+                </li>
+                <li>
+                    <p><a href="#ChenMang">Chèn:</a> Thêm một phần tử vào mảng tại chỉ mục đã cho</p>
+                </li>
+                <li>
+                    <p><a href="#XoaMang">Xóa:</a> Xóa một phần tử từ mảng tại chỉ mục đã cho</p>
+                </li>
+                <li>
+                    <p><a href="#TimKiemMang">Tìm kiếm:</a> Tìm kiếm một phần tử bởi sử dụng chỉ mục hay bởi giá trị.</p>
+                </li>
+                <li>
+                    <p><a href="#CapNhatMang">Cập nhật:</a> Cập nhật giá trị một phần tử tại chỉ mục nào đó.</p>
+                </li>
+            </ul>
+            <hr />
+            <div id="DuyetMang">
+                <p><b>Duyệt:</b> Duyệt qua các phần tử có trong mảng.</p>
+                <p>Ví dụ duyệt mảng trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                    <code>
+        //Khai báo mảng
+        int array [5] = {10, 15, 7, 20, 9}
+        //Giá trị của mảng tại chỉ mục thứ 2 là <span style="color: red"><b>array[2]</b></span> có giá trị là <span style="color: red"><b>7</b></span>
+    </code> </pre>
+                </div><br />
+            </div>
+            <hr />
+            <div id="ChenMang">
+                <p><b>Chèn:</b> Hoạt động chèn là để chèn một hoặc nhiều phần tử dữ liệu vào trong một mảng. Tùy theo yêu cầu, phần tử mới có thể được chèn vào vị trí đầu, vị trí cuối hoặc bất kỳ vị trí chỉ mục đã cho nào của mảng.</p>
+                <p>Giả sử cho array là 1 mảng tuyến tính không có thứ tự có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật chèn phần tử a vào vị trí thứ k của mảng như sau:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+1. Bắt đầu
+2. Gán biến tạm j = n
+3. Gán n = n + 1
+4. Lặp lại bước 5 và 6 khi j >= k    
+5. Gán array[j+1] = array[j]
+6. Gán j = j - 1
+7. Gán array[k] = a
+8.Kết thúc</code> </pre>
+                </div><br />
+                <p>Để hiểu rõ hơn, ta tham khảo giải thuật trên trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+main() {
+    int array[] = {1, 7, 5, 3, 9};
+    int item = 10, k = 3, n = 5;
+    int j = 0;
+    // Ta tăng n lên 1 do khi chèn thêm vào mảng, thì kích cỡ mảng sẽ tăng lên
+    n = n + 1;
+    
+    while(j >= k){
+        array[j+1] = array[j];
+        j = j - 1;
+    }
+    array[k] = item;
+    
+    //Kết quả :
+    //Trước: array[] = {1, 7, 5, 3, 9}
+    //Sau: array[] = {1, 7, 5, 10, 3, 9}
+
+}</code> </pre>
+
+                </div>
+            </div>
+            <hr />
+            <div id="XoaMang">
+                <p><b>Xóa:</b> Hoạt động xóa là xóa một phần tử đang tồn tại từ một mảng và tổ chức lại các phần tử còn lại trong mảng đó.</p>
+                <p>Giả sử cho array là một mảng tuyến tính có n phần tử và k là một số nguyên dương thỏa mãn k < n. Ta có giải thuật để xóa một phần tử có trong mảng array tại vị trí k như sau:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+1. Bắt đầu
+2. Gán biến tạm j = k
+3. Lặp lại bước 4 và 5 khi j < n    
+4. Gán array[j] = array[j+1]
+5. Gán j = j + 1
+6. Gán n = n - 1
+7.Kết thúc</code> </pre>
+                </div><br />
+                <p>Để hiểu rõ hơn, ta tham khảo giải thuật trên trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+main() {
+    int array[] = {1, 7, 5, 3, 9};
+    int k = 3, n = 5;
+    int j;
+    
+    j = k
+    
+    while(j < n){
+        array[j] = array[j+1];
+        j = j + 1;
+    }
+    n = n - 1; //Ta giảm n đi vì khi xóa phần tử, độ dài mảng cũng sẽ giảm đi
+    //Kết quả :
+    //Trước: array[] = {1, 7, 5, 3, 9}
+    //Sau: array[] = {1, 7, 5, 9}
+
+}</code> </pre>
+                </div><br />
+                <p>Như ví dụ trên, mảng đã xóa phần tử array[3] bằng cách gán giá trị của biến phía sau array[k] vào array[k] sau đó giảm n đi.</p>
+            </div><hr />
+            <div id="TimKiemMang">
+                <p><b>Tìm kiếm:</b> Tìm kiếm một phần tử có trong mảng.Có rất nhiều giải thuật để tìm kiếm trong mảng, mỗi giải thuật có độ phức tạp khác nhau. Ở đây chúng ta sẽ sử dụng giải thuật tìm kiếm tuyến tính làm ví dụ.</p>
+                <p>Giả sử ta có array là một mảng tuyến tính có n phần tử và k là số nguyên dương thỏa mãn k < n. Ta có giải thuật cho hoạt động tìm kiếm dựa theo giải thuật tìm kiếm tuyến tính: </p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+1. Bắt đầu
+2. Gán j = 0
+3. Lặp lại bước 4 và 5 khi j < n    
+4. Nếu array[j] == item thì tới bước 6
+5. Gán j = j + 1
+6. Xuất giá trị của j là vị trí của item đã tìm
+7.Kết thúc</code> </pre>
+                </div><br />
+                <p>Để hiểu rõ hơn, ta tham khảo giải thuật tìm kiếm trên trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+main() {
+    int array[] = {1, 3, 5, 7, 8};
+    int item = 5, n = 5;
+    int j = 0;
+    
+    while(j < n){
+        if (array[j] == item){
+            break;
+        }
+        j = j + 1;
+    }
+
+    if (j == n){
+        printf("Khong tim thay phan tu! ");
+    }
+    else{
+        printf("Tim thay phan tu %d tai vi tri %d\n", item, j+1);
+    }
+
+    //Kết quả:
+    Tim thay phan tu 5 tai vi tri 3
+}</code> </pre>
+                </div><br />
+                <p>Như ví dụ trên, ta đã tìm được item 5 ở vị trí thứ j+1, trong khi đó, j = 2 nên cho ra kết quả như trên. Còn nếu không tìm thấy giá trị cần tìm, ta in ra cấu thông báo</p>
+            </div><hr />
+            <div id="CapNhatMang">
+                <p><b>Cập nhật:</b> Cập nhật giá trị một phần tử tồn tại trong mảng tại chỉ mục nào đó.</p>
+                <p>Giả sử array là một mảng tuyến tính có n phần tử và k là số nguyên dương thảo mãn k <= n. Ta có giải thuật để update phần tử tại vị trí k của mảng array như sau:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+1. Bắt đầu
+2. Thiết lập array[k-1] = item
+3. Kết thúc</code> </pre>
+                </div><br />
+                <p>Để hiểu rõ hơn, ta tham khảo giải thuật tìm kiếm trên trong ngôn ngữ C:</p>
+                <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+main() {
+    int array[] = {1, 3, 5, 7, 8};
+    int item = 10, n = 5, k = 3 ;
+    int i, j;
+    
+    array[k-1] = item;
+
+    //Kết quả:
+    //array [] = {1, 3, 10, 7, 8}
+}</code> </pre>
+                </div><br />
+                <p>Như ví dụ trên, giá trị thứ 3 của mảng (array[2]) đã được cập nhật thành 10</p>
+
+            </div><hr />
+        </div>
+    </div>
+
+    <hr />
+    <div class="container">
+        <h3>Bạn có thể tham khảo các bài tập về mảng và mảng động sau:</h3>
+        <ul>
+            <li><a href="III_1">Bài tập về mảng.</a></li>
+            <li><a href="III_2">Bài tập về mảng động.</a></li>
+        </ul>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

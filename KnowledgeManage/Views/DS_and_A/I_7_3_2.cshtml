@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewData["Title"] = "I_7_3_2";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 inherit;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>DUYỆT ĐỒ THỊ - DUYỆT THEO CHIỀU RỘNG (BREADTH FIRST SEARCH)</h1>
+    <div class="container" id="I_7_3_2_a">
+        <h3>Khái niệm duyệt theo chiều sâu</h3>
+        <p>Quá trình duyệt theo chiều rộng cũng bắt đầu từ một đỉnh nào đó của đồ thị. Tiếp đến, các đỉnh kề cảu nó sẽ được thăm, rồi tiếp tục đến các đỉnh kề của các đỉnh vừa thăm,...</p>
+        <p>Như vậy, qúa trình duyệt theo chiều rộng không duyệt theo từng "nhánh" của đồ thị mà duyệt theo độ sâu của các đỉnh so với đỉnh ban đầu. Từ đỉnh ban đầu, các đỉnh có khoảng cách với đỉnh ban đầu là 1 được duyệt, tiếp đến là các đỉnh có khoảng cách là 2,...</p>
+    </div>
+    <hr />
+    <div class="container" id="I_7_3_2_b">
+        <h3>Các bước duyệt theo chiều sâu</h3>
+        <p>Ví dụ ta có đồ thị sau:</p>
+        <img src="~/Image/DoThiCoHuong.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Quá trình duyệt theo chiều sâu bắt đầu tử đỉnh a sẽ có thứ tự duyệt như sau:</p>
+        <ul>
+            <li><p>- Sau khi thăm đỉnh a, tiến hành thăm đỉnh kề với a là b và c. </p></li>
+            <li><p>- Tiếp đến, thăm các đỉnh kề với b là d. Đỉnh c có đỉnh kề là b nên ta bỏ qua.</p></li>
+            <li><p>- Đỉnh d không có đỉnh kề nào ngoài chính nó nên ta bỏ qua.</p></li>
+        </ul>
+        <p>Như vậy, thứ tự các đỉnh trong quá trình duyệt là a, b, c, d</p>
+        <img src="~/Image/BFS.gif" class="zoom" style="text-align:center" />
+        <br />
+        <p>Duyệt theo chiều rộng có thể không cần cài đặt bằng đệ quy bằng cách sử dụng <a href="I_5">hàng đợi</a> để lưu các đỉnh cần được thăm. Các bước như sau:</p>
+        <ul>
+            <li><p>- Lấy phần tử ra khỏi hàng đợi, đưa vào biến v</p></li>
+            <li><p>- Thăm đỉnh v</p></li>
+            <li><p>- Với mỗi đỉnh kề với v, nếu đỉnh này chưa được thăm thì đưa vào hàng đợi.</p></li>
+
+        </ul>
+        <p>Ví dụ ta có đồ thị có hướng như sau:</p>
+        <img src="~/Image/DoThiCoHuong.jpg" class="zoom" style="text-align:center" />
+        <p>B1: đưa đỉnh a vào hàng đợi</p>
+        <img src="~/Image/BFS1.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B2: Lấy đỉnh a ra khỏi hàng đợi, thăm đỉnh a</p>
+        <img src="~/Image/BFS2.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B3: Đưa 2 đỉnh kề với a là b và c vào hàng đợi</p>
+        <img src="~/Image/BFS3.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B4: Lấy đỉnh b ra khỏi hàng đợi, thăm đỉnh b</p>
+        <img src="~/Image/BFS4.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B5: Đưa đỉnh kề với b là d vào hàng đợi</p>
+        <img src="~/Image/BFS5.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B6: Lấy đỉnh c ra khỏi hàng đợi, thăm đỉnh c</p>
+        <img src="~/Image/BFS6.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>B7: Đỉnh kề với c là b đã thăm, vì vậy không đưa b vào hàng đợi. Lấy đỉnh d ra khỏi hàng đợi, thăm đỉnh d</p>
+        <img src="~/Image/BFS7.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Cài đặt thuật toán duyệt theo chiều rộng như sau:</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+            <code>
+    void BreadthFirstSearch (int v)
+        queue = &empty;
+        Đưa v vào hàng đợi;
+        daxet[v] = 1; //Đã xét v
+        while (queue &ne; &empty;){
+            Lấy phần tử ra khỏi hàng đợi, đưa vào biến u;
+            Thăm đỉnh u;
+            for (mỗi đỉnh w kề với u){
+                if (daxet[w] == 0) //Nếu chưa xét
+                    Đưa w vào hàng đợi;
+                    daxet[w] = 1;
+            }
+        }
+    }
+    </code> </pre>
+        </div><br />
+        <p>Tương tự <a href="I_7_3_1">duyệt theo chiều sâu</a>, thủ tục BreadthFirstSearch sẽ thăm tất cả các đỉnh cùng thành phần liên thông với v. Để thăm tất cả các đỉnh của đồ thị, chúng ta cần thực hiện:</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+            <code>
+        for (v = 1; v<=n; v++){
+            daxet[v] = 0;
+        }
+        for (v = 1; v<=n; v++){
+            if(daxet[u] == 0)
+                DeepFirstSearch(v);
+        }
+    </code> </pre>
+        </div><br />
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

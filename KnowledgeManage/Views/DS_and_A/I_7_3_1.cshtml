@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "I_7_3_1";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 inherit;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>DUYỆT ĐỒ THỊ - DUYỆT THEO CHIỀU SÂU (DEPTH FIRST SEARCH)</h1>
+    <div class="container" id="I_7_3_1_a">
+        <h3>Khái niệm duyệt theo chiều sâu</h3>
+        <p>Quá trình duyệt theo chiều sâu bắt đầu từ một đỉnh nào đó của đồ thị, sau khi thăm đỉnh này, quá trình duyệt theo chều sâu được lặp lại với tất cả các đỉnh kể của nó. Tuy nhiên, đồ thị có thể tồn tại các chu trình, do vậy, ta cần phải đánh dấu các đỉnh đã duyệt để tránh duyệt lại đỉnh này một lần nữa.</p>
+        <p>Với trình duyệt như trên, quá trình duyệt sẽ duyệt hết một "nhánh" của đồ thị rồi mới sang "nhánh" khác. Do vậy, phương pháp duyệt này được gọi là <b>duyệt theo chiều sâu</b></p>
+    </div>
+    <hr />
+    <div class="container" id="I_7_3_1_b">
+        <h3>Các bước duyệt theo chiều sâu</h3>
+        <p>Ví dụ ta có đồ thị sau:</p>
+        <img src="~/Image/DoThiCoHuong.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Quá trình duyệt theo chiều sâu bắt đầu tử đỉnh a sẽ có thứ tự duyệt như sau:</p>
+        <ul>
+            <li><p>- Sau khi thăm đỉnh a, tiến hành thăm đỉnh kề với a là b. Tiếp đến thăm đỉnh kề b là d. Đỉnh d không hề có đỉnh kề nào, do vậy quay lại bước trước</p></li>
+            <li><p>- Đỉnh b chỉ có 1 đỉnh kề là d đã thăm, do vậy quay trở lại bước trước.</p></li>
+            <li><p>- Đỉnh a còn đỉnh kề c là chưa thăm, do vậy thăm đỉnh c.</p></li>
+        </ul>
+        <p>Như vậy, thứ tự các đỉnh trong quá trình duyệt là a, b, d, c</p>
+        <img src="~/Image/DFS.gif" class="zoom" style="text-align:center" />
+        <br />
+        <p>Quá trình duyệt sẽ chỉ duyệt theo các cạnh dẫn tới các đỉnh chưa thăm. Các cạnh dẫn tới các đỉnh đãn thăm sẽ được bỏ qua. Chẳng hạn, trong quá trình duyệt đồ thị trên, khi duyệt đến đỉnh c, cạnh nối tới b sẽ được bỏ qua vì đỉnh c đã được thăm rồi.</p>
+        <p><b>Cài đặt phương pháp duyệt theo chiều sâu như sau:</b></p>
+        <p>Để kiểm tra việc duyệt mỗi đỉnh đúng 1 lần, chúng ta sử dụng một mảng daxet (đã xét) gồm n phần tử (tương ứng với n đỉnh). Nếu đỉnh thứ i đã được duyệt, daxet[i] = 1, ngược lại, daxet[i] = 0. Thuật toán tìm kiếm theo chiều sâu bắt đầu từ đỉnh v nào đó sẽ duyệt tất cả các đỉnh liên thông với v. Thuật toán có thể được mô tả bằng thủ tục đệ quy DeepFirstSearch.</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+            <code>
+    void DeepFirstSearch (int v)
+        Thăm đỉnh v;
+        daxet[v] = 1;
+        for mỗi đỉnh u kề với v {
+            if (daxet[u] == 0)
+                DeepFirstSearch(u);
+        }
+    }
+    </code> </pre>
+        </div><br />
+        <p>Thủ tục DeepFirstSearch sẽ thăm tất cả cá đỉnh cùng thành phần liên thông với v mỗi đỉnh đúng 1 lần. Để đảm bảo duyệt tất cả các đỉnh của đồ thị (có thể có nhiều thanh phần liên thông), chúng ta cần thực hiện:</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+            <code>
+        for (i = 1; i<=n; i++){
+            daxet[i] = 0;
+        }
+        for (i = 1; i<=n; i++){
+            if(daxet[u] == 0)
+                DeepFirstSearch(i);
+        }
+    </code> </pre>
+        </div><br />
+    </div>
+
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

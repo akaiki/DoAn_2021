@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "III_7";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ ĐỒ THỊ</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    
+    <div id="accordion1">
+        <h3>Bài tập BFS - tìm kiếm theo chiều rộng</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1: Áp dụng tìm kiếm theo chiều rộng để tìm đường đi từ A tới G trong đồ thị sau:
+                    <img src="~/Image/DoThi/DoThi.jpg" />
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta có thuật giải tìm kiếm đường đi từ A -> G theo chiều rộng như sau:</p>
+                <p><b><i>O</i></b> = [A], <b><i>C</i></b> = {}</p>
+                <p>While <b><i>O</i></b> rỗng {</p>
+                <ul>
+                    <li> - Lấy p từ đầu <b><i>O</i></b>.</li>
+                    <li> - Duyệt p.</li>
+                    <li> - Bỏ p vào <b><i>C</i></b>.</li>
+                    <li> - Với mỗi q kề p, q không thuộc <b><i>C</i></b>: Bỏ q vào cuối <b><i>O</i></b>.</li>
+                </ul>
+                <p>}</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p>Ta có: <b><i>O</i></b> = [A]; <b><i>C</i></b> = {};</p>
+                <p>Gọi <b><i>Father</i></b> là biến lưu cha của mỗi đỉnh trên đường đi</p>
+                <p><b>Bước 1:</b></p>
+                <ul>
+                    <li>- Lấy A từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt A.</li>
+                    <li>- <b><i>C</i></b> = {A}.</li>
+                    <li>- <b><i>O</i></b> = [B, C].</li>
+                    <li>- <b><i>Father</i></b>[B,C] = A.</li>
+                </ul>
+                <p><b>Bước 2:</b></p>
+                <ul>
+                    <li>- Lấy B từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt B.</li>
+                    <li>- <b><i>C</i></b> = {A, B}.</li>
+                    <li>- <b><i>O</i></b> = [C, D].</li>
+                    <li>- <b><i>Father</i></b>[D] = B. Chọn D vì C và B không kề nhau.</li>
+                </ul>
+                <p><b>Bước 3:</b></p>
+                <ul>
+                    <li>- Lấy C từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt C.</li>
+                    <li>- <b><i>C</i></b> = {A, B, C}.</li>
+                    <li>- <b><i>O</i></b> = [D].</li>
+                    <li>- <b><i>Father</i></b>[D] = C.</li>
+                </ul>
+                <p><b>Bước 4:</b></p>
+                <ul>
+                    <li>- Lấy D từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt D.</li>
+                    <li>- <b><i>C</i></b> = {A, B, C, D}.</li>
+                    <li>- <b><i>O</i></b> = [G].</li>
+                    <li>- <b><i>Father</i></b>[G] = D.</li>
+                </ul>
+                <p><b>Bước 5:</b></p>
+                <ul>
+                    <li>- Lấy G từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt G. Do G là nút cần tìm nên ta không thêm đỉnh kề của G vào O nữa, đồng thời dừng vòng lặp.</li>
+                    <li>- <b><i>C</i></b> = {A, B, C, D, G}.</li>
+                    <li>- <b><i>O</i></b> = [].</li>
+                </ul>
+                <p>Kiểm tra lại đường đi bằng cách truy ngược <b><i>Father</i></b>, ta có:</p>
+                <p><b>G &larr; D &larr; B &larr; A</b> hoặc <b>G &larr; D &larr; C &larr; A</b></p>
+                <p>Vậy, đường đi từ A đến G là: <b>A &rarr; B &rarr; D &rarr; G</b> hoặc <b>A &rarr; C &rarr; D &rarr; G</b>.</p>
+                <br />
+            </div>
+        </div>
+        <h3>Bài tập DFS - tìm kiếm theo chiều sâu</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2: Áp dụng tìm kiếm theo chiều sâu để tìm đường đi từ A tới G trong đồ thị sau:
+                    <img src="~/Image/DoThi/DoThi.jpg" />
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion" style="height: 40vh; overflow-y: scroll;">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta có thuật giải tìm kiếm đường đi từ A -> G theo chiều rộng như sau:</p>
+                <p><b><i>O</i></b> = [A], <b><i>C</i></b> = {}</p>
+                <p>While <b><i>O</i></b> rỗng {</p>
+                <ul>
+                    <li> - Lấy p từ đầu <b><i>O</i></b>.</li>
+                    <li> - Duyệt p.</li>
+                    <li> - Bỏ p vào <b><i>C</i></b>.</li>
+                    <li> - Với mỗi q kề p, q không thuộc <b><i>C</i></b>: Bỏ q vào đầu <b><i>O</i></b>.</li>
+                </ul>
+                <p>}</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p>Ta có: <b><i>O</i></b> = [A]; <b><i>C</i></b> = {};</p>
+                <p>Gọi <b><i>Father</i></b> là biến lưu cha của mỗi đỉnh trên đường đi</p>
+                <p><b>Bước 1:</b></p>
+                <ul>
+                    <li>- Lấy A từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt A.</li>
+                    <li>- <b><i>C</i></b> = {A}.</li>
+                    <li>- <b><i>O</i></b> = [B, C].</li>
+                    <li>- <b><i>Father</i></b>[B,C] = A.</li>
+                </ul>
+                <p><b>Bước 2:</b></p>
+                <ul>
+                    <li>- Lấy B từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt B.</li>
+                    <li>- <b><i>C</i></b> = {A, B}.</li>
+                    <li>- <b><i>O</i></b> = [D, C].</li>
+                    <li>- <b><i>Father</i></b>[D] = B. Chọn D vì C và B không kề nhau.</li>
+                </ul>
+                <p><b>Bước 3:</b></p>
+                <ul>
+                    <li>- Lấy D từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt D.</li>
+                    <li>- <b><i>C</i></b> = {A, B, D}.</li>
+                    <li>- <b><i>O</i></b> = [G, C].</li>
+                    <li>- <b><i>Father</i></b>[G] = D. <b><i>Father</i></b>[C] = D</li>
+                </ul>
+                <p><b>Bước 4:</b></p>
+                <ul>
+                    <li>- Lấy G từ <b><i>O</i></b>.</li>
+                    <li>- Duyệt G. Do G là nút cần tìm nên ta không thêm đỉnh kề của G vào O nữa, đồng thời dừng vòng lặp.</li>
+                    <li>- <b><i>C</i></b> = {A, B, D, G}.</li>
+                    <li>- <b><i>O</i></b> = [C].</li>
+                </ul>
+                <p>Kiểm tra lại đường đi bằng cách truy ngược <b><i>Father</i></b>, ta có:</p>
+                <p><b>G &larr; D &larr; B &larr; A</b>
+                <p>Vậy, đường đi từ A đến G là: <b>A &rarr; B &rarr; D &rarr; G</b></p>
+                <br />
+            </div>
+        </div>
+    </div>
+    <hr />
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

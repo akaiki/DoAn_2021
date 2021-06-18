@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="KnowledgeManage20210506080613" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Akaiki\\source\\repos\\KnowledgeManage\\KnowledgeManage\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
-  </parameter>
-  <parameter name="KnowledgeManage.Data.ApplicationDbContext" description="" value="Data Source=tcp:knowledgemanagedbserver.database.windows.net,1433;Initial Catalog=KnowledgeManage_db;User Id=ngkienntk2208@knowledgemanagedbserver;Password=025818786kK" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Akaiki\\source\\repos\\KnowledgeManage\\KnowledgeManage\\obj\\Release\\net5\.0\\PubTmp\\EFSQLScripts\\KnowledgeManage\.Data\.ApplicationDbContext\.sql$" />
-  </parameter>
-</parameters>

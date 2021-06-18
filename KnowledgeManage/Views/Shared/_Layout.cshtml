@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KnowledgeManage</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="shortcut icon" type="image/png" href="~/Image/icon/favicon.png" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        df-messenger {
+            --df-messenger-button-titlebar-color: #ffb5e8;
+        }
+    </style>
+</head>
+
+<body style="background-color: #4A4A4A; " class="fixed-top">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #ffb5e8">
+            <div class="container">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: black"><b>LEARNICORN</b></a></li>
+                    <li class="nav-item"><a class="nav-link border-left" id="ctdl" asp-controller="DS_and_A" asp-action="Content" style="color: black; float:left ">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</a></li>
+                    
+                </ul>
+                    
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light text-hide" href="#" id="navbardrop" data-toggle="dropdown">
+                                Quản lý dữ liệu
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="lessons" asp-action="index">Quản lý chủ đề</a>
+                                <a class="dropdown-item" asp-controller="relationships" asp-action="index">Quản lý quan hệ</a>
+                                <a class="dropdown-item" asp-controller="concepts" asp-action="index">Quản lý các khái niệm</a>
+                                <a class="dropdown-item" asp-controller="constructs" asp-action="index">Quản lý biểu diễn CTDL hoặc xây dựng giải thuật</a>
+                                <a class="dropdown-item" asp-controller="properties" asp-action="index">Quản lý các luật, tính chất</a>
+                                <a class="dropdown-item" asp-controller="operators" asp-action="index">Quản lý các toán tử</a>
+                                <a class="dropdown-item" asp-controller="exercises" asp-action="index">Quản lý bài tập</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <main role="main" class="pb-3" >
+            @RenderBody()
+        </main>
+    </div>
+
+    <div>
+        <footer>
+
+            <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+            <df-messenger intent="WELCOME"
+                          chat-title="Mini Learnicorn"
+                          agent-id="4fe1e625-581d-4135-b9cf-7f27af7052a7"
+                          language-code="en"
+                          chat-icon="https://img.icons8.com/dusk/2x/unicorn.png"></df-messenger>
+        </footer>
+    </div>
+    <script>
+        setTimeout(function () { document.querySelector("df-messenger").shadowRoot.querySelector("df-messenger-chat").shadowRoot.querySelector("df-messenger-user-input").shadowRoot.querySelector(".input-box-wrapper > input").placeholder = "Nhập thứ bạn muốn hỏi mình" }, 1000);
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

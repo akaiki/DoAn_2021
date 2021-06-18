@@ -1,0 +1,818 @@
+﻿
+@{
+    ViewData["Title"] = "III_3";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ DANH SÁCH LIÊN KẾT</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <h3>Bài tập về danh sách liên kết đơn</h3>
+    <div id="don">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Tạo danh sách liên kết đơn, chèn giá trị vào đầu danh sách và hiển thị danh sách đó
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Áp dụng bài học chèn danh sách liên kết đơn để viết một hàm chèn phần tử vào danh sách liên kết đơn.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt;
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+
+//Chèn vào vụ trí đầu tiên
+void insert(int data){
+    //Tạo một node link
+    struct node *link = (struct node*)malloc(sizeof(struct node));
+    
+    //Truyền dữ liệu vào link
+    link->data = data;
+    
+    //Trỏ next của link đến head của dslk
+    link->next = head;
+    
+    //Head của dslk thành head mới
+    head = link;
+}
+    
+//In danh sách liên kết
+void printList(){
+    struct node *r = head; //r là con trỏ duyệt dslk
+    
+    printf("\n[head] -> ");
+    while(r != NULL){
+        printf(" %d -> ", r->data);
+        r = r->next;
+    }
+    
+    printf(" [null]\n");
+}
+
+int main(){
+    insert(10);
+    insert(20);
+    insert(30);
+    printList();
+    
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Tìm kích cỡ của danh sách liên kết đơn
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Cho một con trỏ để trỏ tới từng phần tử từ đầu đến cuối danh sách liên kết.</p>
+                <p>3. Duyệt con trỏ từ đầu tới cuối danh sách, mỗi khi duyệt qua một phần tử, biến đếm tăng lên 1.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt;
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+
+//Lấy kích thước hiện tại của danh sách liên kết đơn
+void listSize(){
+    int size = 0;
+    
+    if (head == NULL){
+        printf("Do dai dskl la: %d", size);
+        return;
+    }
+    
+    p = head;
+    size = 1;
+    while (p->next != NULL){
+        p = p->next;
+        size ++;
+    }
+    printf("Do dai dskl la: %d", size);
+}
+
+//Chèn vào vụ trí đầu tiên
+void insert(int data){
+    //Tạo một node link
+    struct node *link = (struct node*)malloc(sizeof(struct node));
+    
+    //Truyền dữ liệu vào link
+    link->data = data;
+    
+    //Trỏ next của link đến head của dslk
+    link->next = head;
+    
+    //Head của dslk thành head mới
+    head = link;
+}
+
+
+
+int main(){
+    insert(10);
+    insert(20);
+    insert(30);
+    
+    listSize();
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Tìm vị trí của một giá trị trong danh sách liên kết đơn
+                </a>
+            </div>
+            <div id="Bai3 " class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Sử dụng một con trỏ trỏ từ đầu đến cuối danh sách.</p>
+                <p>3. Khi gặp giá trị cần tìm, xuất vị trí phần tử chứa giá trị đó.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt;
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+//Chèn vào vụ trí đầu tiên
+void insert(int data){
+    //Tạo một node link
+    struct node *link = (struct node*)malloc(sizeof(struct node));
+    
+    //Truyền dữ liệu vào link
+    link->data = data;
+    
+    //Trỏ next của link đến head của dslk
+    link->next = head;
+    
+    //Head của dslk thành head mới
+    head = link;
+}
+
+//Tìm vị trí đầu tiên xuất hiện của data trong danh sách liên kết
+void findData(int data){
+    int pos = 1;
+    
+    if(head == NULL){
+        printf("Danh sach chua duoc khoi tao! \n");
+        return;
+    }
+    
+    p = head;
+    while(p->next != NULL){
+        if(p->data == data){
+            printf("Tim thay %d tai vi tri thu %d\n", data, pos);
+            return;
+        }
+        p = p->next;
+        pos++;
+    }
+    printf("%d khong ton tai trong list\n", data);
+} 
+
+int main(){
+    findData(10);
+    
+    insert(10);
+    insert(20);
+    insert(30);
+    
+    findData(20);
+    findData(28);
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <h3>Bài tập về danh sách liên kết đôi</h3>
+    <div id="doi">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Tạo danh sách liên kết đôi, chèn giá trị vào danh sách và xuất kết quả danh sách ra màn hình
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách liên kết đôi</p>
+                <p>2. Áp dụng bài học chèn danh sách liên kết đôi để viết một hàm chèn phần tử vào danh sách liên kết đơn.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+    #include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *prev;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *tail = NULL;
+
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+//Tạo danh sách liên kết
+void insert(int data){
+    //Cấp phát bộ nhớ cho node mới
+    struct node *r = (struct node*)malloc(sizeof(struct node));
+    
+    r->data = data;
+    r->prev = NULL;
+    r->next = NULL;
+    
+    if (head == NULL){
+        head = r;
+        return;
+    }
+    
+    p = head;
+    
+    p->prev = r;
+    head = r;
+    r->next = p;
+}  
+
+// Hiển thị list
+void printList() {
+   struct node *q = head;
+
+   printf("\n[head] <=>");
+   
+   //bat dau tu phan dau cua list
+   while(q->next != NULL) {        
+      printf(" %d <=>",q->data);
+      q = q->next;
+   }
+   
+   printf(" %d <=>",q->data);
+   printf(" [tail]\n");
+}
+
+int main(){
+    
+    insert(10);
+    insert(20);
+    insert(30);
+    
+    printList();
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5. Tìm kích cỡ của danh sách liên kết đôi
+                </a>
+            </div>
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Cho một con trỏ để trỏ tới từng phần tử từ đầu đến cuối danh sách liên kết.</p>
+                <p>3. Duyệt con trỏ từ đầu tới cuối danh sách, mỗi khi duyệt qua một phần tử, biến đếm tăng lên 1.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+    #include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *prev;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *tail = NULL;
+
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+//Tạo danh sách liên kết
+void insert(int data){
+    //Cấp phát bộ nhớ cho node mới
+    struct node *r = (struct node*)malloc(sizeof(struct node));
+    
+    r->data = data;
+    r->prev = NULL;
+    r->next = NULL;
+    
+    if (head == NULL){
+        head = r;
+        return;
+    }
+    
+    p = head;
+    
+    p->prev = r;
+    head = r;
+    r->next = p;
+}  
+
+//Tìm kích thước danh sách liên kết đôi hiện tại
+void listSize() {
+   int size = 0;
+   struct node *link;
+   
+   if(head==NULL) {
+      printf("\nKich co cua danh sach: %d\n", size);
+      return;
+   }
+
+   link = head;            
+   while(link != NULL) {
+      link = link->next;
+      size++;
+   }
+
+   printf("\nKich co cua danh sach: %d\n", size);
+}
+
+int main(){
+    
+    insert(10);
+    insert(20);
+    insert(30);
+    
+    listSize();
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 6. Tìm kiếm vị trí phần tử trong danh sách liên kết đôi
+                </a>
+            </div>
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Sử dụng một con trỏ trỏ từ đầu đến cuối danh sách.</p>
+                <p>3. Khi gặp giá trị cần tìm, xuất vị trí phần tử chứa giá trị đó.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+    #include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *prev;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *tail = NULL;
+
+struct node *p = NULL; //Con trỏ p trỏ tới phần tử dữ liệu
+
+//Tạo danh sách liên kết
+void insert(int data){
+    //Cấp phát bộ nhớ cho node mới
+    struct node *r = (struct node*)malloc(sizeof(struct node));
+    
+    r->data = data;
+    r->prev = NULL;
+    r->next = NULL;
+    
+    if (head == NULL){
+        head = r;
+        return;
+    }
+    
+    p = head;
+    
+    p->prev = r;
+    head = r;
+    r->next = p;
+}  
+
+//Tìm vị trí đầu tiên xuất hiện phần tử
+void search(int data) {
+   int pos = 0;
+   
+   if(head==NULL) {
+      printf("Danh sach lien ket chua duoc khoi tao\n");
+      return;
+   } 
+
+   p = head;
+   while(p!=NULL) {
+      
+    if(p->data == data) {
+        printf("Tim thay %d tai vi tri %d\n", data, pos+1);
+        return;
+    }
+         
+    if(p->next != NULL)
+        p = p->next;
+    else
+        break;
+    pos++;
+   }
+      
+   printf("%d khong ton tai trong list\n", data);
+}
+
+int main(){
+    search(20);
+    
+    insert(10);
+    insert(20);
+    insert(30);
+    
+    search(20);
+    search(28);
+
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <h3>Bài tập về danh sách liên kết vòng</h3>
+    <div id="vong">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai7">
+                    Bài 7. Tạo danh sách liên kết vòng đơn, hiển thị danh sách liên kết đó
+                </a>
+            </div>
+            <div id="Bai7" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách liên kết đôi</p>
+                <p>2. Áp dụng bài học chèn danh sách liên kết đôi để viết một hàm chèn phần tử vào danh sách liên kết đơn.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt;
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *p = NULL;
+
+//Chen tai vi tri dau tien
+void insert(int data){
+    //cap phat bo nho cho node moi
+    struct node *r = (struct node*)malloc(sizeof(struct node));
+    
+    r->data = data;
+    r->next = NULL;
+    
+    //Neu head la trong, tao dslk moi
+    if(head == NULL){
+        head = r;
+        head->next = r;
+        return;
+    }
+    
+    p = head;
+    
+    // di chuyen toi phan cuoi list
+    while(p->next != head)
+        p = p->next;
+   
+    //chen vao cuoi dslk
+    p->next = r;
+    
+    //lien ket last node voi head
+    r->next = head;
+}
+
+//hien thi list
+void printList(){
+    struct node *q = head;
+    
+    printf("\n[head] =>");
+   
+   //bat dau tu phan dau cua list
+   while(q->next != head) {        
+      printf(" %d =>",q->data);
+      q = q->next;
+   }
+   
+   printf(" %d =>",q->data);
+   printf(" [head]\n");
+}
+
+int main() {
+   insert(10);
+   insert(20);
+   insert(30);
+
+   printList();
+   return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai8">
+                    Bài 8. Tìm kích cỡ danh sách liên kết vòng
+                </a>
+            </div>
+            <div id="Bai8" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách</p>
+                <p>2. Cho một con trỏ để trỏ tới từng phần tử từ đầu đến cuối danh sách liên kết.</p>
+                <p>3. Duyệt con trỏ từ đầu tới cuối danh sách, mỗi khi duyệt qua một phần tử, biến đếm tăng lên 1.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt; 
+
+struct node {
+   int data;
+   struct node *next;
+};
+
+struct node *head = NULL;
+struct node *current = NULL;
+
+//chen link tai vi tri dau tien
+void insert(int data) {
+   // cap phat bo nho cho node moi;
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+
+   link->data = data;
+   link->next = NULL;
+
+   // neu head la trong, tao list moi
+   if(head==NULL) {
+      head = link;
+      head->next = link;
+      return;
+   }
+
+   current = head;
+   
+   // di chuyen toi phan cuoi list
+   while(current->next != head)
+      current = current->next;
+   
+   // chen link vao phan cuoi cua list
+   current->next = link;
+   
+   // lien ket last node voi head
+   link->next = head;
+   
+}
+
+//hien thi list
+void list_size(struct node *list) {
+   int size = 0;
+   
+   if(head==NULL) {
+      printf("Kich co list: %d ", size);
+      return;
+   } 
+   
+   current = head;
+   size = 1;
+   
+   while(current->next != head) {
+      current = current->next;
+      size++;
+   }
+      
+   printf("Kich co list: %d ", size);   
+}
+
+int main() {
+   insert(10);
+   insert(20);
+   insert(30);
+   
+   list_size(head);
+
+   return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai9">
+                    Bài 9. Xóa một phần tử từ danh sách liên kết vòng
+                </a>
+            </div>
+            <div id="Bai9" class="collapse" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu danh sách liên kết vòng</p>
+                <p>2. Viết một hàm xóa phần tử đầu danh sách</p>
+                <p>3. Trả về danh sách liên kết sau khi xóa.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+#include &lt; stdlib.h &gt;
+
+struct node {
+   int data;
+   struct node *next;
+};
+
+struct node *head = NULL;
+struct node *current = NULL;
+struct node *prev = NULL;
+
+//chen link tai vi tri dau tien
+void insert(int data) {
+   // cap phat bo nho cho node moi;
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+
+   link->data = data;
+   link->next = NULL;
+
+   // neu head la trong, tao list moi
+   if(head==NULL) {
+      head = link;
+      head->next = link;
+      return;
+   }
+
+   current = head;
+   
+   // di chuyen toi phan cuoi list
+   while(current->next != head)
+      current = current->next;
+   
+   // chen link vao phan cuoi cua list
+   current->next = link;
+   
+   // lien ket last node voi head
+   link->next = head;
+   
+}
+
+void remove_data(int data) {
+   int pos = 0;
+   
+   if(head==NULL) {
+      printf("Danh sach lien ket chua duoc khoi tao");
+      return;
+   } 
+    
+   if(head->data == data) {
+      if(head->next != head) {
+         current = head;
+         while(current->next!=head) {
+            current = current->next;
+         }
+         current->next = head->next;
+         head = head->next;
+         return;
+      }else {
+         head = NULL;
+         printf("List la trong\n");
+         exit(0);
+      }
+   }else if(head->data != data && head->next == NULL) {
+      printf("Khong tim thay %d trong list\n", data);
+      return;
+   }
+        
+
+   current = head;
+   
+   while(current->next != head && current->data != data) {
+      prev = current;
+      current = current->next;
+   }        
+
+   if(current->data == data) {
+      prev->next = prev->next->next;
+      free(current);
+   }else
+      printf("Khong tim thay %d trong list.", data);
+}
+
+//hien thi list
+void printList() {
+   struct node *ptr = head;
+
+   printf("\n[head] =>");
+   
+   //bat dau tu phan dau cua list
+   while(ptr->next != head) {        
+      printf(" %d =>",ptr->data);
+      ptr = ptr->next;
+   }
+   
+   printf(" %d =>",ptr->data);
+   printf(" [head]\n");
+}
+
+int main() {
+   insert(10);
+   insert(20);
+   insert(30);
+   insert(1);
+   insert(40);
+   insert(56); 
+   
+   printf("List ban dau: ");
+   printList();
+   remove_data(1);
+   
+   printf("List sau khi xoa: ");
+   printList();
+    
+   return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewData["Title"] = "I_5";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>CẤU TRÚC DỮ LIỆU HÀNG ĐỢI</h1>
+    <div class="container" id="I_5_1">
+        <h3>Khái niệm</h3>
+        <p>Hàng đợi là một cấu trúc dữ liệu gần giống với <a href="I_4">ngăn xếp</a>, nhưng khác với <a href="I_4">ngăn xếp</a> ở nguyên tắc chọn phần tử cần lấy ra khỏi tập phần tử. Trái với <a href="I_4">ngăn xếp</a>, phần tử được lấy ra khỏi hàng đợi không phải là phần tử mới nhất được đưa vào mà là phần tử đã được lưu trong hàng đợi lâu nhất</p>
+        <p>Quy luật của hàng đợi còn được gọi là "vào trước ra trước" (FIFO - First In First Out). Ví dụ hàng đợi trong cuộc sống có rất nhiều. Ví dụ như hàng chờ cắt tóc ở một tiệm cắt tóc, chờ vào rạp chiếu phim hay siêu thị. Trong lĩnh vực máy tính cũng có rất nhiều ví dụ về hàng đợi. Một tập các tác vụ chờ thực thi bởi hệ thống cũng theo quy tắc hàng đợi.</p>
+        <p>Hàng đợi khác với <a href="I_4">ngăn xếp</a> ở chỗ: phần tử mới được đưa vào hàng đợi sẽ lằm ở phía cuối hàng, trong khi phần tử mới đưa vào ngăn xếp lại ở đỉnh ngăn xếp.</p>
+    </div>
+    <hr />
+    <div class="container" id="I_5_2">
+        <h3>Biểu diễn cấu trúc dữ liệu hàng đợi</h3>
+        <div>
+            <p>Sau đây là cách biểu diễn tổng quát của cấu trúc dữ liệu hàng đợi:</p>
+            <p>- Giả sử ta có hàng đợi Q lưu trữ các ký tự. Ban đầu Q ở trạng thái rỗng:</p>
+            <img src="~/Image/queue.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>- Khi thực hiện hoạt động thêm phần tử A vào hàng đợi Q, hàng đợi có dạng:</p>
+            <img src="~/Image/queue_1.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>- Tiếp theo, lần lượt thêm phần tử B và C vào hàng đợi Q, hàng đợi có dạng:</p>
+            <img src="~/Image/queue_2.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>- Khi thực hiện lệnh lấy 1 phần tử từ hàng đợi thì phần tử được lưu trữ lâu nhất trong hàng sẽ được lấy ra. Nghĩa là A sẽ được lấy ra, hàng đợi sẽ trở thành:</p>
+            <img src="~/Image/queue_3.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>- Thực hiện lệnh thêm phần tử D vào Q, phần tử này sẽ được bổ sung ở phía cuối hàng. Nghĩa là D sẽ được thêm phía sau B và C: </p>
+            <img src="~/Image/queue_4.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>- Lần lượt lấy 2 phần tử ở đầu hàng là B và C, hàng đợi sẽ còn lại là:</p>
+            <img src="~/Image/queue_5.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Để hiểu thêm về các hoạt động thêm và đưa phần tử ra ngoài, bạn có thể xem "<a href="#I_5_3">Hoạt động cơ bản trên cấu trúc dữ liệu hàng đợi</a>" sẽ được nhắc tới ở phần kế.</p>
+            <p>Do tính chất của hàng đợi giống với <a href="I_4">ngăn xếp</a>, nên hàng đợi cũng được cài đặt từ 2 cấu trúc dữ liệu phổ biến là:</p>
+            <ul>
+                <li><a href="#HangDoi_Bang_Mang">Cài đặt hàng đợi bảng mảng</a></li>
+                <li><a href="#HangDoi_Bang_DSLK">Cài đặt hàng đợi bằng danh sách liên kết</a></li>
+            </ul>
+        </div>
+        <hr />
+        <div class="container" id="HangDoi_Bang_Mang">
+            <p><b>Hàng đợi được tạo bởi danh mảng</b></p>
+            <p>Đối với <a href="I_4">ngăn xếp</a>, việc bổ sung và loại bỏ một phần tử đều được thực hiện ở đỉnh ngăn xếp, do vậy ta chỉ cần sử dụng 1 biến top để lưu trữ đỉnh này. Tuy nhiên, đối với hàng đợi, việc bổ sung và loại bỏ phần tử được thực hiện ở 2 đầu khác nhau, do vậy ta cần sử dụng 2 biến là head và tail để lưu trữ điểm đầu và điểm cuối của hàng đợi. Các phần tử thuộc hàng đợi là các phần tử nằm giữa điểm đầu và điểm cuối này.  </p>
+            <img src="~/Image/queue_array.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p style="text-align: center">Hình cài đặt hàng đợi bằng mảng</p>
+            <p>Để lấy ra 1 phần tử cửa hàng, điểm đầu tăng lên 1 và phần tử ở đầu hàng sẽ được lấy ra. Để bổ sung 1 phần tử vào hàng đợi, phần tử này sẽ được bổ sung vào cuối hàng và điểm cuối sẽ tăng lên 1.</p>
+            <p>Ta thấy rằng biến tail luôn tăng khi bổ sung phần tử và cũng không giảm khi loại bỏ phần tử. Do đó, sau 1 số hữu hạn thao tác, biến này sẽ tiến đến cuối mảng và cho dù phần đầu mảng có thể còn trống thì ta sẽ cho biến này quay trở lại đầu mảng. Tương tự như vậy, ta cũng cho biến head quay lại đầu mảng khi nó tiến đến cuối mảng.</p>
+            <p>Khai báo mảng cho 1 hàng đợi chứa các số nguyên với tối đa 100 phần tử như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    #define MAX 100;
+    typedef struct {
+        int head, tail, count; // Biến count để tiện cho việc <a href="#HangDoi_HD_Mang"> kiểm tra hàng đợi đầy hay rỗng</a>
+        int node[MAX];
+    } queue;
+//---------------------------------------------//        
+    //Sau đó khởi tạo hàng đợi ở trạng thái rỗng như sau:
+    void QueueInitialize(queue *q){
+        q -> head = 0;
+        q -> tail = MAX-1;
+        q - count = 0; //chưa có phần tử nào
+        return;
+    }</code> </pre>
+            </div><br />
+        </div>
+        <hr />
+        <div class="container" id="HangDoi_Bang_DSLK">
+            <p><b>Hàng đợi được tạo bởi danh sách liên kết</b></p>
+            <p>Để cài đặt hàng đợi bằng danh sách liên kết, ta cũng sử dụng 1 danh sách liên kết đơn và 2 con trỏ head và tail lưu giữ nút đầu và nút cuối của danh sách. Việc bổ sung phần tử mới sẽ được tiến hành ở cuối danh sách và ngược lại, việc lấy phần tử ra sẽ được tiến hành ở đầu danh sách</p>
+            <img src="~/Image/queue_list.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p style="text-align:center">Hình cài đặt hàng đợi bằng danh sách liên kết</p>
+            <p>Khai báo 1 hàng đợi bằng dang sách liên kết như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    struct node{
+        int item;
+        struct node *next;
+    };
+    typedef struct node *queuenode;
+    typedef struct {
+        queuenode head;
+        queuenode tail;
+    } queue;
+//---------------------------------------------//        
+    //Khởi tạo hàng đợi ở trạng thái rỗng có code như sau:
+    void QueueInitialize(queue *q){
+        q -> head = q -> tail = NULL;
+        return;
+    }</code> </pre>
+            </div><br />
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_5_3">
+        <h3>Các hoạt động cơ bản trên cấu trúc dữ liệu hàng đợi</h3>
+        <p>Tương tự như <a href="I_4">ngăn xếp</a>, hàng đợi cũng có các hoạt động cơ bản như: kiểm tra rỗng, thêm phần tử vào hàng đợi, lấy phần tử ra khỏi hàng đợi</p>
+        <p>Do cũng được khỏi tạo bằng 2 cấu trúc dữ liệu khác nhau nên hàng đợi cũng được chia thành 2 nhóm hoạt động là: </p>
+        <ul>
+            <li><a href="#HangDoi_HD_Mang">Hoạt động trên hàng đợi được tạo bằng mảng</a></li>
+            <li><a href="#HangDoi_HD_DSLK">Hoạt động trên hàng đợi được tạo bằng danh sách liên kết</a></li>
+        </ul>
+        <hr />
+        <div class="container" id="HangDoi_HD_Mang">
+            <p><b>Hoạt động trên hàng đợi được tạo bằng mảng</b></p>
+            <hr />
+            <p><b>a. Kiểm tra hàng đợi rỗng</b></p>
+            <p>Hàng đợi rỗng nếu có số phần tử nhỏ hơn hoặc bằng 0</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+bool isEmpty(queue q){
+    return q.count <= 0;    
+}</code> </pre>
+            </div><br />
+            <p><b>b. Kiểm tra hàng đợi đầy</b></p>
+            <p>Hàng đợi đầy nếu có số phần tử bằng MAX</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+bool isFull(queue q){
+    return q.count == MAX;
+}</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>c. Thêm một phần tử vào hàng đợi</b></p>
+            <p>Để thêm phần tử vào cuối hàng đợ, điểm cuối tăng lên 1 (nếu điểm cuối đã ở vị trí cuối mảng thì quay vòng điểm cuối về 0). Trước khi thêm phân tử vào hàng đợ, cần kiểm tra xem hàng đợi đã đầy chưa (hàng đợi đầy thì giá trị biến count = MAX)</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void Put (queue *q, int x){
+        if (q -> count == MAX)
+            printf("Hang doi day!");
+            //Nếu hàng đợi đầy thì không thể thêm mới vào
+        else{
+            // Nếu điểm cuối đã ở vị trí cuối mảng thì quay vòng điểm cuối về 0
+            if (q -> tail == MAX-1)
+                q -> tail = 0;
+            else
+                // Dịch chuyển tail tăng lên 1 vị trí
+                (q -> tail)++;
+            //Gán giá trị vào node mới mà tail đã được thay đổi tới
+            q -> node[q-> tail] = x;
+            //Tăng số đếm số lượng phần tử lên 1
+            q -> count ++;
+        }
+        return;
+    }</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>d. Lấy phần tử ra khỏi hàng đợi</b></p>
+            <p>Để lấy phần tử ra khỏi hàng đợi, điểm cuối tăng lên 1 (nếu điểm đầu đã ở vị trí cuối mảng thì quay vòng đầu về 0). Tuy nhiên, trước khi làm các thao tác này, ta cần kiểm tra xem hàng đợi có rỗng hay không</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void Get (queue *q){
+        int x;
+        if (QueueEmpty (*q))
+            printf("Hang doi rong!");
+            //Nếu hàng đợi rỗng thì không thể lấy phần tử nào
+        else{
+            x = q -> node[q -> head];
+            if (q -> head == MAX -1)
+                q -> head = 0;
+            else
+                (q -> head) ++;
+            q -> count --;
+        }
+        return  x;
+    }</code> </pre>
+            </div><br />
+        </div>
+        <hr />
+        <div class="container" id="HangDoi_HD_DSLK">
+            <p><b>Hoạt động trên hàng đợi được tạo bằng danh sách liên kết</b></p>
+            <hr />
+            <p><b>a. Kiểm tra hàng đợi rỗng</b></p>
+            <p>Hàng đợi rỗng nếu nút đầu trỏ đến NULL</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    int QueueEmpty (queue q){
+         return (q.head == NULL);
+    }</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>b. Thêm một phần tử vào hàng đợi</b></p>
+            <p>Giả sử ta có hàng đợi được tạo từ danh sách liên kết sau:</p>
+            <img src="~/Image/queue_list.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Để thêm phần tử vào cuối hàng đợi, ta thực hiện các bước:</p>
+            <p>B1: Tạo và cấp phát bộ nhứ cho 1 nút mới. Gán giá trị cho nút này</p>
+            <img src="~/Image/queue_list_insert_1.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>B2: Trỏ con trỏ tiếp của nút cuối hàng đợi trỏ đến node mới. Node này sẽ là node cuối của hàng đợi</p>
+            <img src="~/Image/queue_list_insert_2.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Đây là code mẫu cho thao tác thêm 1 phần tử vào hàng đợi</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void Put (queue *q, int x){
+        // Tạo và cấp phát bộ nhớ cho 1 nút mới 
+        queuenode p;
+        p = (queuenode) malloc (sizeof(struct node));
+        // Gán giá trị cho node mới tạo
+        p -> item = x;
+        p -> next = NULL;
+        //Trỏ con trỏ tail về node mới
+        q -> tail -> next = p;
+        //Chuyển tail sang node mới
+        q -> tail = q -> tail -> next;
+        if (q -> head == NULL) 
+            q -> head = q -> tail; // Hàng đợi chỉ có 1 phần tử
+        return;
+    }</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>c. Lấy phần tử ra khỏi hàng đợi</b></p>
+            <p>Giả sử ta có một hàng đợi được tạo từ danh sách liên kết:</p>
+            <img src="~/Image/queue_list.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Để lấy phần tử ra khỏi hàng đợi, ta tiến hành các bước:</p>
+            <p>B1: Kiểm tra xem hàng đợi có rỗng hay không, nếu rỗng thì ta không thể lấy phần tử </p>
+            <p>B2: Lấy phần tử tại bị trí đầu hàng đợi là node p</p>
+            <p>B3: Trỏ nút head tới nút tiếp theo, kết quả trả về node p</p>
+            <img src="~/Image/queue_list_remove_1.jpg" alt="Alternate Text" />
+            <br />
+            <p>Đây là code mẫu cho thao tác lấy 1 phần tử ra khỏi hàng đợi</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    int Get (queue *q){
+        queuenode p; //node p là node sẽ được lấy ra
+        if (QueueEmpty (*q)){
+            printf("Ngan xep rong!");
+            return 0;
+        } else {
+            p = q -> head; //Lấy node đầu tiên là node được lấy ra
+            q -> head = q -> head -> next; //Trỏ con trỏ head đến node tiếp theo
+            return p -> item; // Trả về node p được lấy ra
+        }
+    }</code> </pre>
+            </div><br />
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>

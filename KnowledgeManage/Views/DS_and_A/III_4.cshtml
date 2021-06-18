@@ -1,0 +1,342 @@
+﻿
+@{
+    ViewData["Title"] = "III_4";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ NGĂN XẾP (STACK)</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <h3>Bài tập cơ bản</h3>
+    <div id="accordion1">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Viết các hàm trong ngăn xếp
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Sử dụng các kiến thức trong cấu trúc dữ liệu ngăn xếp để viết các hàm cơ bản.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#cre-stack">
+                            1. Khởi tạo ngăn xếp bằng mảng
+                        </a>
+                    </div>
+                    <div id="cre-stack" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int MAXSIZE = 8;       
+int stack[8];     
+int top = -1;            
+</code> 
+</pre>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#isempty">
+                            2. Hàm isEmpty() - Kiểm tra rỗng
+                        </a>
+                    </div>
+                    <div id="isempty" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int isempty() {
+   if(top == -1)
+      return 1;
+   else
+      return 0;
+}
+</code> 
+</pre>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#isFull">
+                            3. Hàm isFull() - Kiểm tra đẩy
+                        </a>
+                    </div>
+                    <div id="isFull" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int isfull() {
+   if(top == MAXSIZE)
+      return 1;
+   else
+      return 0;
+}        
+</code> 
+</pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#peek">
+                            4. Hàm peek() - Lấy giá trị phần tử đầu ngăn xếp (Phần tử đưa vào cuối cùng)
+                        </a>
+                    </div>
+                    <div id="peek" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int peek() {
+   return stack[top];
+}         
+</code> 
+</pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#pop">
+                            5. Hàm pop() - Lấy phần tử ra khỏi ngăn xếp theo thứ tự LIFO
+                        </a>
+                    </div>
+                    <div id="pop" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int pop() {
+   int data;
+	
+   if(!isempty()) {
+      data = stack[top];
+      top = top - 1;   
+      return data;
+   }else {
+      printf("Ngan xep (Stack) rong.\n");
+   }
+}            
+</code> 
+</pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#push">
+                            6. Hàm push() - Đưa phần tử vào ngăn xếp
+                        </a>
+                    </div>
+                    <div id="push" class="collapse container" data-parent="#accordion1">
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int push(int data) {
+
+   if(!isfull()) {
+      top = top + 1;   
+      stack[top] = data;
+   }else {
+      printf("Khong the chen du lieu, ngan xep (Stack) da day.\n");
+   }
+}       
+</code> 
+</pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Sử dụng các hàm ở <b>Bài 1</b>, lần lượt chèn các phần tử {2, 5, 6, 1, 3, 10, 6} vào ngăn xếp. In danh sách ngăn xếp ra màn hình. Kiểm tra rỗng trước và sau khi in.
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu ngăn xếp</p>
+                <p>2. Sử dụng các hàm đã viết ở bài 1.</p>
+                <p>3. In ngăn xếp ra màn hình.</p>
+                <p>4. Kiếm tra hàm rỗng xem hoạt động như thế nào.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+
+int MAXSIZE = 8;       
+int stack[8];     
+int top = -1;            
+
+int isfull() {
+
+   if(top == MAXSIZE)
+      return 1;
+   else
+      return 0;
+}
+
+int isempty() {
+
+   if(top == -1)
+      return 1;
+   else
+      return 0;
+}
+
+int pop() {
+   int data;
+	
+   if(!isempty()) {
+      data = stack[top];
+      top = top - 1;   
+      return data;
+   }else {
+      printf("Khong the thu thap du lieu, ngan xep (Stack) la trong.\n");
+   }
+}
+
+int push(int data) {
+
+   if(!isfull()) {
+      top = top + 1;   
+      stack[top] = data;
+   }else {
+      printf("Khong the chen du lieu, ngan xep (Stack) da day.\n");
+   }
+}
+
+int main() {
+   // chen cac phan tu vao ngan xep
+   push(2);
+   push(5);
+   push(6);
+   push(1);
+   push(3);
+   push(10);
+   push(6);
+   
+   printf("Ngan xep truoc khi in co rong khong?: %s\n" , isempty()?"true":"false");
+   
+   // in cac phan tu trong ngan xep
+   printf("\nTop -");
+   while(!isempty()) {
+      int data = pop();
+      printf(" [ %d ] ",data);
+   }
+   printf("- Bottom");
+
+   printf("Ngan xep sau khi in co rong khong?: %s\n" , isempty()?"true":"false");
+   
+   return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Sử dụng các hàm ở <b>Bài 1</b>, lần lượt chèn các phần tử {2, 5, 6, 1, 3, 10, 6} vào ngăn xếp. Lấy phần tử đầu ngăn xếp mà không xóa nó khỏi ngăn xếp (chỉ lấy giá trị).
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>1. Khai báo kiểu dữ liệu ngăn xếp</p>
+                <p>2. Sử dụng một con trỏ trỏ từ đầu đến cuối danh sách.</p>
+                <p>3. Lấy giá trị phần tử đầu ngăn xếp bằng hàm peek().</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt; stdio.h &gt;
+
+int MAXSIZE = 8;       
+int stack[8];     
+int top = -1;            
+
+int isfull() {
+
+   if(top == MAXSIZE)
+      return 1;
+   else
+      return 0;
+}
+
+int isempty() {
+
+   if(top == -1)
+      return 1;
+   else
+      return 0;
+}
+
+int peek() {
+   return stack[top];
+}
+
+
+int pop() {
+   int data;
+	
+   if(!isempty()) {
+      data = stack[top];
+      top = top - 1;   
+      return data;
+   }else {
+      printf("Khong the thu thap du lieu, ngan xep (Stack) la trong.\n");
+   }
+}
+
+int push(int data) {
+
+   if(!isfull()) {
+      top = top + 1;   
+      stack[top] = data;
+   }else {
+      printf("Khong the chen du lieu, ngan xep (Stack) da day.\n");
+   }
+}
+
+int main() {
+   // chen cac phan tu vao ngan xep
+   push(2);
+   push(5);
+   push(6);
+   push(1);
+   push(3);
+   push(10);
+   push(6);
+   
+   printf("Phan tu dinh ngan xep la: %d\n", peek());
+   
+   // in cac phan tu trong ngan xep
+   printf("Cac phan tu trong ngan xep: ");
+   printf("\nTop -");
+   while(!isempty()) {
+      int data = pop();
+      printf(" [ %d ] ",data);
+   }
+   printf("- Bottom");
+   return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

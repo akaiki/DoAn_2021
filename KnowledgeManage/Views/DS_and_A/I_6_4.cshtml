@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewData["Title"] = "I_6_4";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    .zoom {
+        /*padding: 50px;*/
+        background-color: green;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+        .zoom:hover {
+            transform: scale(1.3); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 inherit;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h1>CÂY NHỊ PHÂN</h1>
+    <div class="container" id="I_6_4_1">
+        <h3>Khái niệm</h3>
+        <p>Cây nhị phân là một loại cây đặc biệt mà mỗi nút của nó chỉ có nhiều nhất là 2 nút con. Khi đó, 2 cây con của mỗi nút được gọi là cây con trái và cây con phải </p>
+        <img src="~/Image/binnary_tree.jpg" class="zoom" style="text-align:center" />
+        <br />
+        <p>Cây nhị phân là cây có cấu trúc đơn giản và có nhiều ứng dụng trong tin học. Một số dạng cây nhị phân đặc biết và được ứng dụng nhiều nhất là:</p>
+        <ul>
+            <li>
+                <p>- <b>Cây nhị phân đầy đủ:</b> là cây nhị phân mà mỗi nút không phải lá đều có đúng 2 nút con và các nút lá phải có cùng độ sâu.</p>
+                <img src="~/Image/binnary_daydu.jpg" class="zoom" style="text-align:center" />
+            </li>
+            <li>
+                <p>- <b>Cây nhị phân tìm kiếm:</b> là cây nhị phân có tính chất khóa của nút con bên trái cũng bao giờ nhỏ hơn khóa của nút cha, còn khóa của cây con bên phải bao giờ cũng lớn hơn hoặc bằng khóa của nút cha.</p>
+                <img src="~/Image/binnary_timkiem.jpg" class="zoom" style="text-align:center" />
+            </li>
+        </ul>
+    </div>
+    <hr />
+    <div class="container" id="I_6_4_2">
+        <h3>Cài đặt cây nhị phân</h3>
+        <p>Do <a href="I_6">cấu trúc dữ liệu cây</a> được cài đặt bởi 2 cấu trúc dữ liệu khác là <a href="I_2">cấu trúc dữ liệu mảng</a> và <a href="I_3">cấu trúc dữ liệu danh sách liên kết</a> nên cây nhị phân cũng có 2 cách cài đặt:</p>
+        <ul>
+            <li><a href="#cay_bang_mang">Cài đặt cây nhị phân bằng mảng</a></li>
+            <li><a href="#cay_bang_dslk">Cài đặt cây nhị phân bằng danh sách liên kết</a></li>
+        </ul>
+        <hr />
+        <div id="cay_bang_mang">
+            <p><b>Cài đặt cây nhị phân bằng mảng</b></p>
+            <p>Đối với cây nhị phân đầy đủ, mỗi nút đều có đúng 2 nút con, ta có thể sử dụng 1 mảng để biểu diễn cây theo quy tắc:</p>
+            <ul>
+                <li><p>- Nút đầu tiên (nút thứ 1) của mảng là nút gốc.</p></li>
+                <li><p>- Nút thứ i (i >= 1) của cây có 2 nút con là nút thứ 2i và 2i + 1. Điều này đông nghĩa với nút cha của nút k là nút [k/2].</p></li>
+            </ul>
+            <p>Với cách lưu trữ này, ta có thể dễ dàng tìm được các nút con của 1 nút cho trước cũng như dễ dàng tìm được nút cha của nó.</p>
+            <p>Ví dụ, cây nhị phân đầy đủ có thể biểu diễn ở mảng A như sau:</p>
+            <img src="~/Image/caynhiphan_mang_canbang.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Đối với cây nhị phân không cân bằng, do số nút con của một nút có thể bé hơn 2 nên dùng cách biểu diễn trên không thích hợp. Khi đó, ta có thể dùng mọt mảng các nút, mỗi nút này có 2 thành phần là nút con trái và nút con phải.</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    typedef struct {
+        int item;
+        int left_child;
+        int right_child;
+    } node;
+    node tree[max];
+    </code> </pre>
+            </div><br />
+        </div>
+        <div id="cay_bang_dslk">
+            <p><b>Cài đặt cây nhị phân bằng danh sách liên kết</b></p>
+            <p>Mỗi nút của cây nhị phân sẽ có 3 thành phần:</p>
+            <ul>
+                <li><p>- Thành phần item chứa thông tin về nút</p></li>
+                <li><p>- Con trỏ left trỏ đến nút con bên trái</p></li>
+                <li><p>- Con trỏ right trỏ đến nút con bên phải</p></li>
+            </ul>
+            <p>Nếu nút có ít hơn 2 nút con thì một trong hai con trỏ hoặc cả 2 sẽ được gán giá trị NULL. Ngoài ra, để thăng cường khả năng di chuyển trong cây, ta có thể thêm một thành phần nữa cho nút đó là con trỏ parent trỏ đến nút cha.</p>
+            <p>Ví dụ, cây nhị phân sau sẽ được biểu diễn bằng danh sách liên kết:</p>
+            <img src="~/Image/caynhiphan_dslk.jpg" class="zoom" style="text-align:center" />
+            <br />
+            <p>Khai báo cây nhị phân bằng danh sách liên kết trong C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    struct node{
+        int item;
+        struct node *left;
+        struct node *right;
+    }
+    typedef struct node *treenode;
+    treenode root;
+    </code> </pre>
+            </div><br />
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="I_6_4_3">
+        <h3>Duyệt cây nhị phân</h3>
+        <p>Phép duyệt cây nhị phân cũng được chia làm 3 kiểu: <a href="#TienThuTu">"duyệt tiền thứ tự"</a>, <a href="#TrungThuTu">"duyệt trung thứ tự"</a> và <a href="#HauThuTu">"duyệt hậu thứ tự"</a>.</p>
+        <p>Các bước duyệt trên có thể xem chi tiết tại <a href="I_6#I_6_3">"duyệt cấu trúc dữ liệu cây"</a></p>
+        <hr />
+        <div id="TienThuTu">
+            <p><b>Duyệt tiền thứ tự</b></p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void PreOrder (treenode root) {
+        if (root != NULL){
+            // Duyệt node gốc trước
+            printf("%d", root.item);
+            // Duyệt cụm nhị phân con bên trái
+            PreOrder(root.left);
+            // Duyệt cụm nhị phân con bên phải
+            PreOrder(root.right);
+        }
+    }
+    </code> </pre>
+            </div><br />
+        </div>
+        <div id="TrungThuTu">
+            <p><b>Duyệt trung thứ tự</b></p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void InOrder (treenode root) {
+        if (root != NULL){
+            // Duyệt cụm nhị phân con bên trái trước
+            InOrder(root.left);
+            // Duyệt node gốc 
+            printf("%d", root.item);
+            // Duyệt cụm nhị phân con bên phải
+            InOrder(root.right);
+        }
+    }
+    </code> </pre>
+            </div><br />
+        </div>
+        <div id="HauThuTu">
+            <p><b>Duyệt hậu thứ tự</b></p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+    void PostOrder (treenode root) {
+        if (root != NULL){
+            // Duyệt cụm nhị phân con bên trái trước
+            PostOrder(root.left);
+            // Duyệt cụm nhị phân con bên phải
+            PostOrder(root.right);
+            // Duyệt node gốc 
+            printf("%d", root.item);
+        }
+    }
+    </code> </pre>
+            </div><br />
+        </div>
+    </div>
+
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
