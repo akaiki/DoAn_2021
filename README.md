@@ -1,6 +1,6 @@
 # Link_TrangWEB:
 Sau đây là link của trang web sử dụng server của azure, có thể sau này không hoạt động do sử dụng mail sinh viên.
-link: https://knowledgemanage20210506080613.azurewebsites.net/
+link: https://learnicorn.azurewebsites.net/
 # Link_Demo_on_Youtube:
 Demo 01: https://youtu.be/kP1g4bKPcgs  
 Demo 02: https://youtu.be/KosIhd5m0l8  
@@ -28,13 +28,11 @@ MSSV: 5851071038	Lớp: CQ.58.CNTT
     −	Nghiên cứu về node.js và những kiến thức liên quan để kết nối chatbot vào trang web.
     −	Xây dựng sơ lược trang web tìm kiếm.
     − Hệ thống quản lý đường dẫn đến các trang web được lưu trong cơ sở dữ liệu.
-    − Áp dụng .NET core MVC để xây dựng nhằm quản lý các view và các lớp thuận tiện hơn.
+    − Áp dụng .NET MVC để xây dựng nhằm quản lý các view và các lớp thuận tiện hơn.
     − Áp dụng Entity Framwork core để tạo CSDL.
     − Áp dụng Bootstrap để làm giao diện thân thiện với người dùng hơn.
     − Nghiên cứu tích hợp API nhằm kết nối với chatbot.
 4.	Các kết quả chính dự kiến sẽ đạt được và ứng dụng:
     − Hiểu rõ cách xây dựng một ứng dụng .NET core MVC.
-    − Nghiên cứu về elastisSearch trong việc tìm kiếm từ khóa.
     − Nghiên cứu tạo thành công chatbot nhằm tích hợp vào trang web
-    
     − Mong muốn tương lai có thể phát triển thành tất cả môn học nhằm mô phỏng hóa “Giáo trình online” cho các trang web giáo dục.
