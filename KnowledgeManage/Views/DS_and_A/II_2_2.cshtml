@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "II_2_2";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_2_2">
+        <h3>GIẢI THUẬT TÌM KIẾM NHỊ PHÂN</h3>
+        <div id="II_2_2_1">
+            <h5>Khái niệm giải thuật tìm kiếm tuyến tính</h5>
+            <p>Tìm kiếm nhị phân (Binary Search) làm việc dựa trên nguyên tắc <a href="II_5">chia để trị (Divide and Conquer)</a>. Để giải thuật này có thể làm việc một cách chính xác thì tập dữ liệu nên ở trong dạng đã được sắp xếp.</p>
+            <img src="~/Image/binary_search.gif" />
+        </div>
+        <hr />
+        <div id="II_2_2_2">
+            <h5>Xây dựng giải thuật tìm kiếm nhị phân</h5>
+               <p>Giả sử ta có mảng a có n phần tử và giá trị x cần tìm, left và right là hai vị trí đầu và cuối.</p>
+                <ul>
+                    <li><b>Bước 1: </b>Sắp xếp a theo thứ tự tăng dần</li>
+                    <li><b>Bước 2: </b>Gán left = 0  và right = n-1</li>
+                    <li><b>Bước 3: </b>Nếu left > right, kết thúc, trả về vị trí hiện tại</li>
+                    <li><b>Bước 4: </b>Gán k (vị trí phần tử đứng giữa) bằng (left + right)/2. k là số nguyên</li>
+                    <li><b>Bước 5: </b>Nếu x > a[k], gán left với k + 1, quay lại <b>bước 2</b></li>
+                    <li><b>Bước 6: </b>Nếu x < a[k], gnas right với k - 1, quay lại <b>bước 2</b></li>
+                    <li><b>Bước 7: </b>Khi a[k] == x, quá trình tìm kiếm hoàn tất, trả về m.</li>
+                    <li><b>Bước 8: </b>Thoát</li>
+                </ul>
+            <p>Trong thủ tục này x là giá trị cần tìm trong dãy a. Hai biến left và right dúng để giới hạn phân đoạn của mảng mà quá trình tìm kiếm sẽ được thực hiện trong mỗi bước. Đầu tiên 2 biến này được gán giá trị 0 và n - 1, tức là toàn bộ mảng sẽ được tìm kiếm.</p>
+            <p>Tại mỗi bước, biến k sẽ được gán cho chỉ số giữa của đoạn đang được tiến hành tìm kiếm. Nếu giá trị x nhỏ hơn giá trị phần tử tại k, biến right sẽ được gán bằng k-1, cho biết quá trình tìm tại bược sau sẽ được thực hiện trong nửaa đầu của đoạn. Ngược lại, giá trị left được gán bằng k+1, cho biết quá trình tìm tại bước sau sẽ được thực hiện trong nửa sau của đoạn</p>            <div class="card" style="background-color: #F1F1F1">
+             
+            </div><br />
+            <hr />
+            <p>Giải thuật mẫu cho tìm kiếm nhị phân</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+                <code>
+Giải thuật tìm kiếm nhị phân (Binary Search)
+    A ← một mảng đã được sắp xếp
+    n ← kích cỡ mảng
+    x ← giá trị để tìm kiếm trong mảng
+    gán left = 0
+    gán right = n - 1
+    <span style="color: #008">while</span> x not found
+        <span style="color: #008">if</span> right < left
+            EXIT: x không tồn tại.
+        gán midPoint = ( left + right ) / 2
+        <span style="color: #008">if</span> A[midPoint] < x
+            gán left = midPoint + 1
+        <span style="color: #008">if</span> A[midPoint] > x
+            gán right = midPoint - 1
+        <span style="color: #008">if</span> A[midPoint] = x
+            EXIT: x được tìm thấy tại midPoint
+    kết thúc while
+kết thúc giải thuật
+    </code> </pre>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Cho mảng a đã được sắp xếp và giá trị cần tìm x. Hàm tìm kiếm nhị phân được cài đặt bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+int binary_search (int *a, int x, int n){
+    int k, left = 0, right = n -1;
+    do {
+        k = (left + right)/2;
+        if (x < a[k])
+            right = k - 1;
+        else
+            left = k + 1;
+    } while ((x != a[k]) && (left <= right))
+    if (x == a[k])
+        return k;
+    else
+        return (-1);
+}
+</code> </pre>
+            </div><br />
+            <p>Thuật toán tìm kiếm nhị phân có thời gian thực hiện là lg(n). Tuy nhiên, thuật toán đòi hỏi dãy đã được sắp xếp trước khi tiến hành tìm kiếm. Do vậy, nên áp dụng tìm kiếm nhị phân khi việc tìm kiếm phải thực hiện nhiều lần trên một tập phần tử cho trước. Khi đó, ta chỉ cần tiến hành sắp tập phần tử một lần và thực hiện tìm kiếm nhiều lần trên tập phần tử đã sắp này.</p>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

@@ -80,6 +80,7 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\BieuDienMaTran2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\BieuDienMaTran3.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\BieuDienMaTran4.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binary_search.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_daydu.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_timkiem.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_tree.jpg
@@ -134,6 +135,8 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\dou_list.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\heap.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\icon\favicon.png
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\interpolation_search.gif
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\linear_search.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\linkedlist.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_insert_begin_1.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_insert_begin_2.jpg

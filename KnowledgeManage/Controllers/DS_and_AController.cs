@@ -352,6 +352,26 @@ namespace KnowledgeManage.Controllers
         {
             return View(Relate("I_7_3_2"));
         }
+        public IActionResult II()
+        {
+            return View(Relate("II"));
+        }
+        public IActionResult II_2()
+        {
+            return View(Relate("II_2"));
+        }
+        public IActionResult II_2_1()
+        {
+            return View(Relate("II_2_1"));
+        }
+        public IActionResult II_2_2()
+        {
+            return View(Relate("II_2_2"));
+        }
+        public IActionResult II_2_3()
+        {
+            return View(Relate("II_2_3"));
+        }
         public IActionResult III_1()
         {
             return View(Relate("I_2"));

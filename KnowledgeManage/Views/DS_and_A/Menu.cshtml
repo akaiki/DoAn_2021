@@ -1,380 +1,558 @@
-﻿@model  IEnumerable<KnowledgeManage.Models.Result_Lesson>
+﻿@model IEnumerable<KnowledgeManage.Models.Result_Lesson>
 
-    @{
-        ViewData["Title"] = "Menu";
-        Layout = "~/Views/Shared/_Layout.cshtml";
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+    p {
+        text-align: justify;
     }
 
 
-    <style>
+    .container {
+        display: inline-block;
+        cursor: pointer;
+    }
 
-        p {
-            text-align: justify;
-        }
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 2px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 3px);
+        transform: rotate(-45deg) translate(-9px, 3px);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -4px);
+        transform: rotate(45deg) translate(-8px, -4px);
+    }
+
+    ul {
+        list-style-type: none;
+    }
 
 
-        .container {
+    .caret {
+        cursor: pointer;
+        user-select: none;
+    }
+
+        .caret::before {
+            content: "\25B6";
+            color: black;
             display: inline-block;
-            cursor: pointer;
+            margin-right: 6px;
         }
 
-        .bar1, .bar2, .bar3 {
-            width: 35px;
-            height: 2px;
-            background-color: #333;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
+    .caret-down::before {
+        transform: rotate(90deg);
+    }
 
-        .change .bar1 {
-            -webkit-transform: rotate(-45deg) translate(-9px, 3px);
-            transform: rotate(-45deg) translate(-9px, 3px);
-        }
+    .nested {
+        display: none;
+    }
 
-        .change .bar2 {
-            opacity: 0;
-        }
-
-        .change .bar3 {
-            -webkit-transform: rotate(45deg) translate(-8px, -4px);
-            transform: rotate(45deg) translate(-8px, -4px);
-        }
-
-        ul {
-            list-style-type: none;
-        }
+    .active {
+        display: block;
+    }
+</style>
 
 
-        .caret {
-            cursor: pointer;
-            user-select: none;
-        }
+<div class="w-100">
+    <div class="d-flex justify-content-between " style="background-color: #F5F5F5">
+        <a class="p-2" href="#" id="navbardrop" data-toggle="collapse" data-target="#menu" onclick="myFunction(this)" style="width: 15%">
+            <div class="flex-grow-1">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </a>
+        <form class="form-inline flex-lg-grow-1" asp-action="Result_Multy">
+            <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" type="search" required />
+            <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
+        </form>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="p-2 nav-link border-right" asp-controller="DS_and_a" asp-action="Search" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5;"><b>Tìm kiếm theo các thành phần</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="p-2 nav-link " data-toggle="collapse" data-target="#related" href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Hiển thị kiến thức liên quan</b></a>
+            </li>
+        </ul>
+    </div>
 
-            .caret::before {
-                content: "\25B6";
-                color: black;
-                display: inline-block;
-                margin-right: 6px;
-            }
+    <div style="float:left; width: 100%" class="body-content d-flex" id="mainpage">
+        <div class="collapse bg-light border" id="menu" style="float: left; " data-parent="#mainpage">
+            <div style="overflow-y: auto; overflow-x: hidden; height:85vh; max-width:480px; min-width:400px">
+                <ul>
+                    <li>
+                        <a class="disabled">I - CẤU TRÚC DỮ LIỆU</a>
+                        <span class="caret"></span>
+                        <ul class="nested">
+                            <li>
+                                <a href="I#I_1">1. Khái niệm cấu trúc dữ liệu</a>
+                            </li>
+                            <li>
+                                <a href="I_2">2. Cấu trúc dữ liệu mảng (Array)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_2#I_2_1">2.1. Khái niệm cấu trúc dữ liệu mảng</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_2#I_2_2">2.2. Cấu trúc dữ liệu mảng động</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_2#I_2_2_1">2.2.1. Khái niệm cấu trúc dữ liệu mảng động</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_2#I_2_2_2">2.2.2. Biểu diễn cấu trúc dữ liệu mảng động</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="I_2#I_2_3">2.3. Biểu diễn cấu trúc dữ liệu mảng</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_2#I_2_4">2.4. Phép toán thực hiện trên mảng</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="I_3">3. Cấu trúc dữ liệu danh sách liên kết (Linked list)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_3#I_3_1">3.1. Khái niệm cấu trúc dữ liệu danh sách liên kết</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_3#I_3_2">3.2. Danh sách liên kết đơn</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_3#I_3_2_1">3.2.1. Khái niệm danh sách liên kết đơn</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_2_2">3.2.2. Biểu diễn danh sách liên kết đơn</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_2_3">3.2.3. Các hoạt động trên danh sách liên kết đơn</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="I_3#I_3_3">3.3. Danh sách liên kết đôi</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_3#I_3_3_1">3.3.1. Khái niệm danh sách liên kết đôi</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_3_2">3.3.2. Biểu diễn danh sách liên kết đôi</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_3_3">3.3.3. Các hoạt động trên danh sách liên kết đôi</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="I_3#I_3_4">3.4. Danh sách liên kết vòng</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_3#I_3_4_1">3.4.1. Khái niệm danh sách liên kết vòng</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_4_2">3.4.3. Biểu diễn danh sách liên kết vòng</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_3#I_3_4_3">3.4.3. Các hoạt động trên danh sách liên kết vòng</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="I_4"> 4. Cấu trúc dữ liệu ngăn xếp (Stack)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_4#I_4_1">4.1. Khái niệm cấu trúc dữ liệu ngăn xếp</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_4#I_4_2">4.2. Biểu diễn cấu trúc dữ liệu ngăn xếp</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_4#I_4_3">4.3. Các hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="I_5">5. Cấu trúc dữ liệu hàng đợi (Queue)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_5#I_5_1">5.1. Khái niệm cấu trúc dữ liệu hàng đợi</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_5#I_5_2">5.2. Biểu diễn cấu trúc dữ liệu hàng đợi</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_5#I_5_3">5.3. Các hoạt động cơ bản trên cấu trúc dữ liệu hàng đợi</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="I_6"> 6. Cấu trúc dữ liệu cây (Tree)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_6#I_6_1">6.1. Khái niệm cấu trúc dữ liệu cây </a>
+                                    </li>
+                                    <li>
+                                        <a href="I_6#I_6_2">6.2. Biểu diễn cấu trúc dữ liệu cây</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_6#I_6_3">6.3. Duyệt cây</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_6_4">6.4. Cây nhị phân</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_6_4#I_6_4_1">6.4.1. Khái niệm cây nhị phân </a>
+                                            </li>
+                                            <li>
+                                                <a href="I_6_4#I_6_4_2">6.4.2. Biểu diễn cây nhị phân</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_6_4#I_6_4_3">6.4.3. Hoạt động trên cây nhị phân</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-        .caret-down::before {
-            transform: rotate(90deg);
-        }
+                                    <li>
+                                        <a href="I_6_5">6.5. Cây Heap</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_6_5#I_6_5_1">6.5.1. Khái niệm cây Heap</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_6_5#I_6_5_2">6.5.2. Biểu diễn cây Heap</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_6_5#I_6_5_3">6.5.3. Hoạt động trên cây Heap</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="I_7">7. Cấu trúc dữ liệu đồ thị (Graph)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="I_7#I_7_1">7.1. Khái niệm cấu trúc dữ liệu đồ thị</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_7#I_7_2">7.2. Biểu diễn đồ thị</a>
+                                    </li>
+                                    <li>
+                                        <a href="I_7#I_7_3">7.3. Duyệt đồ thị</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="I_7_3_1">7.3.1. Duyệt theo chiều sâu</a>
+                                            </li>
+                                            <li>
+                                                <a href="I_7_3_2">7.3.2. Duyệt theo chiều rộng</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="disabled">II - GIẢI THUẬT </a>
+                        <span class="caret"></span>
+                        <ul class="nested">
+                            <li>
+                                <a href="II#II_1">1. Khái niệm giải thuật</a>
+                            </li>
+                            <li>
+                                <a href="II_2">2. Giải thuật tìm kiếm</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_2_1">2.1. Giải thuật tìm kiếm tuyến tính</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_2_1#II_2_1_1">2.1.1. Khái niệm giải thuật tìm kiếm tuyến tính</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_2_1#II_2_1_2">2.1.2. Xây dựng giải thuật tìm kiếm tuyến tính</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_2_2">2.2. Giải thuật tìm kiếm nhị phân</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_2_2#II_2_2_1">2.2.1. Khái niệm giải thuật tìm kiếm nhị phân</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_2_2#II_2_2_2">2.2.2. Xây dựng giải thuật tìm kiếm nhị phân</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_2_3">2.3. Giải thuật tìm kiếm nội suy</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_2_3#II_2_3_1">2.3.1. Khái niệm giải thuật tìm kiếm nội suy</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_2_3#II_2_3_2">2.3.2. Xây dựng giải thuật tìm kiếm nội suy</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_3">3. Giải thuật sắp xếp</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_3#II_3_1">3.1. Giải thuật sắp xếp nổi bọt (Bubble sort)</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_3#II_3_1_1">3.1.1. Khái niệm giải thuật sắp xếp nổi bọt</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_3#II_3_1_2">3.1.2. Xây dựng giải thuật sắp xếp nổi bọt</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_3#II_3_2">3.2. Giải thuật sắp xếp chèn (Insertion sort)</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_3#II_3_2_1">3.2.1. Khái niệm giải thuật sắp xếp chèn</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_3#II_3_2_2">3.2.2. Xây dựng giải thuật sắp xếp chèn</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_3#II_3_3">3.3. Giải thuật sắp xếp chọn (Selection sort)</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_3#II_3_3_1">3.3.1. Khái niệm giải thuật sắp xếp chọn</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_3#II_3_3_2">3.3.2. Xây dựng giải thuật sắp xếp chọn</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_3#II_3_4">3.4. Giải thuật sắp xếp nhanh (Quick sort)</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_3#II_3_4_1">3.4.1. Khái niệm giải thuật sắp xếp nhanh</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_3#II_3_4_2">3.4.2. Xây dựng giải thuật sắp xếp nhanh</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="II_3#II_3_5">3.5. Giải thuật sắp xếp vun đống (Heap sort)</a>
+                                        <span class="caret"></span>
+                                        <ul class="nested">
+                                            <li>
+                                                <a href="II_3#II_3_5_1">3.5.1. Khái niệm giải thuật sắp xếp vun đống</a>
+                                            </li>
+                                            <li>
+                                                <a href="II_3#II_3_5_2">3.5.2. Xây dựng giải thuật sắp xếp vun đống</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_4">4. Giải thuật tham lam (Greedy Algorythm)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_4#II_4_1">4.1. Khái niệm giải thuật tham lam</a>
+                                    </li>
+                                    <li>
+                                        <a href="II_4#II_4_2">4.2. Xây dựng giải thuật tham lam</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_5">5. Giải thuật chia để trị (Divide and Conquer)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_5#II_5_1">5.1. Khái niệm giải thuật chia để trị</a>
+                                    </li>
+                                    <li>
+                                        <a href="II_5#II_5_2">5.2. Xây dựng giải thuật chia để trị</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_6">6. Giải thuật đệ quy (Recursion Algorithm)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_6#II_6_1">6.1. Khái niệm giải thuật đệ quy</a>
+                                    </li>
+                                    <li>
+                                        <a href="II_6#II_6_2">6.2. Xây dựng giải thuật đệ quy</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_7">7. Giải thuật quy hoạch động (Dynamic Programming)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_7#II_7_1">7.1. Khái niệm giải thuật quy hoạch động</a>
+                                    </li>
+                                    <li>
+                                        <a href="II_7#II_7_2">7.2. Xây dựng giải thuật quy hoạch động</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="II_8">8. Giải thuật quay lui (Backtracking)</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="II_8#II_8_1">8.1. Khái niệm giải thuật quay lui</a>
+                                    </li>
+                                    <li>
+                                        <a href="II_8#II_8_2">8.2. Xây dựng giải thuật quay lui</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>III - BÀI TẬP VÍ DỤ</a>
+                        <span class="caret"></span>
+                        <ul class="nested">
+                            <li>
+                                <a href="III_1">1. Bài tập về mảng</a>
+                            </li>
+                            <li>
+                                <a href="III_2">2. Bài tập về mảng động</a>
+                            </li>
+                            <li>
+                                <a href="III_3">3. Bài tập về danh sách liên kết</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="III_3#Don">3.1 Bài tập về danh sách liên kết đơn</a>
+                                    </li>
+                                    <li>
+                                        <a href="III_3#Doi">3.2 Bài tập về danh sách liên kết đôi</a>
+                                    </li>
+                                    <li>
+                                        <a href="III_3#Vong">3.3. Bài tập về danh sách liên kết vòng</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="III_4">4. Bài tập về ngăn xếp</a>
+                            </li>
+                            <li>
+                                <a href="III_5">5. Bài tập về hàng đợi</a>
+                            </li>
+                            <li>
+                                <a href="III_6">6. Bài tập về cây</a>
+                                <span class="caret"></span>
+                                <ul class="nested">
+                                    <li>
+                                        <a href="III_6">6.1. Bài tập cơ bản về cây</a>
+                                    </li>
+                                    <li>
+                                        <a href="III_6#CayNhiPhan">6.2. Bài tập về cây nhị phân</a>
+                                    </li>
+                                    <li>
+                                        <a href="III_6#CayHeap">6.3. Bài tập về cây Heap</a>
+                                    </li>
+                                </ul>
+                            </li>
 
-        .nested {
-            display: none;
-        }
+                            <li>
+                                <a href="III_7">7. Bài tập về đồ thị</a>
+                            </li>
 
-        .active {
-            display: block;
-        }
-    </style>
-
-
-    <div class="w-100">
-        <div class="d-flex justify-content-between " style="background-color: #F5F5F5">
-            <a class="p-2" href="#" id="navbardrop" data-toggle="collapse" data-target="#menu" onclick="myFunction(this)" style="width: 15%">
-                <div class="flex-grow-1">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-            </a>
-            <form class="form-inline flex-lg-grow-1" asp-action="Result_Multy">
-                <input name="searchString" class="form-control" placeholder="Nhập tên kiến thức" style="width:60%" type="search" required />
-                <button class="btn " type="submit" style="background-color: #add8e6">Tìm kiếm </button>
-            </form>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"> 
-                    <a class="p-2 nav-link border-right" asp-controller="DS_and_a" asp-action="Search" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5;"><b>Tìm kiếm theo các thành phần</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="p-2 nav-link " data-toggle="collapse" data-target="#related" href="#" style="float:left; color: #000000; text-align:center; background-color: #F5F5F5"><b>Hiển thị kiến thức liên quan</b></a>
-                </li>
-            </ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <div style="height: 85vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: medium; text-indent: 5%;" class=" flex-fill">
+            @RenderBody()
 
-        <div style="float:left; width: 100%" class="body-content d-flex" id="mainpage">
-            <div class="collapse bg-light border" id="menu" style="float: left; " data-parent="#mainpage">
-                <div style="overflow-y: auto; overflow-x: hidden; height:85vh; width: 400px">
-                    <ul>
-                        <li>
-                            <a>I - CẤU TRÚC DỮ LIỆU</a>
-                            <ul>
-                                <li>
-                                    <a href="I#I_1">1. Khái niệm cấu trúc dữ liệu</a>
-                                </li>
-                                <li>
-                                    <a href="I_2">2. Cấu trúc dữ liệu mảng (Array)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_2#I_2_1">2.1. Khái niệm cấu trúc dữ liệu mảng</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_2#I_2_2">2.2. Cấu trúc dữ liệu mảng động</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_2#I_2_2_1">2.2.1. Khái niệm cấu trúc dữ liệu mảng động</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_2#I_2_2_2">2.2.2. Biểu diễn cấu trúc dữ liệu mảng động</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="I_2#I_2_3">2.3. Biểu diễn cấu trúc dữ liệu mảng</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_2#I_2_4">2.4. Phép toán thực hiện trên mảng</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="I_3">3. Cấu trúc dữ liệu danh sách liên kết (Linked list)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_3#I_3_1">3.1. Khái niệm cấu trúc dữ liệu danh sách liên kết</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_3#I_3_2">3.2. Danh sách liên kết đơn</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_3#I_3_2_1">3.2.1. Khái niệm danh sách liên kết đơn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_2_2">3.2.2. Biểu diễn danh sách liên kết đơn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_2_3">3.2.3. Các hoạt động trên danh sách liên kết đơn</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="I_3#I_3_3">3.3. Danh sách liên kết đôi</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_3#I_3_3_1">3.3.1. Khái niệm danh sách liên kết đôi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_3_2">3.3.2. Biểu diễn danh sách liên kết đôi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_3_3">3.3.3. Các hoạt động trên danh sách liên kết đôi</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="I_3#I_3_4">3.4. Danh sách liên kết vòng</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_3#I_3_4_1">3.4.1. Khái niệm danh sách liên kết vòng</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_4_2">3.4.3. Biểu diễn danh sách liên kết vòng</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_3#I_3_4_3">3.4.3. Các hoạt động trên danh sách liên kết vòng</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="I_4"> 4. Cấu trúc dữ liệu ngăn xếp (Stack)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_4#I_4_1">4.1. Khái niệm cấu trúc dữ liệu ngăn xếp</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_4#I_4_2">4.2. Biểu diễn cấu trúc dữ liệu ngăn xếp</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_4#I_4_3">4.3. Các hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="I_5">5. Cấu trúc dữ liệu hàng đợi (Queue)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_5#I_5_1">5.1. Khái niệm cấu trúc dữ liệu hàng đợi</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_5#I_5_2">5.2. Biểu diễn cấu trúc dữ liệu hàng đợi</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_5#I_5_3">5.3. Các hoạt động cơ bản trên cấu trúc dữ liệu hàng đợi</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="I_6"> 6. Cấu trúc dữ liệu cây (Tree)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_6#I_6_1">6.1. Khái niệm cấu trúc dữ liệu cây </a>
-                                        </li>
-                                        <li>
-                                            <a href="I_6#I_6_2">6.2. Biểu diễn cấu trúc dữ liệu cây</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_6#I_6_3">6.3. Duyệt cây</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_6_4">6.4. Cây nhị phân</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_6_4#I_6_4_1">6.4.1. Khái niệm cây nhị phân </a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_6_4#I_6_4_2">6.4.2. Biểu diễn cây nhị phân</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_6_4#I_6_4_3">6.4.3. Hoạt động trên cây nhị phân</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li>
-                                            <a href="I_6_5">6.5. Cây Heap</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_6_5#I_6_5_1">6.5.1. Khái niệm cây Heap</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_6_5#I_6_5_2">6.5.2. Biểu diễn cây Heap</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_6_5#I_6_5_3">6.5.3. Hoạt động trên cây Heap</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="I_7">7. Cấu trúc dữ liệu đồ thị (Graph)</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="I_7#I_7_1">7.1. Khái niệm cấu trúc dữ liệu đồ thị</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_7#I_7_2">7.2. Biểu diễn đồ thị</a>
-                                        </li>
-                                        <li>
-                                            <a href="I_7#I_7_3">7.3. Duyệt đồ thị</a>
-                                            <span class="caret"></span>
-                                            <ul class="nested">
-                                                <li>
-                                                    <a href="I_7_3_1">7.3.1. Duyệt theo chiều sâu</a>
-                                                </li>
-                                                <li>
-                                                    <a href="I_7_3_2">7.3.2. Duyệt theo chiều rộng</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a>III - BÀI TẬP VÍ DỤ</a>
-                            <span class="caret"></span>
-                            <ul class="nested">
-                                <li>
-                                    <a href="III_1">1. Bài tập về mảng</a>
-                                </li>
-                                <li>
-                                    <a href="III_2">2. Bài tập về mảng động</a>
-                                </li>
-                                <li>
-                                    <a href="III_3">3. Bài tập về danh sách liên kết</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="III_3#Don">3.1 Bài tập về danh sách liên kết đơn</a>
-                                        </li>
-                                        <li>
-                                            <a href="III_3#Doi">3.2 Bài tập về danh sách liên kết đôi</a>
-                                        </li>
-                                        <li>
-                                            <a href="III_3#Vong">3.3. Bài tập về danh sách liên kết vòng</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="III_4">4. Bài tập về ngăn xếp</a>
-                                </li>
-                                <li>
-                                    <a href="III_5">5. Bài tập về hàng đợi</a>
-                                </li>
-                                <li>
-                                    <a href="III_6">6. Bài tập về cây</a>
-                                    <span class="caret"></span>
-                                    <ul class="nested">
-                                        <li>
-                                            <a href="III_6">6.1. Bài tập cơ bản về cây</a>
-                                        </li>
-                                        <li>
-                                            <a href="III_6#CayNhiPhan">6.2. Bài tập về cây nhị phân</a>
-                                        </li>
-                                        <li>
-                                            <a href="III_6#CayHeap">6.3. Bài tập về cây Heap</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                
-                                <li>
-                                    <a href="III_7">7. Bài tập về đồ thị</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div style="height: 85vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: medium; text-indent: 5%;" class=" flex-fill">
-                @RenderBody()
-                
-            </div>
-            <div class="collapse bg-light border" id="related" style="float: right; " data-parent="#mainpage">
-                <div style="overflow-y: auto; overflow-x: hidden; height:85vh; width: 300px">
-                    <ul>
-                        @foreach (var i in Model)
+        </div>
+        <div class="collapse bg-light border" id="related" style="float: right; " data-parent="#mainpage">
+            <div style="overflow-y: auto; overflow-x: hidden; height:85vh; width: 300px">
+                <ul>
+                    @foreach (var i in Model)
                     {
                         <li><a href="@i.linkRel_Lesson">@i.nameRel_Lesson</a><br /></li>
 
                     }
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
-
     </div>
 
-    <script>
-        function myFunction(x) {
-            x.classList.toggle("change");
-        }
+</div>
 
-        var toggler = document.getElementsByClassName("caret");
-        var i;
+<script>
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
 
-        for (i = 0; i < toggler.length; i++) {
-            toggler[i].addEventListener("click", function () {
-                this.parentElement.querySelector(".nested").classList.toggle("active");
-                this.classList.toggle("caret-down");
-            });
-        }
+    var toggler = document.getElementsByClassName("caret");
+    var i;
 
-    </script>
+    for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+    }
+
+</script>

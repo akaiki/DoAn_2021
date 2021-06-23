@@ -4,14 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div style="height: 100vh; background-color: #F5F5F5; overflow-y: auto; overflow-x:hidden; font-size: 16px; padding-left: 15%; padding-right: 15%; text-indent: 5%;" class=" flex-fill">
+
+<div style="height: 100vh; background-color: #F5F5F5; font-size: 16px; overflow-x:hidden; overflow-y:auto; padding-left: 15%; padding-right: 15%; text-indent: 5%;" class=" flex-fill">
     <h1 class="bg-light">CÁC HOẠT ĐỘNG/ TOÁN TỬ CHO TỪ KHÓA "<span class="text-success">@ViewData["ss"]</span>"</h1>
 
 
     @if (Model.Count() > 0)
     {
-        <table class="table table-hover">
-            <thead class="thead-light">
+        <table class="table table-hover ">
+            <thead style="position: sticky;top: 0" class="thead-light">
                 <tr>
                     <th>
                         <p>Tên toán tử</p>
@@ -28,7 +29,7 @@
                             @Html.DisplayFor(modelItem => item.Name_Operator)
                         </td>
                         <td>
-                            <a class="btn btn-info col-12" href="@item.Link_Operator">Details</a>
+                            <a href="@item.Link_Operator">Details</a>
                         </td>
                     </tr>
                 }

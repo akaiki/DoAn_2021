@@ -126,7 +126,7 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210618162045_addToDB')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210618162045_addToDB', N'5.0.5');
+    VALUES (N'20210618162045_addToDB', N'5.0.7');
 END;
 GO
 

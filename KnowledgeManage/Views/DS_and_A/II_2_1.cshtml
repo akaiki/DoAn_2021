@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "II_2_1";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_2_1">
+        <h3>GIẢI THUẬT TÌM KIẾM TUYẾN TÍNH</h3>
+        <div id="II_2_1_1">
+            <h5>Khái niệm giải thuật tìm kiếm tuyến tính</h5>
+            <p>Tìm kiếm tuyến tính (Linear Search) hay tìm kiếm tuần tự (Sequential Search) là một phương pháp tìm kiếm đơn giản nhất. Lần lượt duyệt qua toàn bộ các bản ghi một cách tuần từ. Tạo mỗi bước, khóa của bản ghi sẽ được so sạn với giá trị cần tìm. Quá trình tìm kiếm kết thúc khi đã tìm thất bản ghi có khóa thở mãn hoặc đã duyệt hết danh sách.</p>
+            <img src="~/Image/linear_search.gif" />
+        </div>
+        <hr />
+        <div id="II_2_1_2">
+            <h5>Xây dựng giải thuật tìm kiếm tuyến tính</h5>
+            <p>Ý tưởng cho giải thuật tìm kiếm tuyến tính được trình bày thành các bước như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <p>Giả sử ta có mảng A và giá trị x cần tìm</p>
+                <ul>
+                    <li><b>Bước 1: </b>Thiết lập i = 0, với i là vị trí phần tử đang duyệt</li>
+                    <li><b>Bước 2: </b>Nếu i > n-1 thì chuyển tới <b>bước 7</b>, với n là độ lớn của mảng</li>
+                    <li><b>Bước 3: </b>Nếu A[i] = x thì chuyển tới <b>bước 6</b></li>
+                    <li><b>Bước 4: </b>Thiết lập i thành i + 1</li>
+                    <li><b>Bước 5: </b>Tới <b>bước 2</b></li>
+                    <li><b>Bước 6: </b>In phần tử x được tìm thấy tại chỉ mục i và tới <b>bước 8</b></li>
+                    <li><b>Bước 7: </b>In phần tử không được tìm thấy</li>
+                    <li><b>Bước 8: </b>Thoát</li>
+                </ul>
+            </div><br />
+            <hr />
+            <p>Giải thuật mẫu cho tìm kiếm tuyến tính</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+Bắt đầu hàm linear_search (list, value)
+                <span style="color: #008">for</span> <i>mỗi phần tử trong danh sách</i>
+                <span>if</span> item == value
+                <span>return</span> <i>vị trí của phần tử</i>
+        kết thúc <span>if</span>
+    kết thúc <span>for</span>
+kết thúc hàm
+</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Thủ tục tìm kiếm tuyến tính trên một mảng các số nguyên được viết bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+int sequential_search (int *a, int x, int n){
+    int i;
+    for (i = 0; i < n; i++){
+        if (a[i] == x){
+            return(i);    
+        }
+    }
+    return (-1);
+}
+</code> </pre>
+            </div><br />
+            <p>Thủ tục này tiến hành duyệt từ đầu mảng. Nếu tại vị trí nào đó, giá trị phần tử bằng với giá trị cần tìm thì hàm trả về chỉ số lượng tương ứng của phần tử trong mảng. Nêu skhoong tìm thấy giá trị trong toan bộ mảng thì hàm trả về giá trị là -1.</p>
+            <p>Thuật toán tìm kiếm tuần tự có thời gian thực hiện là O(n). Trong trường hợp xấu nhất, thuật toán mất n lần thực hiện so sánh và mất khoảng n/2 lần so sánh trong trường hợp trung bình.</p>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

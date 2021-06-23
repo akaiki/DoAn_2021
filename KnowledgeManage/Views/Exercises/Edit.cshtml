@@ -1,0 +1,43 @@
+﻿@model KnowledgeManage.Models.Exercise
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container bg-light" >
+    <h1>Edit</h1>
+
+    <h4>Exercise</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id_Exercise" />
+                <div class="form-group">
+                    <label asp-for="Link_Exercise" class="control-label"></label>
+                    <input asp-for="Link_Exercise" class="form-control" />
+                    <span asp-validation-for="Link_Exercise" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name_Exercise" class="control-label"></label>
+                    <input asp-for="Name_Exercise" class="form-control" />
+                    <span asp-validation-for="Name_Exercise" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LessonId_Lesson" class="control-label"></label>
+                    <select asp-for="LessonId_Lesson" class="form-control" asp-items="ViewBag.LessonId_Lesson"></select>
+                    <span asp-validation-for="LessonId_Lesson" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
