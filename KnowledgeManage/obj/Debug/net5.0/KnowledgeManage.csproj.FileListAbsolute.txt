@@ -148,7 +148,6 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_lesson.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\Result_exercise.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I.cshtml.g.cs
-C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_2.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_3.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_4.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_5.cshtml.g.cs
@@ -204,3 +203,12 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Ra
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_2_1.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_2_2.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_2_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3_1.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3_2.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3_4.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\II_3_5.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\I_2.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_8.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Debug\net5.0\Razor\Views\DS_and_A\III_9.cshtml.g.cs

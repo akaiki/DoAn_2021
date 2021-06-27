@@ -204,3 +204,11 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_2_1.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_2_2.cshtml.g.cs
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_2_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3_1.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3_2.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3_3.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3_4.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\II_3_5.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\III_8.cshtml.g.cs
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\Razor\Views\DS_and_A\III_9.cshtml.g.cs

@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "II_3_1";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_3_1">
+        <h3>GIẢI THUẬT SẮP XẾP NỔI BỌT (BUBBLE SORT)</h3>
+        <div id="II_3_1_1">
+            <h5>Khái niệm giải thuật sắp xếp nổi bọt</h5>
+            <p>Sắp xếp nổi bọt là một giải thuật sắp xếp đơn giản. Giải thuật sắp xếp này được tiến hành dựa trên việc so sánh cặp phần tử liền kề nhau và tráo đổi thứ tự nếu chúng không theo thứ tự.</p>
+            <img src="~/Image/Bubble-sort.gif" />
+        </div>
+        <hr />
+        <div id="II_3_1_2">
+            <h5>Xây dựng giải thuật sắp xếp nổi bọt</h5>
+            <p>Ý tưởng cho giải thuật sắp xếp nổi bọt được trình bày thành các bước như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <p>Giả sử ta có mảng a có n phần tử</p>
+                <ul>
+                    <li><b>Bước 1: </b>Gán i = 0, là phần tử đầu tiên</li>
+                    <li><b>Bước 2: </b>Lần lượt so sánh và đổi chỗ (nếu cần) từ phải sang trái đối với các phần tử từ a[n] đến a[i]. Với biến gán j = n-i. Lặp lại khi j > i.</li>
+                    <li><b>Bước 3: </b>i = i + 1</li>
+                    <li><b>Bước 4: </b>Nêu i < n, quay lại <b>bước 2</b>. Ngược lại, dừng, dãy đã cho đã sắp xếp đúng vị trí.</li>
+                </ul>
+            </div><br />
+            <hr />
+            <p>Giải thuật mẫu cho sắp xếp nổi bọt</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+Bắt đầu giải thuật BubbleSort(list)
+
+    <span style="color: #008">for</span> tất cả phần tử trong list
+        <span style="color: #008">if</span> list[i] > list[i+1]
+            swap(list[i], list[i+1])
+        kết thúc if
+    kết thúc for
+    
+    return list
+Kết thúc BubbleSort
+</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Thủ tục sắp xếp nổi bọt trên một mảng các số nguyên được viết bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+void Bubble_sort(int *a, int n)
+{
+    int i, j;
+    for (int i = 0; i < n - 1; i++){
+        for (int j = n - 1; j > i; j--){
+            if (a[j] < a[j - 1]){
+                int t = a[j];
+                a[j] = a[i];
+                a[i] = t;
+            }
+        }
+    }
+}
+</code> </pre>
+            </div><br />
+            <p>Lần duyệt đầu tiên cần khoảng n - 1 phép so sánh và đổi chỗ để làm nổi phần tử nhỏ nhất lên đầu. Lần duyệt thứ 2 cần khoảng n - 2 phép toán, .v.v. Tổng cộng, số phép so sánh cần thực hiện là:</p>
+            <p><code>(n - 1) + (n - 2) + ... + 2 + 1 = n*(n - 1)/2</code></p>
+            <p>Như vậy, độ phức tạp cũng giải thuật sắp xếp nổi bọt là O(n<sup>2</sup>)</p>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+

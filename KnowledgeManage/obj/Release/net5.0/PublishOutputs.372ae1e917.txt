@@ -84,6 +84,7 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_daydu.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_timkiem.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\binnary_tree.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Bubble-sort.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\caynhiphan_dslk.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\caynhiphan_mang_canbang.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\cir_doi_insert_1.jpg
@@ -134,7 +135,9 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\DoThi\DoThi.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\dou_list.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\heap.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Heap_sort.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\icon\favicon.png
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\insertion_sort.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\interpolation_search.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\linear_search.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\linkedlist.jpg
@@ -161,6 +164,7 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\list_remove_mid_4.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Max-heap.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Min-heap.gif
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\phan_doan.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_1.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_2.jpg
@@ -172,6 +176,8 @@ C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_insert_1.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_insert_2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\queue_list_remove_1.jpg
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\Quick_sort.gif
+C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\selection-sort.gif
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_2.jpg
 C:\Users\Akaiki\source\repos\KnowledgeManage\KnowledgeManage\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\stack_3.jpg

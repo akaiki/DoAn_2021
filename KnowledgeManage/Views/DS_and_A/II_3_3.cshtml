@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "II_3_3";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_3_3">
+        <h3>GIẢI THUẬT SẮP XẾP CHỌN (SELECTION SORT)</h3>
+        <div id="II_3_3_1">
+            <h5>Khái niệm giải thuật sắp xếp chọn</h5>
+            <p>Thuật toán sắp xếp chọn sẽ sắp xếp một mảng bằng cách đi tìm phần tử có giá trị nhỏ nhất(giả sử với sắp xếp mảng tăng dần) trong đoạn đoạn chưa được sắp xếp và đổi cho phần tử nhỏ nhất đó với phần tử ở đầu đoạn chưa được sắp xếp(không phải đầu mảng). Thuật toán sẽ chia mảng làm 2 mảng con: một mảng con đã được sắp xếp. một mảng con chưa được sắp xếp. Tại mỗi bước lặp của thuật toán, phần tử nhỏ nhất ở mảng con chưa được sắp xếp sẽ được di chuyển về đoạn đã sắp xếp.</p>
+            <img src="~/Image/selection-sort.gif" />
+        </div>
+        <hr />
+        <div id="II_3_3_2">
+            <h5>Xây dựng giải thuật sắp xếp chọn</h5>
+            <p>Ý tưởng cho giải thuật sắp xếp chèn được trình bày thành các bước như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <p>Giả sử ta có mảng a có n phần tử</p>
+                <ul>
+                    <li><b>Bước 1: </b>Thiết lập min về vị trí 0</li>
+                    <li><b>Bước 2: </b>Tìm kiếm phần tử nhỏ nhất trong danh sách</li>
+                    <li><b>Bước 3: </b>Tráo đổi với giá trị tại vị trí min</li>
+                    <li><b>Bước 4: </b>Tăng min lên để chỉ vị trí phấn tử kế tiếp</li>
+                    <li><b>Bước 5: </b>Lặp lại cho đến khi hết danh sách</li>
+                </ul>
+            </div><br />
+            <hr />
+            <p>Giải thuật mẫu cho sắp xếp chọn</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+Bắt đầu giải thuật sắp xếp chọn (Selection Sort) 
+    list  : mảng các phần tử
+    n     : kích cỡ mảng
+
+    <span style="color: #008">for</span> i = 1 tới n - 1
+        /* thiết lập phần tử hiện tại là min*/
+        min = i    
+  
+        /* kiểm tra phần tử có là nhỏ nhất không */
+
+        <span style="color: #008">for</span> j = i+1 tới n 
+            <span style="color: #008">if</span> list[j] < list[min] thì
+                min = j;
+            kết thúc if
+        kết thúc for
+
+        /* tráo đổi phần tử nhỏ nhất với phần tử hiện tại*/
+        <span style="color: #008">if</span> indexMin != i  then
+            tráo đổi list[min] và list[i]
+        kết thúc if
+
+    kết thúc for
+	
+Kết thúc giải thuật
+</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Thủ tục sắp xếp chọn trên một mảng các số nguyên được viết bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+void selectionSort(int a[], int n){
+    int i, j, min_idx;
+    // Di chuyển ranh giới của mảng đã sắp xếp và chưa sắp xếp
+    for (i = 0; i < n-1; i++){
+    // Tìm phần tử nhỏ nhất trong mảng chưa sắp xếp
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+            if (a[j] < a[min_idx])
+                min_idx = j;
+ 
+    // Đổi chỗ phần tử nhỏ nhất với phần tử đầu tiên
+        int t = a[min_idx];
+        a[min_idx] = a[i];
+        a[i] = t;
+    }
+}
+</code> </pre>
+            </div><br />
+            <p>Giải thuật này không phù hợp với tập dữ liệu lớn khi mà độ phức tạp trường hợp xấu nhất và trường hợp trung bình là O(n<sup>2</sup>) với n là số phần tử.</p>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

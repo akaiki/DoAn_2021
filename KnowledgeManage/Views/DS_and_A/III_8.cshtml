@@ -1,0 +1,382 @@
+﻿
+@{
+    ViewData["Title"] = "III_8";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT TÌM KIẾM</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    
+    <div id="tuyentinh">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật tìm kiếm tuyến tính</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Cho mảng a có n phần tử, a = [1, 3, 2, 1, 4, 2]. Và một số nguyên x = 2. Hãy chỉ ra số đầu tiên của mảng xuất hiện x, nếu không tồ tại thì trả về -1.
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Tìm kiếm tuyến tính là giải thuật tìm kiếm từng phần tử từ đầu đến cuối danh sách đã cho.</p>
+                <p>Sử dụng tìm kiếm tuyến tính nhằm tìm kiếm được vị trí xuất hiện đầu tiên của phần tử đó nhằm tránh sai sót so với các giải thuật tìm kiếm khác.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int sequential_search (int *a, int x, int n){
+    for (int i = 0; i < n; i++)
+        if (a[i] == x)
+            return(i);    
+    return (-1);
+}
+
+int main()
+{
+    
+    int a[] = {1, 3, 2, 1, 4, 2};
+    int n = sizeof(a)/sizeof(a[0]);
+    cout << sequential_search(a, 2, n) << endl;
+    
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Cho mảng a có n phần tử, a = [1, 3, 2, 1, 4, 2]. Và một số nguyên x = 2. Hãy chỉ ra quá trình tìm thấy số x đầu tiên, nếu không tìm thấy, hiển thị "Khong co x trong mang"
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Tìm kiếm tuyến tính là giải thuật tìm kiếm từng phần tử từ đầu đến cuối danh sách đã cho.</p>
+                <p>Sử dụng tìm kiếm tuyến tính nhằm tìm kiếm được vị trí xuất hiện đầu tiên của phần tử đó nhằm tránh sai sót so với các giải thuật tìm kiếm khác.</p>
+                <p>Hiển thị các bước tìm kiếm.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt; 
+
+using namespace std;
+
+void sequential_search (int *a, int x, int n){
+    int t =-1;
+    for (int i = 0; i < n; i++){
+        cout <<"Buoc "<< i+1<<" : So sanh phan tu thu " << i+1 << " voi " << x << ":" << endl;
+        if (a[i] == x){
+            cout << "Da tim thay " << x <<" trong mang!" << endl;
+            t = i;
+            break;
+        }
+        else {
+            cout << "Khong bang nhau!" << endl;
+        }
+    }
+        
+    if (t == -1){
+        cout << "Khong co " << x << " trong mang!"<< endl;
+    }  
+    else{
+        cout << x << " xuat hien dau tien tai a[" << t <<"]"<< endl;
+    }
+}
+
+
+int main()
+{
+    
+    int a[] = {1, 3, 2, 1, 4, 2};
+    int n = sizeof(a)/sizeof(a[0]);
+    sequential_search(a, 2, n);
+    
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Cho mảng a có n phần tử, a = [2, 3, 2, 1, 2, 2]. Và một số nguyên x = 2. Hãy chỉ ra tất cả vị trí xuất hiện x, nếu không tồ tại thì trả về -1.
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Dựa trên ý tưởng của giải thuật tìm kiếm tuyến tính, ta lần lượt so sánh từng phần tử của mảng sau đó xuất từng phần tử ấy ra.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;   
+
+using namespace std;
+
+void sequential_search (int *a, int x, int n){
+    int t = -1;
+    for (int i = 0; i < n; i++){
+        if (a[i] == x){
+            cout << "Tim thay " << x << " tai vi tri a[" << i <<"]" << endl; 
+            t = i;
+        }
+    }
+    if (t == -1){
+        cout << "Khong tim thay " << x << "!";
+    }
+}
+
+
+int main()
+{
+    
+    int a[] = {2, 3, 2, 1, 2, 2};
+    int n = sizeof(a)/sizeof(a[0]);
+    sequential_search(a, 2, n);
+    return 0;
+}  
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="nhiphan">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật tìm kiếm nhị phân </h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Cho mảng a đã sắp xếp có n phần tử. a = [1, 2, 5, 8, 10, 13, 17, 24, 30, 50, 55, 61]. Hãy áp dụng giải thuật tìm kiếm nhị phân để tìm x, x = 10. Nếu không tồn tại, trả về -1.
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Cần xác định mảng đã cho đã sắp xếp hay chưa</p>
+                <p>Áp dụng <a href="II_2_2"><b>giải thuật tìm kiếm nhị phân</b></a> để tìm kiếm.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int binary_search (int *a, int x, int n){
+    int k, left = 0, right = n -1;
+    do {
+        k = (left + right)/2;
+        if (x < a[k])
+            right = k - 1;
+        else
+            left = k + 1;
+    } while ((x != a[k]) && (left <= right));
+    if (x == a[k])
+        return k;
+    else
+        return (-1);
+}
+
+int main()
+{
+    
+    int a[] = {1, 2, 5, 8, 10, 13, 17, 24, 30, 50, 55, 61};
+    int n = sizeof(a)/sizeof(a[0]);
+    cout << binary_search(a, 10, n);
+    
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5. Cho mảng a có n phần tử, a = [1, 2, 5, 8, 10, 13, 17, 24, 30, 50, 55, 61], và một số nguyên x = 10 .Sử dụng giải thuật tìm kiếm nhị phân tìm kiếm x và xuất ra màn hình từng bước
+                </a>
+            </div>
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Cần xác định mảng đã cho đã sắp xếp hay chưa</p>
+                <p>Áp dụng <a href="II_2_2"><b>giải thuật tìm kiếm nhị phân</b></a> để tìm kiếm.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void binary_search (int *a, int x, int n){
+    int k, left = 0, right = n -1;
+    int i = 1;
+    do {
+        k = (left + right)/2;
+        cout <<"Buoc " << i  <<": left = "<< left << "; right = " << right <<"; k = "<< k << endl;   
+        if (x < a[k]){
+            right = k - 1;
+            cout <<"    "<< x << " < a[" << k << "] = " << a[k]<< " -> right = " << right << endl;
+        }
+        else{
+            left = k + 1;
+            cout <<"    "<< x << " >= a[" << k << "] = " << a[k]<< " -> left = " << left << endl;
+        }
+        i++;
+    } while ((x != a[k]) && (left <= right));
+    if (x == a[k])
+        cout << "Tim thay " << x << " tai a[" << k << "]" << endl;
+    else
+        cout << "Khong tim thay";
+}
+
+int main()
+{
+    
+    int a[] = {1, 2, 5, 8, 10, 13, 17, 24, 30, 50, 55, 61};
+    int n = sizeof(a)/sizeof(a[0]);
+    binary_search(a, 10, n);
+    
+    return 0;
+}  
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 6. Cho mảng a có n phần tử, a = [1, 2, 2, 2, 2, 3], giá trị cần tìm x = 2. Hãy so sánh kết quả khi tìm kiếm x trong a giữa <b>giải thuật tìm kiếm tuyến tính</b> và <b>giải thuật tìm kiếm nhị phân:</b>
+                </a>
+            </div>
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Viết 2 hàm <a href="II_2_1">tìm kiếm tuyến tính</a> và <a href="II_2_2">tìm kiếm nhị phân</a> sau đó so sánh kết quả</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int sequential_search (int *a, int x, int n){
+    int i;
+    for (i = 0; i < n; i++){
+        if (a[i] == x){
+            return(i);    
+        }
+    }
+    return (-1);
+}
+
+int binary_search (int *a, int x, int n){
+    int k, left = 0, right = n -1;
+    do {
+        k = (left + right)/2;
+        if (x < a[k])
+            right = k - 1;
+        else
+            left = k + 1;
+    } while ((x != a[k]) && (left <= right));
+    if (x == a[k])
+        return k;
+    else
+        return (-1);
+}
+
+int main()
+{
+    
+    int a[] = {1, 2, 2, 2, 2, 3};
+    int n = sizeof(a)/sizeof(a[0]);
+    cout <<"Tim kiem tuyen tinh: " << sequential_search(a, 2, n) << endl;
+    cout <<"Tim kiem nhi phan: " << binary_search (a, 2, n);
+    
+    return 0;
+}  
+</code> 
+</pre>
+                <u><b>Nhận xét:</b></u>
+                <p>- Tìm kiếm nhị phân và tìm kiếm tuyến tính cho ra 2 kết quả khác nhau.</p>
+                <p>- Tìm kiếm tuyến tính sẽ cho ra kết quả là phần tử đầu tiên trùng khớp.</p>
+                <p>- Tìm kiếm nhị phân sẽ cho ra kết quả chưa chắc là phần tử đầu tiên.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="noisuy">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật tìm kiếm nội suy</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai7">
+                    Bài 7. Cho mảng a có n phần tử. a = [10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47], x = 18 là giá trị cần tìm. Hãy áp dụng giải thuật tìm kiếm nội suy để tìm x trong mảng a.
+                </a>
+            </div>
+            <div id="Bai7" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Áp dụng kiến thức về <a href="II_2_3">giải thuật tìm kiếm nội suy</a> để xây dựng</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt; 
+
+using namespace std;
+
+int InterPolationSearch(int *a, int x, int n)
+{
+    int left = 0;
+    int right = n-1;
+    while (left <= right && x >= a[left] && x <= a[right]){
+        double val1 = (double) (x - a[left]) / (a[right]-a[left]);
+        int val2 = (right-left);
+        int k = left + val1*val2;
+    if (a[k] == x)
+        return k;
+    if (a[k] < x)
+        left = k + 1;
+    else
+        right = k - 1;
+    }
+    return -1;
+}
+
+int main()
+{
+    int a[] = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47};
+    int n = sizeof(a)/sizeof(a[0]);
+    cout << InterPolationSearch(a, 18, n);
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <br />
+    <br /> 
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

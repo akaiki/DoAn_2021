@@ -32,7 +32,7 @@
                 <ul>
                     <li>
                         <b>Bước 1: </b>Tìm phần tử chính giữa của tập hợp bằng công thức được cải tiến:
-                        <p><code style="text-align:center">k = left + (x - a[left])*(right - left) / (a[right] - a[left])</code></p>
+                        <p><code>k = left + (x - a[left])*(right - left) / (a[right] - a[left])</code></p>
                     </li>
                     <li><b>Bước 2: </b>Nếu left > right thì thoát, không tìm thấy x.</li>
                     <li><b>Bước 3: </b>Nếu a[k] == x thì k là vị trí cần tìm. Nếu không, tiếp tục <b>bước 3</b></li>
@@ -81,7 +81,7 @@ int InterPolationSearch(int *a, int n, int x)
     int left = 0;
     int right = n-1;
     while (left <= right && x >= a[left] && x <= a[right]){
-        double val1 = (double) (x - arr[left]) / (arr[right]-arr[left]);
+        double val1 = (double) (x - a[left]) / (a[right]-a[left]);
         int val2 = (right-left);
         int k = left + val1*val2;
     if (a[k] == x)

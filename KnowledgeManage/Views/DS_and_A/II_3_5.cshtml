@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "II_3_5";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_3_5">
+        <h3>GIẢI THUẬT SẮP XẾP VUN ĐỐNG (HEAP SORT)</h3>
+        <div id="II_3_5_1">
+            <h5>Khái niệm giải thuật sắp xếp vun đống</h5>
+            <p>Thuật toán Heap sort là một kỹ thuật sắp xếp dựa trên so sánh dựa trên cấu trúc dữ liệu Binary Heap. Nó tương tự như sắp xếp lựa chọn, nơi đầu tiên chúng ta tìm phần tử lớn nhất và đặt phần tử lớn nhất ở cuối.</p>
+            <img src="~/Image/Heap_sort.gif" />
+        </div>
+        <hr />
+        <div id="II_3_5_2">
+            <h5>Xây dựng giải thuật sắp xếp vun đống</h5>
+            <p>Ý tưởng cho giải thuật sắp xếp vun đống được trình bày thành các bước như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <p>Giả sử ta có mảng a có n phần tử</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lần lượt lấy từng phần tử từ mảng</li>
+                    <li><b>Bước 2: </b>So sánh giá trị nút con với giá trị cha</li>
+                    <li><b>Bước 3: </b>Nếu giá trị của cha là nhỏ hơn con thì tráo đổi chúng.</li>
+                    <li><b>Bước 4: </b>Lặp lại <b>bước 2</b> và <b>bước 3</b> cho đến khi vẫn duy trì đặc điểm của max heap.</li>
+                    <li><b>Bước 5: </b>Lần lượt lấy giá trị nút gốc ra, thay bằng nút cao nhất bên phải.</li>
+                    <li><b>Bước 6: </b>Lặp lại cho tới khi cây heap không còn nút nào.</li>
+                </ul>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Thủ tục sắp xếp vun đống trên một mảng các số nguyên được viết bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+void heapify(int arr[], int n, int i)
+{
+    int largest = i; // Khởi tạo nút lớn nhất
+    int l = 2 * i + 1; // left = 2*i + 1
+    int r = 2 * i + 2; // right = 2*i + 2
+
+    // Nếu nút trái lớn hơn nút gốc
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    // Nếu nút phải lớn nhất
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    // Nếu nút gốc không lớn nhất
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+
+        //Đệ quy cho các cây con
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(int arr[], int n)
+{
+    
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+</code> </pre>
+            </div><br />
+                  <p>Thông thường sắp xếp chọn chạy trong thời gian O(n2). Nhưng heapsort đã giảm độ phức tạp này bằng cách sử dụng một cấu trúc dữ liệu đặc biệt được gọi là đống (heap). Thuật toán tốn thời gian là O(n*log(n)).</p>   
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+

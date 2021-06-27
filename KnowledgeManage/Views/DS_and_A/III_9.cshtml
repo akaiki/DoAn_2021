@@ -1,0 +1,695 @@
+﻿
+@{
+    ViewData["Title"] = "III_9";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT SẮP XẾP</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>  
+    <div id="noibot">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật sắp xếp nổi bọt (Bubble Sort)</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp nổi bọt</b>, sắp xếp mảng theo thứ tự tăng dần.
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Gán i = 0, là phần tử đầu tiên</li>
+                    <li><b>Bước 2: </b>Lần lượt so sánh và đổi chỗ (nếu cần) từ phải sang trái đối với các phần tử từ a[n] đến a[i]. Với biến gán j = n-i. Lặp lại khi j > i.</li>
+                    <li><b>Bước 3: </b>i = i + 1</li>
+                    <li><b>Bước 4: </b>Nêu i < n, quay lại <b>bước 2</b>. Ngược lại, dừng, dãy đã cho đã sắp xếp đúng vị trí.</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include  &lt;iostream&gt;   
+
+using namespace std;
+
+void Bubble_sort(int a[], int n)
+{
+    for (int i = 0; i< n; i++)
+		for (int j = 0; j < n - 1 ; j++)
+			if (a[j] > a[j + 1]){
+                int t = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = t;
+			}
+}
+int main()
+{
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+    
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    Bubble_sort(a, n);
+    
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp nổi bọt</b>, sắp xếp mảng theo thứ tự giảm dần.
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Gán i = 0, là phần tử đầu tiên</li>
+                    <li><b>Bước 2: </b>Lần lượt so sánh và đổi chỗ (nếu cần) từ phải sang trái đối với các phần tử từ a[n] đến a[i]. Với biến gán j = n-i. Lặp lại khi j > i.</li>
+                    <li><b>Bước 3: </b>i = i + 1</li>
+                    <li><b>Bước 4: </b>Nêu i < n, quay lại <b>bước 2</b>. Ngược lại, dừng, dãy đã cho đã sắp xếp đúng vị trí.</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include  &lt;iostream&gt;   
+
+using namespace std;
+
+void Bubble_sort(int a[], int n)
+{
+    for (int i = 0; i< n; i++)
+		for (int j = 0; j < n - 1 ; j++)
+			if (a[j] < a[j + 1]){
+                int t = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = t;
+			}
+}
+int main()
+{
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+    
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    Bubble_sort(a, n);
+    
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chen">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật sắp xếp chèn (Insertion Sort)</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp chèn</b>, sắp xếp mảng theo thứ tự tăng dần.
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước</p>
+                <ul>
+                    <li><b>Bước 1: </b>Kiểm tra nếu phần tử đầu tiên đã được sắp xếp. Trả về 1</li>
+                    <li><b>Bước 2: </b>Lấy phần tử kế tiếp</li>
+                    <li><b>Bước 3: </b>So sánh với tất cả phần tử trong danh sách con đã qua sắp xếp</li>
+                    <li><b>Bước 4: </b>Dịch chuyển tất cả phần tử trong danh sách con mà lớn hơn giá trị để được sắp xếp.</li>
+                    <li><b>Bước 5: </b>Chèn giá trị đó</li>
+                    <li><b>Bước 6: </b>Lặp lại cho tới khi danh sách được sắp xếp</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void insertionSort(int a[], int n)
+{
+	for (int i = 1; i < n; i++)
+	{
+		int x = a[i];
+		int j = i;
+		while (j > 0 && a[j - 1] > x)
+		{
+			a[j] = a[j - 1];
+			j--;
+		}
+		a[j] = x;
+	}
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    insertionSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp chèn</b>, sắp xếp mảng theo thứ tự giảm dần.
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước</p>
+                <ul>
+                    <li><b>Bước 1: </b>Kiểm tra nếu phần tử đầu tiên đã được sắp xếp. Trả về 1</li>
+                    <li><b>Bước 2: </b>Lấy phần tử kế tiếp</li>
+                    <li><b>Bước 3: </b>So sánh với tất cả phần tử trong danh sách con đã qua sắp xếp</li>
+                    <li><b>Bước 4: </b>Dịch chuyển tất cả phần tử trong danh sách con mà lớn hơn giá trị để được sắp xếp.</li>
+                    <li><b>Bước 5: </b>Chèn giá trị đó</li>
+                    <li><b>Bước 6: </b>Lặp lại cho tới khi danh sách được sắp xếp</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void insertionSort(int a[], int n)
+{
+	for (int i = 1; i < n; i++)
+	{
+		int x = a[i];
+		int j = i;
+		while (j > 0 && a[j - 1] < x)
+		{
+			a[j] = a[j - 1];
+			j--;
+		}
+		a[j] = x;
+	}
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    insertionSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chon">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật sắp xếp chọn (Selection Sort)</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 5. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp chọn</b>, sắp xếp mảng theo thứ tự tăng dần.
+                </a>
+            </div>
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Thiết lập min về vị trí 0</li>
+                    <li><b>Bước 2: </b>Tìm kiếm phần tử nhỏ nhất trong danh sách</li>
+                    <li><b>Bước 3: </b>Tráo đổi với giá trị tại vị trí min</li>
+                    <li><b>Bước 4: </b>Tăng min lên để chỉ vị trí phấn tử kế tiếp</li>
+                    <li><b>Bước 5: </b>Lặp lại cho đến khi hết danh sách</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void selectionSort(int a[], int n){
+    int i, j, min_idx;
+    for (i = 0; i < n-1; i++){
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+            if (a[j] < a[min_idx])
+                min_idx = j;
+
+        int t = a[min_idx];
+        a[min_idx] = a[i];
+        a[i] = t;
+    }
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    selectionSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 6. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp chọn</b>, sắp xếp mảng theo thứ tự giảm dần.
+                </a>
+            </div>
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Thiết lập max về vị trí 0</li>
+                    <li><b>Bước 2: </b>Tìm kiếm phần tử lớn nhất trong danh sách</li>
+                    <li><b>Bước 3: </b>Tráo đổi với giá trị tại vị trí max</li>
+                    <li><b>Bước 4: </b>Tăng max lên để chỉ vị trí phấn tử kế tiếp</li>
+                    <li><b>Bước 5: </b>Lặp lại cho đến khi hết danh sách</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void selectionSort(int a[], int n){
+    int i, j, max_idx;
+    for (i = 0; i < n-1; i++){
+        max_idx = i;
+        for (j = i+1; j < n; j++)
+            if (a[j] > a[max_idx])
+                max_idx = j;
+
+        int t = a[max_idx];
+        a[max_idx] = a[i];
+        a[i] = t;
+    }
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    selectionSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+   
+    <div id="nhanh">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật sắp xếp nhanh (Quick Sort)</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai7">
+                    Bài 7. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp nhanh</b>, sắp xếp mảng theo thứ tự tăng dần.
+                </a>
+            </div>
+            <div id="Bai7" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước sau:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lấy phần tử chốt là phần tử ở cuối danh sách</li>
+                    <li><b>Bước 2: </b>Chia mảng bởi sử dụng phần tử chốt</li>
+                    <li><b>Bước 3: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên trái.</li>
+                    <li><b>Bước 4: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên phải.</li>
+                    <li><b>Bước 5: </b>Nếu left &ge; right, dừng đệ quy</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int partition (int a[], int low, int high)
+{
+    int pivot = a[high];
+    int left = low;
+    int right = high - 1;
+    while(true){
+        while(left <= right && a[left] < pivot) left++;
+        while(right >= left && a[right] > pivot) right--;
+        if (left >= right) break; 
+        int t = a[left];
+        a[left] = a[right];
+        a[right] = t;
+        left++; 
+        right--; 
+    }
+    int t = a[left];
+        a[left] = a[high];
+        a[high] = t;
+    return left; 
+}
+
+void quickSort(int a[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(a, low, high);
+        quickSort(a, low, pi - 1);
+        quickSort(a, pi + 1, high);
+    }
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    quickSort(a, 0, n-1);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+   
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai8">
+                    Bài 8. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp nhanh</b>, sắp xếp mảng theo thứ tự giảm dần.
+                </a>
+            </div>
+            <div id="Bai8" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước sau:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lấy phần tử chốt là phần tử ở cuối danh sách</li>
+                    <li><b>Bước 2: </b>Chia mảng bởi sử dụng phần tử chốt</li>
+                    <li><b>Bước 3: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên trái.</li>
+                    <li><b>Bước 4: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên phải.</li>
+                    <li><b>Bước 5: </b>Nếu left &ge; right, dừng đệ quy</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int partition (int a[], int low, int high)
+{
+    int pivot = a[high];
+    int left = low;
+    int right = high - 1;
+    while(true){
+        while(left <= right && a[left] > pivot) left++;
+        while(right >= left && a[right] < pivot) right--;
+        if (left >= right) break;
+        int t = a[left];
+        a[left] = a[right];
+        a[right] = t;
+        left++;
+        right--;
+    }
+    int t = a[left];
+        a[left] = a[high];
+        a[high] = t;
+    return left;
+}
+
+void quickSort(int a[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(a, low, high);
+        quickSort(a, low, pi - 1);
+        quickSort(a, pi + 1, high);
+    }
+}
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    quickSort(a, 0, n-1);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+   
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="heap">
+        <h3>Bài tập tìm kiếm áp dụng giải thuật sắp xếp vun đống (Heap Sort)</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai9">
+                    Bài 9. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp vun đống</b>, sắp xếp mảng theo thứ tự tăng dần.
+                </a>
+            </div>
+            <div id="Bai9" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lần lượt lấy từng phần tử từ mảng</li>
+                    <li><b>Bước 2: </b>So sánh giá trị nút con với giá trị cha</li>
+                    <li><b>Bước 3: </b>Nếu giá trị của cha là nhỏ hơn con thì tráo đổi chúng.</li>
+                    <li><b>Bước 4: </b>Lặp lại <b>bước 2</b> và <b>bước 3</b> cho đến khi vẫn duy trì đặc điểm của max heap.</li>
+                    <li><b>Bước 5: </b>Lần lượt lấy giá trị nút gốc ra, thay bằng nút cao nhất bên phải.</li>
+                    <li><b>Bước 6: </b>Lặp lại cho tới khi cây heap không còn nút nào.</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void heapify(int arr[], int n, int i)
+{
+    int largest = i;
+    int l = 2 * i + 1; 
+    int r = 2 * i + 2; 
+
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(int arr[], int n)
+{
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    heapSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai10">
+                    Bài 10. Cho mảng a có n phần tử, a = [6, 7, 0, 2, 8, 1, 3, 9, 4, 5]. Sử dụng <b>giải thuật sắp xếp vun đống</b>, sắp xếp mảng theo thứ tự giảm dần.
+                </a>
+            </div>
+            <div id="Bai10" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lần lượt lấy từng phần tử từ mảng</li>
+                    <li><b>Bước 2: </b>So sánh giá trị nút con với giá trị cha</li>
+                    <li><b>Bước 3: </b>Nếu giá trị của cha là nhỏ hơn con thì tráo đổi chúng.</li>
+                    <li><b>Bước 4: </b>Lặp lại <b>bước 2</b> và <b>bước 3</b> cho đến khi vẫn duy trì đặc điểm của max heap.</li>
+                    <li><b>Bước 5: </b>Lần lượt lấy giá trị nút gốc ra, thay bằng nút cao nhất bên phải.</li>
+                    <li><b>Bước 6: </b>Lặp lại cho tới khi cây heap không còn nút nào.</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void heapify(int arr[], int n, int i)
+{
+    int smallest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+
+    if (l < n && arr[l] < arr[smallest])
+        smallest = l;
+
+    if (r < n && arr[r] < arr[smallest])
+        smallest = r;
+
+    if (smallest != i) {
+        swap(arr[i], arr[smallest]);
+        heapify(arr, n, smallest);
+    }
+}
+
+void heapSort(int arr[], int n)
+{
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+int main(){
+    int a[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout << "Truoc khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    cout << endl;
+    heapSort(a, n);
+
+    cout << "Sau khi sap xep: " << endl;
+    for (int i=0; i < n; i++){
+        cout << "-" << a[i];
+    }
+    return 0;
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

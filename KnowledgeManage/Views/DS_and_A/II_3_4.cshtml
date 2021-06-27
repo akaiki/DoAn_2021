@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewData["Title"] = "II_3_4";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <div id="II_3_4">
+        <h3>GIẢI THUẬT SẮP XẾP NHANH (QUICK SORT)</h3>
+        <div id="II_3_4_1">
+            <h5>Khái niệm giải thuật sắp xếp nhanh</h5>
+            <p>Giải thuật sắp xếp nhanh (Quick Sort) là một giải thuật hiệu quả cao và dựa trên việc chia mảng dữa liệu thành các mảng nhỏ hơn. Giải thuật sắp xếp nhanh chia mảng thành hai phần bằng cách so sánh từng phần tử của mảng với một phần tử được chọn gọi là phần tử chốt (Pivot): một mảng bao gồm các phần tử nhỏ hơn hoặc bằng phần tử chốt và mảng còn lại bao gồm các phần tử lớn hơn hoặc bằng phần tử chốt. Tiến trình chia này diễn ra tiếp tục cho tới khi độ dài của các mảng con đều bằng 1.</p>
+            <img src="~/Image/Quick_sort.gif" />
+        </div>
+        <hr />
+        <div id="II_3_4_2">
+            <h5>Xây dựng giải thuật sắp xếp nhanh</h5>
+            <p>Ý tưởng cho giải thuật sắp xếp nhanh được trình bày thành các bước như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <p>Giả sử ta có mảng a có n phần tử</p>
+                <ul>
+                    <li><b>Bước 1: </b>Lấy phần tử chốt là phần tử ở cuối danh sách</li>
+                    <li><b>Bước 2: </b>Chia mảng bởi sử dụng phần tử chốt</li>
+                    <li><b>Bước 3: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên trái.</li>
+                    <li><b>Bước 4: </b>Sử dụng sắp xếp nhanh một cách đệ quy với mảng con bên phải.</li>
+                    <li><b>Bước 5: </b>Nếu left &ge; right, dừng đệ quy</li>
+                </ul>
+            </div><br />
+            <p>Để xác định phần tử chốt</p>
+            <div class="card" style="background-color: #F1F1F1">
+                <ul>
+                    <li><b>Bước 1: </b>Chọn phần tử chốt là phần tử có chỉ mục cao nhất (phần tử ở cuối danh sách)</li>
+                    <li><b>Bước 2: </b>Khai báo hai biến để trỏ tới bên trái và bên phải của danh sách, ngoại trừ phần tử chốt</li>
+                    <li><b>Bước 3: </b>Biến bên trái trỏ tới mảng con bên trái, biến bên phải trỏ tới mảng con bên phải.</li>
+                    <li><b>Bước 4: </b>Khi giá trị tại biến bên trái là nhỏ hơn phần tử chốt thì di chuyển sang phải, khi giá trị tại biến bên phải là lớn hơn phần tử chốt thì di chuyển sang trái.</li>
+                    <li><b>Bước 5: </b>Nếu không trong trường hợp cả <b>bước 5</b> và <b>bước 6</b> thì tráo đổi giá trị biến trái và phải.</li>
+                    <li><b>Bước 6: </b>Nếu left &ge; right, thì đây chính là giá trị chốt mới</li>
+                </ul>
+            </div><br />
+            <p>Quá trình phân đoan trong thuật toán quick sort:</p>
+            <img src="~/Image/phan_doan.gif" />
+            <hr />
+            <p>Giải thuật mẫu cho sắp xếp nhanh</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+Bắt đầu hàm quickSort(left, right)
+
+    <span style="color: #008">if</span> right-left <= 0
+        return
+    <span style="color: #008">else</span>     
+        pivot = A[right]
+        partition = partitionFunc(left, right, pivot)
+        quickSort(left,partition-1)
+        quickSort(partition+1,right)    
+    kết thúc if		
+
+Kết thúc hàm
+</code> </pre>
+            </div><br />
+            <hr />
+            <p><b>Ví dụ: </b>Thủ tục sắp xếp nhanh trên một mảng các số nguyên được viết bằng C như sau:</p>
+            <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+int partition (int a[], int low, int high)
+{
+    int pivot = a[high];    // pivot
+    int left = low;
+    int right = high - 1;
+    while(true){
+        while(left <= right && a[left] < pivot) left++; // Tìm phần tử >= arr[pivot]
+        while(right >= left && a[right] > pivot) right--; // Tìm phần tử <= arr[pivot]
+        if (left >= right) break; // Đã duyệt xong thì thoát vòng lặp
+        int t = a[left];
+        a[left] = a[right];
+        a[right] = t;
+        left++; // Vì left hiện tại đã xét, nên cần tăng
+        right--; // Vì right hiện tại đã xét, nên cần giảm
+    }
+    int t = a[left];
+        a[left] = a[high];
+        a[high] = t;
+    return left; // Trả về chỉ số sẽ dùng để chia đổi mảng
+}
+
+void quickSort(int a[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(a, low, high);
+        quickSort(a, low, pi - 1);
+        quickSort(a, pi + 1, high);
+    }
+}
+</code> </pre>
+            </div><br />
+            <p>Giải thuật sắp xếp nhanh tỏ ra khá hiệu quả với các tập dữ liệu lớn khi mà độ phức tạp trường hợp trung bình và trường hợp xấu nhất là O(nlogn) với n là số phần tử.</p>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
