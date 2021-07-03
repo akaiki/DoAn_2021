@@ -2,21 +2,17 @@
 Sau đây là link của trang web sử dụng server của azure, có thể sau này không hoạt động do sử dụng mail sinh viên.
 link: https://learnicorn.azurewebsites.net/
 # Link_Demo_on_Youtube:
-Demo 01: https://youtu.be/kP1g4bKPcgs  
-Demo 02: https://youtu.be/KosIhd5m0l8  
-Demo 03: https://youtu.be/Nl--ifddYEU  
-Demo 04: https://youtu.be/aRqh5lbm4D4  
-Demo 05: https://youtu.be/uf6Q7ErWuyU  
-Demo 06: https://youtu.be/jPkWU9jpMPM  
-Demo 07: https://youtu.be/OpUKrlvSiug
-Demo 01: https://youtu.be/kP1g4bKPcgs  
-Demo 02: https://youtu.be/KosIhd5m0l8  
-Demo 03: https://youtu.be/Nl--ifddYEU  
-Demo 04: https://youtu.be/aRqh5lbm4D4  
-Demo 08: https://youtu.be/WyCQUSZ9k_4
-Demo 09: https://youtu.be/ED2dv6YfTmU
-Demo 09,5: https://youtu.be/jP9Y_ZOiHmE
-Demo 10: https://youtu.be/czxtCpYWVF4
+* Demo 01: https://youtu.be/kP1g4bKPcgs  
+* Demo 02: https://youtu.be/KosIhd5m0l8  
+* Demo 03: https://youtu.be/Nl--ifddYEU  
+* Demo 04: https://youtu.be/aRqh5lbm4D4  
+* Demo 05: https://youtu.be/uf6Q7ErWuyU  
+* Demo 06: https://youtu.be/jPkWU9jpMPM  
+* Demo 07: https://youtu.be/OpUKrlvSiug
+* Demo 08: https://youtu.be/WyCQUSZ9k_4
+* Demo 09: https://youtu.be/ED2dv6YfTmU
+* Demo 09,5: https://youtu.be/jP9Y_ZOiHmE
+* Demo 10: https://youtu.be/czxtCpYWVF4
 # DoAn_2021
 Đồ án tốt nghiệp 
 
