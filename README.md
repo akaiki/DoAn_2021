@@ -12,6 +12,7 @@ Demo 07: https://youtu.be/OpUKrlvSiug
 Demo 08: https://youtu.be/WyCQUSZ9k_4
 Demo 09: https://youtu.be/ED2dv6YfTmU
 Demo 09,5: https://youtu.be/jP9Y_ZOiHmE
+Demo 10: https://youtu.be/czxtCpYWVF4
 # DoAn_2021
 Đồ án tốt nghiệp 
 
