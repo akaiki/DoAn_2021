@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "II_7";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h3>GIẢI THUẬT QUAY LUI</h3>
+    <div id="II_7_1">
+        <h5>Khái niệm giải thuật quay lui</h5>
+        <p>
+            Quay lui (Backtracking) là một kĩ thuật thiết kế giải thuật dựa trên đệ quy. Ý tưởng của quay lui là tìm lời giải từng bước, mỗi bước chọn một trong số các lựa chọn khả dĩ và đệ quy.
+        </p>
+    </div>
+    <div id="II_7_2">
+        <h5>Xây dựng giải thuật quay lui</h5>
+        <p>Thuật toán quay lui dùng để liệt kê các cấu hình mà mỗi cấu hình được xây dụng bằng cách xây dựng từng phần tử, mỗi phần tử được chọn bằng tất cả các khả năng. Khi chọn một giá trị có thể cho một phần tử, chúng ta tiếp tục liệt kê tất cả các cấu hình cho những phần tử còn lại. Giả sử cấu hình cần xây dựng có dạng x[1..n], khi đó thuật toán thực hiện các bước sau:</p>
+        <ul>
+            <li>- Xét tất cả các giá trị x[1] có thể nhận được. Với mỗi giá trị gán cho x[1] chúng ta sẽ:</li>
+            <li>- Xét tất cả các giá trị x[2] có thể nhận được. Với mỗi giá trị gán cho x[2] chúng ta sẽ xét tiếp tất cả các giá trị cho x[3], …</li>
+            <li>- Xét tất cả các giá trị x[n] có thể nhận, với mỗi giá trị gán cho x[n], chúng ta có thêm một cấu hình tìm được (x[1], x[2], …, x[n])</li>
+        </ul>
+        <p>Mã giả cho thuật toán quay lui</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+Backtracking(k) {
+	for([Mỗi phương án chọn i(thuộc tập D)]) {
+		if ([Chấp nhận i]) {
+			[Chọn i cho X[k]];
+			if ([Thành công]) {
+				[Đưa ra kết quả];
+			} else {
+				Backtracking(k+1);
+				[Bỏ chọn i cho X[k]];
+			}
+		}
+	}
+}
+</code> </pre>
+            </div><br />
+        <u><b>Ưu điểm:</b></u>
+        <p>Việc quay lui là thử tất cả các tổ hợp để tìm được một lời giải. Thế mạnh của phương pháp này là nhiều cài đặt tránh được việc phải thử nhiều trường hợp chưa hoàn chỉnh, nhờ đó giảm thời gian chạy.</p>
+        <u><b>Nhược điểm:</b></u>
+        <ul>
+            <li>- Rơi vào tình trạng "thrashing": quá trình tìm kiếm cứ gặp phải bế tắc với cùng một nguyên nhân.</li>
+            <li>- Thực hiện các công việc dư thừa: Mỗi lần chúng ta quay lui, chúng ta cần phải đánh giá lại lời giải trong khi đôi lúc điều đó không cần thiết.</li>
+            <li>- Không sớm phát hiện được các khả năng bị bế tắc trong tương lai. Quay lui chuẩn, không có cơ chế nhìn về tương lai để nhận biết đc nhánh tìm kiếm sẽ đi vào bế tắc.</li>
+        </ul>
+        <u><b>Một số bài toán cơ bản của giải thuật quay lui</b></u>
+        <ul>
+            <li><a href="III_13#sudoku">Trò chơi Sudoku</a></li>
+            <li><a href="III_13#madituan">Bài toán quân Mã đi tuần</a></li>
+            <li><a href="III_13#8quanhau">Bài toán 8 quân Hậu</a></li>
+        </ul>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

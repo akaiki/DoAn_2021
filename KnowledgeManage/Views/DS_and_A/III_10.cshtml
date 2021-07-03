@@ -1,0 +1,585 @@
+﻿
+@{
+    ViewData["Title"] = "III_10";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT THAM LAM</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <div id="demsotien">
+        <h3>Bài toán đếm số đồng tiền</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Ta có tổng số tiền là <b>$28.</b> Các đồng xu có mệnh giá <b>$5</b>, <b>$2</b>, <b>$1</b>. Ta phải thực hiện đổi tổng số tiền đã có bằng cách sử dụng số lượng đồng xu nhỏ nhất có thể.
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta có</p>
+                <ul>
+                    <li>- Tạp tập giải pháp trống = {}</li>
+                    <li>- Số đồng xu = {5, 2, 1}</li>
+                    <li>- Tổng = 0.</li>
+                </ul>
+                <p>Trong khi Tổng khác 28, ta thực hiện:</p>
+                <ul>
+                    <li>1. Chọn một đồng xu C từ cá đồng xu sao cho Tổng + C <= 28. Ưu tiên chọn đồng xu có giá trị lớn nhất.</li>
+                    <li>2. Nếu C + Tổng > 28, và C là nhỏ nhất trong tập đồng xu, Trả về kết quả là tập giải pháp</li>
+                    <li>3. Nếu không, Tổng = Tổng + C.</li>
+                    <li>Thêm C vào tập giải pháp.</li>
+                </ul>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p>Ta có:</p>
+                <ul>
+                    <li>Result = {}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 0.</li>
+                </ul>
+                <p><b>Bước 1:</b></p>
+                <p>Do Tổng + 5 < 28 nên ta chọn đồng xu 5.</p>
+                <ul>
+                    <li>Result = {5}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 5.</li>
+                </ul>
+                <p><b>Bước 2:</b></p>
+                <p>Do Tổng + 5 < 28 nên ta chọn đồng xu 5.</p>
+                <ul>
+                    <li>Result = {5, 5}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 10.</li>
+                </ul>
+                <p><b>Bước 3:</b></p>
+                <p>Do Tổng + 5 < 28 nên ta chọn đồng xu 5.</p>
+                <ul>
+                    <li>Result = {5, 5, 5}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 15.</li>
+                </ul>
+                <p><b>Bước 4:</b></p>
+                <p>Do Tổng + 5 < 28 nên ta chọn đồng xu 5.</p>
+                <ul>
+                    <li>Result = {5, 5, 5, 5}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 20.</li>
+                </ul>
+                <p><b>Bước 5:</b></p>
+                <p>Do Tổng + 5 < 28 nên ta chọn đồng xu 5.</p>
+                <ul>
+                    <li>Result = {5, 5, 5, 5, 5}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 25.</li>
+                </ul>
+                <p><b>Bước 6:</b></p>
+                <p>Do Tổng + 5 > 28 nên ta xét đồng kế tiếp. Tổng + 2 < 28 nên ta chọn đồng xu 2.</p>
+                <ul>
+                    <li>Result = {5, 5, 5, 5, 5, 2}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 27.</li>
+                </ul>
+                <p><b>Bước 7:</b></p>
+                <p>Do Tổng + 5 > 28 nên ta xét đồng kế tiếp. Do Tổng + 2 > 28 nên ta chọn đồng kế tiếp. Tổng + 1 < 28 nên ta chọn đồng xu 1</p>
+                <ul>
+                    <li>Result = {5, 5, 5, 5, 5, 2, 1}.</li>
+                    <li>Số đồng xu = {5, 2, 1}.</li>
+                    <li>Tổng = 28.</li>
+                </ul>
+                <p><b>Vậy, số đồng xu ít nhất để đổi sang $28 là 5 đồng $5, 1 đồng $2 và 1 đồng $1.</b></p>
+            </div>
+        </div>
+    </div>
+    <div id="balo">
+        <h3>Bài toán ba lô</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2a">
+                    1. Mô tả bài toán ba lô
+                </a>
+            </div>
+            <div id="Bai2a" class="collapse container" data-parent="#accordion">
+                <p>Cho một cái ba lô có thể đựng được một trọng lượng W và n loại đồ vật, đồ vật thứ i có trọng lượng g<sub>i</sub> và giá trị v<sub>i</sub>. Tất cả các loại đồ vật đều có số lượng không hạn chế. Tìm một cách lựa chọn các đồ vật đựng vào ba lô (chọn các loại đồ vật nào, mỗi loại bao lấy nhiêu) sao cho tổng trọng lượng không vượt quá W và tổng giá trị là lớn nhất.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2b">
+                    2. Ý tưởng giải quyết bài toán
+                </a>
+            </div>
+            <div id="Bai2b" class="collapse container" data-parent="#accordion">
+                <p>Theo yêu cầu của bài toán thì ta cần những đồ vật có giá trị cao mà trọng lượng lại nhỏ để sao cho có thể mang được nhiều đồ có giá trị, sẽ là hợp lý khi ta quan tâm đến yếu tố "đơn giá" của từng loại đồ vật, tức tỷ lệ <b>giá trị / trọng lượng</b>. Đơn giá càng cao thì đồ càng quý.</p>
+                <p>Từ đó, ta có kỹ thuật Tham lam áp dụng cho bài toán này là:</p>
+                <ul>
+                    <li><b>Bước 1:</b> Tính đơn giá cho các loại đồ vật.</li>
+                    <li><b>Bước 2:</b> Xét các loại đồ vật theo thứ tự đơn giá từ lớn đến bé.</li>
+                    <li><b>Bước 3:</b> Với mỗi đồ vật được xét sẽ lấy một số lượng tối đa mà trọng lượng còn lại của ba lô cho phép.</li>
+                    <li><b>Bước 4:</b> Xác định trọng lượng còn lại của ba lô và quay lại <b>bước 3</b> cho đến khi không còn có thể chọn được đồ vật nào nữa.</li>
+                </ul>
+                <hr />
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2c">
+                    3. Bài toán ví dụ
+                </a>
+            </div>
+            <div id="Bai2c" class="collapse container" data-parent="#accordion">
+                <u><b>Bài toán:</b></u>
+                <p>Ta có một ba lô có trọng lượng là 37 và 4 loại đồ vật với trọng lượng và giá trị tương ứng được cho như sau:</p>
+                <table class="table table-striped table-bordered" style="width: 80%">
+                    <tr>
+                        <th>Loại đồ vật</th>
+                        <th>Trọng lượng</th>
+                        <th>Giá trị</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>15</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>10</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>4</td>
+                        <td>6</td>
+                    </tr>
+                </table>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p>Từ bảng đã cho, ta tính đơn giá chi các loại đồ vật và sắp xếp các đồ vật theo thứ tự đơn giá giảm dần, ta có bảng sau:</p>
+                <table class="table table-striped table-bordered" style="width: 80%">
+                    <tr>
+                        <th>Loại đồ vật</th>
+                        <th>Trọng lượng</th>
+                        <th>Giá trị</th>
+                        <th>Đơn giá</th>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>10</td>
+                        <td>25</td>
+                        <td>2.5</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>15</td>
+                        <td>30</td>
+                        <td>2.0</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>1.5</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>1.0</td>
+                    </tr>
+                </table>
+                <p>Theo đó, thứ tự ưu tiên để chọn đồ vật là B, A, D, C.</p>
+                <p>Vật B được xét đầu tiên và ta chọn tối đa 3 cái vì mỗi cái vì trọng lượng mỗi cái là 10 và ba lô có trọng lượng 37. Sau khi đã chọn 3 vât loại B, trọng lượng còn lại trong ba lô là 37 – 3*10 = 7. Ta xét đến vật A, vì A có trọng lượng 15 mà trọng lượng còn lại của balô chỉ còn 7 nên không thể chọn vật A. Xét vật D và ta thấy có thể chọn 1 vật D, khi đó trọng lượng còn lại của ba lô là 7-4 = 3. Cuối cùng ta chọn được một vật C.</p>
+                <p>Như vậy chúng ta đã chọn 3 cái loại B, một cái loại D và 1 cái loại C. Tổng trọng lương là 3*10 + 1*4 + 1*2 = 36 và tổng giá trị là 3*25 + 1*6 + 1*2 = 83.</p>
+            </div>
+        </div>
+    </div>
+    <div id="nguoibanhang">
+        <h3>Bài toán hành trình người bán hàng</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3a">
+                    1. Mô tả bài toán hành trình người bán hàng
+                </a>
+            </div>
+            <div id="Bai3a" class="collapse container" data-parent="#accordion">
+                <p>Có một người giao hàng cần đi giao hàng tại n thành phố. Anh ta xuất phát từ một thành phố nào đó, đi qua các thành phố khác để giao hàng và trở về thành phố ban đầu. Mỗi thành phố chỉ đến một lần, và khoảng cách từ một thành phố đến các thành phố khác đã được biết trước. Hãy tìm một chu trình (một đường đi khép kín thỏa mãn điều kiện trên) sao cho tổng độ dài các cạnh là nhỏ nhất.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3b">
+                    2. Ý tưởng bài toán hành trình người bán hàng
+                </a>
+            </div>
+            <div id="Bai3b" class="collapse container" data-parent="#accordion">
+                <p>Bài toán người bán hàng có thể được mô hình hoá như một đồ thị vô hướng có trọng số, trong đó mỗi thành phố là một đỉnh của đồ thị còn đường đi giữa các thành phố là mỗi cách. Khoảng cách giữa hai thành phố là độ dài cạnh. Nếu không có đường giữa hai thành phố thì có thể thêm một cạnh với độ dài đủ lớn vào đồ thị mà không ảnh hưởng đến kết quả tối ưu sau cùng.</p>
+                <p>Các bước của thuật toán:</p>
+                <ul>
+                    <li><b>Bước 1: </b>Chọn một đỉnh bắt đầu V.</li>
+                    <li><b>Bước 2: </b>Từ đỉnh hiện hành chọn cạnh nối có chiều dài nhỏ nhất đến các đỉnh chưa đến. Đánh dấu đã đến đỉnh vừa chọn.</li>
+                    <li><b>Bước 3: </b>Nếu còn đỉnh chưa đến thì quay lại <b>bước 2</b>.</li>
+                    <li><b>Bước 4: </b>Quay lại đỉnh V.</li>
+                </ul>
+                <hr />
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3c">
+                    3. Bài toán ví dụ
+                </a>
+            </div>
+            <div id="Bai3c" class="collapse container" data-parent="#accordion">
+                <u><b>Bài toán</b></u>
+                <p>Cho sơ đồ thành phố như sau:</p>
+                <img src="~/Image/TSP.png" />
+                <p>Bài toán có năm thành phố với khoảng cách giữa các thành phố được tính bằng km. Sử dụng thuật toán láng giềng gần nhất, bắt đầu lần lượt từ mỗi đỉnh, tìm đường đi thích hợp cho người bán hàng, cửa hàng đặt tại A và cần đi qua tất cả thành phố còn lại.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p>Bắt đầu từ đỉnh A:</p>
+                <ul>
+                    <li> - Từ A, đỉnh gần nhất là C, chiều dài AC = 8</li>
+                    <li> - Từ C, đỉnh chưa viếng thăm gần nhất là E, chiều dài CE = 4</li>
+                    <li> - Từ E, đỉnh chưa viếng thăm gần nhất là B, chiều dài EB = 15</li>
+                    <li> - Từ B, đỉnh chưa viếng thăm gần nhất là D, chiều dài BD = 10</li>
+                    <li> - Không còn đỉnh chưa viếng thăm, vì vậy quay về A, DA = 14</li>
+                </ul>
+                <p>Tổng chi phí đi qua tất cả các đỉnh là: 8 + 4 + 15 + 10 + 14 = 51.</p>
+                <p>Lặp lại với các đỉnh khác:</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Đỉnh bắt đầu</th>
+                        <th>Đường đi</th>
+                        <th>Tổng chiều dài</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>ACEBDA</td>
+                        <td>51</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>BACEDB</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>CEABDC</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>DCEABD</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>ECABDE</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>ECDBAE</td>
+                        <td>45</td>
+                    </tr>
+                </table>
+                <p>Có ba đường đi có chiều dài 45 km là giống nhau. Một nhân viên bán hàng có cửa hàng tại A, đường đi tốt nhất tìm ra bởi thuật toán láng giềng gần nhất là ABDCEA = 45 km</p>
+                <u><b>Nhận xét:</b></u>
+                <p>Giải thuật sẽ không tối ưu nếu số lượng thành phố (đỉnh) lớn. Vì sẽ phải sử dụng giải thuật tham lam nhiều lần.</p>
+            </div>
+        </div>
+    </div>
+    <div id="sapxeplich">
+        <h3>Bài toán lập lịch</h3>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4a">
+                    1. Mô tả bài toán lập lịch
+                </a>
+            </div>
+            <div id="Bai4a" class="collapse container" data-parent="#accordion">
+                <p>Có n công việc J<sub>1</sub>, J<sub>2</sub>, ..., J<sub>n</sub> sẽ được phân cho m máy M<sub>1</sub>, M<sub>2</sub>, ..., M<sub>m</sub> như nhau thực hiện. Giả sử ta biết thời gian t<sub>i</sub> cần để một máy thực hiện công việc thứ i (i = 1, 2, ..., n). Các công việc có thể thực hiện đồng thời và bất kỳ công việc nào cũng có thể chạy trên mật mấy nào đó. Mỗi lần máy được cho thực hiện một côgn việc nó sẽ làm cho đến khi hoàn chỉnh.</p>
+                <p>Hãy tìm một phương án phân công sao cho thời gian hoàn thành tất cả các công việc là thấp nhất (tính từ khi các máy cũng bắt đầu thực hiện các công việc được phân công cho tới khi tất cả các máy đều thực hiện xong công việc).</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4b">
+                    2. Ý tưởng giải quyết bài toán lập lịch
+                </a>
+            </div>
+            <div id="Bai4b" class="collapse container" data-parent="#accordion">
+                <p><b>Bước 1: </b>Sắp xếp các công việc theo thời gian hoàn thành giảm dần</p>
+                <p><b>Bước 2: </b>Lần lượt chọn công việc J chưa phân công có thời gian thực hiện cao nhất cho mấy M có thời gian làm việc thấp nhất</p>
+                <p><b>Bước 3: </b>Lặp lại <b>bước 2</b> cho đến khi thực hiện hết công việc.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4c">
+                    3. Bài toán ví dụ
+                </a>
+            </div>
+            <div id="Bai4c" class="collapse container" data-parent="#accordion">
+                <u><b>Bài toán:</b></u>
+                <p>Giả sử ta có 3 máy P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub> và có 6 công việc với thời gian hoàn thành như sau:</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Công việc</th>
+                        <th>Thời gian hoàn thành</th>
+                    </tr>
+                    <tr>
+                        <td>J<sub>1</sub></td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>2</sub></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>4</sub></td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>5</sub></td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>6</sub></td>
+                        <td>5</td>
+                    </tr>
+                </table>
+                <p>Hãy tìm một phương án tốt để sắp xếp công việc vào các máy.</p>
+                <hr />
+                <u><b>Bài giải:</b></u>
+                <p><b>Bước 1: </b> Sắp xếp các công việc theo thời gian hoàn thành giảm dần:</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Công việc</th>
+                        <th>Thời gian hoàn thành</th>
+                    </tr>
+                    <tr>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>2</sub></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>5</sub></td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>1</sub></td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>J<sub>4</sub></td>
+                        <td>5</td>
+                    </tr>
+
+                    <tr>
+                        <td>J<sub>6</sub></td>
+                        <td>5</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 2: </b>Sắp J<sub>3</sub> vào P<sub>1</sub> => t(P<sub>1</sub>) = 12</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td></td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 3: </b>Sắp J<sub>2</sub> vào P<sub>2</sub> => t(P<sub>2</sub>) = 9</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td></td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 4: </b>Sắp J<sub>5</sub> vào P<sub>3</sub> => t(P<sub>3</sub>) = 8</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td>J<sub>5</sub></td>
+                        <td>8</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 5: </b>Sắp J<sub>1</sub> vào P<sub>3</sub> => t(P<sub>3</sub>) = 14</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td>J<sub>5</sub>, J<sub>1</sub></td>
+                        <td>14</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 6: </b>Sắp J<sub>4</sub> vào P<sub>2</sub> => t(P<sub>2</sub>) = 14</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub></td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub>, J<sub>4</sub></td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td>J<sub>5</sub>, J<sub>1</sub></td>
+                        <td>14</td>
+                    </tr>
+                </table>
+                <br />
+                <p><b>Bước 7: </b>Sắp J<sub>6</sub> vào P<sub>1</sub> => t(P<sub>1</sub>) = 17</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub>, J<sub>6</sub></td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub>, J<sub>4</sub></td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td>J<sub>5</sub>, J<sub>1</sub></td>
+                        <td>14</td>
+                    </tr>
+                </table>
+                <br />
+                <p>Vậy, ta có thời gian hoàn thành là 17 với kết quả:</p>
+                <table class="table table-striped table-bordered" style="width:80%">
+                    <tr>
+                        <th>Máy</th>
+                        <th>Công việc</th>
+                        <th>Tổng thời gian</th>
+                    </tr>
+                    <tr>
+                        <td>P<sub>1</sub></td>
+                        <td>J<sub>3</sub>, J<sub>6</sub></td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>2</sub></td>
+                        <td>J<sub>2</sub>, J<sub>4</sub></td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>P<sub>3</sub></td>
+                        <td>J<sub>5</sub>, J<sub>1</sub></td>
+                        <td>14</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

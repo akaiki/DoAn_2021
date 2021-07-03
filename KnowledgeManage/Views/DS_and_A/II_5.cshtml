@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "II_5";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h3>GIẢI THUẬT ĐỆ QUY</h3>
+    <div id="II_5_1">
+        <h5>Khái niệm giải thuật đệ quy</h5>
+        <img src="~/Image/dequy.jpg" />
+        <p>Đệ quy (Recursion) là phương pháp một module hoặc một hàm được gọi tới chính nó. Trong đệ quy, một hàm <b>a</b> có thể gọi trực tiếp chính hàm <b>a</b> này hoặc gọi một hàm <b>b</b> mà trả về lời gọi tới hàm <b>a</b> ban đầu. Hàm <b>a</b> được  gọi là hàm đệ quy.</p>
+        <br />
+        <p><b>Ví dụ:</b> một hàm tự gọi chính nó</p>
+        <div class="card" style="background-color: #F1F1F1">
+<pre style="padding: 1em; margin: .5em 0; overflow: auto;" class="card-body">
+<code>
+int foo(int v){
+    if (v < 1)
+        return v;
+    else
+        foo(v - 1);
+}
+</code> </pre>
+        </div><br />
+              <hr />
+        <h5>Đặc điểm của hàm đệ quy:</h5>
+        <p>Một hàm đệ quy có thể tiếp tục diễn ra vô số lần giống như một vòng lặp vô hạn. Để tránh điều này, hàm đệ quy có 2 thuộc tính cần nhớ:</p>
+        <ul>
+            <li><b>Điều kiện cơ bản:</b> phải có ít nhất một điều kiện để khi gặp điều kiện này thì việc gọi hàm đệ quy sẽ dừng lại.</li>
+            <li><b>Tiệm cận:</b> mỗi khi hàm đệ quy được gọi thì nó càng tiệm cận tới điều kiện cơ bản.</li>
+        </ul>
+    </div>
+    <hr />
+    <div id="II_5_2">
+        <h5>Xây dựng giải thuật đệ quy</h5>
+        <p>Để xây dựng hàm đệ quy, thực hiện các bước:</p>
+        <ul>
+            <li>1. Tham số hóa bài toán (xác định các tham số cần truyền và lấy ra)</li>
+            <li>2. Phân tích trường hợp chung: đưa bài toán về bài toán nhỏ hơn cùng loại, dần dần tiến tới trường hợp suy biến.</li>
+            <li>3. Tìm trường hợp suy biến (điều kiện cơ bản)</li>
+        </ul>
+        <u><b>Ưu điểm:</b></u>
+        <p>Đệ quy có ưu điểm là thuận lợi cho việc biểu diễn bài toán, đồng thời làm gọn chương trình.</p>
+        <u><b>Nhược điểm:</b></u>
+        <p>không tối ưu về mặt thời gian (so với sử dụng vòng lặp), gây tốn bộ nhớ và có thể tràn stack nếu không kiểm soát tốt độ sâu của đệ quy.</p>
+        <hr />
+        <h5>Một số loại đệ quy</h5>
+        <ul>
+            <li>
+                <a href="III_11#linear">Đệ quy tuyến tính (Linear Recursion)</a>
+            </li>
+            <li>
+                <a href="III_11#binary">Đệ quy nhị phân (Binary Recursion)</a>
+            </li>
+            <li>
+                <a href="III_11#nested">Đệ quy lồng (Nested Recursions)</a>
+            </li>
+            <li>
+                <a href="III_11#mutual">Đệ quy hỗ tương (Mutual Recursion)</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

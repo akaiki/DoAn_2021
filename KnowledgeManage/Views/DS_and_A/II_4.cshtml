@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "II_4";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<div style="padding-left: 15%; padding-right: 15%; ">
+    <h3>GIẢI THUẬT THAM LAM</h3>
+    <div id="II_4_1">
+        <h5>Khái niệm giải thuật tham lam</h5>
+        <p>Tham lam (hay tham ăn) là một trong những phương pháp phổ biến nhất để thiết kế giải thuật. Rất nhiều giải thuật nổi tiếng được thiết kế dựa trên ý tưởng tham lam, ví dụ như giải thuật cây khung nhỏ nhất của Dijkstra, giải thuật cây khung nhỏ nhất của Kruskal, ...</p>
+        <p>Giải thuật tham lam (Greedy Algorithm) là giải thuật tối ưu hóa tổ hợp. Giải thuật tìm kiếm, lựa chọn giải pháp tối ưu địa phương ở mỗi bước với hi vọng tìm được giải pháp tối ưu toàn cục.</p>
+        <p>Giải thuật tham lam lựa chọn giải pháp nào được cho là tốt nhất ở thời điểm hiện tại và sau đó giải bài toán con nảy sinh từ việc thực hiện lựa chọn đó. Lựa chọn của giải thuật tham lam có thể phụ thuộc vào lựa chọn trước đó. Việc quyết định sớm và thay đổi hướng đi của giải thuật cùng với việc không bao giờ xét lại các quyết định cũ sẽ dẫn đến kết quả là giải thuật này không tối ưu để tìm giải pháp toàn cục.</p>
+    </div>
+    <hr />
+    <div id="II_4_2">
+        <h5>Xây dựng giải thuật tham lam</h5>
+        <p>Để thực hiện một thuật toán tham lam, ta sẽ xác định một cấu trúc con hoặc bài toán con tối ưu trong bài toán đó. Sau đó, xác định giải pháp sẽ bao gồm những gì (ví dụ: tổng lớn nhất, đường đi ngắn nhất, v.v.). Tạo một số cách lặp đi lặp lại để đi qua tất cả các bài toán con và xây dựng giải pháp.</p> 
+        <p>Thuật toán tham lam được thực hiện như sau:</p>
+        <ul>
+            <li> <b>&middot;</b> Ban đầu, tập giải pháp (chứa các câu trả lời) là rỗng.</li>
+            <li> <b>&middot;</b> Ở mỗi bước, một phần tử được thêm vào tập giải pháp.</li>
+            <li> <b>&middot;</b> Nếu tập giải pháp là khả thi, phần tử hiện tại sẽ được lưu lại.</li>
+            <li> <b>&middot;</b> Mặt khác, phần tử sẽ bị loại bỏ và không bao giờ được xem xét lại.</li>
+        </ul>
+        <br />
+        <h5>Ưu điểm của thuật toán</h5>
+        <ul>
+            <li> <b>&middot;</b> Thuật toán dễ mô tả.</li>
+            <li> <b>&middot;</b> Thuật toán có thể hoạt động tốt hơn các thuật toán khác ở một số trường hợp.</li>
+        </ul>
+        <br />
+        <h5>Nhược điểm của thuật toán</h5>
+        <ul>
+            <li> <b>&middot;</b> Khó thiết kế: Khi ta đã tìm ra cách tiếp cận giải thuật tham lam phù hợp, việc thiết kế các thuật toán tham lam có thể dễ dàng. Tuy nhiên, việc tìm ra cách tiếp cận phù hợp có thể sẽ khó.</li>
+            <li> <b>&middot;</b> Khó xác định: Việc biểu diễn một thuật toán tham lam phù hợp thường đòi hỏi một lập luận sắc bén.</li>
+        </ul>
+        <br />
+        <h5>Các loại thuật toán tham lam:</h5>
+        <ul>
+            <li>  <b>&middot;</b> Lựa chọn và Thực thi: Đưa ra một tập hợp các thao tác, nhiệm vụ của là lên lịch cho các thao tác không trùng lặp tối đa hoặc loại bỏ số khoảng thời gian tối thiểu để có được khoảng thời gian tối đa không trùng lặp.</li>
+            <li>  <b>&middot;</b> Frog Jumping: Thường là mảng. Kiểu thuật toán này thường đi với kiểu tọa độ của các bài toán quy hoạch động.</li>
+            <li>  <b>&middot;</b> Nén dữ liệu.</li>
+            <li>  <b>&middot;</b> Ghép đôi tệp.</li>
+            <li>  <b>&middot;</b> Các thuật toán đồ thị, chẳng hạn như thuật toán cây khung tối thiểu (Prim và Kruskal), tìm đường đi nhỏ nhất(Dijkstra).</li>
+        </ul>
+        <br />
+        <h5>Ứng dụng của thuật toán tham lam:</h5>
+        <ul>
+            <li><a href="II_3_3">Sắp xếp chọn (Selection sort)</a></li>
+            <li><a href="III_10#demsotien">Bài toán đếm số đồng tiền</a></li>
+            <li><a href="III_10#balo">Bài toán ba lô</a></li>
+            <li><a href="III_10#nguoibanhang">Bài toán hành trình người bán hàng</a></li>
+            <li><a href="III_10#sapxeplich">Sắp xếp lịch cho công việc</a></li>
+        </ul>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+    

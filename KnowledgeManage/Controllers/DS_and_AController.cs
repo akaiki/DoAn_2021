@@ -396,13 +396,21 @@ namespace KnowledgeManage.Controllers
         {
             return View(Relate("II_3_5"));
         }
-        public IActionResult III_8()
+        public IActionResult II_4()
         {
-            return View(Relate("II_2"));
+            return View(Relate("II_4"));
         }
-        public IActionResult III_9()
+        public IActionResult II_5()
         {
-            return View(Relate("II_3"));
+            return View(Relate("II_5"));
+        }
+        public IActionResult II_6()
+        {
+            return View(Relate("II_6"));
+        }
+        public IActionResult II_7()
+        {
+            return View(Relate("II_7"));
         }
         public IActionResult III_1()
         {
@@ -431,6 +439,30 @@ namespace KnowledgeManage.Controllers
         public IActionResult III_7()
         {
             return View(Relate("I_7"));
+        }
+        public IActionResult III_8()
+        {
+            return View(Relate("II_2"));
+        }
+        public IActionResult III_9()
+        {
+            return View(Relate("II_3"));
+        }
+        public IActionResult III_10()
+        {
+            return View(Relate("II_4"));
+        }
+        public IActionResult III_11()
+        {
+            return View(Relate("II_5"));
+        }
+        public IActionResult III_12()
+        {
+            return View(Relate("II_6"));
+        }
+        public IActionResult III_13()
+        {
+            return View(Relate("II_7"));
         }
     }
 }

@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewData["Title"] = "III_12";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT CHIA ĐỂ TRỊ</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+
+    <h3>Bài tập ứng dụng giải thuật chia để trị</h3>
+    <div id="luythua">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Tính lũy thừa a<sup>n</sup> với a, n là số nguyên không âm sử dụng chia để trị
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>a<sup>n</sup> sẽ được chia thành các trường hợp</p>
+                <ul>
+                    <li>Nếu n = 0 , a<sup>n</sup> = 1</li>
+                    <li>Nếu n chẵn, , a<sup>n</sup> = (a<sup>2</sup>)<sub>[n/2]</sub></li>
+                    <li>Nếu n lẻ, , a<sup>n</sup> = a*(a<sup>2</sup>)<sub>[n/2]</sub></li>
+                </ul>
+                <u><b>Bài giải:</b></u>
+                <p>Từ phân tích trên, ý tưởng thuật toán sau:</p>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int luythua(int a, int n){
+    if (n == 0)
+        return 1;
+    else if (n%2 == 0)
+        return luythua(a*a, n/2) // n chẵn
+    else
+        return a*luythua(a*a, n/2) // lẻ
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div id="nhan2so">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Nhân 2 số nguyên x, y lớn có n chữ số sử dụng chia để trị
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p><b>Ta có:</b></p>
+                <ul>
+                    <li>- x = x<sub>n-1</sub>x<sub>n-2</sub>...x<sub>1</sub>x<sub>0</sub></li>
+                    <li>- y = y<sub>n-1</sub>y<sub>n-2</sub>...y<sub>1</sub>y<sub>0</sub></li>
+                    <li>- z = x*y = z<sub>2n-1</sub>z<sub>2n-2</sub>...z<sub>1</sub>z<sub>0</sub></li>
+                </ul>
+                <p><b>Đặt:</b></p>
+                <ul>
+                    <li>- a = x<sub>n-1</sub>x<sub>n-2</sub>x<sub>n/2</sub></li>
+                    <li>- b = x<sub>(n/2)-1</sub>x<sub>(n/2)-2</sub>x<sub>0</sub></li>
+                    <li>- c = y<sub>n-1</sub>y<sub>n-2</sub>y<sub>n/2</sub></li>
+                    <li>- d = y<sub>(n/2)-1</sub>y<sub>(n/2)-2</sub>y<sub>0</sub></li>
+                </ul>
+                <p><b>Khi đó:</b></p>
+                <ul>
+                    <li>- x = a*10<sup>n/2</sup> + b</li>
+                    <li>- y = c*10<sup>n/2</sup> + d</li>
+                </ul>
+                <p>=> z = x*y = (a*10<sup>n/2</sup> + b)(c*10<sup>n/2</sup> + d)</p>
+                <p> = (a*c)*10<sup>n</sup> + (a*d + b*c)*10<sup>n/2</sup> + (b*d)</p>
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int Karatsuba(big_int x, big_int y, n){
+    if (n == 1)
+        return x*y;
+    else{
+        a = x[n-1]...x[n/2];
+        b = x[n/2-1]...x[0];
+        c = y[n-1]...y[n/2];
+        d = y[n/2-1]...y[0];
+        U = Karatsuba(a, c, n/2);
+        V = Karatsuba(b, b, n/2);
+        W = Karatsuba(a + b, c + d, n/2);
+        return U*pow(10, n) + (W-U-V)*pow(10, n/2) + V;
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div id="daycon">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 4. Cho mảng a[1..n]. Mảng a[p..q] được gọi là mảng con của a, trọng lượng mảng bằng tổng các giá trị phần tử. Tìm mảng con có trọng lượng lớn nhất (1 &le; p &le; q &le; n)
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta thực hiện các bước:</p>
+                <ul>
+                    <li><b>Chia: </b>Chia mảng a ra thành 2 mảng con với chênh lệch độ dài ít nhất, kí hiệu là aL, aR</li>
+                    <li><b>Trị: </b>Tính mảng con lớn nhất của mỗi nửa mảng a một cách đệ quy. Gọi WL, WR là trọng lượng của mảng con lớn nhất trong aL, aR</li>
+                    <li><b>Tổng hợp: </b>Max(WL, WR). WM = WML + WMR.</li>
+                </ul>
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+void MaxLeftVector(a, i, j){
+    int MaxSum = -Maxint
+    int Sum = 0;
+    for(k = j; k >= i; k--){
+        Sum = Sum + a[k];
+        MaxSum = Max(Sum, MaxSum);
+    }
+    return MaxSum;
+}
+
+void MaxRightVector(a, i, j){
+    int MaxSum = -Maxint
+    int Sum = 0;
+    for(k = i; k <= j; k++){
+        Sum = Sum + a[k];
+        MaxSum = Max(Sum, MaxSum);
+    }
+    return MaxSum;
+}
+
+void MaxSubVector(A, i, j){
+    if (i == j)
+        return a[i];
+    else{
+        m = (i+j)/2;
+        WL = MaxSubVector(a, i, m);
+        WR = MaxSubVector(a, m+1, j);
+        WM = MaxLeftVector(a, i, m) + MaxRightVector(a, m+1, j);
+        return Max(WL, WR, WM);
+    }
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

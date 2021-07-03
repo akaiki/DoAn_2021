@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewData["Title"] = "III_11";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT ĐỆ QUY</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+    <div id="kinhdien">
+        <h3>Các bài toán kinh điển</h3>
+        <div class="card" id="fibonacy">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Dãy Fibonacy
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Mô tả bài toán</b></u>
+                <p>Dãy Fibonacci là dãy vô hạn các số tự nhiên bắt đầu bằng hai phần tử 1 và 1, các phần tử sau đó được thiết lập theo quy tắc mỗi phần tử luôn bằng tổng hai phần tử trước nó.</p>
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>- Điều kiện dừng là n == 1 hoặc n == 2 thì sẽ trả về là 1. Do hai phần tử đầu là 1.</p>
+                <p>- Hàm sẽ gọi dần số fibonacy thứ n về số fibonacy thứ 1 và 2: fibonacy(n) = fibonacy(n-1) + fibonacy(n-2).</p>
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int fibonacy (int n){
+    if (n==1 || n == 2)
+        return  1;
+    return fibonacy(n-1) + fibonacy(n-2);
+}
+
+int main()
+{
+    cout << fibonacy(30); // kết quả = 832040
+
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card" id="giaithua">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Tính giai thừa
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Mô tả bài toán</b></u>
+                <p>Giai thừa là một toán tử một ngôi trên tập hợp các số tự nhiên. Cho n là một số tự nhiên dương,"<i>n giai thừa</i>", ký hiệu <i>n!</i> là tích của <i>n</i> số tự nhiên dương đầu tiên.</p>
+                <p>n! = 1*2*3*...*n <i>(1)</i></p>
+                <p>n! = (n-1)!*n <i>(2)</i></p>
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Từ <i>(2)</i>, ta có thể xây dựng hàm tính giai thừa bằng đệ quy như sau:</p>
+                <p>- Điều kiện dừng là n == 1 sẽ trả về 1 (vì 1! = 1)</p>
+                <p>- Trường hợp đệ quy tiến đến điều kiện dừng là n! = (n-1)!*n</p>
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int giaithua (int n){
+    if (n==1)
+        return  1;
+    return giaithua(n-1)*n;
+}
+
+int main()
+{
+    cout << giaithua(6); // kết quả = 720
+
+    return 0;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <div class="card" id="thaphanoi">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Bài toán tháp Hà Nội
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Mô tả bài toán</b></u>
+                <p>Bài toán tháp Hà Nội ( Tower of Hà Nội ) là một trò chơi toán học gồm 3 cột và số đĩa nhiều hơn 1. </p>
+                <img src="~/Image/thaphanoi.jpg" />
+                <p>Với quy tắc các đĩa nhỏ phải nằm trên các đĩa lớn. Nhiệm vụ của trò chơi là di chuyển các đĩa có kích cỡ khác nhau sang cột khác sao cho vẫn đảm bảo thứ tự ban đầu của các đĩa: đĩa nhỏ nằm trên đĩa lớn. </p>
+                <img src="~/Image/thap-ha-noi.gif" />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Qui ước: Đặt tên 3 cột là A B C để tiện theo dõi. Yêu cầu bài toán là chuyển n chiếc đĩa từ cột A sang cột C</p>
+                <p>Thực hiện các bước:</p>
+                <ul>
+                    <li>Đầu tiên ta lấy cột C làm cọc trung gian. Chuyển n-1 chiếc đĩa từ cột A sang cột B.</li>
+                    <li>Ta chuyển chiếc đĩa lớn nhất sang cột C</li>
+                    <li>Lấy cột A làm cột trung gian chuyển n-1 chiếc đĩa từ cột B sang cột C</li>
+                </ul>
+                <ul></ul>
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void HaNoiTower(int n , char a, char b, char c ){
+    if(n==1){
+        cout << "\t" << a << "-------" << c << endl;
+        return;
+    }
+    HaNoiTower(n-1,a,c,b);
+    HaNoiTower(1,a,b,c);
+    HaNoiTower(n-1,b,a,c);
+}
+int main(){
+    char a='A', b='B', c='C';
+    int n;
+    cout << "Nhap n: ";
+    cin >> n;
+    HaNoiTower(n,a,b,c);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div id="cacdangdequy">
+        <h3>Các bài toán về các dạng đệ quy</h3>
+        <h5>Đệ quy tuyến tính (Linear Recursion)</h5>
+        <p>Mỗi lần thực thi chỉ gọi đệ quy một lần</p>
+        <div class="card" id="linear">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 1. Hàm tính giai thừa
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int factorial(int n)
+{
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1); // Linear Recursion
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <br />
+        <h5>Đệ quy nhị phân (Binary Recursion)</h5>
+        <p>Mỗi lần thực thi có thể gọi đệ quy 2 lần</p>
+        <div class="card" id="binary">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai4">
+                    Bài 2. Tính tổ hợp chập K của N bằng đệ quy
+                </a>
+            </div>
+            <div id="Bai4" class="collapse container" data-parent="#accordion">
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int combine(int n, int k)
+{
+    if (k == 0 || k == n)
+        return 1;
+    else
+        return combine(n - 1, k) + combine(n - 1, k - 1); // Binary Recursion
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <br />
+        <h5>Đệ quy lồng (Nested Recursions)</h5>
+        <p>Tham số trong lời gọi đệ quy là một lời gọi đệ quy, đệ quy lồng chiếm bộ nhớ rất nhanh.</p>
+        <div class="card" id="nested">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai5">
+                    Bài 3. Viết hàm Ackermann
+                </a>
+            </div>
+            <div id="Bai5" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta có các tính chất của hàm Ackerman sau, cho hàm A(m, n) là hàm ackerman:</p>
+                <ul>
+                    <li>- Nếu m = 0, thì A(m, n) = n+1</li>
+                    <li>- Nếu n = 0, thì A(m, n) = A(m - 1, 1)</li>
+                    <li>- Trường hợp còn lại, A(m, n) = A(m - 1, A(m, n - 1))</li>
+                </ul>
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+int ackerman(int m, int n)
+{
+    if (m == 0)
+        return (n + 1);
+    else
+        if (n == 0)
+            return ackerman(m - 1, 1);
+        else
+            return ackerman(m - 1, ackerman(m, n - 1)); // Nested Recursion
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <br />
+        <h5>Đệ quy hỗ tương (Mutual Recursion)</h5>
+        <p>Các hàm gọi đệ quy lẫn nhau</p>
+        <div class="card" id="mutual">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai6">
+                    Bài 4. Xét tính chẵn lẻ của một số nguyên dương bằng đệ quy
+                </a>
+            </div>
+            <div id="Bai6" class="collapse container" data-parent="#accordion">
+                <u><b>Bài giải:</b></u>
+                <pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+bool isEven(unsigned int n) 
+{
+    if (n == 0)
+        return true;
+    else
+        return isOdd(n - 1);
+}
+
+bool isOdd(unsigned int n) 
+{
+    if (n == 1)
+        return true;
+    else
+        return isEven(n - 1);
+}
+</code> 
+</pre>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

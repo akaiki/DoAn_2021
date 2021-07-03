@@ -1,0 +1,261 @@
+﻿
+@{
+    ViewData["Title"] = "III_13";
+    Layout = "~/Views/DS_and_A/Menu.cshtml";
+}
+
+<style>
+    img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<div id="accordion" style="padding-left: 15%; padding-right: 15%; ">
+    <h1>BÀI TẬP VỀ GIẢI THUẬT QUAY LUI</h1>
+    <p class="alert-warning">BẠN CÓ THỂ NHẤN VÀO ĐỂ XEM BÀI GIẢI</p>
+
+    <h3>Bài tập ứng dụng giải thuật quay lui</h3>
+    <div id="sudoku">
+        <h3>Trò chơi Sudoku</h3>
+        <p>Sudoku là một trò chơi được miêu tả như sau: có một hình vuông được chia thành 9x9 ô vuông con. Mỗi ô vuông con có giá trị trong khoảng từ 1 đến 9. Ban đầu hình vuông có một số ô vuông con cho trước (có điền sẵn số) và còn lại là trống. Hãy điền các số từ 1-9 vào các ô con lại sao cho: hàng ngang là các số khác nhau từ 1 đến 9, hàng dọc là các số khác nhau từ 1 đến 9, và mỗi khối 3x3 chính là các số khác nhau từ 1 đến 9. </p>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai1">
+                    Bài 1. Áp dụng quay lui để giải bài toán sudoku
+                </a>
+            </div>
+            <div id="Bai1" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Mỗi bước tìm tập các giá trị khả dĩ để điền vào ô trống, và sau đó đệ quy để điền ô tiếp theo. </p>
+                <u><b>Bài giải:</b></u>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+boolean checkValid(int S[][9], int x, int y, int k){
+    for(int i = 0; i < 9 ; i++){
+        if(S[x][i] == k) return false;
+    }
+    for(int i = 0; i < 9 ; i++){
+        if(S[i][y] == k) return false;
+    }
+    int a = x/3, b = y/3;
+    for(int i = 3*a; i < 3*a+3; i++){
+        for(int j = 3*b; j < 3*b+3; j++){
+            if(S[i][j] == k) return false;
+        }
+    }
+    return true;
+}
+
+void solveSudoku(int S[][9], int x, int y){
+    if(y == 9){
+        if(x == 8){
+            printSolution(S);
+            exit(0);
+        } else {
+            solveSudoku(S, x+1,0);
+        }
+    } else if(S[x][y] == 0){
+        for (int k = 1; k <=9; k++){
+            if(checkValid(S,x,y,k)){
+                S[x][y] = k;
+                solveSudoku(S, x, y+1);
+                S[x][y] = 0;
+            }
+        }
+    } else {
+        solveSudoku(S,x,y+1);
+    }
+}
+
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div id="madituan">
+        <h3>Bài toán Mã đi tuần</h3>
+        <p>Cho bàn cờ có kích thước n*n ô. Một quân mã được đặt tại ô ban đầu có tọa độ x<sub>0</sub>, y<sub>0</sub> và được phép dịch chuyển theo luật cờ thông thường. Bài toán đặt ra là từ ô đầu, tìm một chuỗi các nước đi của quân mã, sao cho quân mã này đi qua tất cả các ô của bàn cờ, mỗi ô đúng 1 lần.</p>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai2">
+                    Bài 2. Áp dụng quay lui để giải bài toán Mã đi tuần
+                </a>
+            </div>
+            <div id="Bai2" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta xem xét vấn đề đơn giản hơn là tìm kiếm nước đi tiếp theo của quân mã, hoặc kết luận rằng không còn nước đi kế tiếp thỏa mãn.</p>
+                <p>Tại mỗi bước, nếu có thể tìm kiếm được một nước đi kế tiếp, ta tiến hành ghi lại nước đi này cùng với chuỗi các nước đi trước đó và tiếp tục quá trình tìm kiếm nước đi. Nếu tại bước nào đó, không thể tìm nước đi kế tiếp thỏa mãn yêu cầu của bài toán, ta quay trở lại bước trước, hủy bỏ nước đi đã lưu lại trước đó và thử sang một nước mới. Quá trình có thể phải thử rồi quay lại nhiều lần, cho đến khi tìm ra giải pháp hoặc đã thử hết các phương án mà không tìm ra giải pháp.</p>
+                <p>Quá trình thử nước tiếp theo có thể được mô tả bằng hàm như sau:</p>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+void ThuNuocTiepTheo(){
+    //Khởi tạo danh sách các nước đi kế tiếp
+    do {
+        //Lựa chọn 1 nước đi kế tiếp từ danh sách
+        if Chấp nhận được{
+            //Ghi lại nước đi
+            if Bàn cờ còn ô trống{
+                ThuNuocTiepTheo();
+                if Nước đi không thành công
+                    //Hủy bỏ nước đi đã lưu ở bước trước
+            }    
+        }
+    } while (nước đi không thành công && vẫn còn nước đi)
+}
+
+</code> 
+</pre>
+                <p>Theo luật cờ, quân mã từ ô (x, y) có thể đi tới 8 ô như sau:</p>
+                <img src="~/Image/Madituan.jpg"/>
+                <p>8 ô mà quân mã có thể đi tới từ ô (x, y) có thể tính tương đối so với (x, y) là:</p>
+                <p>(x + 2, y - 1); (x + 1, y - 2); (x - 1, y - 2); (x - 2, y - 1); (x - 2, y + 1); (x - 1, y + 2); (x + 1, y + 2); (x + 2, y + 1)</p>
+                <p>Nếu gọi dx, dy là các giá trị mà x, y lần lượt phải cộng vào để tạo thành ô mã quân mã có thể đi tới, thì ta gán cho dx, dy mảng có giá trị:</p>
+                <ul>
+                    <li>- dx = {2, 1, -1, -2, -2, -1, 1, 2}</li>
+                    <li>- dy = {-1, -2, -2, -1, 1, 2, 2, 1}</li>
+                </ul>
+                <p>Như vậy, danh sách các nước đi kế tiếp (u, v) có thể được tạo ra như sau:</p>
+                <ul>
+                    <li>- u = x + dx[i]</li>
+                    <li>- v = y + dy[i]</li>
+                    <li>Với i = 1..8</li>
+                </ul>
+                <p>Kèm thêm điều kiện 0 &le; u,v &lt; n, để bảo đảm u, v luôn hợp lệ (luôn nằm trong bàn cờ)</p>
+                <u><b>Bài giải:</b></u>                
+                <p>Từ ý tưởng trên, ta có code:</p>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+
+#define maxn 10
+
+int BanCo[maxn][maxn];
+int dx[8] = {2, 1, -1, -2, -2, -1, 1, 2};
+int dy[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
+int n = 8
+
+void ThuNuocTiepTheo (int i, int x, int y, int *q){
+    int k, u, v, *q1;
+    k = 0;
+    do {
+        *q1 = 0;
+        u = x + dx[k];
+        v = y + dy[k];
+        if ((0 <= u) && (u < n) && (0 <= v) && (v < n) && (BanCo[u][v] == 0)){
+            BanCo[u][v] = i;
+            if (i < n*n){
+                ThuNuocTiepThep(i+1, u, v, q1);
+                if ((*q1) == 0)
+                    BanCo[u][v] = 0;
+            }
+            else
+                (*q1) = 1;
+        }
+        k++;
+    } while (((*q1) == 0) && (k < 8));
+    *q = *q1;
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div id="8quanhau">
+        <h3>Bài toán 8 quân hậu</h3>
+        <p>Cho một bàn cờ hình vuông kích thước 8*8 và 8 quân hậu. Hãy tìm cách đặt 8 quân hậu trên bàn cờ sao cho không có 2 quân hậu nào có thể ăn được nhau.</p>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Bai3">
+                    Bài 3. Áp dụng quay lui để giải bài toán 8 quân hậu
+                </a>
+            </div>
+            <div id="Bai3" class="collapse container" data-parent="#accordion">
+                <br />
+                <u><b>Ý tưởng bài toán</b></u>
+                <p>Ta xem xét vấn đề đơn giản hơn là tìm kiếm cách đặt quân hậu tiếp theo, hoặc kết luận rằng không còn đặt được.</p>
+                <p>Tại mỗi bước, nếu có thể tìm kiếm được một cách đặt quân hậu tiếp theo, ta tiến hành ghi lại cách đặt này cùng với chuỗi các cách đặt trước đó và tiếp tục quá trình tìm kiếm cách đặt. Nếu tại bước nào đó, không thể đặt quân hậu tiếp theo thỏa mãn yêu cầu của bài toán, ta quay trở lại bước trước, hủy bỏ nước đi đã lưu lại trước đó và thử sang một nước mới. Quá trình có thể phải thử rồi quay lại nhiều lần, cho đến khi tìm ra giải pháp hoặc đã thử hết các phương án mà không tìm ra giải pháp.</p>
+                <p>Ta có hàm tìm vị trí đặt quân hậu tiếp theo như sau:</p>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+void DatHau (int i){
+    // Khởi tạo danh sách các vị trí có thể đặt quân hậu tiếp theo
+    do {
+        //Lựa chọn vị trí đặt quân hậu tiếp theo
+        if Vị trí đặt hợp lệ {
+            //Đặt hậu
+            if i < 8 {
+                DatHau(i + 1);
+                if Không thành công
+                    Bỏ hậu đã đặt ra khỏi vị trí
+            }
+        }
+    } while (không thành công && vẫn còn lựa chọn)
+}
+</code> 
+</pre>
+                <p>Theo luật cờ, quân hậu sẽ đi như sau:</p>
+                <img src="~/Image/nQuanHau.jpg" />
+                <p>Đối với mỗi ô trọng cột, sẽ có 1 hàng và 2 đường chéo đi qua nó là đường chéo trái và đường chéo phải.</p>
+                <p>Ta dùng 4 mảng kểu boolean để biểu thị cho các hàng, các đường chéo (có 15 đường chéo trái, 15 đường chéo phải)</p>
+                <ul>
+                    <li>int a[8] // mảng hàng</li>
+                    <li>int b[15], c[15]; // mảng chéo</li>
+                </ul>
+                <p>Trong đó: </p>
+                <ul>
+                    <li>a[j] = 0 // Hàng dọc j chưa bị chiếm bởi quân hậu nào.</li>
+                    <li>b[k] = 0 // Đường chéo phải k chưa bị chiếm bởi quân hậu nào.</li>
+                    <li>c[k] = 0 // Đường chéo trái k chưa bị chiếm bởi quân hậu nào.</li>
+                </ul>
+                <p>Để kiểm tra ô (i, j) có an toàn không, ta chỉ cần kiểm tra xem hàng j và các đường chéo (i + j), (i - j + 7) đã bị chiếm chưa, tức là kiếm tra a[i], b[i + j] và c[i - j + 7].</p>
+                <p>Ngoài ra còn có 1 mảng x để lưu trữ chỉ số hàng của quân hậu trong cột i.</p>
+                <p>Vậy, thao tác đặt hậu ta thực hiện công việc:</p>
+                <p>x[i] = j; a[j] = 1; b[i+j] = 1; c[i-j+7] =1;</p>
+                <p>Thao tác bỏ hậu ra khỏi hàng j cột i, ta cần thực hiện các công việc</p>
+                <p>a[j] = 0; b[i + j] =0; c[i-j+7]=0</p>
+                <u><b>Bài giải:</b></u>
+                <p>Từ phân tích trên, ta có mã giả sau:</p>
+<pre style="overflow: auto; font-family:Consolas" class="card-body">
+<code>
+void DatHau (int i, int *q){
+    int j = 0;
+    do{
+        *q =0;
+        if ((a[j] == 0) && (b[i+j] == 0) && (c[i-j+7] == 0)){
+            x[i] = j;
+            a[j] = 1; 
+            b[i+j] = 1; 
+            c[i-j+7] = 1;
+            if (i < 7){
+                DatHau(i+1, q);
+                if ((*q) == 0){
+                    a[j] = 0; 
+                    b[i+j] = 0; 
+                    c[i-j+7] = 0;
+                }
+            }
+            else 
+                (*q) = 1;
+        }
+        j++;
+    } while((*q == 0)  && (j < 8))
+}
+</code> 
+</pre>
+            </div>
+        </div>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
