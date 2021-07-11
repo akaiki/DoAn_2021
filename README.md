@@ -38,7 +38,7 @@ MSSV: 5851071038	Lớp: CQ.58.CNTT
     − Nghiên cứu tạo thành công chatbot nhằm tích hợp vào trang web
     − Mong muốn tương lai có thể phát triển thành tất cả môn học nhằm mô phỏng hóa “Giáo trình online” cho các trang web giáo dục.
 # Hướng dẫn sử dụng:
-File báo cáo: DoAn_5851071038(updated).pdf
-File trình chiếu: Bao_cao_Do_an.pptx
-Mã nguồn: folder KnowledgeManage
-Video demo: https://youtu.be/czxtCpYWVF4
+- File báo cáo: DoAn_5851071038(updated).pdf
+- File trình chiếu: Bao_cao_Do_an.pptx
+- Mã nguồn: folder KnowledgeManage
+- Video demo: https://youtu.be/czxtCpYWVF4
