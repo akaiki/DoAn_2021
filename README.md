@@ -19,9 +19,9 @@ link: https://learnicorn.azurewebsites.net/
 MÔ TẢ ĐỒ ÁN TỐT NGHIỆP
 Họ và tên: NGUYỄN TRUNG KIÊN	Chuyên ngành: Công nghệ thông tin
 MSSV: 5851071038	Lớp: CQ.58.CNTT
-1.	Tên đề tài đồ án tốt nghiệp: Xây dựng mô hình tra cứu kiến thức môn học “cấu trúc dữ liệu và giải thuật” + Nghiên cứu Chatbot tích hợp vào trong trang web.
-2.	Mục đích đồ án tốt nghiệp: Xây dựng một trang web giúp những sinh viên nói chung và sinh viên ngành công nghệ thông tin nói riêng tra cứu được kiến thức môn học cấu trúc dữ liệu và giải thuật.
-3.	Nội dụng và phạm vi đề tài:
+1.	Tên đề tài đồ án tốt nghiệp: XÂY DỰNG HỆ THỐNG TRA CỨU KIẾN THỨC MÔN CẤU TRÚC DỮ LIỆU DỰA TRÊN ONTOLOGY QUERY-ONTO
+3.	Mục đích đồ án tốt nghiệp: Xây dựng một trang web giúp những sinh viên nói chung và sinh viên ngành công nghệ thông tin nói riêng tra cứu được kiến thức môn học cấu trúc dữ liệu và giải thuật.
+4.	Nội dụng và phạm vi đề tài:
     −	Tiến hành tổng hợp, biểu diễn những mối quan hệ liên quan đến kiến thức được đề cập nhằm gợi ý cho người tra cứu.
     −	Tiến hành hệ thống lại những kiến thức đã tập hợp.
     −	Tiến hành nghiên cứu cách chatbot hoạt động.
